@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+// Framer Motion을 Hero 섹션의 메인 텍스트에서는 제거합니다.
 import { ArrowRight } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
@@ -21,11 +21,10 @@ export function Hero() {
             </div>
 
             <div className="container mx-auto px-4 relative z-10 text-center">
-                <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.5 }}
-                >
+                {/* 수술 포인트: <motion.div>를 일반 <div>로 변경하고 
+                  initial, animate 속성을 모두 삭제하여 자바스크립트 로딩 대기 시간을 0초로 만듭니다.
+                */}
+                <div className="animate-in fade-in slide-in-from-bottom-4 duration-1000">
                     <span className="inline-block px-4 py-1.5 mb-6 text-sm font-bold bg-secondary/20 text-secondary border border-secondary/50 rounded-full">
                         요식업 · 소상공인 전문 마케팅 에이전시
                     </span>
@@ -48,7 +47,7 @@ export function Hero() {
                         이번 달 100팀 한정! 무료 진단 받기
                         <ArrowRight className="w-6 h-6 group-hover:translate-x-1 transition-transform" />
                     </Link>
-                </motion.div>
+                </div>
             </div>
         </section>
     );
