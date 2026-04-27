@@ -7,7 +7,7 @@ const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "브랜딩하다 | Brandinghada",
-  description: "세계 최고 수준의 브랜딩 에이전시",
+  description: "요식업·소상공인 마케팅 전문. 가짜 리뷰 없는 데이터 기반 매출 상승 전략. 네이버 플레이스 최적화부터 블로그 체험단까지. 지금 무료 진단 받으세요.",
 };
 
 export default function RootLayout({
