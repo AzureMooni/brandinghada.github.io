@@ -5,19 +5,19 @@ import Image from "next/image";
 
 const testimonials = [
     {
-        image: "/review_meat_1764318743844.png",
+        image: "/review_meat_1764318743844.webp",
         alt: "고깃집 리뷰 이미지",
         text: "솔직히 반신반의했는데, 진단받고 메뉴판 문구 하나 바꿨더니 주말 예약이 2배 늘었습니다. 진짜 소름 돋네요.",
         author: "마포구 고깃집 김OO 사장님",
     },
     {
-        image: "/review_cafe_1764318760187.png",
+        image: "/review_cafe_1764318760187.webp",
         alt: "카페 리뷰 이미지",
         text: "다른 대행사는 글자 수 채우기 바쁜데, 여기는 우리 가게의 강점을 정확히 찝어줍니다. 매출이 증명해주네요.",
         author: "인천 카페 이OO 사장님",
     },
     {
-        image: "/review_scissors_1764321792193.png",
+        image: "/review_scissors_1764321792193.webp",
         alt: "뷰티샵 리뷰 이미지",
         text: "무료 진단이라길래 대충 해줄 줄 알았는데, 분석 보고서 퀄리티 보고 바로 계약했습니다. 돈 낭비 멈추게 해 주셔서 감사합니다.",
         author: "강남 뷰티샵 박OO 원장님",

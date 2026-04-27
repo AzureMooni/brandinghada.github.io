@@ -11,7 +11,7 @@ export function Hero() {
             {/* Background Image */}
             <div className="absolute inset-0 z-0">
                 <Image
-                    src="/hero_bg_1764321770767.png"
+                    src="/hero_bg_1764321770767.webp"
                     alt="Busy Korean restaurant background"
                     fill
                     className="object-cover opacity-40"

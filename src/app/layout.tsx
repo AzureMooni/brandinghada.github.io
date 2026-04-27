@@ -1,9 +1,15 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import localFont from "next/font/local";
+import Script from "next/script";
 import "./globals.css";
 import { cn } from "@/lib/utils";
 
-const inter = Inter({ subsets: ["latin"] });
+const pretendard = localFont({
+  src: "../../public/fonts/PretendardVariable.woff2",
+  display: "swap",
+  weight: "450 900",
+  adjustFontFallback: false,
+});
 
 export const metadata: Metadata = {
   title: "브랜딩하다 | Brandinghada",
@@ -18,10 +24,22 @@ export default function RootLayout({
   return (
     <html lang="ko">
       <head>
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
       </head>
-      <body className={cn(inter.className, "antialiased")}>
+      <body className={cn(pretendard.className, "antialiased")}>
         {children}
+        <Script
+          strategy="lazyOnload"
+          src="//wcs.pstatic.net/wcslog.js"
+        />
+        <Script id="naver-analytics" strategy="lazyOnload">
+          {`
+            if (!wcs_add) var wcs_add = {};
+            wcs_add["wa"] = "157c84ac2282d50";
+            if (window.wcs) {
+                wcs_do();
+            }
+          `}
+        </Script>
       </body>
     </html>
   );

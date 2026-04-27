@@ -1,5 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
+import { Youtube, Instagram, Music } from "lucide-react";
 
 export function Footer() {
     return (
@@ -26,13 +27,13 @@ export function Footer() {
                                 />
                             </a>
                             <a href="https://youtube.com/channel/UC0VgLW6y_VWGBuLHbcMT4Rg?si=Wjn732zukQ4MlQRM" target="_blank" rel="noopener noreferrer" className="text-slate-400 hover:text-yellow-400 hover:scale-110 transition-all duration-300">
-                                <i className="fa-brands fa-youtube text-2xl"></i>
+                                <Youtube size={24} />
                             </a>
                             <a href="https://www.instagram.com/branding_hada" target="_blank" rel="noopener noreferrer" className="text-slate-400 hover:text-yellow-400 hover:scale-110 transition-all duration-300">
-                                <i className="fa-brands fa-instagram text-2xl"></i>
+                                <Instagram size={24} />
                             </a>
                             <a href="https://www.tiktok.com/@branding_hada" target="_blank" rel="noopener noreferrer" className="text-slate-400 hover:text-yellow-400 hover:scale-110 transition-all duration-300">
-                                <i className="fa-brands fa-tiktok text-2xl"></i>
+                                <Music size={24} />
                             </a>
                         </div>
 
