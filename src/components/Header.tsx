@@ -52,6 +52,7 @@ export function Header() {
                 <button
                     className="md:hidden p-2"
                     onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+                    aria-label={isMobileMenuOpen ? "메뉴 닫기" : "메뉴 열기"}
                 >
                     {isMobileMenuOpen ? <X /> : <Menu />}
                 </button>

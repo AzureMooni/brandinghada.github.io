@@ -16,9 +16,9 @@ export function Footer() {
                             브랜딩하다와 함께 성장하세요.
                         </p>
 
-                        {/* Social Media Icons */}
+                        {/* Social Media Icons (aria-label 추가) */}
                         <div className="flex gap-6 mb-8 items-center">
-                            <a href="https://blog.naver.com/brandinghada" target="_blank" rel="noopener noreferrer" className="relative w-6 h-6 hover:scale-110 transition-transform duration-300 group">
+                            <a href="https://blog.naver.com/brandinghada" target="_blank" rel="noopener noreferrer" aria-label="네이버 블로그" className="relative w-6 h-6 hover:scale-110 transition-transform duration-300 group">
                                 <Image
                                     src="/naver_blog_icon.png"
                                     alt="Naver Blog"
@@ -26,21 +26,22 @@ export function Footer() {
                                     className="object-contain opacity-50 group-hover:opacity-100 transition-opacity"
                                 />
                             </a>
-                            <a href="https://youtube.com/channel/UC0VgLW6y_VWGBuLHbcMT4Rg?si=Wjn732zukQ4MlQRM" target="_blank" rel="noopener noreferrer" className="text-slate-400 hover:text-yellow-400 hover:scale-110 transition-all duration-300">
-                                <Youtube size={24} />
+                            <a href="https://youtube.com/channel/UC0VgLW6y_VWGBuLHbcMT4Rg?si=Wjn732zukQ4MlQRM" target="_blank" rel="noopener noreferrer" aria-label="유튜브 채널" className="text-slate-400 hover:text-yellow-400 hover:scale-110 transition-all duration-300">
+                                <Youtube size={24} aria-hidden="true" />
                             </a>
-                            <a href="https://www.instagram.com/branding_hada" target="_blank" rel="noopener noreferrer" className="text-slate-400 hover:text-yellow-400 hover:scale-110 transition-all duration-300">
-                                <Instagram size={24} />
+                            <a href="https://www.instagram.com/branding_hada" target="_blank" rel="noopener noreferrer" aria-label="인스타그램" className="text-slate-400 hover:text-yellow-400 hover:scale-110 transition-all duration-300">
+                                <Instagram size={24} aria-hidden="true" />
                             </a>
-                            <a href="https://www.tiktok.com/@branding_hada" target="_blank" rel="noopener noreferrer" className="text-slate-400 hover:text-yellow-400 hover:scale-110 transition-all duration-300">
-                                <Music size={24} />
+                            <a href="https://www.tiktok.com/@branding_hada" target="_blank" rel="noopener noreferrer" aria-label="틱톡" className="text-slate-400 hover:text-yellow-400 hover:scale-110 transition-all duration-300">
+                                <Music size={24} aria-hidden="true" />
                             </a>
                         </div>
 
                     </div>
 
                     <div className="col-span-2 md:col-span-1">
-                        <h4 className="text-white font-bold mb-6">Company</h4>
+                        {/* h4를 h3로 변경하여 논리적 계층 구조 유지 */}
+                        <h3 className="text-white font-bold mb-6 text-lg">Company</h3>
                         <ul className="space-y-4 text-sm text-slate-400">
                             <li>상호명 : 맬로우앤모어</li>
                             <li>대표 : 최찬미</li>
@@ -49,7 +50,8 @@ export function Footer() {
                     </div>
 
                     <div>
-                        <h4 className="text-white font-bold mb-6">Legal</h4>
+                        {/* h4를 h3로 변경 */}
+                        <h3 className="text-white font-bold mb-6 text-lg">Legal</h3>
                         <ul className="space-y-4 text-sm">
                             <li>
                                 <Link href="#" className="hover:text-white transition-colors">이용약관</Link>
@@ -61,7 +63,8 @@ export function Footer() {
                     </div>
                 </div>
 
-                <div className="border-t border-slate-800 pt-8 text-center text-sm text-slate-500">
+                {/* text-slate-500을 text-slate-400으로 변경하여 대비율(가독성) 확보 */}
+                <div className="border-t border-slate-800 pt-8 text-center text-sm text-slate-400">
                     <p>&copy; {new Date().getFullYear()} Brandinghada. All rights reserved.</p>
                 </div>
             </div>
