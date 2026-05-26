@@ -3,88 +3,49 @@
 import Link from "next/link";
 import { useState, useEffect } from "react";
 import { cn } from "@/lib/utils";
-import { Menu, X } from "lucide-react";
 
 export function Header() {
-    const [isScrolled, setIsScrolled] = useState(false);
-    const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
 
-    useEffect(() => {
-        const handleScroll = () => {
-            setIsScrolled(window.scrollY > 10);
-        };
-        window.addEventListener("scroll", handleScroll);
-        return () => window.removeEventListener("scroll", handleScroll);
-    }, []);
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 20);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
-    return (
-        <header
-            className={cn(
-                "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
-                isScrolled
-                    ? "bg-background/80 backdrop-blur-md border-b border-border/40 py-4"
-                    : "bg-transparent py-6"
-            )}
+  return (
+    <header
+      className={cn(
+        "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
+        isScrolled
+          ? "bg-[#0a0a0c]/80 backdrop-blur-md border-b border-[#22222b]/50 py-3"
+          : "bg-transparent py-5"
+      )}
+    >
+      <div className="max-w-6xl mx-auto px-6 flex items-center justify-between">
+        <Link 
+          href="/" 
+          className="text-xl font-black tracking-tight text-foreground hover:text-primary transition-all duration-300 flex items-center gap-2 group"
         >
-            <div className="container mx-auto px-4 flex items-center justify-between">
-                <Link href="/" className="text-2xl font-bold tracking-tighter">
-                    Brandinghada
-                </Link>
+          <span className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent group-hover:glow-cyan">
+            브랜딩하다
+          </span>
+          <span className="text-[10px] uppercase font-bold tracking-widest px-1.5 py-0.5 rounded border border-primary/30 text-primary/80 group-hover:border-primary group-hover:text-primary transition-all duration-300">
+            VibeFlow Engine v2
+          </span>
+        </Link>
 
-                {/* Desktop Nav */}
-                <nav className="hidden md:flex items-center gap-8">
-                    <Link href="#home" className="text-sm font-medium hover:text-secondary transition-colors">
-                        홈
-                    </Link>
-                    <Link href="#service" className="text-sm font-medium hover:text-secondary transition-colors">
-                        서비스
-                    </Link>
-                    <Link
-                        href="https://naver.me/FE3zwy7e"
-                        target="_blank"
-                        className="px-5 py-2.5 bg-primary text-primary-foreground text-sm font-semibold rounded-full hover:bg-primary/90 transition-all shadow-lg hover:shadow-primary/20"
-                    >
-                        무료 진단 신청
-                    </Link>
-                </nav>
-
-                {/* Mobile Menu Toggle */}
-                <button
-                    className="md:hidden p-2"
-                    onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-                    aria-label={isMobileMenuOpen ? "메뉴 닫기" : "메뉴 열기"}
-                >
-                    {isMobileMenuOpen ? <X /> : <Menu />}
-                </button>
-            </div>
-
-            {/* Mobile Nav */}
-            {isMobileMenuOpen && (
-                <div className="md:hidden absolute top-full left-0 right-0 bg-background border-b border-border p-4 flex flex-col gap-4 shadow-xl">
-                    <Link
-                        href="#home"
-                        className="text-sm font-medium p-2 hover:bg-muted rounded-md"
-                        onClick={() => setIsMobileMenuOpen(false)}
-                    >
-                        홈
-                    </Link>
-                    <Link
-                        href="#service"
-                        className="text-sm font-medium p-2 hover:bg-muted rounded-md"
-                        onClick={() => setIsMobileMenuOpen(false)}
-                    >
-                        서비스
-                    </Link>
-                    <Link
-                        href="https://naver.me/FE3zwy7e"
-                        target="_blank"
-                        className="w-full text-center px-5 py-3 bg-secondary text-white text-sm font-semibold rounded-lg"
-                        onClick={() => setIsMobileMenuOpen(false)}
-                    >
-                        무료 진단 신청
-                    </Link>
-                </div>
-            )}
-        </header>
-    );
+        <div>
+          <button 
+            onClick={() => alert("SaaS 플랫폼 베타 준비 중입니다.")}
+            className="px-4 py-1.5 text-xs font-semibold rounded-md border border-[#22222b] bg-[#111115]/50 text-muted-foreground hover:text-primary hover:border-primary/50 transition-all duration-300 hover:shadow-[0_0_15px_rgba(0,242,254,0.1)] cursor-pointer"
+          >
+            SaaS 로그인
+          </button>
+        </div>
+      </div>
+    </header>
+  );
 }

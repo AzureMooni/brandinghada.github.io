@@ -1,73 +1,123 @@
+"use client";
+
 import Link from "next/link";
-import Image from "next/image";
-import { Youtube, Instagram, Music } from "lucide-react";
+import { Youtube, Instagram, Music, ArrowUpRight } from "lucide-react";
 
 export function Footer() {
-    return (
-        <footer className="bg-slate-900 text-slate-300 py-16">
-            <div className="container mx-auto px-4">
-                <div className="grid md:grid-cols-4 gap-12 mb-12">
-                    <div className="col-span-2">
-                        <Link href="/" className="text-2xl font-bold text-white mb-6 block">
-                            Brandinghada
-                        </Link>
-                        <p className="text-slate-400 max-w-sm mb-6">
-                            성공적인 비즈니스를 위한 최고의 파트너.<br />
-                            브랜딩하다와 함께 성장하세요.
-                        </p>
+  const currentYear = new Date().getFullYear();
 
-                        {/* Social Media Icons (aria-label 추가) */}
-                        <div className="flex gap-6 mb-8 items-center">
-                            <a href="https://blog.naver.com/brandinghada" target="_blank" rel="noopener noreferrer" aria-label="네이버 블로그" className="relative w-6 h-6 hover:scale-110 transition-transform duration-300 group">
-                                <Image
-                                    src="/naver_blog_icon.png"
-                                    alt="Naver Blog"
-                                    fill
-                                    className="object-contain opacity-50 group-hover:opacity-100 transition-opacity"
-                                />
-                            </a>
-                            <a href="https://youtube.com/channel/UC0VgLW6y_VWGBuLHbcMT4Rg?si=Wjn732zukQ4MlQRM" target="_blank" rel="noopener noreferrer" aria-label="유튜브 채널" className="text-slate-400 hover:text-yellow-400 hover:scale-110 transition-all duration-300">
-                                <Youtube size={24} aria-hidden="true" />
-                            </a>
-                            <a href="https://www.instagram.com/branding_hada" target="_blank" rel="noopener noreferrer" aria-label="인스타그램" className="text-slate-400 hover:text-yellow-400 hover:scale-110 transition-all duration-300">
-                                <Instagram size={24} aria-hidden="true" />
-                            </a>
-                            <a href="https://www.tiktok.com/@branding_hada" target="_blank" rel="noopener noreferrer" aria-label="틱톡" className="text-slate-400 hover:text-yellow-400 hover:scale-110 transition-all duration-300">
-                                <Music size={24} aria-hidden="true" />
-                            </a>
-                        </div>
+  const handleScrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
 
-                    </div>
-
-                    <div className="col-span-2 md:col-span-1">
-                        {/* h4를 h3로 변경하여 논리적 계층 구조 유지 */}
-                        <h3 className="text-white font-bold mb-6 text-lg">Company</h3>
-                        <ul className="space-y-4 text-sm text-slate-400">
-                            <li>상호명 : 맬로우앤모어</li>
-                            <li>대표 : 최찬미</li>
-                            <li>사업자등록번호 : 273-59-00931</li>
-                        </ul>
-                    </div>
-
-                    <div>
-                        {/* h4를 h3로 변경 */}
-                        <h3 className="text-white font-bold mb-6 text-lg">Legal</h3>
-                        <ul className="space-y-4 text-sm">
-                            <li>
-                                <Link href="#" className="hover:text-white transition-colors">이용약관</Link>
-                            </li>
-                            <li>
-                                <Link href="#" className="hover:text-white transition-colors">개인정보처리방침</Link>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-
-                {/* text-slate-500을 text-slate-400으로 변경하여 대비율(가독성) 확보 */}
-                <div className="border-t border-slate-800 pt-8 text-center text-sm text-slate-400">
-                    <p>&copy; {new Date().getFullYear()} Brandinghada. All rights reserved.</p>
-                </div>
+  return (
+    <footer className="bg-[#070709] border-t border-[#22222b]/50 text-[#8e8e9f] py-16 px-6 relative z-10">
+      <div className="max-w-6xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-10 mb-12">
+          
+          {/* Logo & Description */}
+          <div className="md:col-span-6 space-y-4">
+            <div className="flex items-center gap-2">
+              <span className="text-xl font-black tracking-tight text-foreground bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
+                브랜딩하다
+              </span>
+              <span className="text-[9px] uppercase font-bold tracking-widest px-1.5 py-0.5 rounded border border-primary/20 text-primary/70">
+                AI Pipeline v2
+              </span>
             </div>
-        </footer>
-    );
+            <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed max-w-sm">
+              우리는 설명하지 않고 오직 결과물로 계약을 제안합니다. 사장님이 잠든 순간에도 24시간 작동하는 로컬 비즈니스용 AI 세일즈 엔진.
+            </p>
+            
+            {/* Social Icons */}
+            <div className="flex items-center gap-4 pt-2">
+              <a 
+                href="https://blog.naver.com/brandinghada" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="p-2 rounded-lg bg-[#111115] border border-[#22222b] hover:border-primary/50 text-muted-foreground hover:text-primary transition-all duration-300"
+                aria-label="네이버 블로그"
+              >
+                <span className="text-xs font-black font-mono">B.</span>
+              </a>
+              <a 
+                href="https://youtube.com/channel/UC0VgLW6y_VWGBuLHbcMT4Rg?si=Wjn732zukQ4MlQRM" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="p-2 rounded-lg bg-[#111115] border border-[#22222b] hover:border-primary/50 text-muted-foreground hover:text-primary transition-all duration-300"
+                aria-label="유튜브"
+              >
+                <Youtube className="w-4 h-4" />
+              </a>
+              <a 
+                href="https://www.instagram.com/branding_hada" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="p-2 rounded-lg bg-[#111115] border border-[#22222b] hover:border-primary/50 text-muted-foreground hover:text-primary transition-all duration-300"
+                aria-label="인스타그램"
+              >
+                <Instagram className="w-4 h-4" />
+              </a>
+              <a 
+                href="https://www.tiktok.com/@branding_hada" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="p-2 rounded-lg bg-[#111115] border border-[#22222b] hover:border-primary/50 text-muted-foreground hover:text-primary transition-all duration-300"
+                aria-label="틱톡"
+              >
+                <Music className="w-4 h-4" />
+              </a>
+            </div>
+          </div>
+
+          {/* Company Info */}
+          <div className="md:col-span-3 space-y-3">
+            <h3 className="text-foreground text-xs uppercase font-extrabold tracking-wider">Company</h3>
+            <ul className="space-y-2 text-xs text-muted-foreground font-medium">
+              <li>상호명 : 맬로우앤모어</li>
+              <li>대표자 : 최찬미</li>
+              <li>사업자등록번호 : 273-59-00931</li>
+              <li className="flex items-center gap-1">
+                <span>공식 채널 바로가기</span>
+                <ArrowUpRight className="w-3 h-3 opacity-60" />
+              </li>
+            </ul>
+          </div>
+
+          {/* Legal / Action */}
+          <div className="md:col-span-3 space-y-3">
+            <h3 className="text-foreground text-xs uppercase font-extrabold tracking-wider">Legal</h3>
+            <ul className="space-y-2 text-xs text-muted-foreground font-medium">
+              <li>
+                <Link href="#" className="hover:text-foreground transition-colors">이용약관</Link>
+              </li>
+              <li>
+                <Link href="#" className="hover:text-foreground transition-colors">개인정보처리방침</Link>
+              </li>
+              <li>
+                <button 
+                  onClick={handleScrollToTop}
+                  className="hover:text-primary transition-colors text-left cursor-pointer"
+                >
+                  맨 위로 이동 ↑
+                </button>
+              </li>
+            </ul>
+          </div>
+
+        </div>
+
+        {/* Copyright Section */}
+        <div className="border-t border-[#22222b]/50 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs">
+          <p className="text-muted-foreground/60 font-medium">
+            &copy; {currentYear} Brandinghada. Powered by VibeFlow Engine. All rights reserved.
+          </p>
+          <p className="text-muted-foreground/40 font-mono text-[10px]">
+            Designed for Local Inbound Sales Optimization
+          </p>
+        </div>
+
+      </div>
+    </footer>
+  );
 }
