@@ -6,13 +6,13 @@
   --color-background: #0a0a0c;
   --color-foreground: #f4f4f7;
 
-  --color-primary: #00f2fe;
+  --color-primary: #facc15; /* Safety Yellow */
   --color-primary-foreground: #0a0a0c;
 
-  --color-secondary: #b624ff;
+  --color-secondary: #2563eb; /* Deep Blue */
   --color-secondary-foreground: #ffffff;
 
-  --color-accent: #09d9e6;
+  --color-accent: #eab308; /* Darker Yellow */
   --color-accent-foreground: #0a0a0c;
 
   --color-muted: #16161f;
@@ -29,27 +29,27 @@
     @apply bg-background text-foreground antialiased selection:bg-primary/30 selection:text-primary;
     font-family: var(--font-sans);
     background-image: 
-      radial-gradient(at 0% 0%, rgba(182, 36, 255, 0.08) 0px, transparent 50%),
-      radial-gradient(at 100% 100%, rgba(0, 242, 254, 0.08) 0px, transparent 50%);
+      radial-gradient(at 0% 0%, rgba(37, 99, 234, 0.06) 0px, transparent 50%),
+      radial-gradient(at 100% 100%, rgba(250, 204, 21, 0.04) 0px, transparent 50%);
     background-attachment: fixed;
   }
 }
 
 /* Custom glow utilities */
-.glow-cyan {
-  text-shadow: 0 0 10px rgba(0, 242, 254, 0.5), 0 0 20px rgba(0, 242, 254, 0.2);
+.glow-yellow {
+  text-shadow: 0 0 10px rgba(250, 204, 21, 0.4), 0 0 20px rgba(250, 204, 21, 0.1);
 }
 
-.glow-purple {
-  text-shadow: 0 0 10px rgba(182, 36, 255, 0.5), 0 0 20px rgba(182, 36, 255, 0.2);
+.glow-blue {
+  text-shadow: 0 0 10px rgba(37, 99, 234, 0.4), 0 0 20px rgba(37, 99, 234, 0.1);
 }
 
-.border-glow-cyan {
-  box-shadow: 0 0 15px rgba(0, 242, 254, 0.15), inset 0 0 15px rgba(0, 242, 254, 0.05);
+.border-glow-yellow {
+  box-shadow: 0 0 15px rgba(250, 204, 21, 0.12), inset 0 0 15px rgba(250, 204, 21, 0.03);
 }
 
-.border-glow-purple {
-  box-shadow: 0 0 15px rgba(182, 36, 255, 0.15), inset 0 0 15px rgba(182, 36, 255, 0.05);
+.border-glow-blue {
+  box-shadow: 0 0 15px rgba(37, 99, 234, 0.12), inset 0 0 15px rgba(37, 99, 234, 0.03);
 }
 
 /* Custom dark scrollbar */

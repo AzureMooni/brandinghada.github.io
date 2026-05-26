@@ -22,11 +22,11 @@ export function Footer() {
                 브랜딩하다
               </span>
               <span className="text-[9px] uppercase font-bold tracking-widest px-1.5 py-0.5 rounded border border-primary/20 text-primary/70">
-                AI Pipeline v2
+                로컬 소상공인 솔루션
               </span>
             </div>
             <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed max-w-sm">
-              우리는 설명하지 않고 오직 결과물로 계약을 제안합니다. 사장님이 잠든 순간에도 24시간 작동하는 로컬 비즈니스용 AI 세일즈 엔진.
+              우리는 구구절절 설명하지 않고 오직 실제 시공 결과물과 고객 리뷰 평판으로 입증합니다. 사장님이 시공 현장에서 땀 흘려 일하시는 순간에도 24시간 작동하는 로컬 비즈니스용 AI 세일즈 홈페이지 빌더.
             </p>
             
             {/* Social Icons */}
@@ -110,7 +110,7 @@ export function Footer() {
         {/* Copyright Section */}
         <div className="border-t border-[#22222b]/50 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs">
           <p className="text-muted-foreground/60 font-medium">
-            &copy; {currentYear} Brandinghada. Powered by VibeFlow Engine. All rights reserved.
+            &copy; {currentYear} Brandinghada. Powered by VibeFlow. All rights reserved.
           </p>
           <p className="text-muted-foreground/40 font-mono text-[10px]">
             Designed for Local Inbound Sales Optimization

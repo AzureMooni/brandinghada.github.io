@@ -29,18 +29,18 @@ export function Header() {
           href="/" 
           className="text-xl font-black tracking-tight text-foreground hover:text-primary transition-all duration-300 flex items-center gap-2 group"
         >
-          <span className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent group-hover:glow-cyan">
+          <span className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent group-hover:glow-yellow font-sans">
             브랜딩하다
           </span>
-          <span className="text-[10px] uppercase font-bold tracking-widest px-1.5 py-0.5 rounded border border-primary/30 text-primary/80 group-hover:border-primary group-hover:text-primary transition-all duration-300">
-            VibeFlow Engine v2
+          <span className="text-[9px] uppercase font-bold tracking-widest px-1.5 py-0.5 rounded border border-primary/30 text-primary/80 group-hover:border-primary group-hover:text-primary transition-all duration-300">
+            소상공인 5분 시안 빌더
           </span>
         </Link>
 
         <div>
           <button 
-            onClick={() => alert("SaaS 플랫폼 베타 준비 중입니다.")}
-            className="px-4 py-1.5 text-xs font-semibold rounded-md border border-[#22222b] bg-[#111115]/50 text-muted-foreground hover:text-primary hover:border-primary/50 transition-all duration-300 hover:shadow-[0_0_15px_rgba(0,242,254,0.1)] cursor-pointer"
+            onClick={() => alert("SaaS 플랫폼 출시 준비 중입니다. 완성된 시안은 아래 리드 폼을 통해 카톡으로 즉시 전송됩니다.")}
+            className="px-4 py-1.5 text-xs font-semibold rounded-md border border-[#22222b] bg-[#111115]/50 text-muted-foreground hover:text-primary hover:border-primary/50 transition-all duration-300 hover:shadow-[0_0_15px_rgba(250,204,21,0.1)] cursor-pointer"
           >
             SaaS 로그인
           </button>

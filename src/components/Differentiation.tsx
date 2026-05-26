@@ -12,18 +12,18 @@ export function Differentiation() {
         
         {/* Section Title */}
         <div className="mb-16 text-center max-w-2xl mx-auto">
-          <span className="text-xs uppercase tracking-widest text-primary font-extrabold px-3 py-1 rounded border border-primary/20 bg-primary/5">
-            영업과 계약의 프레임 시프트
+          <span className="text-xs uppercase tracking-widest text-[#2563eb] font-extrabold px-3 py-1 rounded border border-secondary/20 bg-secondary/5">
+            로컬 소상공인 보증 등급
           </span>
           <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-foreground mt-4 mb-3">
-            왜 브랜딩하다가 영업의 새로운 기준인가?
+            왜 브랜딩하다가 홈페이지 제작의 새로운 기준인가?
           </h2>
           <p className="text-muted-foreground text-sm sm:text-base leading-relaxed">
-            말뿐인 기획서와 수백만 원 선불 계약 대신, 이미 준비된 실제 데이터 결과물로 증명합니다.
+            비싼 선불 계약이나 골치 아픈 디자인 기획 회의 대신, 이미 검증된 실제 고객 평판 데이터로 결과를 입증합니다.
           </p>
         </div>
 
-        {/* 1. Desktop & Tablet View Table (md:block hidden) */}
+        {/* 1. Desktop & Tablet View Table */}
         <div className="hidden md:block overflow-hidden rounded-2xl border border-[#22222b] bg-[#111115]/40 backdrop-blur-md">
           <table className="w-full border-collapse text-left text-sm">
             <thead>
@@ -31,13 +31,13 @@ export function Differentiation() {
                 <th className="py-5 px-6 font-bold text-muted-foreground w-1/4">구분</th>
                 <th className="py-5 px-6 font-bold text-muted-foreground w-3/8 flex items-center gap-2">
                   <ShieldAlert className="w-4 h-4 text-muted-foreground/60" />
-                  기존 웹 에이전시 (대행사)
+                  기존 홈페이지 제작 업체
                 </th>
                 <th className="py-5 px-6 font-black text-primary w-3/8 border-l border-[#22222b] bg-primary/5 relative">
                   <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-primary to-secondary" />
                   <span className="flex items-center gap-2">
                     <Zap className="w-4 h-4 text-primary fill-primary animate-pulse" />
-                    브랜딩하다 (VibeFlow 엔진)
+                    브랜딩하다 (바이브플로우)
                   </span>
                 </th>
               </tr>
@@ -45,65 +45,65 @@ export function Differentiation() {
             <tbody className="divide-y divide-[#22222b]/50">
               {/* Row 1 */}
               <tr className="hover:bg-[#14141a]/30 transition-colors">
-                <td className="py-5 px-6 font-bold text-foreground">진행 순서</td>
+                <td className="py-5 px-6 font-bold text-foreground">제작 기간</td>
                 <td className="py-5 px-6 text-muted-foreground text-xs font-medium">
-                  문의 <span className="text-[#8e8e9f]/50 mx-1">➔</span> 미팅 <span className="text-[#8e8e9f]/50 mx-1">➔</span> 계약 <span className="text-[#8e8e9f]/50 mx-1">➔</span> 기획 <span className="text-[#8e8e9f]/50 mx-1">➔</span> 제작 (수주일 소요)
+                  최소 2주에서 수개월 소요 (시안 피드백 및 개발 지연 마찰 지속)
                 </td>
                 <td className="py-5 px-6 font-semibold text-foreground border-l border-[#22222b] bg-primary/5">
-                  제작 <span className="text-primary font-bold">(5분)</span> <span className="text-primary/50 mx-1">➔</span> 제안 <span className="text-primary/50 mx-1">➔</span> 확인 <span className="text-primary/50 mx-1">➔</span> 계약
+                  단 <span className="text-primary font-bold">5분 만에</span> 사장님 전용 모바일 홈페이지 초안 즉시 빌드
                 </td>
               </tr>
               {/* Row 2 */}
               <tr className="hover:bg-[#14141a]/30 transition-colors">
-                <td className="py-5 px-6 font-bold text-foreground">고객 리소스</td>
+                <td className="py-5 px-6 font-bold text-foreground">사장님 리소스</td>
                 <td className="py-5 px-6 text-muted-foreground text-xs font-medium">
-                  수 차례의 미팅 필요, 기획서 작성 및 기초 자료 조사 직접 수행
+                  수차례 기획 미팅 필수, 홈페이지에 들어갈 텍스트와 사진 직접 준비
                 </td>
                 <td className="py-5 px-6 font-semibold text-foreground border-l border-[#22222b] bg-primary/5">
-                  이미 쌓인 플레이스 리뷰 100% 활용, 사장님 마찰 제로
+                  이미 인터넷에 쌓여있는 실제 방문자/시공 리뷰 자동 활용, <span className="text-primary font-bold">마찰 제로</span>
                 </td>
               </tr>
               {/* Row 3 */}
               <tr className="hover:bg-[#14141a]/30 transition-colors">
                 <td className="py-5 px-6 font-bold text-foreground">초기 비용</td>
                 <td className="py-5 px-6 text-muted-foreground text-xs font-medium">
-                  수백만 원 대의 선불 개발 및 디자인 착수금 필요
+                  제작이 시작되기 전에 수백만 원 대의 고액 착수금 및 디자인 선불금 요구
                 </td>
                 <td className="py-5 px-6 font-semibold text-primary border-l border-[#22222b] bg-primary/5">
-                  초기 시안 <span className="underline decoration-primary">무료 확인</span> 후 세일즈 완료 시 구독 전환
+                  초기 완성과 시안 확인은 <span className="underline decoration-primary">100% 무료</span>, 맘에 들면 월 구독 전환
                 </td>
               </tr>
             </tbody>
           </table>
         </div>
 
-        {/* 2. Mobile View 1-Column Responsive Cards (md:hidden block) */}
+        {/* 2. Mobile View 1-Column Cards */}
         <div className="md:hidden space-y-6">
           
-          {/* Card 1: 기존 대행사 */}
+          {/* Card 1: 기존 업체 */}
           <div className="bg-[#111115]/50 border border-[#22222b] rounded-xl p-5 relative">
             <div className="flex items-center gap-2 text-muted-foreground font-bold text-sm mb-4">
               <ShieldAlert className="w-4 h-4 text-muted-foreground/80" />
-              <span>기존 웹 에이전시 (대행사)</span>
+              <span>기존 홈페이지 제작 업체</span>
             </div>
             
             <div className="space-y-4 text-xs">
               <div className="border-b border-[#22222b]/50 pb-3">
-                <span className="text-muted-foreground block mb-1">진행 순서</span>
+                <span className="text-muted-foreground block mb-1">제작 기간</span>
                 <span className="text-foreground font-semibold">
-                  문의 ➔ 미팅 ➔ 계약 ➔ 기획 ➔ 제작 (수주일)
+                  수주일 ~ 수개월 소요 (끝없는 지연 가능성)
                 </span>
               </div>
               <div className="border-b border-[#22222b]/50 pb-3">
-                <span className="text-muted-foreground block mb-1">고객 리소스</span>
+                <span className="text-muted-foreground block mb-1">사장님 리소스</span>
                 <span className="text-foreground font-semibold">
-                  기획서 작성, 자료 조사, 수차례 오프라인 미팅 리소스 요구
+                  기획 미팅 필수, 각종 텍스트 및 시공 사진 사장님이 직접 수집
                 </span>
               </div>
               <div>
                 <span className="text-muted-foreground block mb-1">초기 비용</span>
                 <span className="text-foreground font-semibold">
-                  수백만 원 대의 선불 착수 및 개발금
+                  수백만 원 대의 과도한 선불 착수 및 개발금 요구
                 </span>
               </div>
             </div>
@@ -111,14 +111,13 @@ export function Differentiation() {
 
           {/* Card 2: 브랜딩하다 (Highlight) */}
           <div className="relative group">
-            {/* Glow frame border */}
             <div className="absolute -inset-0.5 bg-gradient-to-r from-primary to-secondary rounded-xl blur opacity-35" />
             
             <div className="relative bg-[#111115] border border-primary/30 rounded-xl p-5">
               <div className="flex items-center justify-between mb-4">
                 <div className="flex items-center gap-2 text-primary font-black text-sm">
                   <Zap className="w-4 h-4 text-primary fill-primary animate-pulse" />
-                  <span>브랜딩하다 (VibeFlow 엔진)</span>
+                  <span>브랜딩하다 (바이브플로우)</span>
                 </div>
                 <span className="text-[9px] bg-primary/20 text-primary px-1.5 py-0.5 rounded font-black">
                   추천
@@ -127,21 +126,21 @@ export function Differentiation() {
               
               <div className="space-y-4 text-xs">
                 <div className="border-b border-[#22222b]/50 pb-3">
-                  <span className="text-primary/70 block mb-1 font-bold">진행 순서</span>
+                  <span className="text-primary/70 block mb-1 font-bold">제작 기간</span>
                   <span className="text-foreground font-extrabold">
-                    제작 (5분) ➔ 제안 ➔ 확인 ➔ 계약
+                    단 5분 만에 시안 초안 자동 퍼블리싱
                   </span>
                 </div>
                 <div className="border-b border-[#22222b]/50 pb-3">
-                  <span className="text-primary/70 block mb-1 font-bold">고객 리소스</span>
+                  <span className="text-primary/70 block mb-1 font-bold">사장님 리소스</span>
                   <span className="text-foreground font-extrabold">
-                    이미 쌓여 있는 우리 동네 플레이스 리뷰 100% 활용, 마찰 제로
+                    기존에 이미 쌓여 있는 매장 시공 리뷰 자동 스캔, 사장님 마찰 제로
                   </span>
                 </div>
                 <div>
                   <span className="text-primary/70 block mb-1 font-bold">초기 비용</span>
                   <span className="text-primary font-black">
-                    초기 완성 시안 무료 확인 후 구독 전환
+                    완성 시안 무료 확인 후 마음에 들 때만 저렴한 월 구독형 전환
                   </span>
                 </div>
               </div>
