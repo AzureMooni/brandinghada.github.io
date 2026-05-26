@@ -1,7 +1,7 @@
 "use client";
 
-import { useState, useEffect } from "react";
-import { Phone, CheckCircle, ArrowRight, Smartphone, Star, Shield, Users, Sparkles, MessageCircle, AlertTriangle } from "lucide-react";
+import { useState, useEffect, useRef } from "react";
+import { Phone, CheckCircle, ArrowRight, Smartphone, Star, Shield, Users, Sparkles, MessageCircle, AlertTriangle, RefreshCw, MessageSquare } from "lucide-react";
 
 interface InteractivePreviewProps {
   keyword: string;
@@ -76,14 +76,14 @@ const DEFAULT_MOCK_DATA = (keyword: string): MockDataStructure => ({
     { name: "정직한 자재 가격 및 사용", percentage: 96 },
     { name: "친절하고 책임감 있는 시공", percentage: 94 },
     { name: "과잉청구 없는 합리적 비용", percentage: 91 },
-    { name: "완벽한 사후 AS 보장", percentage: 88 }
+    { name: "완벽한 AS 철저 보장", percentage: 88 }
   ],
   reviewsCount: 94,
   mobilePreview: {
-    badge: "우리동네 보증 안심 시안",
-    title: `정직과 성실로 안심 시공을 약속하는 - ${keyword || "한양지붕공사"}`,
-    description: "속 터지는 중간 추가 요금이나 불량 시공은 이제 끝입니다. 동네 주민들이 인정해주신 리뷰 강점을 모아 매력적인 직영 시안을 구성했습니다.",
-    features: ["빅데이터 분석으로 걸러낸 과잉청구 0%의 투명함", "터치 한 번으로 사장님 직통 모바일 전화 통화 즉시 연결", "모바일 속도에 맞춰 0.5초 만에 열리는 초경량 퍼포먼스"],
+    badge: "로컬 안심 공식 파트너 시안",
+    title: `정직과 신용으로 책임 시공 - ${keyword || "한양지붕공사"}`,
+    description: "불필요한 과도 공사비 요구나 날림 시공은 이제 끝입니다. 사장님 매장 평판에 쌓인 강력한 리뷰를 모아 세련된 맞춤 모바일 페이지를 제공합니다.",
+    features: ["빅데이터 평판 필터링으로 다듬은 과잉청구 0% 약속", "홈페이지 터치 한 번으로 사장님과 직통 모바일 유선 연결", "고객 유치 전환율을 극대화하는 반응형 액션 배치"],
     accentColor: "from-[#facc15] to-[#2563eb]"
   }
 });
@@ -91,14 +91,20 @@ const DEFAULT_MOCK_DATA = (keyword: string): MockDataStructure => ({
 export function InteractivePreview({ keyword, isSearched }: InteractivePreviewProps) {
   const [phoneNumber, setPhoneNumber] = useState("");
   const [showToast, setShowToast] = useState(false);
+  const [isKakaoSent, setIsKakaoSent] = useState(false);
   const [animatedProgress, setAnimatedProgress] = useState<number[]>([]);
+  
+  // Before/After 슬라이더 변수 (0 ~ 100)
+  const [sliderPosition, setSliderPosition] = useState(50);
+  const sliderRef = useRef<HTMLDivElement>(null);
+  const isDragging = useRef(false);
 
-  // 검색어 분기 데이터 로드
+  // 검색 데이터 할당
   const activeData = MOCK_PREVIEW_DATA[keyword] || DEFAULT_MOCK_DATA(keyword);
   const displayKeyword = keyword || "한양지붕공사";
   const displayData = keyword ? activeData : MOCK_PREVIEW_DATA["한양지붕공사"];
 
-  // 프로그레스 바 애니메이션 구동
+  // 프로그레스 바 동적 애니메이션
   useEffect(() => {
     if (isSearched || !keyword) {
       setAnimatedProgress([0, 0, 0, 0]);
@@ -108,6 +114,50 @@ export function InteractivePreview({ keyword, isSearched }: InteractivePreviewPr
       return () => clearTimeout(timer);
     }
   }, [keyword, isSearched, displayData]);
+
+  // 슬라이더 마우스/터치 드래그 연동 로직
+  const handleSliderMove = (clientX: number) => {
+    if (!sliderRef.current) return;
+    const rect = sliderRef.current.getBoundingClientRect();
+    const x = clientX - rect.left;
+    const percentage = Math.max(0, Math.min(100, (x / rect.width) * 100));
+    setSliderPosition(percentage);
+  };
+
+  const handleTouchMove = (e: TouchEvent) => {
+    if (!isDragging.current) return;
+    handleSliderMove(e.touches[0].clientX);
+  };
+
+  const handleMouseMove = (e: MouseEvent) => {
+    if (!isDragging.current) return;
+    handleSliderMove(e.clientX);
+  };
+
+  const handleMouseUp = () => {
+    isDragging.current = false;
+    window.removeEventListener("mousemove", handleMouseMove);
+    window.removeEventListener("mouseup", handleMouseUp);
+  };
+
+  const handleTouchEnd = () => {
+    isDragging.current = false;
+    window.removeEventListener("touchmove", handleTouchMove);
+    window.removeEventListener("touchend", handleTouchEnd);
+  };
+
+  const handleStartDrag = (e: React.MouseEvent | React.TouchEvent) => {
+    isDragging.current = true;
+    if ("touches" in e) {
+      window.addEventListener("touchmove", handleTouchMove);
+      window.addEventListener("touchend", handleTouchEnd);
+      handleSliderMove(e.touches[0].clientX);
+    } else {
+      window.addEventListener("mousemove", handleMouseMove);
+      window.addEventListener("mouseup", handleMouseUp);
+      handleSliderMove(e.clientX);
+    }
+  };
 
   const handleLeadSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -119,6 +169,8 @@ export function InteractivePreview({ keyword, isSearched }: InteractivePreviewPr
       return;
     }
 
+    // 알림톡 수신 화면 모핑 작동!
+    setIsKakaoSent(true);
     setShowToast(true);
     setPhoneNumber("");
 
@@ -131,6 +183,10 @@ export function InteractivePreview({ keyword, isSearched }: InteractivePreviewPr
     alert(`[전화 연결 시뮬레이션]\n"${displayKeyword}" 사장님 직통 스마트폰 통화로 자연스럽게 연결됩니다.`);
   };
 
+  const handleResetKakaoDemo = () => {
+    setIsKakaoSent(false);
+  };
+
   return (
     <section 
       id="interactive-preview"
@@ -138,25 +194,25 @@ export function InteractivePreview({ keyword, isSearched }: InteractivePreviewPr
         isSearched ? "opacity-100 translate-y-0" : "opacity-90"
       }`}
     >
-      {/* Toast Notification Popup */}
+      {/* Toast Notification */}
       {showToast && (
         <div className="fixed bottom-8 right-8 z-50 animate-in slide-in-from-bottom-5 fade-in duration-300">
           <div className="relative group">
-            <div className="absolute -inset-0.5 bg-gradient-to-r from-primary to-secondary rounded-xl blur opacity-75" />
+            <div className="absolute -inset-0.5 bg-gradient-to-r from-primary to-secondary rounded-xl blur opacity-70" />
             <div className="relative flex items-center gap-3 bg-[#111115] border border-[#22222b] px-6 py-4 rounded-xl shadow-2xl">
               <div className="w-8 h-8 rounded-full bg-primary/20 flex items-center justify-center text-primary">
                 <CheckCircle className="w-5 h-5" />
               </div>
               <div>
-                <p className="text-sm font-bold text-foreground">[전송 완료] 카카오 알림톡 전송 요청</p>
-                <p className="text-xs text-muted-foreground mt-0.5">시안 소유 등록 링크가 1분 이내에 발송됩니다.</p>
+                <p className="text-sm font-bold text-foreground">[알림톡 도착] 모바일을 확인하십시오.</p>
+                <p className="text-xs text-muted-foreground mt-0.5">폰 화면이 카카오 알림톡 수신 모드로 모핑되었습니다.</p>
               </div>
             </div>
           </div>
         </div>
       )}
 
-      {/* Decorative Blur Effect */}
+      {/* Decorative Blur */}
       <div className="absolute bottom-1/4 right-0 w-[400px] h-[400px] bg-secondary/5 rounded-full blur-[100px] pointer-events-none" />
       
       <div className="max-w-6xl mx-auto">
@@ -164,23 +220,23 @@ export function InteractivePreview({ keyword, isSearched }: InteractivePreviewPr
         {/* Title Block */}
         <div className="mb-16 text-center max-w-2xl mx-auto">
           <span className="text-xs uppercase tracking-widest text-[#2563eb] font-extrabold px-3 py-1 rounded border border-secondary/20 bg-secondary/5">
-            {isSearched ? "홈페이지 시안 생성 완료" : "실제 완성 시안 샘플 구동 중"}
+            {isSearched ? "초정밀 모바일 시안 생성 완료" : "실제 완성 시안 샘플 구동 중"}
           </span>
           <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-foreground mt-4 mb-3">
             {isSearched ? (
               <>
-                실시간 분석 매칭: <span className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent font-black">{displayKeyword}</span>
+                실시간 매칭 결과: <span className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent font-black">{displayKeyword}</span>
               </>
             ) : (
-              "사장님이 바쁜 현장에서 일할 때도, 홈페이지가 알아서 전화 문의를 받습니다."
+              "사장님이 땀 흘려 일하실 때도, 홈페이지가 세일즈합니다."
             )}
           </h2>
           <p className="text-muted-foreground text-sm sm:text-base leading-relaxed">
-            리뷰 데이터에서 과잉청구나 부실공사 불안 요소를 완전히 제거하고, 신뢰도가 높은 강점을 뽑아내어 전화 문의율이 극대화된 모바일 홈페이지를 구워냈습니다.
+            리뷰 평판 빅데이터를 분석하여 신뢰도를 떨어뜨리는 단어를 거르고, 시공 퀄리티가 돋보이도록 전용 슬라이더 포트폴리오를 적용했습니다.
           </p>
         </div>
 
-        {/* Dashboard & Preview Column */}
+        {/* Dashboard & Preview */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start mb-16">
           
           {/* LEFT: Place Review Dashboard */}
@@ -193,11 +249,11 @@ export function InteractivePreview({ keyword, isSearched }: InteractivePreviewPr
                   <Star className="w-5 h-5 text-primary fill-primary" />
                   고객 리뷰 키워드 추출 결과
                 </h3>
-                <p className="text-xs text-muted-foreground mt-1">네이버 플레이스에서 추출한 실제 평판 통계</p>
+                <p className="text-xs text-muted-foreground mt-1">플레이스에 기록된 소상공인 실사용 강점 빅데이터</p>
               </div>
               <div className="text-right">
                 <span className="text-2xl font-black text-foreground font-mono">{displayData.reviewsCount}</span>
-                <span className="text-xs text-muted-foreground block">시공 고객 평가</span>
+                <span className="text-xs text-muted-foreground block">시공 만족 후기</span>
               </div>
             </div>
 
@@ -225,16 +281,16 @@ export function InteractivePreview({ keyword, isSearched }: InteractivePreviewPr
             {/* Dashboard Sub Stats */}
             <div className="grid grid-cols-2 gap-4 mt-10 pt-8 border-t border-[#22222b]/50">
               <div className="bg-[#14141a] border border-[#22222b] rounded-xl p-3 text-center">
-                <p className="text-[10px] text-muted-foreground font-semibold">바가지 견적 의혹 필터링</p>
-                <p className="text-sm font-extrabold text-[#00ff66] mt-1 font-mono">100% CLEAN</p>
+                <p className="text-[10px] text-muted-foreground font-semibold">바가지 청구 방지 검증</p>
+                <p className="text-sm font-extrabold text-[#00ff66] mt-1 font-mono">100% PASS</p>
               </div>
               <div className="bg-[#14141a] border border-[#22222b] rounded-xl p-3 text-center">
-                <p className="text-[10px] text-muted-foreground font-semibold">시공 하자 불안 요소 차단</p>
-                <p className="text-sm font-extrabold text-primary mt-1 font-mono">신뢰지수 최상</p>
+                <p className="text-[10px] text-muted-foreground font-semibold">날림/부실 시공 요소 제거</p>
+                <p className="text-sm font-extrabold text-primary mt-1 font-mono">마찰 제로</p>
               </div>
             </div>
 
-            {/* Proof Badges */}
+            {/* Security Proof */}
             <div className="flex items-center gap-2 mt-6 justify-center text-[10px] text-muted-foreground font-medium">
               <Shield className="w-3 h-3 text-muted-foreground/80" />
               <span>로컬 소상공인 보증 등급 데이터 동기화 완료</span>
@@ -254,72 +310,202 @@ export function InteractivePreview({ keyword, isSearched }: InteractivePreviewPr
               {/* Home indicator bar */}
               <div className="absolute bottom-1.5 left-1/2 -translate-x-1/2 w-28 h-1 bg-[#22222b] rounded-full z-30" />
 
-              {/* Mobile Viewport Screen */}
-              <div className="w-full h-full bg-[#0a0a0c] rounded-[38px] overflow-y-auto relative text-left select-none hide-scrollbar z-20 pb-12 pt-6">
-                
-                {/* Mobile Header Bar */}
-                <div className="sticky top-0 bg-[#0a0a0c]/90 backdrop-blur-md px-5 py-3 border-b border-[#22222b]/50 z-20 flex items-center justify-between">
-                  <span className="text-[11px] font-black tracking-tight text-white">
-                    {keyword ? displayKeyword : "한양지붕공사"}
-                  </span>
-                  <span className="text-[9px] bg-primary/20 text-primary px-1.5 py-0.5 rounded font-extrabold uppercase">
-                    실시간 시안
-                  </span>
-                </div>
-
-                {/* Mobile Content Screen */}
-                <div className="p-5 space-y-6">
-                  {/* Badge */}
-                  <span className="inline-block text-[9px] font-bold text-primary tracking-wide uppercase px-2 py-0.5 rounded bg-primary/10 border border-primary/20">
-                    ✦ {displayData.mobilePreview.badge}
-                  </span>
-
-                  {/* Title */}
-                  <h4 className="text-base sm:text-lg font-black text-white leading-snug tracking-tight">
-                    {displayData.mobilePreview.title}
-                  </h4>
-
-                  {/* Description */}
-                  <p className="text-[11.5px] text-muted-foreground leading-relaxed">
-                    {displayData.mobilePreview.description}
-                  </p>
-
-                  {/* Smart Mobile Action buttons (Phone calls focused) */}
-                  <div className="pt-2">
+              {/* [INNOVATIVE] 1. KAKAO ALARM TOK SCREEN MODE */}
+              {isKakaoSent ? (
+                <div className="w-full h-full bg-[#bacee0] rounded-[38px] overflow-y-auto relative text-left select-none hide-scrollbar z-20 pb-12 pt-6 animate-in fade-in zoom-in-95 duration-300">
+                  {/* Kakao Header */}
+                  <div className="sticky top-0 bg-[#bacee0] px-5 py-3.5 z-20 flex items-center justify-between border-b border-[#a9bdcf]">
+                    <div className="flex items-center gap-2">
+                      <span className="w-2.5 h-2.5 rounded-full bg-red-500" />
+                      <span className="text-xs font-black text-[#2e3b47]">알림톡 수신 성공</span>
+                    </div>
                     <button 
-                      onClick={handlePhoneCallDemo}
-                      className="w-full bg-gradient-to-r from-primary via-accent to-primary text-background font-black text-xs py-3.5 rounded-xl text-center shadow-lg hover:shadow-primary/25 hover:opacity-95 transition-all flex items-center justify-center gap-2 cursor-pointer border border-primary/20"
+                      onClick={handleResetKakaoDemo}
+                      className="text-[10px] font-bold bg-[#3a3a3c] text-white px-2.5 py-1 rounded hover:bg-[#4a4a4c] transition-all cursor-pointer"
                     >
-                      <Phone className="w-4 h-4 text-background fill-background animate-pulse" />
-                      <span>전화 문의하기</span>
+                      홈페이지로 돌아가기
                     </button>
-                    <p className="text-center text-[9px] text-muted-foreground/60 mt-1.5 font-medium">모바일 환경에서 즉시 직통 전화 다이얼로 연결됩니다.</p>
                   </div>
 
-                  {/* Strengths Card */}
-                  <div className="pt-4 border-t border-[#22222b]/50 space-y-3">
-                    <p className="text-[9.5px] uppercase font-bold text-muted-foreground tracking-wider">우리 업체만의 안심 약속</p>
-                    
-                    {displayData.mobilePreview.features.map((feat, idx) => (
-                      <div key={idx} className="flex gap-2.5 items-start bg-[#111115] border border-[#22222b] p-3 rounded-xl transition-all duration-300 hover:border-primary/30">
-                        <div className="w-5 h-5 rounded-full bg-primary/10 text-primary flex items-center justify-center flex-shrink-0 text-[10px] font-bold">
-                          {idx + 1}
-                        </div>
-                        <p className="text-[10px] text-foreground font-semibold leading-relaxed">
-                          {feat}
-                        </p>
+                  {/* Kakao chat window content */}
+                  <div className="p-4 space-y-4 font-sans text-xs">
+                    {/* Timestamp */}
+                    <p className="text-center text-[10px] text-[#748796] my-2">2026년 5월 26일 화요일</p>
+
+                    {/* Chat Bubble Grid */}
+                    <div className="flex gap-2 items-start max-w-[90%]">
+                      {/* Avatar */}
+                      <div className="w-8 h-8 rounded-lg bg-[#3a3a3c] text-primary flex items-center justify-center text-[10px] font-black flex-shrink-0">
+                        BH
                       </div>
-                    ))}
-                  </div>
+                      
+                      <div className="space-y-1">
+                        <p className="text-[10px] text-[#4f5c69] font-bold">브랜딩하다 공식 채널</p>
+                        
+                        {/* Message Box */}
+                        <div className="bg-white text-black p-4 rounded-r-2xl rounded-bl-2xl shadow border border-[#d6e0ea] space-y-3">
+                          <div className="flex items-center gap-1.5 text-primary bg-[#0a0a0c] px-2 py-1.5 rounded text-[10px] font-black">
+                            <Sparkles className="w-3.5 h-3.5" />
+                            <span>[브랜딩하다] 로컬 세일즈 알림톡</span>
+                          </div>
+                          
+                          <p className="font-extrabold text-[12px]">{displayKeyword} 사장님,</p>
+                          <p className="text-[#333] leading-relaxed text-[11px]">
+                            축하드립니다! 사장님 가게 시공 리뷰를 분석한 **전화 문의 특화 홈페이지**가 5분 만에 완성되어 소유권 대기 상태로 등록되었습니다.
+                          </p>
 
-                  {/* Guarantee Box */}
-                  <div className="bg-gradient-to-br from-[#111115] to-[#14141a] border border-[#22222b] p-4 rounded-xl text-center space-y-2 mt-4">
-                    <Sparkles className="w-4 h-4 text-primary mx-auto animate-spin" />
-                    <p className="text-[9.5px] font-bold text-white">100% 매칭 검증 평판 적용</p>
-                    <p className="text-[8.5px] text-muted-foreground leading-relaxed">실제 시공 고객들의 우수 평판을 토대로 제작된 사장님 전용 5분 안심 세일즈 시안입니다.</p>
+                          <div className="bg-[#f5f6f8] p-3 rounded-lg border border-[#eee] space-y-1.5 text-[10px] font-mono text-slate-700">
+                            <div>• <strong>완성 주소:</strong> bh.com/{keyword ? "hanyang" : "hanyang"}</div>
+                            <div>• <strong>상태:</strong> 100% 임시 도메인 연동 대기</div>
+                            <div>• <strong>통계:</strong> 리뷰 {displayData.reviewsCount}개 반영 완료</div>
+                          </div>
+
+                          <p className="text-[#444] leading-relaxed text-[10.5px]">
+                            지금 바로 아래 노란색 버튼을 터치하여 사장님 소유의 공식 도메인과 연결하고 실제 현장 전화를 받으십시오.
+                          </p>
+
+                          {/* Interactive Domain Connect Button */}
+                          <button 
+                            onClick={() => alert("도메인 연결 SaaS 결제 모듈 연동 단계로 이동합니다 (초기 7일 무료 체험).")}
+                            className="w-full bg-[#fef01b] hover:bg-[#f3e316] text-[#3c1e1e] font-black text-center py-3.5 rounded-lg border border-[#e2d210] flex items-center justify-center gap-1.5 transition-all text-xs cursor-pointer shadow-sm"
+                          >
+                            <Phone className="w-3.5 h-3.5 fill-[#3c1e1e]" />
+                            <span>1초 만에 내 도메인 연결하기</span>
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div className="text-center pt-4">
+                      <button 
+                        onClick={handleResetKakaoDemo}
+                        className="text-[10px] text-[#4f5c69] hover:text-black font-semibold flex items-center gap-1 mx-auto underline cursor-pointer"
+                      >
+                        <RefreshCw className="w-3 h-3" />
+                        <span>다시 시공 프리뷰 시안 보기</span>
+                      </button>
+                    </div>
+
                   </div>
                 </div>
-              </div>
+              ) : (
+                /* [NORMAL] 2. NORMAL HOMEPAGE VIEW PORT */
+                <div className="w-full h-full bg-[#0a0a0c] rounded-[38px] overflow-y-auto relative text-left select-none hide-scrollbar z-20 pb-12 pt-6">
+                  
+                  {/* Mobile Header Bar */}
+                  <div className="sticky top-0 bg-[#0a0a0c]/90 backdrop-blur-md px-5 py-3 border-b border-[#22222b]/50 z-20 flex items-center justify-between">
+                    <span className="text-[11px] font-black tracking-tight text-white">
+                      {keyword ? displayKeyword : "한양지붕공사"}
+                    </span>
+                    <span className="text-[9px] bg-primary/20 text-primary px-1.5 py-0.5 rounded font-extrabold uppercase">
+                      실시간 시안
+                    </span>
+                  </div>
+
+                  {/* Mobile Content Screen */}
+                  <div className="p-5 space-y-6">
+                    {/* Badge */}
+                    <span className="inline-block text-[9px] font-bold text-primary tracking-wide uppercase px-2 py-0.5 rounded bg-primary/10 border border-primary/20">
+                      ✦ {displayData.mobilePreview.badge}
+                    </span>
+
+                    {/* Title */}
+                    <h4 className="text-base sm:text-lg font-black text-white leading-snug tracking-tight">
+                      {displayData.mobilePreview.title}
+                    </h4>
+
+                    {/* Description */}
+                    <p className="text-[11.5px] text-muted-foreground leading-relaxed">
+                      {displayData.mobilePreview.description}
+                    </p>
+
+                    {/* Smart Mobile Action buttons */}
+                    <div className="pt-2">
+                      <button 
+                        onClick={handlePhoneCallDemo}
+                        className="w-full bg-gradient-to-r from-primary via-accent to-primary text-background font-black text-xs py-3.5 rounded-xl text-center shadow-lg hover:shadow-primary/25 hover:opacity-95 transition-all flex items-center justify-center gap-2 cursor-pointer border border-primary/20"
+                      >
+                        <Phone className="w-4 h-4 text-background fill-background animate-pulse" />
+                        <span>전화 문의하기</span>
+                      </button>
+                      <p className="text-center text-[9px] text-muted-foreground/60 mt-1.5 font-medium">터치 시 즉시 직통 전화 다이얼로 연결됩니다.</p>
+                    </div>
+
+                    {/* [INNOVATIVE] Before & After Image Slider Component */}
+                    <div className="pt-4 border-t border-[#22222b]/50 space-y-3">
+                      <div className="flex items-center justify-between">
+                        <p className="text-[9.5px] uppercase font-bold text-muted-foreground tracking-wider">시공 실력 직관 증명 (드래그)</p>
+                        <span className="text-[8px] bg-primary/20 text-primary px-1 rounded font-bold animate-pulse">BEFORE & AFTER</span>
+                      </div>
+                      
+                      {/* Interactive Drag Box */}
+                      <div 
+                        ref={sliderRef}
+                        onMouseDown={handleStartDrag}
+                        onTouchStart={handleStartDrag}
+                        className="relative w-full aspect-[4/3] rounded-xl overflow-hidden cursor-ew-resize select-none border border-[#22222b]"
+                      >
+                        {/* BEFORE Image (Under Layer) */}
+                        <div className="absolute inset-0 bg-[#16161f] flex flex-col items-center justify-center p-4 text-center">
+                          <div className="w-8 h-8 rounded-full bg-red-500/10 text-red-500 flex items-center justify-center mb-2">
+                            <AlertTriangle className="w-4 h-4" />
+                          </div>
+                          <p className="text-[10px] text-red-400 font-extrabold">🚨 시공 전 (Before)</p>
+                          <p className="text-[8.5px] text-muted-foreground mt-1 max-w-[80%]">심각한 빗물 누수 균열 및 낡고 방수 기능 상실된 철골 상태</p>
+                        </div>
+
+                        {/* AFTER Image (Top Slider Layer) */}
+                        <div 
+                          className="absolute inset-y-0 left-0 bg-[#111115] flex flex-col items-center justify-center p-4 text-center border-r-2 border-primary overflow-hidden"
+                          style={{ width: `${sliderPosition}%` }}
+                        >
+                          <div className="w-200% h-full absolute inset-0 flex flex-col items-center justify-center p-4 text-center select-none" style={{ width: sliderRef.current?.getBoundingClientRect().width || "280px" }}>
+                            <div className="w-8 h-8 rounded-full bg-primary/20 text-primary flex items-center justify-center mb-2">
+                              <Sparkles className="w-4 h-4 animate-spin" />
+                            </div>
+                            <p className="text-[10px] text-primary font-extrabold">✨ 시공 후 (After)</p>
+                            <p className="text-[8.5px] text-foreground font-semibold mt-1 max-w-[80%]">안동안 누수 없는 Safety Yellow 보강 방수 및 깔끔한 외관 마감 완료</p>
+                          </div>
+                        </div>
+
+                        {/* Slider Handle Knob */}
+                        <div 
+                          className="absolute inset-y-0 w-8 -ml-4 flex items-center justify-center pointer-events-none z-10"
+                          style={{ left: `${sliderPosition}%` }}
+                        >
+                          <div className="w-7 h-7 rounded-full bg-primary text-background flex items-center justify-center shadow-lg border border-[#22222b]">
+                            <Smartphone className="w-3.5 h-3.5" />
+                          </div>
+                        </div>
+                      </div>
+                      <p className="text-center text-[8px] text-muted-foreground/60">손가락이나 마우스로 스마트폰 사진을 드래그해 시공 전후 실력을 비교해보세요.</p>
+                    </div>
+
+                    {/* Strengths Card */}
+                    <div className="pt-4 border-t border-[#22222b]/50 space-y-3">
+                      <p className="text-[9.5px] uppercase font-bold text-muted-foreground tracking-wider">우리 업체만의 안심 약속</p>
+                      
+                      {displayData.mobilePreview.features.map((feat, idx) => (
+                        <div key={idx} className="flex gap-2.5 items-start bg-[#111115] border border-[#22222b] p-3 rounded-xl transition-all duration-300 hover:border-primary/30">
+                          <div className="w-5 h-5 rounded-full bg-primary/10 text-primary flex items-center justify-center flex-shrink-0 text-[10px] font-bold">
+                            {idx + 1}
+                          </div>
+                          <p className="text-[10px] text-foreground font-semibold leading-relaxed">
+                            {feat}
+                          </p>
+                        </div>
+                      ))}
+                    </div>
+
+                    {/* Guarantee Box */}
+                    <div className="bg-gradient-to-br from-[#111115] to-[#14141a] border border-[#22222b] p-4 rounded-xl text-center space-y-2 mt-4">
+                      <Sparkles className="w-4 h-4 text-primary mx-auto animate-spin" />
+                      <p className="text-[9.5px] font-bold text-white">100% 매칭 검증 평판 적용</p>
+                      <p className="text-[8.5px] text-muted-foreground leading-relaxed">실제 시공 고객들의 우수 평판을 토대로 제작된 사장님 전용 5분 안심 세일즈 시안입니다.</p>
+                    </div>
+                  </div>
+                </div>
+              )}
             </div>
           </div>
 
@@ -333,11 +519,11 @@ export function InteractivePreview({ keyword, isSearched }: InteractivePreviewPr
             
             <div className="space-y-2">
               <h3 className="text-base sm:text-lg font-bold text-foreground flex items-center justify-center md:justify-start gap-2">
-                <MessageCircle className="w-5 h-5 text-primary" />
+                <MessageSquare className="w-5 h-5 text-primary" />
                 이 홈페이지를 사장님 소유로 등록하고 실제 고객 전화를 받으시겠습니까?
               </h3>
               <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed">
-                핸드폰 번호를 남겨주시면 방금 완성된 홈페이지 링크 및 소유권 등록 안내를 카카오 알림톡으로 발송해 드립니다.
+                핸드폰 번호를 남겨주시면 방금 완성된 홈페이지 링크 및 소유권 등록 안내를 **카카오 알림톡**으로 발송해 드립니다.
               </p>
             </div>
 

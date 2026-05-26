@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Header } from "@/components/Header";
 import { Hero } from "@/components/Hero";
 import { InteractivePreview } from "@/components/InteractivePreview";
@@ -11,13 +11,23 @@ export default function Home() {
   const [keyword, setKeyword] = useState("");
   const [isSearched, setIsSearched] = useState(false);
 
+  // 정적 빌드(static HTML export) 호환성을 위해 window가 정의된 마운트 시점에 URL 파라미터 감지
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      const params = new URLSearchParams(window.location.search);
+      const urlKeyword = params.get("keyword");
+      if (urlKeyword && urlKeyword.trim()) {
+        setKeyword(urlKeyword);
+        setIsSearched(true);
+      }
+    }
+  }, []);
+
   const handleSearchStart = (searchKeyword: string) => {
-    // 검색 로딩 시작 시 상태 초기화
     setIsSearched(false);
   };
 
   const handleSearchComplete = (searchKeyword: string) => {
-    // 검색 로딩 완료 시 키워드 매칭 및 분석 영역 노출 활성화
     setKeyword(searchKeyword);
     setIsSearched(true);
   };
@@ -36,13 +46,13 @@ export default function Home() {
         onSearchComplete={handleSearchComplete} 
       />
 
-      {/* 3. Wow Interactive Preview Section (리뷰분석 대시보드 + 스마트폰 시안 프레임 + 리드 수집 폼) */}
+      {/* 3. Wow Interactive Preview Section */}
       <InteractivePreview 
         keyword={keyword} 
         isSearched={isSearched} 
       />
 
-      {/* 4. Agent Differentiation Grid Section (3열 비교 테이블) */}
+      {/* 4. Agent Differentiation Grid Section */}
       <Differentiation />
 
       {/* 5. Footer Service Info */}
