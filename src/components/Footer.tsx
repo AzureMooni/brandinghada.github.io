@@ -76,7 +76,7 @@ export function Footer() {
             <ul className="space-y-2 text-xs text-muted-foreground font-medium">
               <li>상호명 : 코리아니티</li>
               <li>대표자 : 김경문</li>
-              <li>사업자등록번호 : 273-59-00931</li>
+              <li>사업자등록번호 : 414-50-00825</li>
               <li className="flex items-center gap-1">
                 <span>공식 채널 바로가기</span>
                 <ArrowUpRight className="w-3 h-3 opacity-60" />
