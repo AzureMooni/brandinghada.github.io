@@ -74,7 +74,7 @@ export function Footer() {
           <div className="md:col-span-3 space-y-3">
             <h3 className="text-foreground text-xs uppercase font-extrabold tracking-wider">Company</h3>
             <ul className="space-y-2 text-xs text-muted-foreground font-medium">
-              <li>상호명 : 맬로우앤모어</li>
+              <li>상호명 : 코리아니티</li>
               <li>대표자 : 김경문</li>
               <li>사업자등록번호 : 273-59-00931</li>
               <li className="flex items-center gap-1">
