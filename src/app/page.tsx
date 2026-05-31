@@ -4,7 +4,9 @@ import { useState, useEffect } from "react";
 import { Header } from "@/components/Header";
 import { Hero } from "@/components/Hero";
 import { InteractivePreview } from "@/components/InteractivePreview";
+import { Trust } from "@/components/Trust";
 import { Differentiation } from "@/components/Differentiation";
+import { About } from "@/components/About";
 import { Footer } from "@/components/Footer";
 
 export default function Home() {
@@ -52,10 +54,16 @@ export default function Home() {
         isSearched={isSearched} 
       />
 
-      {/* 4. Agent Differentiation Grid Section */}
+      {/* 4. Core Value & Trust/Safety Guarantees Section */}
+      <Trust />
+
+      {/* 5. Agent Differentiation Grid Section */}
       <Differentiation />
 
-      {/* 5. Footer Service Info */}
+      {/* 6. Personal Branding Representative Intro Section */}
+      <About />
+
+      {/* 7. Footer Service Info */}
       <Footer />
     </main>
   );

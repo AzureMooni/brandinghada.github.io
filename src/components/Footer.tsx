@@ -17,9 +17,9 @@ export function Footer() {
           
           {/* Logo & Description */}
           <div className="md:col-span-6 space-y-4">
-            <div className="flex items-center gap-2">
+            <div className="flex flex-wrap items-center gap-2">
               <span className="text-xl font-black tracking-tight text-foreground bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
-                브랜딩하다
+                브랜딩하다 <span className="text-xs font-normal text-muted-foreground">(운영사: 코리아니티)</span>
               </span>
               <span className="text-[9px] uppercase font-bold tracking-widest px-1.5 py-0.5 rounded border border-primary/20 text-primary/70">
                 로컬 소상공인 솔루션

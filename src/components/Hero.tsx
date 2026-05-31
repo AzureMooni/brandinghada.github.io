@@ -68,15 +68,16 @@ export function Hero({ onSearchStart, onSearchComplete }: HeroProps) {
         </div>
 
         {/* Main Copies */}
-        <h1 className="text-4xl sm:text-6xl md:text-7xl font-extrabold tracking-tight mb-6 leading-[1.1] text-foreground">
-          우리는 설명하지 않습니다.<br />
+        <h1 className="text-4xl sm:text-6xl md:text-7xl font-extrabold tracking-tight mb-6 leading-[1.2] text-foreground">
+          사장님은 사업에만 집중하세요.<br />
           <span className="bg-gradient-to-r from-primary via-accent to-secondary bg-clip-text text-transparent">
-            이미 완성된 사장님 가게의<br />홈페이지를 확인하세요.
+            온라인 고객은 '브랜딩하다'가<br />모셔옵니다.
           </span>
         </h1>
 
-        <p className="text-base sm:text-lg md:text-xl text-muted-foreground mb-12 max-w-2.5xl mx-auto font-medium leading-relaxed">
-          말뿐인 영업에 속지 마세요. AI가 사장님의 실제 리뷰로 <span className="text-foreground font-bold">5분 만에 만든 홈페이지</span>를 먼저 보여드립니다.
+        <p className="text-base sm:text-lg md:text-xl text-muted-foreground mb-12 max-w-3xl mx-auto font-medium leading-[1.6]">
+          우리는 구구절절 설명하지 않습니다. 말뿐인 영업에 속지 마세요.<br className="hidden sm:inline" />
+          AI가 사장님의 실제 시공/매장 리뷰를 분석하여 <span className="text-foreground font-bold underline decoration-primary">5분 만에 만든 홈페이지 시안</span>을 지금 바로 확인해 보세요.
         </p>
 
         {/* Search Bar UI */}
