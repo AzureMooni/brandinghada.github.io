@@ -37,19 +37,34 @@ export function About() {
                 <h3 className="text-xl font-extrabold text-foreground mb-1">김경문 대표</h3>
                 <p className="text-primary text-xs font-bold mb-4">브랜딩하다 대표디렉터 & AI 솔루션 빌더</p>
                 
-                {/* Highlights */}
-                <div className="w-full space-y-2.5 text-xs text-muted-foreground border-t border-[#22222b] pt-4">
-                  <div className="flex items-center gap-2">
-                    <Building className="w-4 h-4 text-primary flex-shrink-0" />
-                    <span>5채의 숙박업 매장 실제 직접 운영 중</span>
+                {/* Highlights (비즈니스와 기술 전문성의 두 개의 축) */}
+                <div className="w-full space-y-4 text-xs text-[#8e8e9f] border-t border-[#22222b] pt-4 text-left">
+                  {/* Axis 1: Business Real Experience */}
+                  <div className="bg-[#14141a] border border-[#22222b] p-3 rounded-lg flex gap-2.5 items-start">
+                    <Building className="w-4 h-4 text-primary flex-shrink-0 mt-0.5" />
+                    <div>
+                      <span className="font-bold text-foreground block mb-0.5">실전 자영업 비즈니스 축</span>
+                      <span className="text-[11px] leading-relaxed block">
+                        5채의 오프라인 숙박업 매장 실제 직접 책임 운영 (사장님 고민 백배 공감)
+                      </span>
+                    </div>
                   </div>
-                  <div className="flex items-center gap-2">
-                    <Sparkles className="w-4 h-4 text-secondary flex-shrink-0" />
-                    <span>AI 기반 로컬 비즈니스 빌더 디렉팅</span>
+                  
+                  {/* Axis 2: AI & Technology Innovation */}
+                  <div className="bg-[#14141a] border border-[#22222b] p-3 rounded-lg flex gap-2.5 items-start">
+                    <Sparkles className="w-4 h-4 text-secondary flex-shrink-0 mt-0.5" />
+                    <div>
+                      <span className="font-bold text-foreground block mb-0.5">AI 기술/플랫폼 혁신 축</span>
+                      <span className="text-[11px] leading-relaxed block">
+                        gstack 자동화 빌더 탑재 및 경량 고속 마케팅 웹 솔루션 설계·총괄
+                      </span>
+                    </div>
                   </div>
-                  <div className="flex items-center gap-2">
-                    <MapPin className="w-4 h-4 text-accent flex-shrink-0" />
-                    <span>인천 지역 오프라인 미팅 가능</span>
+
+                  {/* Highlighted Local Partner Indicator */}
+                  <div className="bg-primary/10 border border-primary/20 p-2.5 rounded-lg flex items-center gap-2 text-primary font-black text-center justify-center">
+                    <MapPin className="w-4.5 h-4.5 animate-bounce" />
+                    <span>인천 지역 오프라인 즉시 미팅 가능</span>
                   </div>
                 </div>
               </div>

@@ -62,9 +62,16 @@ export function Hero({ onSearchStart, onSearchComplete }: HeroProps) {
 
       <div className="max-w-4xl mx-auto w-full text-center relative z-10">
         {/* Sub Badge */}
-        <div className="inline-flex items-center gap-2 px-3 py-1 mb-8 rounded-full border border-primary/20 bg-primary/5 text-primary text-xs font-bold tracking-wider uppercase animate-pulse">
-          <span className="w-1.5 h-1.5 rounded-full bg-primary" />
-          No-Code Local Builder
+        <div className="flex flex-wrap items-center justify-center gap-2 mb-8">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full border border-primary/20 bg-primary/5 text-primary text-xs font-black tracking-wider uppercase animate-pulse">
+            <span className="w-1.5 h-1.5 rounded-full bg-primary" />
+            No-Code Local Builder
+          </div>
+          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full border border-secondary/30 bg-secondary/10 text-[#f4f4f7] text-xs font-extrabold tracking-wider">
+            <span className="text-primary font-black">110만 원</span> 정찰제
+            <span className="w-1 h-1 rounded-full bg-muted-foreground/50" />
+            월 <span className="text-secondary font-bold">5.5만 원</span> 유지보수
+          </div>
         </div>
 
         {/* Main Copies */}

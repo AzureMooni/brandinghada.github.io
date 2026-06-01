@@ -50,7 +50,7 @@ export function Differentiation() {
                   최소 2주에서 수개월 소요 (시안 피드백 및 개발 지연 마찰 지속)
                 </td>
                 <td className="py-5 px-6 font-semibold text-foreground border-l border-[#22222b] bg-primary/5">
-                  단 <span className="text-primary font-bold">5분 만에</span> 사장님 전용 모바일 홈페이지 초안 즉시 빌드
+                  <span className="text-primary font-black bg-primary/10 px-2 py-0.5 rounded border border-primary/20 mr-1.5">[AI 기반 초고속 구축]</span> 단 <span className="text-primary font-bold">5분 만에</span> 사장님 전용 모바일 홈페이지 초안 즉시 빌드
                 </td>
               </tr>
               {/* Row 2 */}
@@ -60,17 +60,17 @@ export function Differentiation() {
                   수차례 기획 미팅 필수, 홈페이지에 들어갈 텍스트와 사진 직접 준비
                 </td>
                 <td className="py-5 px-6 font-semibold text-foreground border-l border-[#22222b] bg-primary/5">
-                  이미 인터넷에 쌓여있는 실제 방문자/시공 리뷰 자동 활용, <span className="text-primary font-bold">마찰 제로</span>
+                  <span className="text-secondary font-black bg-secondary/15 px-2 py-0.5 rounded border border-secondary/20 mr-1.5">[마찰 제로 프로세스]</span> 이미 인터넷에 쌓여있는 실제 방문자/시공 리뷰 자동 활용, <span className="text-primary font-bold">마찰 제로</span>
                 </td>
               </tr>
               {/* Row 3 */}
               <tr className="hover:bg-[#14141a]/30 transition-colors">
-                <td className="py-5 px-6 font-bold text-foreground">초기 비용</td>
+                <td className="py-5 px-6 font-bold text-foreground">초기 비용 & 소유권</td>
                 <td className="py-5 px-6 text-muted-foreground text-xs font-medium">
-                  제작이 시작되기 전에 수백만 원 대의 고액 착수금 및 디자인 선불금 요구
+                  수백만 원대 고액 선불금 요구 및 매년 높은 서버/수정 요금 인질 영업
                 </td>
-                <td className="py-5 px-6 font-semibold text-primary border-l border-[#22222b] bg-primary/5">
-                  초기 완성과 시안 확인은 <span className="underline decoration-primary">100% 무료</span>, 맘에 들면 월 구독 전환
+                <td className="py-5 px-6 font-semibold text-foreground border-l border-[#22222b] bg-primary/5">
+                  <span className="text-[#facc15] font-black bg-[#facc15]/10 px-2 py-0.5 rounded border border-[#facc15]/20 mr-1.5">[법적 자산권 완전 양도]</span> 시안 100% 무료 확인, 맘에 들면 <span className="text-primary font-black">110만 원 정찰제</span> 구축 (월 유지관리 5.5만 원 고정 / 완납 시 소유권 양도)
                 </td>
               </tr>
             </tbody>
@@ -127,20 +127,23 @@ export function Differentiation() {
               <div className="space-y-4 text-xs">
                 <div className="border-b border-[#22222b]/50 pb-3">
                   <span className="text-primary/70 block mb-1 font-bold">제작 기간</span>
-                  <span className="text-foreground font-extrabold">
-                    단 5분 만에 시안 초안 자동 퍼블리싱
+                  <span className="text-foreground font-extrabold flex flex-wrap items-center gap-1.5">
+                    <span className="text-[10px] text-primary font-black bg-primary/10 px-1 py-0.5 rounded border border-primary/20">[AI 기반 초고속 구축]</span>
+                    <span>단 5분 만에 시안 초안 자동 퍼블리싱</span>
                   </span>
                 </div>
                 <div className="border-b border-[#22222b]/50 pb-3">
                   <span className="text-primary/70 block mb-1 font-bold">사장님 리소스</span>
-                  <span className="text-foreground font-extrabold">
-                    기존에 이미 쌓여 있는 매장 시공 리뷰 자동 스캔, 사장님 마찰 제로
+                  <span className="text-foreground font-extrabold flex flex-wrap items-center gap-1.5">
+                    <span className="text-[10px] text-secondary font-black bg-secondary/15 px-1 py-0.5 rounded border border-secondary/20">[마찰 제로 프로세스]</span>
+                    <span>방문 시공 리뷰 자동 스캔, 사장님 개입 0%</span>
                   </span>
                 </div>
                 <div>
-                  <span className="text-primary/70 block mb-1 font-bold">초기 비용</span>
-                  <span className="text-primary font-black">
-                    완성 시안 무료 확인 후 마음에 들 때만 저렴한 월 구독형 전환
+                  <span className="text-primary/70 block mb-1 font-bold">초기 비용 & 소유권</span>
+                  <span className="text-primary font-black flex flex-wrap items-center gap-1.5 text-left">
+                    <span className="text-[10px] text-[#facc15] font-black bg-[#facc15]/10 px-1 py-0.5 rounded border border-[#facc15]/20">[법적 자산권 완전 양도]</span>
+                    <span>시안 무료 확인, 110만 원 정찰제 (월 5.5만 원 / 완납 시 자산권 양도)</span>
                   </span>
                 </div>
               </div>

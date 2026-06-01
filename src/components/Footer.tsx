@@ -25,6 +25,13 @@ export function Footer() {
                 로컬 소상공인 솔루션
               </span>
             </div>
+            
+            {/* 인천 로컬 비즈니스 파트너 인증 배지 */}
+            <div className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded bg-[#2563eb]/10 border border-[#2563eb]/20 text-[#2563eb] text-[10px] font-black tracking-wide">
+              <span className="w-1.5 h-1.5 rounded-full bg-[#2563eb] animate-pulse" />
+              인천 기반 공식 로컬 비즈니스 파트너
+            </div>
+
             <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed max-w-sm">
               우리는 구구절절 설명하지 않고 오직 실제 시공 결과물과 고객 리뷰 평판으로 입증합니다. 사장님이 시공 현장에서 땀 흘려 일하시는 순간에도 24시간 작동하는 로컬 비즈니스용 AI 세일즈 홈페이지 빌더.
             </p>
