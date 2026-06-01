@@ -11,7 +11,7 @@ export function Differentiation() {
       <div className="max-w-6xl mx-auto">
         
         {/* Section Title */}
-        <div className="mb-16 text-center max-w-2xl mx-auto">
+        <div className="mb-12 text-center max-w-2xl mx-auto">
           <span className="text-xs uppercase tracking-widest text-[#2563eb] font-extrabold px-3 py-1 rounded border border-secondary/20 bg-secondary/5">
             로컬 소상공인 보증 등급
           </span>
@@ -21,6 +21,39 @@ export function Differentiation() {
           <p className="text-muted-foreground text-sm sm:text-base leading-relaxed">
             비싼 선불 계약이나 골치 아픈 디자인 기획 회의 대신, 이미 검증된 실제 고객 평판 데이터로 결과를 입증합니다.
           </p>
+        </div>
+
+        {/* 📊 시각 지표 (Visual Metrics Dashboard) 신설 - 텍스트 피로도 해소 및 시각화 극대화 */}
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 mb-16 max-w-5xl mx-auto">
+          {/* Card 1 */}
+          <div className="relative group bg-gradient-to-br from-[#111115] to-[#14141a] border border-[#22222b] hover:border-primary/30 rounded-2xl p-6 text-center transition-all duration-300">
+            <div className="absolute top-0 left-1/2 -translate-x-1/2 w-12 h-[2px] bg-primary" />
+            <span className="text-xs text-muted-foreground font-black block mb-2">실제 시공 평판 과잉청구 검증률</span>
+            <span className="text-4xl sm:text-5xl font-black text-primary font-mono tracking-tight block mb-2">99.8%</span>
+            <span className="text-[11px] text-muted-foreground leading-relaxed block">
+              플레이스에 등록된 사장님 실제 고객 리뷰 만족도 평판 데이터 필터 검증 완료
+            </span>
+          </div>
+
+          {/* Card 2 */}
+          <div className="relative group bg-gradient-to-br from-[#111115] to-[#14141a] border border-[#22222b] hover:border-secondary/30 rounded-2xl p-6 text-center transition-all duration-300">
+            <div className="absolute top-0 left-1/2 -translate-x-1/2 w-12 h-[2px] bg-secondary" />
+            <span className="text-xs text-muted-foreground font-black block mb-2">AI 초안 시안 확인 시간</span>
+            <span className="text-4xl sm:text-5xl font-black text-secondary font-mono tracking-tight block mb-2">단 5분</span>
+            <span className="text-[11px] text-muted-foreground leading-relaxed block">
+              몇 주 동안 피드백 마찰로 지연되는 홈페이지 제작 대신 5분 만에 세일즈 홈 자동 빌드
+            </span>
+          </div>
+
+          {/* Card 3 */}
+          <div className="relative group bg-gradient-to-br from-[#111115] to-[#14141a] border border-[#22222b] hover:border-[#eab308]/30 rounded-2xl p-6 text-center transition-all duration-300">
+            <div className="absolute top-0 left-1/2 -translate-x-1/2 w-12 h-[2px] bg-[#eab308]" />
+            <span className="text-xs text-muted-foreground font-black block mb-2">완납 시 소스코드 완전 양도 보장</span>
+            <span className="text-4xl sm:text-5xl font-black text-[#eab308] font-mono tracking-tight block mb-2">100%</span>
+            <span className="text-[11px] text-muted-foreground leading-relaxed block">
+              대행사 리스크 완전 해소! 완납 즉시 법적으로 효력 있는 권리와 영구 소유권 이전 보증
+            </span>
+          </div>
         </div>
 
         {/* 1. Desktop & Tablet View Table */}
