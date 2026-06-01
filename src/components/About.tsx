@@ -69,21 +69,6 @@ export function About() {
                 </div>
               </div>
             </div>
-
-            {/* 📸 오프라인 미팅 현장 실사 인포그래픽 이미지 추가 (텍스트 해소 및 시각화 극대화) */}
-            <div className="relative group rounded-2xl overflow-hidden border border-[#22222b] bg-[#111115]/50 shadow-2xl transition-all duration-300 hover:border-primary/20">
-              <img 
-                src="/offline_coffee_chat.png" 
-                alt="인천 오프라인 커피챗 미팅 현장" 
-                className="w-full h-auto object-cover aspect-[4/3] group-hover:scale-105 transition-transform duration-500"
-              />
-              <div className="absolute bottom-0 inset-x-0 bg-gradient-to-t from-black via-black/80 to-transparent p-4 text-left">
-                <span className="text-[9px] text-primary font-black uppercase tracking-wider block mb-0.5">실제 오프라인 미팅 현장</span>
-                <p className="text-[11px] text-white font-bold leading-relaxed">
-                  인천 및 로컬 사장님들과 차를 마시며 마케팅 고민을 직접 해결하는 현장
-                </p>
-              </div>
-            </div>
           </div>
 
           {/* Right Side: Message Details */}
