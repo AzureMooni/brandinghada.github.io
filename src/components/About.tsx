@@ -103,7 +103,7 @@ export function About() {
                   <div className="w-full bg-secondary rounded h-[85%] transition-all animate-pulse" />
                   <div className="w-full bg-primary rounded h-[96%] transition-all" />
                 </div>
-                <div className="flex justify-between text-[8px] text-slate-500 font-mono">
+                <div className="flex justify-between text-[8px] text-slate-400 font-mono">
                   <span>2월</span>
                   <span>3월</span>
                   <span>4월</span>

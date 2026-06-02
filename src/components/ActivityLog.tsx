@@ -86,7 +86,7 @@ export function ActivityLog() {
                     <span className="text-xs font-black bg-[#1b1b22] text-muted-foreground px-2 py-0.5 rounded border border-[#22222b]">
                       {log.tag}
                     </span>
-                    <span className="text-xs font-bold text-slate-500 font-mono flex items-center gap-1">
+                    <span className="text-xs font-bold text-slate-400 font-mono flex items-center gap-1">
                       <Clock className="w-3.5 h-3.5" />
                       <span>{log.time}</span>
                     </span>

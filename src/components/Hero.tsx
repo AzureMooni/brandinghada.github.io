@@ -122,7 +122,7 @@ export function Hero({ onSearchStart, onSearchComplete }: HeroProps) {
         {/* 🖊️ 스캔 가능한 레이아웃 & 형광펜 효과(Highlight-yellow) 가미 */}
         <p className="text-base sm:text-lg md:text-xl text-muted-foreground mb-12 max-w-3xl mx-auto font-medium leading-[1.6]">
           우리는 구구절절 설명하지 않습니다. 말뿐인 영업에 속지 마세요.<br className="hidden sm:inline" />
-          AI가 사장님의 실제 시공/매장 리뷰를 분석하여 <span className="text-slate-950 font-black highlight-yellow">5분 만에 만든 홈페이지 시안</span>을 지금 바로 확인해 보세요.
+          AI가 사장님의 실제 시공/매장 리뷰를 분석하여 <span className="text-slate-100 font-black highlight-yellow">5분 만에 만든 홈페이지 시안</span>을 지금 바로 확인해 보세요.
         </p>
 
         {/* Search Bar UI */}

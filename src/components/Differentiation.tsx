@@ -73,7 +73,7 @@ export function Differentiation() {
               <CountUp end={99.8} decimals={1} suffix="%" />
             </span>
             <span className="text-[11.5px] text-muted-foreground leading-relaxed block">
-              플레이스에 등록된 사장님 실제 고객 리뷰 만족도 <span className="highlight-yellow text-slate-950 font-extrabold">평판 빅데이터 필터 검증</span> 완료
+              플레이스에 등록된 사장님 실제 고객 리뷰 만족도 <span className="highlight-yellow text-slate-100 font-extrabold">평판 빅데이터 필터 검증</span> 완료
             </span>
           </div>
 
@@ -97,7 +97,7 @@ export function Differentiation() {
               <CountUp end={100} suffix="%" />
             </span>
             <span className="text-[11.5px] text-muted-foreground leading-relaxed block">
-              대행사 인질 리스크 완전 제거! 완납 즉시 법적으로 <span className="highlight-yellow text-slate-950 font-extrabold">영구 소유권 이전 권리</span> 성문화 보증
+              대행사 인질 리스크 완전 제거! 완납 즉시 법적으로 <span className="highlight-yellow text-slate-100 font-extrabold">영구 소유권 이전 권리</span> 성문화 보증
             </span>
           </div>
         </div>
