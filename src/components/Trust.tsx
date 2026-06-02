@@ -137,7 +137,8 @@ export function Trust() {
         </div>
 
         {/* Part 2: Trust & Safety Guarantees (신뢰와 안전장치 - 공인 약정서 스타일) */}
-        <div className="pt-8 border-t border-[#22222b]/30">
+        {/* Part 2: Trust & Safety Guarantees (신뢰와 안전장치 - 공인 약정서 스타일) */}
+        <div className="pt-16 border-t border-[#22222b]/30">
           <div className="text-center max-w-2xl mx-auto mb-16">
             <span className="inline-flex items-center gap-1.5 text-xs uppercase tracking-widest text-secondary font-extrabold px-3 py-1 rounded-full border border-secondary/20 bg-secondary/5 mb-4">
               <CheckCircle2 className="w-3 h-3 text-secondary animate-pulse" />
@@ -147,13 +148,13 @@ export function Trust() {
               안심하고 맡기세요,<br />계약서로 명시하는 신뢰와 안전장치
             </h2>
             <p className="text-muted-foreground text-sm sm:text-base leading-[1.6]">
-              제작 업체들의 고질적인 갑질이나 자산 인질 영업이 두려우셨나요?<br className="hidden sm:inline" />
+              제작 대행사들의 갑질이나 도메인 기술 인질극이 두려우셨나요?<br className="hidden sm:inline" />
               브랜딩하다는 모든 법적 안전망과 권리 조항을 표준 계약서 상에 명확히 표기하여 완전히 보호해 드립니다.
             </p>
           </div>
 
           {/* 📜 공인 약정서 (White Paper) 스타일 컨테이너 */}
-          <div className="max-w-4xl mx-auto bg-[#ffffff] text-slate-800 border-t-8 border-t-secondary border border-slate-200 rounded-3xl p-6 sm:p-12 shadow-2xl relative overflow-visible text-left mb-10">
+          <div className="max-w-4xl mx-auto bg-[#ffffff] text-slate-800 border-t-8 border-t-secondary border border-slate-200 rounded-3xl p-6 sm:p-12 shadow-2xl relative overflow-visible text-left mb-16">
             {/* Watermark/Stamp effect decoration */}
             <div className="absolute right-6 top-6 opacity-[0.03] pointer-events-none select-none">
               <Stamp className="w-56 h-56 text-secondary" />
@@ -177,45 +178,51 @@ export function Trust() {
 
             {/* Clauses List (인터랙티브 툴팁 탑재 및 SEO를 위한 h3 적용) */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 sm:gap-10">
-              {safetyGuarantees.map((item, idx) => (
-                <div 
-                  key={idx} 
-                  className="group relative flex items-start gap-3.5 leading-[1.6] bg-slate-50/50 hover:bg-slate-50 border border-transparent hover:border-slate-100 p-4 rounded-2xl transition-all duration-300 cursor-help"
-                >
-                  {/* 💬 마우스 호버 / 터치 시 솟아오르는 CSS 기반 인터랙티브 툴팁(Tooltip) */}
-                  <div className="absolute left-1/2 -translate-x-1/2 bottom-full mb-3 w-80 bg-slate-950 border border-slate-800 text-slate-100 rounded-xl p-4.5 shadow-[0_15px_30px_rgba(0,0,0,0.4)] opacity-0 translate-y-2 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300 pointer-events-none z-30 text-xs leading-relaxed select-none">
-                    <div className="absolute top-full left-1/2 -translate-x-1/2 -mt-1.5 border-4 border-transparent border-t-slate-950" />
-                    <p className="font-extrabold text-primary mb-1.5 flex items-center gap-1.5 text-[13px]">
-                      <Info className="w-4 h-4 text-primary fill-primary/10" />
-                      <span>보증 계약서 명시 효력</span>
-                    </p>
-                    <p className="text-slate-300 font-medium">{item.tooltipDetail}</p>
-                  </div>
+              {safetyGuarantees.map((item, idx) => {
+                // 조항 번호 매핑
+                const clauseNum = idx === 0 ? "제4조(소유권)" : idx === 1 ? "제5조(기술이전)" : idx === 2 ? "제2조(유지보수)" : "제5조(손해배상)";
+                return (
+                  <div 
+                    key={idx} 
+                    className="group relative flex items-start gap-3.5 leading-[1.6] bg-slate-50/50 hover:bg-slate-50 border border-slate-100 p-4 rounded-2xl transition-all duration-300 cursor-help"
+                  >
+                    {/* 💬 마우스 호버 / 터치 시 솟아오르는 CSS 기반 인터랙티브 툴팁(Tooltip) */}
+                    <div className="absolute left-1/2 -translate-x-1/2 bottom-full mb-3 w-80 bg-slate-950 border border-slate-800 text-slate-100 rounded-xl p-4.5 shadow-[0_15px_30px_rgba(0,0,0,0.4)] opacity-0 translate-y-2 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300 pointer-events-none z-30 text-xs leading-relaxed select-none">
+                      <div className="absolute top-full left-1/2 -translate-x-1/2 -mt-1.5 border-4 border-transparent border-t-slate-950" />
+                      <p className="font-extrabold text-primary mb-1.5 flex items-center gap-1.5 text-[13px]">
+                        <Info className="w-4 h-4 text-primary fill-primary/10" />
+                        <span>보증 계약서 명시 효력</span>
+                      </p>
+                      <p className="text-slate-300 font-medium">{item.tooltipDetail}</p>
+                    </div>
 
-                  <div className="w-9 h-9 rounded-lg bg-slate-100 border border-slate-200 flex items-center justify-center flex-shrink-0 text-secondary group-hover:scale-105 transition-transform duration-300">
-                    {item.icon}
+                    <div className="w-9 h-9 rounded-lg bg-slate-100 border border-slate-200 flex items-center justify-center flex-shrink-0 text-secondary group-hover:scale-105 transition-transform duration-300">
+                      {item.icon}
+                    </div>
+                    <div className="space-y-1.5">
+                      <div className="flex items-center gap-1.5">
+                        <span className="text-[10.5px] font-black text-secondary bg-secondary/10 px-2 py-0.5 rounded-md border border-secondary/20">
+                          {clauseNum}
+                        </span>
+                        <span className="text-[9px] text-slate-400 bg-slate-200/50 px-1 py-0.5 rounded font-black group-hover:text-secondary group-hover:bg-secondary/10 transition-colors">자세히 ⓘ</span>
+                      </div>
+                      <h3 className="text-base sm:text-lg font-black text-slate-900 mb-1 tracking-tight">
+                        {item.title}
+                      </h3>
+                      <p className="text-slate-600 font-extrabold text-xs mb-2 leading-relaxed">
+                        {item.desc}
+                      </p>
+                      <p className="text-slate-500 text-xs sm:text-[13px] leading-[1.65] font-medium word-break-keep-all">
+                        {item.detail}
+                      </p>
+                    </div>
                   </div>
-                  <div>
-                    <span className="text-[10px] font-black text-secondary tracking-wide uppercase block flex items-center gap-1.5">
-                      <span>{item.clause}</span>
-                      <span className="text-[9px] text-slate-400 bg-slate-200/50 px-1 py-0.5 rounded font-black group-hover:text-secondary group-hover:bg-secondary/10 transition-colors">자세히 ⓘ</span>
-                    </span>
-                    <h3 className="text-base sm:text-lg font-black text-slate-900 mb-1 tracking-tight">
-                      {item.title}
-                    </h3>
-                    <p className="text-slate-600 font-extrabold text-xs mb-2 leading-relaxed">
-                      {item.desc}
-                    </p>
-                    <p className="text-slate-500 text-xs sm:text-[13px] leading-[1.65] font-medium word-break-keep-all">
-                      {item.detail}
-                    </p>
-                  </div>
-                </div>
-              ))}
+                );
+              })}
             </div>
 
             {/* Document Signature Box */}
-            <div className="mt-12 pt-8 border-t border-slate-100 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-6">
+            <div className="mt-12 pt-8 border-t border-slate-200 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-6">
               <p className="text-slate-400 text-xs font-medium leading-relaxed max-w-md">
                 ※ 본 내용은 실재하는 코리아니티 표준 마케팅/개발 계약서 상의 핵심 기재 내용을 정직하게 요약한 것입니다. 모든 소스코드 소유권과 자유로운 도메인 제어 권한은 사장님의 완전한 권리로 보장받습니다.
               </p>
@@ -231,35 +238,29 @@ export function Trust() {
                 <span className="text-sm text-slate-900 font-black tracking-wide">
                   브랜딩하다 대표이사 <span className="text-secondary font-serif italic text-base font-bold ml-1 relative">
                     김 경 문
-                    <span className="absolute -top-1.5 -right-3 text-[10px] text-red-500 font-black border border-red-500 rounded px-0.5 scale-75 rotate-12">인</span>
+                    <span className="absolute -top-1.5 -right-3 text-[10px] text-red-600 border-2 border-red-600 rounded-full px-1.5 font-bold scale-75 rotate-12 bg-white/80 animate-pulse">인</span>
                   </span>
                 </span>
               </div>
             </div>
           </div>
 
-          {/* Action Center - PDF 다운로드 링크 포함 */}
-          <div className="max-w-4xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4 bg-[#111115] border border-[#22222b] rounded-2xl p-5 sm:p-6 text-left">
-            <div>
-              <p className="text-foreground text-sm sm:text-base font-bold mb-0.5 flex items-center gap-2">
-                <span className="w-1.5 h-1.5 rounded-full bg-secondary animate-pulse" />
-                "표준 약정서를 기반으로 투명하게 계약합니다."
-              </p>
-              <p className="text-muted-foreground text-xs leading-[1.5]">
-                도메인 인질극 등 대행사 리스크에서 벗어나 계약 체결 즉시 법적인 권리와 완벽한 보호를 받으세요.
-              </p>
-            </div>
-            
+          {/* Action Center - PDF 다운로드 링크 포함 (정중앙 주인공 배치) */}
+          <div className="max-w-xl mx-auto text-center space-y-4">
+            <p className="text-[#8e8e9f] text-xs sm:text-sm font-semibold leading-relaxed">
+              도메인 인질극 등 대행사 리스크에서 벗어나 계약 체결 즉시 법적인 권리와 완벽한 보호를 받으세요.
+            </p>
             <a 
               href="#" 
               onClick={(e) => {
                 e.preventDefault();
                 alert("현재는 샘플 모드입니다. 공식 미팅 신청 시 법인 도장이 날인된 정식 표준 약정서 초안 사본(PDF)을 직접 제공해 드립니다.");
               }}
-              className="w-full sm:w-auto px-5 py-3 bg-white hover:bg-slate-50 text-slate-900 border border-slate-200 font-black text-xs sm:text-sm rounded-xl flex items-center justify-center gap-2 transition-all cursor-pointer shadow-lg"
+              className="w-full py-4.5 bg-gradient-to-r from-secondary via-blue-600 to-secondary hover:opacity-95 text-white font-black text-sm sm:text-base rounded-2xl flex items-center justify-center gap-2.5 transition-all hover:scale-[1.02] hover:shadow-[0_10px_25px_rgba(37,99,234,0.35)] cursor-pointer text-center"
             >
+              <FileText className="w-5 h-5 text-white" />
               <span>실제 표준 약정서 샘플 보기 (PDF)</span>
-              <ArrowUpRight className="w-4 h-4 text-slate-900" />
+              <ArrowUpRight className="w-4.5 h-4.5 text-white" />
             </a>
           </div>
 

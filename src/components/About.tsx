@@ -129,21 +129,21 @@ export function About() {
             </div>
 
             <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-foreground leading-[1.3]">
-              "사업을 해본 사람만이<br className="sm:hidden" /> 사장님의 마음을 압니다."
+              "임대료 무서운 줄 아는 개발자 김경문입니다.<br className="hidden sm:inline" /> 인천 사장님들, 커피 한 잔 하시죠."
             </h2>
 
             <div className="space-y-4 text-[#8e8e9f] text-sm sm:text-base leading-[1.7] font-medium text-left">
               <p>
-                안녕하세요, 브랜딩하다를 이끌고 있는 김경문입니다.
+                저 또한 인천 남동구 등지에서 <strong className="text-foreground font-bold">5채의 STAY 오프라인 공간</strong>을 직접 대출받아 창업하고 매월 꼬박꼬박 임대료와 이자를 감당하며 밤낮으로 쓸고 닦는 동료 자영업자입니다.
               </p>
               <p>
-                저 또한 인천 등지에서 <strong className="text-foreground font-bold">5채의 숙박업 매장</strong>을 직접 창업하고 땀 흘리며 운영하고 있습니다. 전단지를 돌리고, 포털 지도를 편집하고, 고객 한 명에게 머리 조아리던 실제 현장의 치열함을 몸소 겪었습니다.
+                화려한 프레젠테이션과 비현실적인 기획서로 무장한 강남의 대형 IT 에이전시들은 사장님이 매월 1일이 될 때마다 맞닥뜨리는 임대료와 직원 주휴수당의 그 무서운 무게를 1g도 알지 못합니다.
               </p>
               <p>
-                화려한 미사여구와 비현실적인 기획서로 무장한 IT 대행사들은 사장님이 매월 납부해야 하는 임대료와 인건비의 무게를 알지 못합니다. 그렇기에 저는 오직 <strong className="text-foreground font-bold">'실질적인 온라인 고객 전환'</strong>에만 집중하는 가장 실용적인 gstack 솔루션을 만들었습니다.
+                그렇기에 저는 쓸데없는 장식성 기능은 과감히 버리고, 오직 **'현장 전화 문의와 예약'**만 기필코 끌어오는 가장 직관적이고 고속인 gstack 솔루션을 직접 설계하고 운영 중입니다.
               </p>
               <p>
-                컴퓨터 화면 뒤에 숨지 않겠습니다. <strong className="text-primary font-bold">인천 지역 소상공인</strong> 사장님이시라면 언제든 불러주십시오. 따뜻한 아메리카노 한 잔과 함께, 사장님의 고민과 마케팅 방향을 오프라인에서 허심탄회하게 맞대어 드릴 것을 약속합니다.
+                인천 소상공인 사장님이시라면 언제든 불러주십시오. 따뜻한 커피 한 잔 들고 방문하여, 사장님의 매장 플레이스 분석과 온라인 비즈니스 무기 구축 방향을 허심탄회하게 진단해 드리겠습니다.
               </p>
             </div>
 
