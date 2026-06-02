@@ -1,11 +1,48 @@
-"use client";
-
-import { useState, useRef, FormEvent } from "react";
+import { useState, useRef, FormEvent, useEffect } from "react";
 import { Search, Loader2 } from "lucide-react";
 
 interface HeroProps {
   onSearchStart: (keyword: string) => void;
   onSearchComplete: (keyword: string) => void;
+}
+
+// 🔢 Count-up 애니메이션 컴포넌트 추가 (가독성 & 신뢰 증거 강화)
+interface CountUpProps {
+  end: number;
+  duration?: number;
+  suffix?: string;
+  prefix?: string;
+  decimals?: number;
+}
+
+export function CountUp({ end, duration = 1200, suffix = "", prefix = "", decimals = 0 }: CountUpProps) {
+  const [count, setCount] = useState(0);
+
+  useEffect(() => {
+    let startTime: number | null = null;
+    const animate = (timestamp: number) => {
+      if (!startTime) startTime = timestamp;
+      const progress = Math.min((timestamp - startTime) / duration, 1);
+      const val = progress * end;
+      setCount(Number(val.toFixed(decimals)) as any);
+
+      if (progress < 1) {
+        requestAnimationFrame(animate);
+      }
+    };
+    requestAnimationFrame(animate);
+  }, [end, duration, decimals]);
+
+  return (
+    <span>
+      {prefix}
+      {count.toLocaleString(undefined, {
+        minimumFractionDigits: decimals,
+        maximumFractionDigits: decimals,
+      })}
+      {suffix}
+    </span>
+  );
 }
 
 export function Hero({ onSearchStart, onSearchComplete }: HeroProps) {
@@ -55,22 +92,22 @@ export function Hero({ onSearchStart, onSearchComplete }: HeroProps) {
   };
 
   return (
-    <section className="relative pt-32 pb-20 md:pt-44 md:pb-28 flex flex-col items-center justify-center overflow-hidden px-6">
+    <section className="relative pt-44 pb-32 md:pt-60 md:pb-44 flex flex-col items-center justify-center overflow-hidden px-6 bg-gradient-to-b from-background to-[#070709]">
       {/* Background Decorative Gradients */}
       <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-secondary/5 rounded-full blur-[120px] pointer-events-none" />
       <div className="absolute top-1/3 left-1/3 w-[300px] h-[300px] bg-primary/3 rounded-full blur-[100px] pointer-events-none" />
 
       <div className="max-w-4xl mx-auto w-full text-center relative z-10">
-        {/* Sub Badge */}
+        {/* Sub Badge (Count-up 연동 가격 배지) */}
         <div className="flex flex-wrap items-center justify-center gap-2 mb-8">
           <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full border border-primary/20 bg-primary/5 text-primary text-xs font-black tracking-wider uppercase animate-pulse">
             <span className="w-1.5 h-1.5 rounded-full bg-primary" />
             No-Code Local Builder
           </div>
           <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full border border-secondary/30 bg-secondary/10 text-[#f4f4f7] text-xs font-extrabold tracking-wider">
-            <span className="text-primary font-black">110만 원</span> 정찰제
+            <CountUp end={110} suffix="만 원" /> 정찰제
             <span className="w-1 h-1 rounded-full bg-muted-foreground/50" />
-            월 <span className="text-secondary font-bold">5.5만 원</span> 유지보수
+            월 <CountUp end={5.5} duration={1200} decimals={1} suffix="만 원" /> 유지보수
           </div>
         </div>
 
@@ -82,9 +119,10 @@ export function Hero({ onSearchStart, onSearchComplete }: HeroProps) {
           </span>
         </h1>
 
+        {/* 🖊️ 스캔 가능한 레이아웃 & 형광펜 효과(Highlight-yellow) 가미 */}
         <p className="text-base sm:text-lg md:text-xl text-muted-foreground mb-12 max-w-3xl mx-auto font-medium leading-[1.6]">
           우리는 구구절절 설명하지 않습니다. 말뿐인 영업에 속지 마세요.<br className="hidden sm:inline" />
-          AI가 사장님의 실제 시공/매장 리뷰를 분석하여 <span className="text-foreground font-bold underline decoration-primary">5분 만에 만든 홈페이지 시안</span>을 지금 바로 확인해 보세요.
+          AI가 사장님의 실제 시공/매장 리뷰를 분석하여 <span className="text-slate-950 font-black highlight-yellow">5분 만에 만든 홈페이지 시안</span>을 지금 바로 확인해 보세요.
         </p>
 
         {/* Search Bar UI */}
@@ -93,7 +131,7 @@ export function Hero({ onSearchStart, onSearchComplete }: HeroProps) {
             {/* Glow border on focus/hover */}
             <div className="absolute -inset-0.5 bg-gradient-to-r from-primary to-secondary rounded-2xl blur opacity-30 group-focus-within:opacity-75 group-hover:opacity-50 transition duration-300 pointer-events-none" />
             
-            <div className="relative flex items-center bg-[#111115] border border-[#22222b] rounded-2xl overflow-hidden px-4 sm:px-6 py-4">
+            <div className="relative flex items-center bg-[#111115] border border-[#22222b] rounded-2xl overflow-hidden px-4 sm:px-6 py-4.5">
               <Search className="w-5 h-5 text-muted-foreground mr-3 sm:mr-4 flex-shrink-0" />
               
               <input
@@ -106,11 +144,14 @@ export function Hero({ onSearchStart, onSearchComplete }: HeroProps) {
                 className="w-full bg-transparent text-foreground placeholder:text-muted-foreground outline-none text-base sm:text-lg font-medium pr-12"
               />
 
+              {/* ✨ 입체적인 Shimmer 광원 효과 CTA 버튼으로 업그레이드 */}
               <button
                 type="submit"
                 disabled={isLoading || !keyword.trim()}
-                className="absolute right-2 px-4 sm:px-6 py-2.5 rounded-xl bg-gradient-to-r from-primary to-accent text-background font-bold text-sm hover:opacity-90 disabled:opacity-50 disabled:from-muted disabled:to-muted disabled:text-muted-foreground transition-all duration-300 flex items-center gap-2 cursor-pointer"
+                className="absolute right-2 px-5 sm:px-7 py-3 rounded-xl bg-gradient-to-r from-primary via-accent to-primary text-background font-black text-sm hover:opacity-95 hover:scale-[1.03] active:scale-[0.98] disabled:opacity-50 disabled:scale-100 disabled:from-muted disabled:to-muted disabled:text-muted-foreground transition-all duration-300 flex items-center gap-2 cursor-pointer shadow-[0_0_20px_rgba(250,204,21,0.25)] hover:shadow-[0_0_30px_rgba(250,204,21,0.4)] overflow-hidden group/btn"
               >
+                {/* Shimmer overlay block */}
+                <div className="absolute inset-0 w-1/2 h-full bg-white/20 transform -skew-x-12 -translate-x-full group-hover/btn:animate-[shimmer_1.2s_infinite] pointer-events-none" />
                 {isLoading ? (
                   <>
                     <Loader2 className="w-4 h-4 animate-spin" />
@@ -118,7 +159,9 @@ export function Hero({ onSearchStart, onSearchComplete }: HeroProps) {
                   </>
                 ) : (
                   <>
-                    <span>시안 확인하기</span>
+                    <span className="relative z-10 flex items-center gap-1">
+                      <span>시안 즉시 확인하기</span>
+                    </span>
                   </>
                 )}
               </button>

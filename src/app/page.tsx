@@ -6,6 +6,7 @@ import { Hero } from "@/components/Hero";
 import { InteractivePreview } from "@/components/InteractivePreview";
 import { Trust } from "@/components/Trust";
 import { Differentiation } from "@/components/Differentiation";
+import { ActivityLog } from "@/components/ActivityLog";
 import { About } from "@/components/About";
 import { Footer } from "@/components/Footer";
 
@@ -60,10 +61,13 @@ export default function Home() {
       {/* 5. Agent Differentiation Grid Section */}
       <Differentiation />
 
-      {/* 6. Personal Branding Representative Intro Section */}
+      {/* 6. Live Activity Log Section */}
+      <ActivityLog />
+
+      {/* 7. Personal Branding Representative Intro Section */}
       <About />
 
-      {/* 7. Footer Service Info */}
+      {/* 8. Footer Service Info */}
       <Footer />
     </main>
   );

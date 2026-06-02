@@ -72,3 +72,26 @@
 ::-webkit-scrollbar-thumb:hover {
   background: #333340;
 }
+
+/* Shimmer Light Source Animation Keyframes */
+@keyframes shimmer {
+  0% {
+    transform: skewX(-15deg) translateX(-200%);
+  }
+  100% {
+    transform: skewX(-15deg) translateX(300%);
+  }
+}
+
+/* Premium Marker Highlight utilities */
+.highlight-yellow {
+  background: linear-gradient(180deg, rgba(255,255,255,0) 55%, rgba(250, 204, 21, 0.28) 45%);
+  padding: 0 4px;
+  border-radius: 4px;
+}
+
+.highlight-blue {
+  background: linear-gradient(180deg, rgba(255,255,255,0) 55%, rgba(37, 99, 234, 0.25) 45%);
+  padding: 0 4px;
+  border-radius: 4px;
+}
