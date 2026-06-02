@@ -158,15 +158,13 @@ export function About() {
                   <p className="text-xs text-muted-foreground mt-0.5 leading-[1.5]">가벼운 비즈니스 고민 상담부터 시안 무료 진단까지</p>
                 </div>
               </div>
-              <a 
-                href="https://blog.naver.com/brandinghada"
-                target="_blank"
-                rel="noopener noreferrer"
+              <button 
+                onClick={() => alert("오프라인 미팅 신청은 공식 연락처(상호 하단 표기 정보) 또는 이메일 접수를 통해 상시 예약 접수를 도와드립니다.")}
                 className="w-full sm:w-auto px-4 py-2 bg-primary text-background font-bold text-xs sm:text-sm rounded-lg hover:opacity-90 flex items-center justify-center gap-1.5 transition-all cursor-pointer"
               >
-                <span>블로그로 미팅 문의하기</span>
+                <span>미팅 신청하기</span>
                 <ArrowRight className="w-4.5 h-4.5" />
-              </a>
+              </button>
             </div>
 
             {/* Footer Signature Box */}

@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { Youtube, Instagram, Music, ArrowUpRight } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
 
 export function Footer() {
   const currentYear = new Date().getFullYear();
@@ -35,46 +35,6 @@ export function Footer() {
             <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed max-w-sm">
               우리는 구구절절 설명하지 않고 오직 실제 시공 결과물과 고객 리뷰 평판으로 입증합니다. 사장님이 시공 현장에서 땀 흘려 일하시는 순간에도 24시간 작동하는 로컬 비즈니스용 AI 세일즈 홈페이지 빌더.
             </p>
-            
-            {/* Social Icons */}
-            <div className="flex items-center gap-4 pt-2">
-              <a 
-                href="https://blog.naver.com/brandinghada" 
-                target="_blank" 
-                rel="noopener noreferrer" 
-                className="p-2 rounded-lg bg-[#111115] border border-[#22222b] hover:border-primary/50 text-muted-foreground hover:text-primary transition-all duration-300"
-                aria-label="네이버 블로그"
-              >
-                <span className="text-xs font-black font-mono">B.</span>
-              </a>
-              <a 
-                href="https://youtube.com/channel/UC0VgLW6y_VWGBuLHbcMT4Rg?si=Wjn732zukQ4MlQRM" 
-                target="_blank" 
-                rel="noopener noreferrer" 
-                className="p-2 rounded-lg bg-[#111115] border border-[#22222b] hover:border-primary/50 text-muted-foreground hover:text-primary transition-all duration-300"
-                aria-label="유튜브"
-              >
-                <Youtube className="w-4 h-4" />
-              </a>
-              <a 
-                href="https://www.instagram.com/branding_hada" 
-                target="_blank" 
-                rel="noopener noreferrer" 
-                className="p-2 rounded-lg bg-[#111115] border border-[#22222b] hover:border-primary/50 text-muted-foreground hover:text-primary transition-all duration-300"
-                aria-label="인스타그램"
-              >
-                <Instagram className="w-4 h-4" />
-              </a>
-              <a 
-                href="https://www.tiktok.com/@branding_hada" 
-                target="_blank" 
-                rel="noopener noreferrer" 
-                className="p-2 rounded-lg bg-[#111115] border border-[#22222b] hover:border-primary/50 text-muted-foreground hover:text-primary transition-all duration-300"
-                aria-label="틱톡"
-              >
-                <Music className="w-4 h-4" />
-              </a>
-            </div>
           </div>
 
           {/* Company Info */}
