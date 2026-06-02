@@ -165,7 +165,7 @@ export function InteractivePreview({ keyword, isSearched }: InteractivePreviewPr
 
     const rawNumber = phoneNumber.replace(/[^0-9]/g, "");
     if (rawNumber.length < 10) {
-      alert("올바른 휴대폰 번호를 입력해 주세요.");
+      alert("올바른 휴대폰 번호 10~11자리를 입력해 주세요.");
       return;
     }
 
@@ -173,6 +173,8 @@ export function InteractivePreview({ keyword, isSearched }: InteractivePreviewPr
     setIsKakaoSent(true);
     setShowToast(true);
     setPhoneNumber("");
+    
+    alert(`[알림톡 시안 발송 성공]\n\n사장님 가게 맞춤형 5분 홈페이지 임시 시안이 전송되었습니다!\n\n오른쪽 스마트폰 시뮬레이터 화면을 확인하시면 카카오 알림톡 수신 내용과 임시 주소를 직접 체험해보실 수 있습니다.`);
 
     setTimeout(() => {
       setShowToast(false);
@@ -180,7 +182,8 @@ export function InteractivePreview({ keyword, isSearched }: InteractivePreviewPr
   };
 
   const handlePhoneCallDemo = () => {
-    alert(`[전화 연결 시뮬레이션]\n"${displayKeyword}" 사장님 직통 스마트폰 통화로 자연스럽게 연결됩니다.`);
+    // 실제 통화 다이얼 화면 활성화
+    window.location.href = "tel:010-3054-3990";
   };
 
   const handleResetKakaoDemo = () => {
@@ -190,7 +193,7 @@ export function InteractivePreview({ keyword, isSearched }: InteractivePreviewPr
   return (
     <section 
       id="interactive-preview"
-      className={`relative py-24 border-t border-[#22222b]/50 overflow-hidden px-6 transition-all duration-1000 ${
+      className={`relative py-24 border-t border-slate-200 overflow-hidden px-6 transition-all duration-1000 bg-white ${
         isSearched ? "opacity-100 translate-y-0" : "opacity-90"
       }`}
     >
@@ -198,14 +201,14 @@ export function InteractivePreview({ keyword, isSearched }: InteractivePreviewPr
       {showToast && (
         <div className="fixed bottom-8 right-8 z-50 animate-in slide-in-from-bottom-5 fade-in duration-300">
           <div className="relative group">
-            <div className="absolute -inset-0.5 bg-gradient-to-r from-primary to-secondary rounded-xl blur opacity-70" />
-            <div className="relative flex items-center gap-3 bg-[#111115] border border-[#22222b] px-6 py-4 rounded-xl shadow-2xl">
-              <div className="w-8 h-8 rounded-full bg-primary/20 flex items-center justify-center text-primary">
+            <div className="absolute -inset-0.5 bg-gradient-to-r from-yellow-500 to-blue-500 rounded-xl blur opacity-30" />
+            <div className="relative flex items-center gap-3 bg-white border border-slate-300 px-6 py-4 rounded-xl shadow-2xl">
+              <div className="w-8 h-8 rounded-full bg-yellow-500/20 flex items-center justify-center text-yellow-600">
                 <CheckCircle className="w-5 h-5" />
               </div>
               <div>
-                <p className="text-sm font-bold text-foreground">[알림톡 도착] 모바일을 확인하십시오.</p>
-                <p className="text-xs text-muted-foreground mt-0.5">폰 화면이 카카오 알림톡 수신 모드로 모핑되었습니다.</p>
+                <p className="text-sm font-bold text-slate-800">[알림톡 도착] 모바일을 확인하십시오.</p>
+                <p className="text-xs text-slate-500 mt-0.5">폰 화면이 카카오 알림톡 수신 모드로 모핑되었습니다.</p>
               </div>
             </div>
           </div>
@@ -222,16 +225,16 @@ export function InteractivePreview({ keyword, isSearched }: InteractivePreviewPr
           <span className="text-xs uppercase tracking-widest text-[#2563eb] font-extrabold px-3 py-1 rounded border border-secondary/20 bg-secondary/5">
             {isSearched ? "초정밀 모바일 시안 생성 완료" : "실제 완성 시안 샘플 구동 중"}
           </span>
-          <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-foreground mt-4 mb-3">
+          <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-slate-900 mt-4 mb-3">
             {isSearched ? (
               <>
-                실시간 매칭 결과: <span className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent font-black">{displayKeyword}</span>
+                실시간 매칭 결과: <span className="text-blue-700 font-black">{displayKeyword}</span>
               </>
             ) : (
               "사장님이 땀 흘려 일하실 때도, 홈페이지가 세일즈합니다."
             )}
           </h2>
-          <p className="text-muted-foreground text-sm sm:text-base leading-relaxed">
+          <p className="text-slate-600 text-base sm:text-lg leading-relaxed font-bold">
             리뷰 평판 빅데이터를 분석하여 신뢰도를 떨어뜨리는 단어를 거르고, 시공 퀄리티가 돋보이도록 전용 슬라이더 포트폴리오를 적용했습니다.
           </p>
         </div>
@@ -240,20 +243,20 @@ export function InteractivePreview({ keyword, isSearched }: InteractivePreviewPr
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start mb-16">
           
           {/* LEFT: Place Review Dashboard */}
-          <div className="lg:col-span-5 bg-[#111115] border border-[#22222b] rounded-2xl p-6 sm:p-8 relative overflow-hidden group hover:border-[#333340] transition-colors duration-300 h-full">
+          <div className="lg:col-span-5 bg-slate-50 border border-slate-200 rounded-2xl p-6 sm:p-8 relative overflow-hidden group hover:border-slate-300 transition-colors duration-300 h-full">
             <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-primary to-transparent" />
             
             <div className="flex items-center justify-between mb-8">
               <div>
-                <h3 className="text-base sm:text-lg font-bold text-foreground flex items-center gap-2">
+                <h3 className="text-base sm:text-lg font-bold text-slate-800 flex items-center gap-2">
                   <Star className="w-5 h-5 text-primary fill-primary" />
                   고객 리뷰 키워드 추출 결과
                 </h3>
-                <p className="text-xs text-muted-foreground mt-1">플레이스에 기록된 소상공인 실사용 강점 빅데이터</p>
+                <p className="text-xs text-slate-500 mt-1">플레이스에 기록된 소상공인 실사용 강점 빅데이터</p>
               </div>
               <div className="text-right">
-                <span className="text-2xl font-black text-foreground font-mono">{displayData.reviewsCount}</span>
-                <span className="text-xs text-muted-foreground block">시공 만족 후기</span>
+                <span className="text-2xl font-black text-slate-900 font-mono">{displayData.reviewsCount}</span>
+                <span className="text-xs text-slate-500 block">시공 만족 후기</span>
               </div>
             </div>
 
@@ -262,13 +265,13 @@ export function InteractivePreview({ keyword, isSearched }: InteractivePreviewPr
               {displayData.keywords.map((kw, idx) => (
                 <div key={idx} className="space-y-2">
                   <div className="flex justify-between items-center text-xs font-semibold">
-                    <span className="text-foreground flex items-center gap-1.5">
+                    <span className="text-slate-700 flex items-center gap-1.5">
                       <span className="w-1.5 h-1.5 rounded-full bg-primary" />
                       {kw.name}
                     </span>
-                    <span className="text-primary font-mono">{animatedProgress[idx] || 0}%</span>
+                    <span className="text-blue-700 font-mono">{animatedProgress[idx] || 0}%</span>
                   </div>
-                  <div className="w-full bg-[#1b1b22] h-2 rounded-full overflow-hidden">
+                  <div className="w-full bg-slate-200 h-2 rounded-full overflow-hidden">
                     <div 
                       className="bg-gradient-to-r from-primary to-secondary h-full rounded-full transition-all duration-1000 ease-out"
                       style={{ width: `${animatedProgress[idx] || 0}%` }}
@@ -279,20 +282,20 @@ export function InteractivePreview({ keyword, isSearched }: InteractivePreviewPr
             </div>
 
             {/* Dashboard Sub Stats */}
-            <div className="grid grid-cols-2 gap-4 mt-10 pt-8 border-t border-[#22222b]/50">
-              <div className="bg-[#14141a] border border-[#22222b] rounded-xl p-3 text-center">
-                <p className="text-[10px] text-muted-foreground font-semibold">바가지 청구 방지 검증</p>
-                <p className="text-sm font-extrabold text-[#00ff66] mt-1 font-mono">100% PASS</p>
+            <div className="grid grid-cols-2 gap-4 mt-10 pt-8 border-t border-slate-200">
+              <div className="bg-white border border-slate-200 rounded-xl p-3 text-center">
+                <p className="text-[10px] text-slate-500 font-semibold">바가지 청구 방지 검증</p>
+                <p className="text-sm font-extrabold text-emerald-600 mt-1 font-mono">100% PASS</p>
               </div>
-              <div className="bg-[#14141a] border border-[#22222b] rounded-xl p-3 text-center">
-                <p className="text-[10px] text-muted-foreground font-semibold">날림/부실 시공 요소 제거</p>
-                <p className="text-sm font-extrabold text-primary mt-1 font-mono">마찰 제로</p>
+              <div className="bg-white border border-slate-200 rounded-xl p-3 text-center">
+                <p className="text-[10px] text-slate-500 font-semibold">날림/부실 시공 요소 제거</p>
+                <p className="text-sm font-extrabold text-blue-600 mt-1 font-mono">마찰 제로</p>
               </div>
             </div>
 
             {/* Security Proof */}
-            <div className="flex items-center gap-2 mt-6 justify-center text-[10px] text-muted-foreground font-medium">
-              <Shield className="w-3 h-3 text-muted-foreground/80" />
+            <div className="flex items-center gap-2 mt-6 justify-center text-[10px] text-slate-500 font-medium">
+              <Shield className="w-3 h-3 text-slate-400" />
               <span>로컬 소상공인 보증 등급 데이터 동기화 완료</span>
             </div>
           </div>
@@ -512,39 +515,39 @@ export function InteractivePreview({ keyword, isSearched }: InteractivePreviewPr
         </div>
 
         {/* BOTTOM: Lead Generation Form */}
-        <div className="relative group max-w-4xl mx-auto">
-          <div className="absolute -inset-0.5 bg-gradient-to-r from-primary via-secondary to-primary rounded-2xl blur opacity-30 group-hover:opacity-40 transition duration-300" />
+        <div className="relative group max-w-4xl mx-auto mt-16">
+          <div className="absolute -inset-0.5 bg-gradient-to-r from-yellow-500 via-blue-500 to-yellow-500 rounded-2xl blur opacity-20 group-hover:opacity-30 transition duration-300" />
           
-          <div className="relative bg-[#111115] border border-[#22222b] p-6 sm:p-8 rounded-2xl text-center md:text-left flex flex-col md:flex-row md:items-center justify-between gap-6 overflow-hidden">
+          <div className="relative bg-slate-50 border border-slate-200 p-6 sm:p-8 rounded-2xl text-center md:text-left flex flex-col md:flex-row md:items-center justify-between gap-6 overflow-hidden shadow-md">
             
             <div className="space-y-2">
-              <h3 className="text-base sm:text-lg font-bold text-foreground flex items-center justify-center md:justify-start gap-2">
-                <MessageSquare className="w-5 h-5 text-primary" />
-                이 홈페이지를 사장님 소유로 등록하고 실제 고객 전화를 받으시겠습니까?
+              <h3 className="text-base sm:text-lg font-bold text-slate-800 flex items-center justify-center md:justify-start gap-2">
+                <MessageSquare className="w-5 h-5 text-yellow-600" />
+                이 홈페이지 시안을 사장님 핸드폰으로 무료로 받으시겠습니까?
               </h3>
-              <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed">
-                핸드폰 번호를 남겨주시면 방금 완성된 홈페이지 링크 및 소유권 등록 안내를 **카카오 알림톡**으로 발송해 드립니다.
+              <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-bold">
+                휴대폰 번호만 남겨주시면 방금 조립된 홈페이지 주소와 관리 안내를 **카카오 알림톡**으로 즉시 무료 발송해 드립니다.
               </p>
             </div>
 
             <form onSubmit={handleLeadSubmit} className="flex flex-col sm:flex-row gap-3 w-full md:w-auto md:max-w-md flex-shrink-0">
-              <div className="relative flex items-center bg-[#181822] border border-[#22222b] rounded-xl px-4 py-3 focus-within:border-primary transition-all duration-300">
-                <Phone className="w-4 h-4 text-muted-foreground mr-2.5" />
+              <div className="relative flex items-center bg-white border border-slate-300 rounded-xl px-4 py-3 focus-within:border-yellow-500 transition-all duration-300 shadow-inner">
+                <Phone className="w-4 h-4 text-slate-400 mr-2.5" />
                 <input
                   type="tel"
                   required
                   value={phoneNumber}
                   onChange={(e) => setPhoneNumber(e.target.value)}
                   placeholder="휴대폰 번호 입력"
-                  className="bg-transparent text-sm text-foreground placeholder:text-muted-foreground outline-none w-full font-semibold"
+                  className="bg-transparent text-sm text-slate-800 placeholder:text-slate-400 outline-none w-full font-bold"
                 />
               </div>
               <button 
                 type="submit"
-                className="px-6 py-3.5 bg-gradient-to-r from-primary to-accent text-background font-bold text-sm rounded-xl hover:opacity-90 transition-all duration-300 hover:shadow-[0_0_15px_rgba(250,204,21,0.15)] flex items-center justify-center gap-2 cursor-pointer"
+                className="px-6 py-3.5 bg-gradient-to-r from-yellow-500 to-yellow-600 text-slate-950 font-black text-sm rounded-xl hover:opacity-95 transition-all duration-300 shadow-md flex items-center justify-center gap-2 cursor-pointer"
               >
-                <span>시안 받아보기</span>
-                <ArrowRight className="w-4 h-4" />
+                <span>무료 시안 받아보기</span>
+                <ArrowRight className="w-4 h-4 text-slate-950" />
               </button>
             </form>
 

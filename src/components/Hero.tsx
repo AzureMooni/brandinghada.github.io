@@ -58,15 +58,15 @@ export function Hero({ onSearchStart, onSearchComplete }: HeroProps) {
     setIsLoading(true);
     onSearchStart(keyword);
 
-    // 1초간 단계별 AI 시공 리뷰 분석 로딩 애니메이션 (Mock)
-    setLoadingStep(1); // 0.3초
+    // AI 시공 리뷰 분석 로딩 애니메이션
+    setLoadingStep(1);
     
     setTimeout(() => {
-      setLoadingStep(2); // 0.6초
+      setLoadingStep(2);
     }, 350);
 
     setTimeout(() => {
-      setLoadingStep(3); // 0.8초
+      setLoadingStep(3);
     }, 700);
 
     setTimeout(() => {
@@ -92,10 +92,10 @@ export function Hero({ onSearchStart, onSearchComplete }: HeroProps) {
   };
 
   return (
-    <section className="relative pt-36 pb-32 md:pt-48 md:pb-44 flex flex-col items-center justify-center overflow-hidden px-6 bg-gradient-to-b from-background to-[#070709] border-b border-[#22222b]/30">
-      {/* Background Decorative Gradients */}
-      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] bg-secondary/5 rounded-full blur-[140px] pointer-events-none" />
-      <div className="absolute top-1/3 left-1/4 w-[400px] h-[400px] bg-primary/3 rounded-full blur-[120px] pointer-events-none" />
+    <section className="relative pt-40 pb-36 md:pt-52 md:pb-48 flex flex-col items-center justify-center overflow-hidden px-6 bg-white border-b border-slate-200">
+      {/* Background Decorative Gradients (Soft Light mode) */}
+      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] bg-blue-500/3 rounded-full blur-[140px] pointer-events-none" />
+      <div className="absolute top-1/3 left-1/4 w-[400px] h-[400px] bg-yellow-500/3 rounded-full blur-[120px] pointer-events-none" />
 
       <div className="max-w-6xl mx-auto w-full relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
@@ -103,41 +103,41 @@ export function Hero({ onSearchStart, onSearchComplete }: HeroProps) {
           {/* Left Column: Title, search input and social proof */}
           <div className="lg:col-span-7 text-left space-y-8">
             
-            {/* Sub Badge (Count-up 연동 가격 배지) */}
-            <div className="flex flex-wrap items-center gap-2">
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-primary/20 bg-primary/5 text-primary text-xs font-black tracking-wider uppercase animate-pulse">
-                <span className="w-1.5 h-1.5 rounded-full bg-primary" />
-                No-Code Local Builder
+            {/* Sub Badge (용어 순화 완료 - 4050 사장님 눈높이형) */}
+            <div className="flex flex-wrap items-center gap-2.5">
+              <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-yellow-500/20 bg-yellow-500/5 text-yellow-700 text-xs sm:text-sm font-black tracking-wide animate-pulse">
+                <span className="w-2 h-2 rounded-full bg-yellow-600" />
+                쉬운 홈페이지 관리 & 실시간 수정
               </div>
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-secondary/30 bg-[#2563eb]/10 text-slate-100 text-xs font-black tracking-wider">
-                <span className="text-primary font-black"><CountUp end={110} suffix="만 원" /></span> 정찰제
-                <span className="w-1 h-1 rounded-full bg-slate-500" />
-                월 <span className="text-primary font-black"><CountUp end={5.5} duration={1200} decimals={1} suffix="만 원" /></span> 유지보수
+              <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-blue-500/20 bg-blue-500/5 text-blue-700 text-xs sm:text-sm font-black tracking-wide">
+                <span className="text-yellow-600 font-black"><CountUp end={110} suffix="만 원" /></span> 정찰제
+                <span className="w-1.5 h-1.5 rounded-full bg-slate-300" />
+                월 <span className="text-yellow-600 font-black"><CountUp end={5.5} duration={1200} decimals={1} suffix="만 원" /></span> 유지보수
               </div>
             </div>
 
-            {/* Compressed Bold Title */}
-            <h1 className="text-3.5xl sm:text-5xl md:text-5.5xl font-extrabold tracking-tight leading-[1.25] text-foreground">
+            {/* 10% 더 커지고 눈이 편한 한글 타이틀 */}
+            <h1 className="text-4xl sm:text-5.5xl md:text-6.5xl font-black tracking-tight leading-[1.3] text-slate-900">
               사장님 성함만 넣으세요.<br />
-              <span className="bg-gradient-to-r from-primary via-accent to-secondary bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-yellow-600 via-amber-500 to-blue-600 bg-clip-text text-transparent">
                 5분 뒤 전화 오는 홈페이지가 생깁니다.
               </span>
             </h1>
 
-            {/* 사회적 증거 배지 (버튼 바로 위 배치) */}
-            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-xl border border-emerald-500/20 bg-emerald-500/5 text-emerald-400 text-xs sm:text-sm font-black shadow-lg">
-              <span className="w-2 h-2 rounded-full bg-emerald-400 animate-ping" />
-              <span>🟢 실시간 검증: 이미 <span className="text-white font-mono font-black text-sm"><CountUp end={154} /></span>명의 사장님이 시안을 확인했습니다!</span>
+            {/* 사회적 증거 배지 (라이트 테마 대비) */}
+            <div className="inline-flex items-center gap-2.5 px-4.5 py-2.5 rounded-2xl border border-emerald-500/25 bg-emerald-500/5 text-emerald-700 text-xs sm:text-base font-black shadow-sm">
+              <span className="w-2 h-2 rounded-full bg-emerald-500 animate-ping" />
+              <span>🟢 실시간 확인: 이미 <span className="text-slate-900 font-mono font-black text-sm sm:text-lg"><CountUp end={154} /></span>명의 사장님이 시안을 확인하셨습니다!</span>
             </div>
 
             {/* Search Bar UI */}
             <form onSubmit={handleSubmit} className="w-full">
               <div className="relative group max-w-xl">
                 {/* Glow border on focus/hover */}
-                <div className="absolute -inset-0.5 bg-gradient-to-r from-primary to-secondary rounded-2xl blur opacity-30 group-focus-within:opacity-75 group-hover:opacity-50 transition duration-300 pointer-events-none" />
+                <div className="absolute -inset-0.5 bg-gradient-to-r from-yellow-500 to-blue-500 rounded-2xl blur opacity-15 group-focus-within:opacity-40 group-hover:opacity-25 transition duration-300 pointer-events-none" />
                 
-                <div className="relative flex items-center bg-[#111115] border border-[#22222b] rounded-2xl overflow-hidden px-4 sm:px-5 py-4">
-                  <Search className="w-5 h-5 text-muted-foreground mr-3 flex-shrink-0" />
+                <div className="relative flex items-center bg-white border border-slate-300 rounded-2xl overflow-hidden px-4 sm:px-6 py-4.5 shadow-md">
+                  <Search className="w-5 h-5 text-slate-400 mr-3 flex-shrink-0" />
                   
                   <input
                     ref={searchInputRef}
@@ -146,19 +146,19 @@ export function Hero({ onSearchStart, onSearchComplete }: HeroProps) {
                     onChange={(e) => setKeyword(e.target.value)}
                     placeholder="예: '한양지붕공사' 또는 가게 이름을 입력하세요."
                     disabled={isLoading}
-                    className="w-full bg-transparent text-foreground placeholder:text-muted-foreground outline-none text-sm sm:text-base font-semibold pr-12"
+                    className="w-full bg-transparent text-slate-800 placeholder:text-slate-400 outline-none text-base sm:text-lg font-bold pr-12"
                   />
 
-                  {/* 입체적인 Shimmer 광원 효과 CTA 버튼 */}
+                  {/* 입체적인 Shimmer 광원 효과 CTA 버튼 (가독성 강화) */}
                   <button
                     type="submit"
                     disabled={isLoading || !keyword.trim()}
-                    className="absolute right-2 px-4 sm:px-6 py-2.5 rounded-xl bg-gradient-to-r from-primary via-accent to-primary text-background font-black text-xs sm:text-sm hover:opacity-95 hover:scale-[1.02] active:scale-[0.98] disabled:opacity-50 disabled:scale-100 disabled:from-muted disabled:to-muted disabled:text-muted-foreground transition-all duration-300 flex items-center gap-2 cursor-pointer shadow-[0_0_20px_rgba(250,204,21,0.25)] overflow-hidden group/btn"
+                    className="absolute right-2 px-5 sm:px-8 py-3 rounded-xl bg-gradient-to-r from-yellow-500 via-amber-500 to-yellow-500 text-slate-950 font-black text-sm sm:text-base hover:opacity-95 hover:scale-[1.02] active:scale-[0.98] disabled:opacity-50 disabled:scale-100 disabled:from-slate-200 disabled:to-slate-200 disabled:text-slate-400 transition-all duration-300 flex items-center gap-2 cursor-pointer shadow-md overflow-hidden group/btn"
                   >
-                    <div className="absolute inset-0 w-1/2 h-full bg-white/20 transform -skew-x-12 -translate-x-full group-hover/btn:animate-[shimmer_1.2s_infinite] pointer-events-none" />
+                    <div className="absolute inset-0 w-1/2 h-full bg-white/30 transform -skew-x-12 -translate-x-full group-hover/btn:animate-[shimmer_1.2s_infinite] pointer-events-none" />
                     {isLoading ? (
                       <>
-                        <Loader2 className="w-3.5 h-3.5 animate-spin" />
+                        <Loader2 className="w-4 h-4 animate-spin text-slate-950" />
                         <span>분석 중...</span>
                       </>
                     ) : (
@@ -169,49 +169,49 @@ export function Hero({ onSearchStart, onSearchComplete }: HeroProps) {
               </div>
             </form>
 
-            {/* Step-by-step Loading UI */}
+            {/* Step-by-step Loading UI (Light Theme) */}
             {isLoading && (
-              <div className="max-w-xl bg-[#14141a] border border-[#22222b] rounded-xl p-4 text-left animate-in fade-in slide-in-from-top-2 duration-300">
-                <div className="flex items-center justify-between mb-2">
-                  <span className="text-[10px] text-muted-foreground font-mono">AI CONSTRUCT ANALYZER</span>
-                  <span className="text-xs font-bold text-primary animate-pulse">Running AI pipeline...</span>
+              <div className="max-w-xl bg-slate-50 border border-slate-200 rounded-2xl p-5 text-left animate-in fade-in slide-in-from-top-2 duration-300 shadow-sm">
+                <div className="flex items-center justify-between mb-2.5">
+                  <span className="text-[11px] text-slate-500 font-mono font-black">자체 제작 고성능 시스템 가동 중</span>
+                  <span className="text-xs font-bold text-yellow-600 animate-pulse">홈페이지 자동 조립 중...</span>
                 </div>
                 
                 {/* Progress bar */}
-                <div className="w-full bg-[#22222b] h-1.5 rounded-full overflow-hidden mb-3">
+                <div className="w-full bg-slate-200 h-2 rounded-full overflow-hidden mb-4">
                   <div 
-                    className="bg-gradient-to-r from-primary to-secondary h-full transition-all duration-500" 
+                    className="bg-gradient-to-r from-yellow-500 to-blue-500 h-full transition-all duration-500" 
                     style={{ width: `${(loadingStep / 3) * 100}%` }}
                   />
                 </div>
 
                 {/* Steps text */}
-                <div className="space-y-1.5 font-mono text-[10px] text-[#8e8e9f]">
-                  <div className={`flex items-center gap-2 transition-colors ${loadingStep >= 1 ? "text-primary font-black" : "text-muted-foreground/40"}`}>
+                <div className="space-y-2 font-bold text-xs text-slate-600">
+                  <div className={`flex items-center gap-2.5 transition-colors ${loadingStep >= 1 ? "text-yellow-600" : "text-slate-300"}`}>
                     <span>{loadingStep >= 1 ? "✓" : "○"}</span>
-                    <span>[1/3] 실제 시공 고객 리뷰 분석 및 만족도 추출 중...</span>
+                    <span>[1단계] 사장님 가게에 쌓인 진짜 추천 글 수집 완료</span>
                   </div>
-                  <div className={`flex items-center gap-2 transition-colors ${loadingStep >= 2 ? "text-primary font-black" : "text-muted-foreground/40"}`}>
+                  <div className={`flex items-center gap-2.5 transition-colors ${loadingStep >= 2 ? "text-yellow-600" : "text-slate-300"}`}>
                     <span>{loadingStep >= 2 ? "✓" : "○"}</span>
-                    <span>[2/3] 과잉청구 의혹 제거 및 기술 전문성 특장점 정제 중...</span>
+                    <span>[2단계] 불필요한 과잉청구 오해 요소 자동 차단 완료</span>
                   </div>
-                  <div className={`flex items-center gap-2 transition-colors ${loadingStep >= 3 ? "text-primary font-black" : "text-muted-foreground/40"}`}>
+                  <div className={`flex items-center gap-2.5 transition-colors ${loadingStep >= 3 ? "text-yellow-600" : "text-slate-300"}`}>
                     <span>{loadingStep >= 3 ? "✓" : "○"}</span>
-                    <span>[3/3] 전화 문의 유도를 극대화하는 모바일 홈 시안 퍼블리싱 중...</span>
+                    <span>[3단계] 전화가 잘 오도록 설계된 모바일 화면 완성 완료</span>
                   </div>
                 </div>
               </div>
             )}
 
             {/* Search Samples */}
-            <div className="flex flex-wrap items-center gap-2 text-xs">
-              <span className="text-muted-foreground font-semibold">시뮬레이션 추천 검색어 :</span>
+            <div className="flex flex-wrap items-center gap-2.5 text-xs sm:text-sm">
+              <span className="text-slate-500 font-bold">눌러서 바로 확인해보세요 :</span>
               {["한양지붕공사", "일성종합설비", "바른인테리어"].map((sample) => (
                 <button 
                   key={sample}
                   type="button"
                   onClick={() => handleSampleClick(sample)}
-                  className="px-2.5 py-1 rounded-full border border-[#22222b] bg-[#111115] hover:border-primary/50 text-muted-foreground hover:text-foreground transition-all duration-300 cursor-pointer"
+                  className="px-3.5 py-1.5 rounded-full border border-slate-200 bg-slate-50 hover:border-yellow-500 hover:bg-yellow-50 text-slate-700 hover:text-slate-900 font-bold transition-all duration-300 cursor-pointer"
                 >
                   {sample}
                 </button>
@@ -220,9 +220,9 @@ export function Hero({ onSearchStart, onSearchComplete }: HeroProps) {
 
           </div>
 
-          {/* Right Column: Premium Auto-scrolling Mobile Device Mockup */}
+          {/* Right Column: Premium Auto-scrolling Mobile Device Mockup (Light contrast) */}
           <div className="lg:col-span-5 flex justify-center">
-            <div className="relative w-full max-w-[280px] aspect-[9/18.5] bg-[#070709] rounded-[44px] p-2.5 shadow-[0_0_50px_rgba(250,204,21,0.08)] border-[5px] border-[#22222b] overflow-hidden group">
+            <div className="relative w-full max-w-[280px] aspect-[9/18.5] bg-[#070709] rounded-[44px] p-2.5 shadow-[0_10px_40px_rgba(0,0,0,0.12)] border-[5px] border-[#22222b] overflow-hidden group">
               {/* Dynamic Island / Notch */}
               <div className="absolute top-0 left-1/2 -translate-x-1/2 w-28 h-5 bg-[#22222b] rounded-b-xl z-30 flex items-center justify-center">
                 <div className="w-10 h-1 bg-[#111115] rounded-full mr-2"></div>
@@ -258,12 +258,15 @@ export function Hero({ onSearchStart, onSearchComplete }: HeroProps) {
                     빗물 누수 차단율 100%! 오랜 현장 경력의 정밀 진단과 철저한 책임 시공으로 안전하고 튼튼하게 지켜드립니다.
                   </p>
 
-                  {/* CTA Phone Call Button */}
+                  {/* CTA Phone Call Button - 전화 활성화 */}
                   <div className="pt-1">
-                    <div className="w-full bg-gradient-to-r from-primary via-accent to-primary text-background font-black text-[10px] py-2.5 rounded-lg text-center flex items-center justify-center gap-1.5 border border-primary/20">
-                      <Phone className="w-3 h-3 text-background fill-background animate-pulse" />
-                      <span>전화 문의하기</span>
-                    </div>
+                    <a 
+                      href="tel:010-3054-3990"
+                      className="w-full bg-gradient-to-r from-yellow-500 via-amber-500 to-yellow-500 text-slate-950 font-black text-[10.5px] py-3 rounded-lg text-center flex items-center justify-center gap-1.5 border border-primary/20 shadow-md block hover:scale-[1.03] transition-all"
+                    >
+                      <Phone className="w-3.5 h-3.5 text-slate-950 fill-slate-950 animate-pulse" />
+                      <span>전화 바로 걸기</span>
+                    </a>
                   </div>
 
                   {/* Key Strengths */}
@@ -287,9 +290,9 @@ export function Hero({ onSearchStart, onSearchComplete }: HeroProps) {
 
                   {/* Review Proof Box */}
                   <div className="bg-gradient-to-br from-[#111115] to-[#14141a] border border-[#22222b] p-3 rounded-lg text-center space-y-1">
-                    <span className="text-[7.5px] font-black text-emerald-400 bg-emerald-400/10 px-1.5 py-0.5 rounded uppercase">Verified Review Log</span>
+                    <span className="text-[7.5px] font-black text-emerald-400 bg-emerald-400/10 px-1.5 py-0.5 rounded uppercase">실제 손님 만족도</span>
                     <p className="text-[9px] font-bold text-white mt-1">"돈이 하나도 안 아까워요"</p>
-                    <p className="text-[8px] text-muted-foreground font-medium">인천 남동구 만수동 이*진 사장님 실제 리뷰 평판 분석 동기화</p>
+                    <p className="text-[8px] text-muted-foreground font-medium">인천 남동구 만수동 이*진 사장님 실제 후기 데이터</p>
                   </div>
 
                 </div>
