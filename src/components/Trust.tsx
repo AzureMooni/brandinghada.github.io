@@ -101,7 +101,7 @@ export function Trust() {
             {valueProps.map((item, idx) => (
               <div 
                 key={idx} 
-                className="group relative bg-[#111115]/50 border border-[#22222b] hover:border-primary/40 rounded-2xl p-6 sm:p-8 backdrop-blur-md transition-all duration-300 hover:-translate-y-1.5"
+                className="group relative bg-[#111115]/80 border border-[#22222b] hover:border-primary/40 rounded-2xl p-6 sm:p-8 backdrop-blur-md transition-all duration-300 hover:-translate-y-1.5"
               >
                 {/* Glow Overlay */}
                 <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
@@ -110,13 +110,13 @@ export function Trust() {
                   {item.icon}
                 </div>
                 
-                <h3 className="text-xl font-bold text-foreground mb-2 flex items-center gap-2">
+                <h3 className="text-xl font-bold text-white mb-2 flex items-center gap-2">
                   {item.title}
                 </h3>
-                <p className="text-primary text-xs sm:text-sm font-bold mb-4">
+                <p className="text-yellow-400 text-xs sm:text-sm font-bold mb-4">
                   {item.desc}
                 </p>
-                <p className="text-muted-foreground text-xs sm:text-sm leading-[1.7] font-medium">
+                <p className="text-slate-300 text-xs sm:text-sm leading-[1.7] font-medium">
                   {item.detail}
                 </p>
               </div>
@@ -124,14 +124,14 @@ export function Trust() {
           </div>
 
           {/* Efficiency & Price Callout */}
-          <div className="mt-12 bg-gradient-to-r from-secondary/10 via-[#111115] to-primary/10 border border-[#22222b] rounded-2xl p-6 sm:p-8 text-center max-w-4xl mx-auto">
-            <h4 className="text-base sm:text-lg font-bold text-foreground mb-2 flex flex-wrap items-center justify-center gap-2 leading-[1.4]">
+          <div className="mt-12 bg-gradient-to-r from-secondary/15 via-[#111115] to-primary/15 border border-primary/20 rounded-2xl p-6 sm:p-8 text-center max-w-4xl mx-auto">
+            <h4 className="text-base sm:text-lg font-bold text-white mb-2 flex flex-wrap items-center justify-center gap-2 leading-[1.4]">
               <span>💡 시중 500만 원대 에이전시 퀄리티를</span>
-              <span className="text-primary font-black bg-primary/10 px-2 py-0.5 rounded border border-primary/20">110만 원 정찰제</span>
+              <span className="text-yellow-400 font-black bg-yellow-400/10 px-2 py-0.5 rounded border border-yellow-400/20">110만 원 정찰제</span>
               <span>로 구현하는 이유</span>
             </h4>
-            <p className="text-muted-foreground text-xs sm:text-sm leading-[1.7] font-medium max-w-2.5xl mx-auto">
-              브랜딩하다는 자체 개발한 고효율 개발 스택인 <span className="text-foreground font-semibold">gstack 시스템</span>을 활용하여, 불필요한 기획 마찰과 수작업 코딩 프로세스를 획기적으로 단축했습니다. 거품 없는 가격으로 대기업급 퍼포먼스의 경량 고속 웹사이트를 사장님 품에 안겨드립니다.
+            <p className="text-slate-300 text-xs sm:text-sm leading-[1.7] font-medium max-w-2.5xl mx-auto">
+              브랜딩하다는 자체 개발한 고효율 개발 스택인 <span className="text-white font-semibold">gstack 시스템</span>을 활용하여, 불필요한 기획 마찰과 수작업 코딩 프로세스를 획기적으로 단축했습니다. 거품 없는 가격으로 대기업급 퍼포먼스의 경량 고속 웹사이트를 사장님 품에 안겨드립니다.
             </p>
           </div>
         </div>
