@@ -222,39 +222,39 @@ export function Hero({ onSearchStart, onSearchComplete }: HeroProps) {
 
           {/* Right Column: Premium Auto-scrolling Mobile Device Mockup (Light contrast) */}
           <div className="lg:col-span-5 flex justify-center">
-            <div className="relative w-full max-w-[280px] aspect-[9/18.5] bg-[#070709] rounded-[44px] p-2.5 shadow-[0_10px_40px_rgba(0,0,0,0.12)] border-[5px] border-[#22222b] overflow-hidden group">
+            <div className="relative w-full max-w-[280px] aspect-[9/18.5] bg-white rounded-[44px] p-2.5 shadow-[0_10px_40px_rgba(0,0,0,0.08)] border-[5px] border-slate-200 overflow-hidden group">
               {/* Dynamic Island / Notch */}
-              <div className="absolute top-0 left-1/2 -translate-x-1/2 w-28 h-5 bg-[#22222b] rounded-b-xl z-30 flex items-center justify-center">
-                <div className="w-10 h-1 bg-[#111115] rounded-full mr-2"></div>
-                <div className="w-2 h-2 bg-[#111115] rounded-full"></div>
+              <div className="absolute top-0 left-1/2 -translate-x-1/2 w-28 h-5 bg-slate-200 rounded-b-xl z-30 flex items-center justify-center">
+                <div className="w-10 h-1 bg-slate-400 rounded-full mr-2"></div>
+                <div className="w-2 h-2 bg-slate-400 rounded-full"></div>
               </div>
               
               {/* Bottom Home Indicator */}
-              <div className="absolute bottom-1 w-24 h-1 bg-[#22222b] rounded-full left-1/2 -translate-x-1/2 z-30" />
+              <div className="absolute bottom-1 w-24 h-1 bg-slate-300 rounded-full left-1/2 -translate-x-1/2 z-30" />
 
               {/* Autoscrolling Mobile Content Wrapper */}
-              <div className="w-full h-full bg-[#0a0a0c] rounded-[36px] overflow-hidden relative text-left select-none">
+              <div className="w-full h-full bg-slate-50 rounded-[36px] overflow-hidden relative text-left select-none border border-slate-100">
                 
                 {/* Scrolling Content - Animate automatically via CSS */}
                 <div className="absolute w-full top-0 left-0 space-y-4 px-4 pt-8 pb-12 animate-[scrollMockup_25s_ease-in-out_infinite]">
                   
                   {/* Local Business Header */}
-                  <div className="flex items-center justify-between border-b border-[#22222b]/50 pb-2.5 mb-2">
-                    <span className="text-[10px] font-black text-white">한양지붕공사</span>
-                    <span className="text-[8px] bg-primary/20 text-primary px-1.5 py-0.5 rounded font-black tracking-wide">시공 전문</span>
+                  <div className="flex items-center justify-between border-b border-slate-200 pb-2.5 mb-2">
+                    <span className="text-[10px] font-black text-slate-800">한양지붕공사</span>
+                    <span className="text-[8px] bg-primary/20 text-yellow-800 px-1.5 py-0.5 rounded font-black tracking-wide">시공 전문</span>
                   </div>
 
                   {/* Rating star Badge */}
-                  <div className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full border border-primary/20 bg-primary/5 text-primary text-[8px] font-black">
-                    <Star className="w-2.5 h-2.5 fill-primary" />
+                  <div className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full border border-primary/20 bg-primary/5 text-yellow-700 text-[8px] font-black">
+                    <Star className="w-2.5 h-2.5 fill-primary text-primary" />
                     <span>실제 리뷰 만족도 99.8%</span>
                   </div>
 
                   {/* Main Copy inside mockup */}
-                  <h4 className="text-xs sm:text-[13px] font-black text-white leading-snug tracking-tight">
+                  <h4 className="text-xs sm:text-[13px] font-black text-slate-800 leading-snug tracking-tight">
                     동네 주민들이 인정한 지붕 수리·방수 맛집
                   </h4>
-                  <p className="text-[9.5px] text-muted-foreground leading-normal">
+                  <p className="text-[9.5px] text-slate-600 leading-normal">
                     빗물 누수 차단율 100%! 오랜 현장 경력의 정밀 진단과 철저한 책임 시공으로 안전하고 튼튼하게 지켜드립니다.
                   </p>
 
@@ -264,7 +264,7 @@ export function Hero({ onSearchStart, onSearchComplete }: HeroProps) {
                       href="http://pf.kakao.com/_xcjrxjX"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="w-full bg-gradient-to-r from-yellow-500 via-amber-500 to-yellow-500 text-slate-950 font-black text-[10.5px] py-3 rounded-lg text-center flex items-center justify-center gap-1.5 border border-primary/20 shadow-md block hover:scale-[1.03] transition-all"
+                      className="w-full bg-[#fef01b] hover:bg-[#f3e316] text-[#3c1e1e] font-black text-[10.5px] py-3 rounded-lg text-center flex items-center justify-center gap-1.5 border border-yellow-400/20 shadow-md block hover:scale-[1.03] transition-all"
                     >
                       <MessageCircle className="w-3.5 h-3.5 text-slate-950 fill-slate-950 animate-pulse" />
                       <span>카카오톡 1:1 상담하기</span>
@@ -272,29 +272,29 @@ export function Hero({ onSearchStart, onSearchComplete }: HeroProps) {
                   </div>
 
                   {/* Key Strengths */}
-                  <div className="pt-2 border-t border-[#22222b]/40 space-y-2">
-                    <span className="text-[8px] uppercase font-bold text-muted-foreground tracking-wider block">우리 업체만의 안심 약속</span>
+                  <div className="pt-2 border-t border-slate-200 space-y-2">
+                    <span className="text-[8px] uppercase font-bold text-slate-500 tracking-wider block">우리 업체만의 안심 약속</span>
                     <div className="space-y-1.5 text-[8.5px]">
-                      <div className="bg-[#111115] border border-[#22222b] p-2 rounded-lg flex gap-1.5">
+                      <div className="bg-white border border-slate-100 p-2 rounded-lg flex gap-1.5 border border-slate-200">
                         <span className="text-primary font-bold">1</span>
-                        <p className="text-foreground/90 font-medium">거품을 완전히 뺀 정직한 자재 가격 및 견적</p>
+                        <p className="text-slate-700 font-medium">거품을 완전히 뺀 정직한 자재 가격 및 견적</p>
                       </div>
-                      <div className="bg-[#111115] border border-[#22222b] p-2 rounded-lg flex gap-1.5">
+                      <div className="bg-white border border-slate-100 p-2 rounded-lg flex gap-1.5 border border-slate-200">
                         <span className="text-primary font-bold">2</span>
-                        <p className="text-foreground/90 font-medium">당일 긴급 공사 및 신속한 24시간 상담</p>
+                        <p className="text-slate-700 font-medium">당일 긴급 공사 및 신속한 24시간 상담</p>
                       </div>
-                      <div className="bg-[#111115] border border-[#22222b] p-2 rounded-lg flex gap-1.5">
+                      <div className="bg-white border border-slate-100 p-2 rounded-lg flex gap-1.5 border border-slate-200">
                         <span className="text-primary font-bold">3</span>
-                        <p className="text-foreground/90 font-medium">시공 완료 후 3년간 무상 하자 보증서 발급</p>
+                        <p className="text-slate-700 font-medium">시공 완료 후 3년간 무상 하자 보증서 발급</p>
                       </div>
                     </div>
                   </div>
 
                   {/* Review Proof Box */}
-                  <div className="bg-gradient-to-br from-[#111115] to-[#14141a] border border-[#22222b] p-3 rounded-lg text-center space-y-1">
-                    <span className="text-[7.5px] font-black text-emerald-400 bg-emerald-400/10 px-1.5 py-0.5 rounded uppercase">실제 손님 만족도</span>
-                    <p className="text-[9px] font-bold text-white mt-1">"돈이 하나도 안 아까워요"</p>
-                    <p className="text-[8px] text-muted-foreground font-medium">서울 마포구 공덕동 이*진 사장님 실제 후기 데이터</p>
+                  <div className="bg-white border border-slate-200 p-3 rounded-lg text-center space-y-1">
+                    <span className="text-[7.5px] font-black text-emerald-600 bg-emerald-50 px-1.5 py-0.5 rounded uppercase">실제 손님 만족도</span>
+                    <p className="text-[9px] font-bold text-slate-800 mt-1">"돈이 하나도 안 아깝요"</p>
+                    <p className="text-[8px] text-slate-500 font-medium">서울 마포구 공덕동 이*진 사장님 실제 후기 데이터</p>
                   </div>
 
                 </div>

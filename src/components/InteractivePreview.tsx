@@ -395,14 +395,14 @@ export function InteractivePreview({ keyword, isSearched }: InteractivePreviewPr
                 </div>
               ) : (
                 /* [NORMAL] 2. NORMAL HOMEPAGE VIEW PORT */
-                <div className="w-full h-full bg-[#0a0a0c] rounded-[38px] overflow-y-auto relative text-left select-none hide-scrollbar z-20 pb-12 pt-6">
+                <div className="w-full h-full bg-slate-50 rounded-[38px] overflow-y-auto relative text-left select-none hide-scrollbar z-20 pb-12 pt-6 border border-slate-200">
                   
                   {/* Mobile Header Bar */}
-                  <div className="sticky top-0 bg-[#0a0a0c]/90 backdrop-blur-md px-5 py-3 border-b border-[#22222b]/50 z-20 flex items-center justify-between">
-                    <span className="text-[11px] font-black tracking-tight text-white">
+                  <div className="sticky top-0 bg-white/90 backdrop-blur-md px-5 py-3 border-b border-slate-200 z-20 flex items-center justify-between">
+                    <span className="text-[11px] font-black tracking-tight text-slate-800">
                       {keyword ? displayKeyword : "한양지붕공사"}
                     </span>
-                    <span className="text-[9px] bg-primary/20 text-primary px-1.5 py-0.5 rounded font-extrabold uppercase">
+                    <span className="text-[9px] bg-primary/20 text-yellow-800 px-1.5 py-0.5 rounded font-extrabold uppercase">
                       실시간 시안
                     </span>
                   </div>
@@ -410,17 +410,17 @@ export function InteractivePreview({ keyword, isSearched }: InteractivePreviewPr
                   {/* Mobile Content Screen */}
                   <div className="p-5 space-y-6">
                     {/* Badge */}
-                    <span className="inline-block text-[9px] font-bold text-primary tracking-wide uppercase px-2 py-0.5 rounded bg-primary/10 border border-primary/20">
+                    <span className="inline-block text-[9px] font-bold text-yellow-700 tracking-wide uppercase px-2 py-0.5 rounded bg-primary/10 border border-primary/20">
                       ✦ {displayData.mobilePreview.badge}
                     </span>
 
                     {/* Title */}
-                    <h4 className="text-base sm:text-lg font-black text-white leading-snug tracking-tight">
+                    <h4 className="text-base sm:text-lg font-black text-slate-800 leading-snug tracking-tight">
                       {displayData.mobilePreview.title}
                     </h4>
 
                     {/* Description */}
-                    <p className="text-[11.5px] text-muted-foreground leading-relaxed">
+                    <p className="text-[11.5px] text-slate-600 leading-relaxed">
                       {displayData.mobilePreview.description}
                     </p>
 
@@ -433,14 +433,14 @@ export function InteractivePreview({ keyword, isSearched }: InteractivePreviewPr
                         <MessageSquare className="w-4 h-4 text-[#3c1e1e] fill-[#3c1e1e] animate-pulse" />
                         <span>카카오톡 1:1 문의하기</span>
                       </button>
-                      <p className="text-center text-[9px] text-muted-foreground/60 mt-1.5 font-medium">터치 시 카카오톡 1:1 채팅방으로 즉시 연결됩니다.</p>
+                      <p className="text-center text-[9px] text-slate-500 mt-1.5 font-medium">터치 시 카카오톡 1:1 채팅방으로 즉시 연결됩니다.</p>
                     </div>
 
                     {/* [INNOVATIVE] Before & After Image Slider Component */}
-                    <div className="pt-4 border-t border-[#22222b]/50 space-y-3">
+                    <div className="pt-4 border-t border-slate-200 space-y-3">
                       <div className="flex items-center justify-between">
-                        <p className="text-[9.5px] uppercase font-bold text-muted-foreground tracking-wider">시공 실력 직관 증명 (드래그)</p>
-                        <span className="text-[8px] bg-primary/20 text-primary px-1 rounded font-bold animate-pulse">BEFORE & AFTER</span>
+                        <p className="text-[9.5px] uppercase font-bold text-slate-500 tracking-wider">시공 실력 직관 증명 (드래그)</p>
+                        <span className="text-[8px] bg-primary/20 text-yellow-800 px-1 rounded font-bold animate-pulse">BEFORE & AFTER</span>
                       </div>
                       
                       {/* Interactive Drag Box */}
@@ -448,28 +448,28 @@ export function InteractivePreview({ keyword, isSearched }: InteractivePreviewPr
                         ref={sliderRef}
                         onMouseDown={handleStartDrag}
                         onTouchStart={handleStartDrag}
-                        className="relative w-full aspect-[4/3] rounded-xl overflow-hidden cursor-ew-resize select-none border border-[#22222b]"
+                        className="relative w-full aspect-[4/3] rounded-xl overflow-hidden cursor-ew-resize select-none border border-slate-200"
                       >
                         {/* BEFORE Image (Under Layer) */}
-                        <div className="absolute inset-0 bg-[#16161f] flex flex-col items-center justify-center p-4 text-center">
+                        <div className="absolute inset-0 bg-slate-100 flex flex-col items-center justify-center p-4 text-center">
                           <div className="w-8 h-8 rounded-full bg-red-500/10 text-red-500 flex items-center justify-center mb-2">
                             <AlertTriangle className="w-4 h-4" />
                           </div>
-                          <p className="text-[10px] text-red-400 font-extrabold">🚨 시공 전 (Before)</p>
-                          <p className="text-[8.5px] text-muted-foreground mt-1 max-w-[80%]">심각한 빗물 누수 균열 및 낡고 방수 기능 상실된 철골 상태</p>
+                          <p className="text-[10px] text-red-600 font-extrabold">🚨 시공 전 (Before)</p>
+                          <p className="text-[8.5px] text-slate-500 mt-1 max-w-[80%]">심각한 빗물 누수 균열 및 낡고 방수 기능 상실된 철골 상태</p>
                         </div>
 
                         {/* AFTER Image (Top Slider Layer) */}
                         <div 
-                          className="absolute inset-y-0 left-0 bg-[#111115] flex flex-col items-center justify-center p-4 text-center border-r-2 border-primary overflow-hidden"
+                          className="absolute inset-y-0 left-0 bg-white flex flex-col items-center justify-center p-4 text-center border-r-2 border-primary overflow-hidden"
                           style={{ width: `${sliderPosition}%` }}
                         >
                           <div className="w-200% h-full absolute inset-0 flex flex-col items-center justify-center p-4 text-center select-none" style={{ width: sliderRef.current?.getBoundingClientRect().width || "280px" }}>
-                            <div className="w-8 h-8 rounded-full bg-primary/20 text-primary flex items-center justify-center mb-2">
+                            <div className="w-8 h-8 rounded-full bg-primary/20 text-yellow-700 flex items-center justify-center mb-2">
                               <Sparkles className="w-4 h-4 animate-spin" />
                             </div>
-                            <p className="text-[10px] text-primary font-extrabold">✨ 시공 후 (After)</p>
-                            <p className="text-[8.5px] text-foreground font-semibold mt-1 max-w-[80%]">안동안 누수 없는 Safety Yellow 보강 방수 및 깔끔한 외관 마감 완료</p>
+                            <p className="text-[10px] text-yellow-700 font-extrabold">✨ 시공 후 (After)</p>
+                            <p className="text-[8.5px] text-slate-700 font-semibold mt-1 max-w-[80%]">안동안 누수 없는 Safety Yellow 보강 방수 및 깔끔한 외관 마감 완료</p>
                           </div>
                         </div>
 
@@ -478,24 +478,24 @@ export function InteractivePreview({ keyword, isSearched }: InteractivePreviewPr
                           className="absolute inset-y-0 w-8 -ml-4 flex items-center justify-center pointer-events-none z-10"
                           style={{ left: `${sliderPosition}%` }}
                         >
-                          <div className="w-7 h-7 rounded-full bg-primary text-background flex items-center justify-center shadow-lg border border-[#22222b]">
+                          <div className="w-7 h-7 rounded-full bg-primary text-slate-800 flex items-center justify-center shadow-lg border border-slate-200">
                             <Smartphone className="w-3.5 h-3.5" />
                           </div>
                         </div>
                       </div>
-                      <p className="text-center text-[8px] text-muted-foreground/60">손가락이나 마우스로 스마트폰 사진을 드래그해 시공 전후 실력을 비교해보세요.</p>
+                      <p className="text-center text-[8px] text-slate-500">손가락이나 마우스로 스마트폰 사진을 드래그해 시공 전후 실력을 비교해보세요.</p>
                     </div>
 
                     {/* Strengths Card */}
-                    <div className="pt-4 border-t border-[#22222b]/50 space-y-3">
-                      <p className="text-[9.5px] uppercase font-bold text-muted-foreground tracking-wider">우리 업체만의 안심 약속</p>
+                    <div className="pt-4 border-t border-slate-200 space-y-3">
+                      <p className="text-[9.5px] uppercase font-bold text-slate-500 tracking-wider">우리 업체만의 안심 약속</p>
                       
                       {displayData.mobilePreview.features.map((feat, idx) => (
-                        <div key={idx} className="flex gap-2.5 items-start bg-[#111115] border border-[#22222b] p-3 rounded-xl transition-all duration-300 hover:border-primary/30">
-                          <div className="w-5 h-5 rounded-full bg-primary/10 text-primary flex items-center justify-center flex-shrink-0 text-[10px] font-bold">
+                        <div key={idx} className="flex gap-2.5 items-start bg-white border border-slate-100 p-3 rounded-xl transition-all duration-300 hover:border-primary/30">
+                          <div className="w-5 h-5 rounded-full bg-primary/10 text-yellow-700 flex items-center justify-center flex-shrink-0 text-[10px] font-bold">
                             {idx + 1}
                           </div>
-                          <p className="text-[10px] text-foreground font-semibold leading-relaxed">
+                          <p className="text-[10px] text-slate-700 font-semibold leading-relaxed">
                             {feat}
                           </p>
                         </div>
@@ -503,10 +503,10 @@ export function InteractivePreview({ keyword, isSearched }: InteractivePreviewPr
                     </div>
 
                     {/* Guarantee Box */}
-                    <div className="bg-gradient-to-br from-[#111115] to-[#14141a] border border-[#22222b] p-4 rounded-xl text-center space-y-2 mt-4">
+                    <div className="bg-white border border-slate-200 p-4 rounded-xl text-center space-y-2 mt-4">
                       <Sparkles className="w-4 h-4 text-primary mx-auto animate-spin" />
-                      <p className="text-[9.5px] font-bold text-white">100% 매칭 검증 평판 적용</p>
-                      <p className="text-[8.5px] text-muted-foreground leading-relaxed">실제 시공 고객들의 우수 평판을 토대로 제작된 사장님 전용 5분 안심 세일즈 시안입니다.</p>
+                      <p className="text-[9.5px] font-bold text-slate-800">100% 매칭 검증 평판 적용</p>
+                      <p className="text-[8.5px] text-slate-500 leading-relaxed">실제 시공 고객들의 우수 평판을 토대로 제작된 사장님 전용 5분 안심 세일즈 시안입니다.</p>
                     </div>
                   </div>
                 </div>
