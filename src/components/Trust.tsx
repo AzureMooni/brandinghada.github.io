@@ -74,26 +74,26 @@ export function Trust() {
   ];
 
   return (
-    <section className="py-36 md:py-44 border-t border-[#22222b]/50 px-6 relative overflow-hidden bg-gradient-to-b from-background to-[#070709]">
+    <section className="py-36 md:py-44 border-t border-slate-200 px-6 relative overflow-hidden bg-slate-50">
       {/* Decorative Glow elements */}
-      <div className="absolute top-1/4 right-0 w-[400px] h-[400px] bg-secondary/5 rounded-full blur-[120px] pointer-events-none" />
-      <div className="absolute bottom-1/4 left-0 w-[300px] h-[300px] bg-primary/3 rounded-full blur-[100px] pointer-events-none" />
+      <div className="absolute top-1/4 right-0 w-[400px] h-[400px] bg-blue-500/5 rounded-full blur-[120px] pointer-events-none" />
+      <div className="absolute bottom-1/4 left-0 w-[300px] h-[300px] bg-yellow-500/3 rounded-full blur-[100px] pointer-events-none" />
 
       <div className="max-w-6xl mx-auto relative z-10">
         
         {/* Part 1: Value Proposition (가치 제안) */}
         <div className="mb-28">
           <div className="text-center max-w-2xl mx-auto mb-16">
-            <span className="inline-flex items-center gap-1.5 text-xs uppercase tracking-widest text-primary font-extrabold px-3 py-1 rounded-full border border-primary/20 bg-primary/5 mb-4">
-              <Sparkles className="w-3 h-3 text-primary" />
+            <span className="inline-flex items-center gap-1.5 text-xs uppercase tracking-widest text-[#2563eb] font-extrabold px-3 py-1 rounded-full border border-blue-500/20 bg-blue-500/5 mb-4">
+              <Sparkles className="w-3 h-3 text-blue-600" />
               Core Value Proposition
             </span>
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-black tracking-tight text-foreground leading-[1.3] mb-4">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-black tracking-tight text-slate-900 leading-[1.3] mb-4">
               왜 1인 기업부터 강소기업까지<br />홈페이지가 필수일까요?
             </h2>
             {/* 형광펜(Highlight) 효과 적용으로 메시지 스캔성 극대화 */}
-            <p className="text-muted-foreground text-sm sm:text-base leading-[1.6]">
-              단순한 텍스트 나열을 넘어, 방문자가 <span className="highlight-blue text-slate-100 font-extrabold">신뢰하고 연락할 수밖에 없는 명확한 비즈니스 무기</span>를 쥐여드립니다.
+            <p className="text-slate-600 text-sm sm:text-base leading-[1.6]">
+              단순한 텍스트 나열을 넘어, 방문자가 <span className="highlight-blue text-slate-800 font-extrabold">신뢰하고 연락할 수밖에 없는 명확한 비즈니스 무기</span>를 쥐여드립니다.
             </p>
           </div>
 
@@ -101,22 +101,22 @@ export function Trust() {
             {valueProps.map((item, idx) => (
               <div 
                 key={idx} 
-                className="group relative bg-[#111115]/80 border border-[#22222b] hover:border-primary/40 rounded-2xl p-6 sm:p-8 backdrop-blur-md transition-all duration-300 hover:-translate-y-1.5"
+                className="group relative bg-white border border-slate-200 hover:border-blue-500/40 rounded-2xl p-6 sm:p-8 transition-all duration-300 hover:-translate-y-1.5 shadow-sm"
               >
                 {/* Glow Overlay */}
-                <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
+                <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-blue-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
                 
-                <div className="w-12 h-12 rounded-xl bg-[#14141a] border border-[#22222b] flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                <div className="w-12 h-12 rounded-xl bg-slate-50 border border-slate-200 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
                   {item.icon}
                 </div>
                 
-                <h3 className="text-xl font-bold text-white mb-2 flex items-center gap-2">
+                <h3 className="text-xl font-bold text-slate-800 mb-2 flex items-center gap-2">
                   {item.title}
                 </h3>
-                <p className="text-yellow-400 text-xs sm:text-sm font-bold mb-4">
+                <p className="text-yellow-600 text-xs sm:text-sm font-bold mb-4">
                   {item.desc}
                 </p>
-                <p className="text-slate-300 text-xs sm:text-sm leading-[1.7] font-medium">
+                <p className="text-slate-600 text-xs sm:text-sm leading-[1.7] font-medium">
                   {item.detail}
                 </p>
               </div>
@@ -124,14 +124,14 @@ export function Trust() {
           </div>
 
           {/* Efficiency & Price Callout */}
-          <div className="mt-12 bg-gradient-to-r from-secondary/15 via-[#111115] to-primary/15 border border-primary/20 rounded-2xl p-6 sm:p-8 text-center max-w-4xl mx-auto">
-            <h4 className="text-base sm:text-lg font-bold text-white mb-2 flex flex-wrap items-center justify-center gap-2 leading-[1.4]">
+          <div className="mt-12 bg-gradient-to-r from-blue-50/50 via-white to-yellow-50/30 border border-slate-200 rounded-2xl p-6 sm:p-8 text-center max-w-4xl mx-auto shadow-sm">
+            <h4 className="text-base sm:text-lg font-bold text-slate-800 mb-2 flex flex-wrap items-center justify-center gap-2 leading-[1.4]">
               <span>💡 시중 500만 원대 에이전시 퀄리티를</span>
-              <span className="text-yellow-400 font-black bg-yellow-400/10 px-2 py-0.5 rounded border border-yellow-400/20">110만 원 정찰제</span>
+              <span className="text-yellow-700 font-black bg-yellow-100 px-2 py-0.5 rounded border border-yellow-200">110만 원 정찰제</span>
               <span>로 구현하는 이유</span>
             </h4>
-            <p className="text-slate-300 text-xs sm:text-sm leading-[1.7] font-medium max-w-2.5xl mx-auto">
-              브랜딩하다는 자체 개발한 고효율 개발 스택인 <span className="text-white font-semibold">자체 고성능 시스템</span>을 활용하여, 불필요한 기획 마찰과 수작업 코딩 프로세스를 획기적으로 단축했습니다. 거품 없는 가격으로 대기업급 퍼포먼스의 경량 고속 웹사이트를 사장님 품에 안겨드립니다.
+            <p className="text-slate-600 text-xs sm:text-sm leading-[1.7] font-medium max-w-2.5xl mx-auto">
+              브랜딩하다는 자체 개발한 고효율 개발 스택인 <span className="text-slate-800 font-semibold">체계적인 자동화 시스템</span>을 활용하여, 불필요한 기획 마찰과 수작업 코딩 프로세스를 획기적으로 단축했습니다. 거품 없는 가격으로 대기업급 퍼포먼스의 경량 고속 웹사이트를 사장님 품에 안겨드립니다.
             </p>
           </div>
         </div>

@@ -26,10 +26,10 @@ export function Footer() {
               </span>
             </div>
             
-            {/* 인천 로컬 비즈니스 파트너 인증 배지 */}
+            {/* 서울 공식 비즈니스 파트너 인증 배지 */}
             <div className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded bg-blue-500/10 border border-blue-500/20 text-blue-700 text-[10px] font-black tracking-wide">
               <span className="w-1.5 h-1.5 rounded-full bg-blue-600 animate-pulse" />
-              인천 기반 공식 로컬 비즈니스 파트너
+              서울 공식 로컬 비즈니스 파트너
             </div>
 
             <p className="text-xs sm:text-sm text-slate-600 leading-relaxed max-w-sm font-bold">

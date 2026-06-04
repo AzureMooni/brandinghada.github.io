@@ -292,7 +292,7 @@ export function Hero({ onSearchStart, onSearchComplete }: HeroProps) {
                   <div className="bg-gradient-to-br from-[#111115] to-[#14141a] border border-[#22222b] p-3 rounded-lg text-center space-y-1">
                     <span className="text-[7.5px] font-black text-emerald-400 bg-emerald-400/10 px-1.5 py-0.5 rounded uppercase">실제 손님 만족도</span>
                     <p className="text-[9px] font-bold text-white mt-1">"돈이 하나도 안 아까워요"</p>
-                    <p className="text-[8px] text-muted-foreground font-medium">인천 남동구 만수동 이*진 사장님 실제 후기 데이터</p>
+                    <p className="text-[8px] text-muted-foreground font-medium">서울 마포구 공덕동 이*진 사장님 실제 후기 데이터</p>
                   </div>
 
                 </div>
