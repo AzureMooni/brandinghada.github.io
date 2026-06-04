@@ -9,6 +9,7 @@ import { Differentiation } from "@/components/Differentiation";
 import { ActivityLog } from "@/components/ActivityLog";
 import { About } from "@/components/About";
 import { Footer } from "@/components/Footer";
+import { FloatingKakao } from "@/components/FloatingKakao";
 
 export default function Home() {
   const [keyword, setKeyword] = useState("");
@@ -69,6 +70,9 @@ export default function Home() {
 
       {/* 8. Footer Service Info */}
       <Footer />
+
+      {/* 9. Floating KakaoTalk Consult Button */}
+      <FloatingKakao />
     </main>
   );
 }

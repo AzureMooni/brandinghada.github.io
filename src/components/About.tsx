@@ -152,7 +152,7 @@ export function About() {
               </div>
             </div>
 
-            {/* Offline Meeting Highlight Callout - 전화 링크 연동 활성화 */}
+            {/* Offline Meeting Highlight Callout - 카카오톡 링크 연동 활성화 */}
             <div className="bg-white border border-slate-200 rounded-2xl p-5 sm:p-6 flex flex-col sm:flex-row items-center justify-between gap-5 shadow-md">
               <div className="flex items-center gap-3.5">
                 <div className="w-12 h-12 rounded-xl bg-yellow-500/10 flex items-center justify-center flex-shrink-0">
@@ -164,11 +164,13 @@ export function About() {
                 </div>
               </div>
               <a 
-                href="tel:010-3054-3990"
-                className="w-full sm:w-auto px-5 py-3 bg-gradient-to-r from-blue-700 to-blue-600 hover:opacity-95 text-white font-black text-xs sm:text-sm rounded-xl flex items-center justify-center gap-2 transition-all cursor-pointer shadow-md text-center block"
+                href="http://pf.kakao.com/_xcjrxjX"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-full sm:w-auto px-5 py-3 bg-gradient-to-r from-yellow-500 to-yellow-600 hover:opacity-95 text-slate-950 font-black text-xs sm:text-sm rounded-xl flex items-center justify-center gap-2 transition-all cursor-pointer shadow-md text-center block"
               >
-                <span>대표디렉터와 통화하기</span>
-                <ArrowRight className="w-4.5 h-4.5 text-white" />
+                <span>카카오톡 1:1 상담하기</span>
+                <ArrowRight className="w-4.5 h-4.5 text-slate-950" />
               </a>
             </div>
 
@@ -181,7 +183,7 @@ export function About() {
               <div className="text-right self-end sm:self-center">
                 <span className="text-xs text-muted-foreground block">운영사: 코리아니티</span>
                 <span className="text-sm text-foreground font-black tracking-wide">
-                  브랜딩하다 대표자 <span className="text-primary font-bold text-base font-serif italic ml-1">김 경 문</span>
+                  브랜딩하다 <span className="text-primary font-bold text-base font-serif italic ml-1">대표디렉터</span>
                 </span>
               </div>
             </div>

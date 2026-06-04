@@ -253,11 +253,11 @@ export function Trust() {
               href="/standard_agreement.html" 
               target="_blank"
               rel="noopener noreferrer"
-              className="w-full py-4.5 bg-gradient-to-r from-blue-700 via-blue-600 to-blue-700 hover:opacity-95 text-white font-black text-base sm:text-lg rounded-2xl flex items-center justify-center gap-2.5 transition-all hover:scale-[1.02] hover:shadow-[0_10px_25px_rgba(29,78,216,0.3)] cursor-pointer text-center block"
+              className="inline-flex items-center gap-2 px-6 py-3 bg-white hover:bg-slate-50 text-slate-800 font-bold text-sm sm:text-base rounded-xl border border-slate-300 transition-all hover:shadow-sm cursor-pointer text-center"
             >
-              <FileText className="w-5.5 h-5.5 text-white" />
-              <span>실제 표준 약정서 전문 보기 (새 창)</span>
-              <ArrowUpRight className="w-5 h-5 text-white" />
+              <FileText className="w-5 h-5 text-slate-500" />
+              <span>실제 표준 약정서 전문 보기</span>
+              <ArrowUpRight className="w-4 h-4 text-slate-400" />
             </a>
           </div>
 

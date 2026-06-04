@@ -182,8 +182,8 @@ export function InteractivePreview({ keyword, isSearched }: InteractivePreviewPr
   };
 
   const handlePhoneCallDemo = () => {
-    // 실제 통화 다이얼 화면 활성화
-    window.location.href = "tel:010-3054-3990";
+    // 카카오톡 1:1 채널 열기
+    window.open("http://pf.kakao.com/_xcjrxjX", "_blank");
   };
 
   const handleResetKakaoDemo = () => {
@@ -354,7 +354,7 @@ export function InteractivePreview({ keyword, isSearched }: InteractivePreviewPr
                           
                           <p className="font-extrabold text-[12px]">{displayKeyword} 사장님,</p>
                           <p className="text-[#333] leading-relaxed text-[11px]">
-                            축하드립니다! 사장님 가게 시공 리뷰를 분석한 **전화 문의 특화 홈페이지**가 5분 만에 완성되어 소유권 대기 상태로 등록되었습니다.
+                            축하드립니다! 사장님 가게 시공 리뷰를 분석한 **카카오톡 문의 특화 홈페이지**가 5분 만에 완성되어 소유권 대기 상태로 등록되었습니다.
                           </p>
 
                           <div className="bg-[#f5f6f8] p-3 rounded-lg border border-[#eee] space-y-1.5 text-[10px] font-mono text-slate-700">
@@ -364,17 +364,19 @@ export function InteractivePreview({ keyword, isSearched }: InteractivePreviewPr
                           </div>
 
                           <p className="text-[#444] leading-relaxed text-[10.5px]">
-                            지금 바로 아래 노란색 버튼을 터치하여 사장님 소유의 공식 도메인과 연결하고 실제 현장 전화를 받으십시오.
+                            지금 바로 아래 노란색 버튼을 터치하여 사장님 소유의 공식 도메인과 연결하고 1:1 상담을 진행해보십시오.
                           </p>
 
                           {/* Interactive Domain Connect Button */}
-                          <button 
-                            onClick={() => alert("도메인 연결 SaaS 결제 모듈 연동 단계로 이동합니다 (초기 7일 무료 체험).")}
-                            className="w-full bg-[#fef01b] hover:bg-[#f3e316] text-[#3c1e1e] font-black text-center py-3.5 rounded-lg border border-[#e2d210] flex items-center justify-center gap-1.5 transition-all text-xs cursor-pointer shadow-sm"
+                          <a 
+                            href="http://pf.kakao.com/_xcjrxjX"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="w-full bg-[#fef01b] hover:bg-[#f3e316] text-[#3c1e1e] font-black text-center py-3.5 rounded-lg border border-[#e2d210] flex items-center justify-center gap-1.5 transition-all text-xs cursor-pointer shadow-sm block"
                           >
-                            <Phone className="w-3.5 h-3.5 fill-[#3c1e1e]" />
-                            <span>1초 만에 내 도메인 연결하기</span>
-                          </button>
+                            <MessageCircle className="w-3.5 h-3.5 fill-[#3c1e1e]" />
+                            <span>1초 만에 카카오톡 1:1 상담하기</span>
+                          </a>
                         </div>
                       </div>
                     </div>
@@ -426,12 +428,12 @@ export function InteractivePreview({ keyword, isSearched }: InteractivePreviewPr
                     <div className="pt-2">
                       <button 
                         onClick={handlePhoneCallDemo}
-                        className="w-full bg-gradient-to-r from-primary via-accent to-primary text-background font-black text-xs py-3.5 rounded-xl text-center shadow-lg hover:shadow-primary/25 hover:opacity-95 transition-all flex items-center justify-center gap-2 cursor-pointer border border-primary/20"
+                        className="w-full bg-[#fef01b] hover:bg-[#f3e316] text-[#3c1e1e] font-black text-xs py-3.5 rounded-xl text-center shadow-lg hover:shadow-primary/25 hover:opacity-95 transition-all flex items-center justify-center gap-2 cursor-pointer border border-[#e2d210]"
                       >
-                        <Phone className="w-4 h-4 text-background fill-background animate-pulse" />
-                        <span>전화 문의하기</span>
+                        <MessageSquare className="w-4 h-4 text-[#3c1e1e] fill-[#3c1e1e] animate-pulse" />
+                        <span>카카오톡 1:1 문의하기</span>
                       </button>
-                      <p className="text-center text-[9px] text-muted-foreground/60 mt-1.5 font-medium">터치 시 즉시 직통 전화 다이얼로 연결됩니다.</p>
+                      <p className="text-center text-[9px] text-muted-foreground/60 mt-1.5 font-medium">터치 시 카카오톡 1:1 채팅방으로 즉시 연결됩니다.</p>
                     </div>
 
                     {/* [INNOVATIVE] Before & After Image Slider Component */}

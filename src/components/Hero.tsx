@@ -1,5 +1,5 @@
 import { useState, useRef, FormEvent, useEffect } from "react";
-import { Search, Loader2, Sparkles, Smartphone, Phone, ArrowUpRight, ShieldCheck, Star } from "lucide-react";
+import { Search, Loader2, Sparkles, Smartphone, Phone, ArrowUpRight, ShieldCheck, Star, MessageCircle } from "lucide-react";
 
 interface HeroProps {
   onSearchStart: (keyword: string) => void;
@@ -258,14 +258,16 @@ export function Hero({ onSearchStart, onSearchComplete }: HeroProps) {
                     빗물 누수 차단율 100%! 오랜 현장 경력의 정밀 진단과 철저한 책임 시공으로 안전하고 튼튼하게 지켜드립니다.
                   </p>
 
-                  {/* CTA Phone Call Button - 전화 활성화 */}
+                  {/* CTA KakaoTalk Button - 카카오톡 활성화 */}
                   <div className="pt-1">
                     <a 
-                      href="tel:010-3054-3990"
+                      href="http://pf.kakao.com/_xcjrxjX"
+                      target="_blank"
+                      rel="noopener noreferrer"
                       className="w-full bg-gradient-to-r from-yellow-500 via-amber-500 to-yellow-500 text-slate-950 font-black text-[10.5px] py-3 rounded-lg text-center flex items-center justify-center gap-1.5 border border-primary/20 shadow-md block hover:scale-[1.03] transition-all"
                     >
-                      <Phone className="w-3.5 h-3.5 text-slate-950 fill-slate-950 animate-pulse" />
-                      <span>전화 바로 걸기</span>
+                      <MessageCircle className="w-3.5 h-3.5 text-slate-950 fill-slate-950 animate-pulse" />
+                      <span>카카오톡 1:1 상담하기</span>
                     </a>
                   </div>
 
