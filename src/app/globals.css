@@ -2,21 +2,22 @@
 
 @theme {
   --font-sans: "Pretendard", -apple-system, BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", sans-serif;
+  --font-mono: "Inter", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
 
   --color-background: #ffffff;
-  --color-foreground: #1a1a1a;
+  --color-foreground: #334155; /* Slate 700 for softer text readability */
 
-  --color-primary: #eab308; /* Darker Gold/Yellow for visibility on white */
+  --color-primary: #eab308;
   --color-primary-foreground: #1a1a1a;
 
-  --color-secondary: #1d4ed8; /* Deep Blue for high contrast */
+  --color-secondary: #1d4ed8;
   --color-secondary-foreground: #ffffff;
 
-  --color-accent: #ca8a04; /* Darker Gold Accent */
+  --color-accent: #ca8a04;
   --color-accent-foreground: #ffffff;
 
   --color-muted: #f8fafc;
-  --color-muted-foreground: #475569;
+  --color-muted-foreground: #64748b;
 
   --color-charcoal-light: #f8fafc;
   --color-charcoal-dark: #ffffff;
@@ -28,13 +29,39 @@
   body {
     @apply bg-background text-foreground antialiased selection:bg-primary/20 selection:text-slate-900;
     font-family: var(--font-sans);
-    line-height: 1.75; /* 4~50대 사장님 눈 피로도 감소를 위한 넓은 줄 간격 */
+    line-height: 1.75;
     background-image: 
-      radial-gradient(at 0% 0%, rgba(29, 78, 216, 0.03) 0px, transparent 50%),
-      radial-gradient(at 100% 100%, rgba(234, 179, 8, 0.03) 0px, transparent 50%);
+      radial-gradient(at 0% 0%, rgba(29, 78, 216, 0.02) 0px, transparent 50%),
+      radial-gradient(at 100% 100%, rgba(234, 179, 8, 0.02) 0px, transparent 50%);
     background-attachment: fixed;
     word-break: keep-all;
     overflow-wrap: break-word;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-sans);
+    font-weight: 700;
+    color: #0f172a; /* Darker Slate 900 for headers */
+  }
+
+  input, select, textarea {
+    border-radius: 12px !important;
+    border: 1px solid #E2E8F0 !important;
+    transition: all 0.2s ease-in-out;
+  }
+
+  input:focus, select:focus, textarea:focus {
+    border-color: #cbd5e1 !important;
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(226, 232, 240, 0.5);
+  }
+
+  button, a.button-click-action {
+    transition: transform 0.2s ease !important;
+  }
+
+  button:active, a.button-click-action:active {
+    transform: scale(0.96);
   }
 }
 

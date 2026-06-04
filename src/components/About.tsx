@@ -167,7 +167,7 @@ export function About() {
                 href="http://pf.kakao.com/_xcjrxjX"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-full sm:w-auto px-5 py-3 bg-gradient-to-r from-yellow-500 to-yellow-600 hover:opacity-95 text-slate-950 font-black text-xs sm:text-sm rounded-xl flex items-center justify-center gap-2 transition-all cursor-pointer shadow-md text-center block"
+                className="w-full sm:w-auto px-5 py-3 bg-gradient-to-r from-yellow-500 to-yellow-600 hover:opacity-95 text-slate-950 font-black text-xs sm:text-sm rounded-xl flex items-center justify-center gap-2 transition-all cursor-pointer shadow-md text-center block button-click-action"
               >
                 <span>카카오톡 1:1 상담하기</span>
                 <ArrowRight className="w-4.5 h-4.5 text-slate-950" />

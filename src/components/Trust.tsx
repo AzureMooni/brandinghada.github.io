@@ -253,7 +253,7 @@ export function Trust() {
               href="/standard_agreement.html" 
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-6 py-3 bg-white hover:bg-slate-50 text-slate-800 font-bold text-sm sm:text-base rounded-xl border border-slate-300 transition-all hover:shadow-sm cursor-pointer text-center"
+              className="inline-flex items-center gap-2 px-6 py-3 bg-white hover:bg-slate-50 text-slate-800 font-bold text-sm sm:text-base rounded-xl border border-slate-300 transition-all hover:shadow-sm cursor-pointer text-center button-click-action"
             >
               <FileText className="w-5 h-5 text-slate-500" />
               <span>실제 표준 약정서 전문 보기</span>

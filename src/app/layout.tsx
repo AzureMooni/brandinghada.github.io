@@ -35,6 +35,11 @@ export default function RootLayout({
         <link rel="shortcut icon" href="/favicon.ico?v=2" />
         <link rel="icon" type="image/png" href="/favicon.png?v=2" sizes="32x32" />
         <link rel="apple-touch-icon" href="/apple-touch-icon.png?v=2" />
+        {/* Google Fonts - Inter & Pretendard CDN link */}
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
+        <link rel="stylesheet" as="style" crossOrigin="anonymous" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css" />
       </head>
       <body className={cn(pretendard.className, "antialiased")}>
         {children}
