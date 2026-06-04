@@ -128,23 +128,28 @@ export function About() {
               </span>
             </div>
 
-            <h2 className="text-3xl sm:text-4.5xl font-black tracking-tight text-slate-900 leading-[1.35]">
-              "임대료 무서운 줄 아는 개발자 김경문입니다.<br className="hidden sm:inline" /> 인천 사장님들, 따뜻한 커피 한 잔 하시죠."
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-black tracking-tight text-slate-900 leading-[1.3] text-center lg:text-left">
+              "임대료 무서운 줄 아는 개발자 김경문입니다."
             </h2>
 
-            <div className="space-y-5 text-slate-700 text-base sm:text-lg leading-[1.8] font-bold text-left">
-              <p>
-                저 또한 인천 남동구 등지에서 <strong className="text-slate-900 font-black">5개 매장의 오프라인 숙소</strong>를 직접 은행 대출을 받아 창업하고, 매월 피가 마르는 심정으로 높은 임대료와 직원의 주휴수당을 결제하는 실제 자영업자 사장입니다.
-              </p>
-              <p>
-                화려한 프레젠테이션과 비현실적인 기획서로 사장님들을 현혹하는 강남의 대형 광고 대행사들은 사장님들이 매월 1일이 다가올 때마다 겪는 숨막히는 압박과 인건비의 무서운 무게를 단 1%도 알지 못합니다.
-              </p>
-              <p>
-                그렇기 때문에 저는 복잡하고 쓸데없는 장식성 화려함은 완전히 배격하고, 오직 <strong>'스마트폰으로 사장님께 전화 문의와 예약'</strong>이 올 수밖에 없도록 설계된 아주 간결하고 빠른 매출형 홈페이지를 직접 만들어 제공하고 있습니다.
-              </p>
-              <p>
-                인천 지역 소상공인 사장님이시라면 언제든 불러주십시오. 따뜻한 아메리카노 한 잔 양손에 들고 찾아뵈어, 매장 포털 지도 진단과 효과적인 고객 유치 전략을 정직하게 무료로 짚어 드리겠습니다.
-              </p>
+            {/* 잡지 스타일 레이아웃 (넓은 줄 간격 및 큰 본문 폰트) */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 text-slate-700 text-base sm:text-lg leading-[2.0] font-bold text-left pt-6 border-t border-slate-200">
+              <div className="space-y-6">
+                <p>
+                  저 또한 인천 남동구 등지에서 <strong className="text-slate-900 font-black">5개 매장의 오프라인 숙소</strong>를 직접 은행 대출을 받아 창업하고, 매월 피가 마르는 심정으로 높은 임대료와 직원의 주휴수당을 결제하는 실제 자영업자 사장입니다.
+                </p>
+                <p>
+                  화려한 프레젠테이션과 비현실적인 기획서로 사장님들을 현혹하는 강남의 대형 광고 대행사들은 사장님들이 매월 1일이 다가올 때마다 겪는 숨막히는 압박과 인건비의 무서운 무게를 단 1%도 알지 못합니다.
+                </p>
+              </div>
+              <div className="space-y-6">
+                <p>
+                  그렇기 때문에 저는 복잡하고 쓸데없는 장식성 화려함은 완전히 배격하고, 오직 <strong>'스마트폰으로 사장님께 전화 문의와 예약'</strong>이 올 수밖에 없도록 설계된 아주 간결하고 빠른 매출형 홈페이지를 직접 만들어 제공하고 있습니다.
+                </p>
+                <p>
+                  인천 지역 소상공인 사장님이시라면 언제든 불러주십시오. 따뜻한 아메리카노 한 잔 양손에 들고 찾아뵈어, 매장 포털 지도 진단과 효과적인 고객 유치 전략을 정직하게 무료로 짚어 드리겠습니다.
+                </p>
+              </div>
             </div>
 
             {/* Offline Meeting Highlight Callout - 전화 링크 연동 활성화 */}

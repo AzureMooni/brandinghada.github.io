@@ -131,7 +131,7 @@ export function Trust() {
               <span>로 구현하는 이유</span>
             </h4>
             <p className="text-slate-300 text-xs sm:text-sm leading-[1.7] font-medium max-w-2.5xl mx-auto">
-              브랜딩하다는 자체 개발한 고효율 개발 스택인 <span className="text-white font-semibold">gstack 시스템</span>을 활용하여, 불필요한 기획 마찰과 수작업 코딩 프로세스를 획기적으로 단축했습니다. 거품 없는 가격으로 대기업급 퍼포먼스의 경량 고속 웹사이트를 사장님 품에 안겨드립니다.
+              브랜딩하다는 자체 개발한 고효율 개발 스택인 <span className="text-white font-semibold">자체 고성능 시스템</span>을 활용하여, 불필요한 기획 마찰과 수작업 코딩 프로세스를 획기적으로 단축했습니다. 거품 없는 가격으로 대기업급 퍼포먼스의 경량 고속 웹사이트를 사장님 품에 안겨드립니다.
             </p>
           </div>
         </div>
