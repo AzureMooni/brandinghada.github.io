@@ -222,19 +222,19 @@ export function InteractivePreview({ keyword, isSearched }: InteractivePreviewPr
         
         {/* Title Block */}
         <div className="mb-16 text-center max-w-2xl mx-auto">
-          <span className="text-xs uppercase tracking-widest text-[#2563eb] font-extrabold px-3 py-1 rounded border border-secondary/20 bg-secondary/5">
+          <span className="text-xs uppercase tracking-widest text-blue-900 font-extrabold px-3 py-1 rounded border border-blue-200/50 bg-blue-50">
             {isSearched ? "초정밀 모바일 시안 생성 완료" : "실제 완성 시안 샘플 구동 중"}
           </span>
-          <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-slate-900 mt-4 mb-3">
+          <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-slate-950 mt-4 mb-3">
             {isSearched ? (
               <>
-                실시간 매칭 결과: <span className="text-blue-700 font-black">{displayKeyword}</span>
+                실시간 매칭 결과: <span className="text-blue-900 font-black">{displayKeyword}</span>
               </>
             ) : (
               "사장님이 땀 흘려 일하실 때도, 홈페이지가 세일즈합니다."
             )}
           </h2>
-          <p className="text-slate-600 text-base sm:text-lg leading-relaxed font-bold">
+          <p className="text-slate-800 text-base sm:text-lg leading-relaxed font-bold">
             리뷰 평판 빅데이터를 분석하여 신뢰도를 떨어뜨리는 단어를 거르고, 시공 퀄리티가 돋보이도록 전용 슬라이더 포트폴리오를 적용했습니다.
           </p>
         </div>
@@ -243,20 +243,20 @@ export function InteractivePreview({ keyword, isSearched }: InteractivePreviewPr
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start mb-16">
           
           {/* LEFT: Place Review Dashboard */}
-          <div className="lg:col-span-5 bg-slate-50 border border-slate-200 rounded-2xl p-6 sm:p-8 relative overflow-hidden group hover:border-slate-300 transition-colors duration-300 h-full">
-            <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-primary to-transparent" />
+          <div className="lg:col-span-5 bg-white border border-slate-300 rounded-2xl p-6 sm:p-8 relative overflow-hidden group hover:border-slate-400 transition-colors duration-300 h-full shadow-sm">
+            <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-amber-500 to-transparent" />
             
             <div className="flex items-center justify-between mb-8">
               <div>
-                <h3 className="text-base sm:text-lg font-bold text-slate-800 flex items-center gap-2">
-                  <Star className="w-5 h-5 text-primary fill-primary" />
+                <h3 className="text-base sm:text-lg font-bold text-slate-900 flex items-center gap-2">
+                  <Star className="w-5 h-5 text-amber-500 fill-amber-500" />
                   고객 리뷰 키워드 추출 결과
                 </h3>
-                <p className="text-xs text-slate-500 mt-1">플레이스에 기록된 소상공인 실사용 강점 빅데이터</p>
+                <p className="text-xs text-slate-650 mt-1 font-bold">플레이스에 기록된 소상공인 실사용 강점 빅데이터</p>
               </div>
               <div className="text-right">
-                <span className="text-2xl font-black text-slate-900 font-mono">{displayData.reviewsCount}</span>
-                <span className="text-xs text-slate-500 block">시공 만족 후기</span>
+                <span className="text-2xl font-black text-slate-950 font-mono">{displayData.reviewsCount}</span>
+                <span className="text-xs text-slate-600 block font-bold">시공 만족 후기</span>
               </div>
             </div>
 
@@ -264,16 +264,16 @@ export function InteractivePreview({ keyword, isSearched }: InteractivePreviewPr
             <div className="space-y-6">
               {displayData.keywords.map((kw, idx) => (
                 <div key={idx} className="space-y-2">
-                  <div className="flex justify-between items-center text-xs font-semibold">
-                    <span className="text-slate-700 flex items-center gap-1.5">
-                      <span className="w-1.5 h-1.5 rounded-full bg-primary" />
+                  <div className="flex justify-between items-center text-xs font-bold">
+                    <span className="text-slate-850 flex items-center gap-1.5">
+                      <span className="w-1.5 h-1.5 rounded-full bg-amber-500" />
                       {kw.name}
                     </span>
-                    <span className="text-blue-700 font-mono">{animatedProgress[idx] || 0}%</span>
+                    <span className="text-blue-900 font-mono">{animatedProgress[idx] || 0}%</span>
                   </div>
                   <div className="w-full bg-slate-200 h-2 rounded-full overflow-hidden">
                     <div 
-                      className="bg-gradient-to-r from-primary to-secondary h-full rounded-full transition-all duration-1000 ease-out"
+                      className="bg-gradient-to-r from-amber-500 to-blue-700 h-full rounded-full transition-all duration-1000 ease-out"
                       style={{ width: `${animatedProgress[idx] || 0}%` }}
                     />
                   </div>
@@ -283,36 +283,36 @@ export function InteractivePreview({ keyword, isSearched }: InteractivePreviewPr
 
             {/* Dashboard Sub Stats */}
             <div className="grid grid-cols-2 gap-4 mt-10 pt-8 border-t border-slate-200">
-              <div className="bg-white border border-slate-200 rounded-xl p-3 text-center">
-                <p className="text-[10px] text-slate-500 font-semibold">바가지 청구 방지 검증</p>
-                <p className="text-sm font-extrabold text-emerald-600 mt-1 font-mono">100% PASS</p>
+              <div className="bg-white border border-slate-300 rounded-xl p-3 text-center shadow-sm">
+                <p className="text-[10px] text-slate-600 font-bold">바가지 청구 방지 검증</p>
+                <p className="text-sm font-extrabold text-emerald-700 mt-1 font-mono">100% PASS</p>
               </div>
-              <div className="bg-white border border-slate-200 rounded-xl p-3 text-center">
-                <p className="text-[10px] text-slate-500 font-semibold">날림/부실 시공 요소 제거</p>
-                <p className="text-sm font-extrabold text-blue-600 mt-1 font-mono">마찰 제로</p>
+              <div className="bg-white border border-slate-300 rounded-xl p-3 text-center shadow-sm">
+                <p className="text-[10px] text-slate-600 font-bold">날림/부실 시공 요소 제거</p>
+                <p className="text-sm font-extrabold text-blue-700 mt-1 font-mono">마찰 제로</p>
               </div>
             </div>
 
             {/* Security Proof */}
-            <div className="flex items-center gap-2 mt-6 justify-center text-[10px] text-slate-500 font-medium">
-              <Shield className="w-3 h-3 text-slate-400" />
+            <div className="flex items-center gap-2 mt-6 justify-center text-[10px] text-slate-600 font-bold">
+              <Shield className="w-3 h-3 text-slate-500" />
               <span>로컬 소상공인 보증 등급 데이터 동기화 완료</span>
             </div>
           </div>
 
-          {/* RIGHT: Mobile Web Frame mockup */}
+          {/* RIGHT: Mobile Web Frame mockup (Silver/Light Frame) */}
           <div className="lg:col-span-7 flex justify-center">
-            <div className="relative w-full max-w-[340px] sm:max-w-[360px] aspect-[9/18.5] bg-[#070709] rounded-[48px] p-3 shadow-2xl border-[6px] border-[#22222b] relative overflow-hidden group">
+            <div className="relative w-full max-w-[340px] sm:max-w-[360px] aspect-[9/18.5] bg-[#f8fafc] rounded-[48px] p-3 shadow-2xl border-[6px] border-[#cbd5e1] relative overflow-hidden group">
               
-              {/* Speaker bezel notch */}
-              <div className="absolute top-0 left-1/2 -translate-x-1/2 w-32 h-6 bg-[#22222b] rounded-b-2xl z-30 flex items-center justify-center">
-                <div className="w-12 h-1 bg-[#111115] rounded-full mr-2" />
-                <div className="w-2.5 h-2.5 bg-[#111115] rounded-full" />
+              {/* Speaker bezel notch (Silver/Slate Bezel) */}
+              <div className="absolute top-0 left-1/2 -translate-x-1/2 w-32 h-6 bg-[#cbd5e1] rounded-b-2xl z-30 flex items-center justify-center">
+                <div className="w-12 h-1 bg-[#94a3b8] rounded-full mr-2" />
+                <div className="w-2.5 h-2.5 bg-[#94a3b8] rounded-full" />
               </div>
-
+ 
               {/* Home indicator bar */}
-              <div className="absolute bottom-1.5 left-1/2 -translate-x-1/2 w-28 h-1 bg-[#22222b] rounded-full z-30" />
-
+              <div className="absolute bottom-1.5 left-1/2 -translate-x-1/2 w-28 h-1 bg-[#cbd5e1] rounded-full z-30" />
+ 
               {/* [INNOVATIVE] 1. KAKAO ALARM TOK SCREEN MODE */}
               {isKakaoSent ? (
                 <div className="w-full h-full bg-[#bacee0] rounded-[38px] overflow-y-auto relative text-left select-none hide-scrollbar z-20 pb-12 pt-6 animate-in fade-in zoom-in-95 duration-300">
@@ -329,12 +329,12 @@ export function InteractivePreview({ keyword, isSearched }: InteractivePreviewPr
                       홈페이지로 돌아가기
                     </button>
                   </div>
-
+ 
                   {/* Kakao chat window content */}
                   <div className="p-4 space-y-4 font-sans text-xs">
                     {/* Timestamp */}
                     <p className="text-center text-[10px] text-[#748796] my-2">2026년 5월 26일 화요일</p>
-
+ 
                     {/* Chat Bubble Grid */}
                     <div className="flex gap-2 items-start max-w-[90%]">
                       {/* Avatar */}
@@ -346,8 +346,8 @@ export function InteractivePreview({ keyword, isSearched }: InteractivePreviewPr
                         <p className="text-[10px] text-[#4f5c69] font-bold">브랜딩하다 공식 채널</p>
                         
                         {/* Message Box */}
-                        <div className="bg-white text-black p-4 rounded-r-2xl rounded-bl-2xl shadow border border-[#d6e0ea] space-y-3">
-                          <div className="flex items-center gap-1.5 text-primary bg-[#0a0a0c] px-2 py-1.5 rounded text-[10px] font-black">
+                        <div className="bg-white text-black p-4 rounded-r-2xl rounded-bl-2xl shadow-md border border-[#d6e0ea] space-y-3">
+                          <div className="flex items-center gap-1.5 text-[#a16207] bg-[#fef9c3] px-2 py-1.5 rounded text-[10px] font-black">
                             <Sparkles className="w-3.5 h-3.5" />
                             <span>[브랜딩하다] 로컬 세일즈 알림톡</span>
                           </div>
@@ -356,23 +356,23 @@ export function InteractivePreview({ keyword, isSearched }: InteractivePreviewPr
                           <p className="text-[#333] leading-relaxed text-[11px]">
                             축하드립니다! 사장님 가게 시공 리뷰를 분석한 **카카오톡 문의 특화 홈페이지**가 5분 만에 완성되어 소유권 대기 상태로 등록되었습니다.
                           </p>
-
-                          <div className="bg-[#f5f6f8] p-3 rounded-lg border border-[#eee] space-y-1.5 text-[10px] font-mono text-slate-700">
+ 
+                          <div className="bg-[#f8fafc] p-3 rounded-lg border border-[#e2e8f0] space-y-1.5 text-[10px] font-mono text-slate-800">
                             <div>• <strong>완성 주소:</strong> bh.com/{keyword ? "hanyang" : "hanyang"}</div>
                             <div>• <strong>상태:</strong> 100% 임시 도메인 연동 대기</div>
                             <div>• <strong>통계:</strong> 리뷰 {displayData.reviewsCount}개 반영 완료</div>
                           </div>
-
-                          <p className="text-[#444] leading-relaxed text-[10.5px]">
+ 
+                          <p className="text-[#333333] leading-relaxed text-[10.5px] font-medium">
                             지금 바로 아래 노란색 버튼을 터치하여 사장님 소유의 공식 도메인과 연결하고 1:1 상담을 진행해보십시오.
                           </p>
-
+ 
                           {/* Interactive Domain Connect Button */}
                           <a 
                             href="http://pf.kakao.com/_xcjrxjX"
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="w-full bg-[#fef01b] hover:bg-[#f3e316] text-[#3c1e1e] font-black text-center py-3.5 rounded-lg border border-[#e2d210] flex items-center justify-center gap-1.5 transition-all text-xs cursor-pointer shadow-sm block"
+                            className="w-full bg-[#fef01b] hover:bg-[#f3e316] text-[#3c1e1e] font-black text-center py-3.5 rounded-lg border border-[#e2d210] flex items-center justify-center gap-1.5 transition-all text-xs cursor-pointer shadow-md block"
                           >
                             <MessageCircle className="w-3.5 h-3.5 fill-[#3c1e1e]" />
                             <span>1초 만에 카카오톡 1:1 상담하기</span>
@@ -380,7 +380,7 @@ export function InteractivePreview({ keyword, isSearched }: InteractivePreviewPr
                         </div>
                       </div>
                     </div>
-
+ 
                     <div className="text-center pt-4">
                       <button 
                         onClick={handleResetKakaoDemo}
@@ -390,57 +390,57 @@ export function InteractivePreview({ keyword, isSearched }: InteractivePreviewPr
                         <span>다시 시공 프리뷰 시안 보기</span>
                       </button>
                     </div>
-
+ 
                   </div>
                 </div>
               ) : (
-                /* [NORMAL] 2. NORMAL HOMEPAGE VIEW PORT */
-                <div className="w-full h-full bg-slate-50 rounded-[38px] overflow-y-auto relative text-left select-none hide-scrollbar z-20 pb-12 pt-6 border border-slate-200">
+                /* [NORMAL] 2. NORMAL HOMEPAGE VIEW PORT - High Contrast White Background */
+                <div className="w-full h-full bg-[#ffffff] rounded-[38px] overflow-y-auto relative text-left select-none hide-scrollbar z-20 pb-12 pt-6 border border-slate-200">
                   
                   {/* Mobile Header Bar */}
-                  <div className="sticky top-0 bg-white/90 backdrop-blur-md px-5 py-3 border-b border-slate-200 z-20 flex items-center justify-between">
-                    <span className="text-[11px] font-black tracking-tight text-slate-800">
+                  <div className="sticky top-0 bg-white/95 backdrop-blur-md px-5 py-3 border-b border-slate-200 z-20 flex items-center justify-between">
+                    <span className="text-[11px] font-black tracking-tight text-slate-900">
                       {keyword ? displayKeyword : "한양지붕공사"}
                     </span>
-                    <span className="text-[9px] bg-primary/20 text-yellow-800 px-1.5 py-0.5 rounded font-extrabold uppercase">
+                    <span className="text-[9px] bg-amber-100 text-amber-900 px-1.5 py-0.5 rounded font-extrabold uppercase border border-amber-200">
                       실시간 시안
                     </span>
                   </div>
-
+ 
                   {/* Mobile Content Screen */}
                   <div className="p-5 space-y-6">
                     {/* Badge */}
-                    <span className="inline-block text-[9px] font-bold text-yellow-700 tracking-wide uppercase px-2 py-0.5 rounded bg-primary/10 border border-primary/20">
+                    <span className="inline-block text-[9px] font-bold text-amber-900 tracking-wide uppercase px-2 py-0.5 rounded bg-amber-50 border border-amber-200/50">
                       ✦ {displayData.mobilePreview.badge}
                     </span>
-
+ 
                     {/* Title */}
-                    <h4 className="text-base sm:text-lg font-black text-slate-800 leading-snug tracking-tight">
+                    <h4 className="text-base sm:text-lg font-black text-slate-950 leading-snug tracking-tight">
                       {displayData.mobilePreview.title}
                     </h4>
-
+ 
                     {/* Description */}
-                    <p className="text-[11.5px] text-slate-600 leading-relaxed">
+                    <p className="text-[11.5px] text-slate-800 leading-relaxed font-bold">
                       {displayData.mobilePreview.description}
                     </p>
-
+ 
                     {/* Smart Mobile Action buttons */}
                     <div className="pt-2">
                       <button 
                         onClick={handlePhoneCallDemo}
-                        className="w-full bg-[#fef01b] hover:bg-[#f3e316] text-[#3c1e1e] font-black text-xs py-3.5 rounded-xl text-center shadow-lg hover:shadow-primary/25 hover:opacity-95 transition-all flex items-center justify-center gap-2 cursor-pointer border border-[#e2d210]"
+                        className="w-full bg-[#fef01b] hover:bg-[#f3e316] text-[#3c1e1e] font-black text-xs py-3.5 rounded-xl text-center shadow-md hover:shadow-lg transition-all flex items-center justify-center gap-2 cursor-pointer border border-[#e2d210]"
                       >
                         <MessageSquare className="w-4 h-4 text-[#3c1e1e] fill-[#3c1e1e] animate-pulse" />
                         <span>카카오톡 1:1 문의하기</span>
                       </button>
-                      <p className="text-center text-[9px] text-slate-500 mt-1.5 font-medium">터치 시 카카오톡 1:1 채팅방으로 즉시 연결됩니다.</p>
+                      <p className="text-center text-[9px] text-slate-600 mt-1.5 font-bold">터치 시 카카오톡 1:1 채팅방으로 즉시 연결됩니다.</p>
                     </div>
-
+ 
                     {/* [INNOVATIVE] Before & After Image Slider Component */}
                     <div className="pt-4 border-t border-slate-200 space-y-3">
                       <div className="flex items-center justify-between">
-                        <p className="text-[9.5px] uppercase font-bold text-slate-500 tracking-wider">시공 실력 직관 증명 (드래그)</p>
-                        <span className="text-[8px] bg-primary/20 text-yellow-800 px-1 rounded font-bold animate-pulse">BEFORE & AFTER</span>
+                        <p className="text-[9.5px] uppercase font-bold text-slate-600 tracking-wider">시공 실력 직관 증명 (드래그)</p>
+                        <span className="text-[8px] bg-amber-100 text-amber-900 px-1 rounded font-bold border border-amber-200/40">BEFORE & AFTER</span>
                       </div>
                       
                       {/* Interactive Drag Box */}
@@ -448,65 +448,65 @@ export function InteractivePreview({ keyword, isSearched }: InteractivePreviewPr
                         ref={sliderRef}
                         onMouseDown={handleStartDrag}
                         onTouchStart={handleStartDrag}
-                        className="relative w-full aspect-[4/3] rounded-xl overflow-hidden cursor-ew-resize select-none border border-slate-200"
+                        className="relative w-full aspect-[4/3] rounded-xl overflow-hidden cursor-ew-resize select-none border border-slate-300 shadow-md"
                       >
                         {/* BEFORE Image (Under Layer) */}
                         <div className="absolute inset-0 bg-slate-100 flex flex-col items-center justify-center p-4 text-center">
-                          <div className="w-8 h-8 rounded-full bg-red-500/10 text-red-500 flex items-center justify-center mb-2">
+                          <div className="w-8 h-8 rounded-full bg-red-100 text-red-700 flex items-center justify-center mb-2 border border-red-200">
                             <AlertTriangle className="w-4 h-4" />
                           </div>
-                          <p className="text-[10px] text-red-600 font-extrabold">🚨 시공 전 (Before)</p>
-                          <p className="text-[8.5px] text-slate-500 mt-1 max-w-[80%]">심각한 빗물 누수 균열 및 낡고 방수 기능 상실된 철골 상태</p>
+                          <p className="text-[10px] text-red-700 font-black">🚨 시공 전 (Before)</p>
+                          <p className="text-[8.5px] text-slate-800 mt-1 max-w-[80%] font-bold">심각한 빗물 누수 균열 및 낡고 방수 기능 상실된 철골 상태</p>
                         </div>
-
+ 
                         {/* AFTER Image (Top Slider Layer) */}
                         <div 
-                          className="absolute inset-y-0 left-0 bg-white flex flex-col items-center justify-center p-4 text-center border-r-2 border-primary overflow-hidden"
+                          className="absolute inset-y-0 left-0 bg-white flex flex-col items-center justify-center p-4 text-center border-r-2 border-amber-600 overflow-hidden"
                           style={{ width: `${sliderPosition}%` }}
                         >
                           <div className="w-200% h-full absolute inset-0 flex flex-col items-center justify-center p-4 text-center select-none" style={{ width: sliderRef.current?.getBoundingClientRect().width || "280px" }}>
-                            <div className="w-8 h-8 rounded-full bg-primary/20 text-yellow-700 flex items-center justify-center mb-2">
+                            <div className="w-8 h-8 rounded-full bg-amber-100 text-amber-900 flex items-center justify-center mb-2 border border-amber-200">
                               <Sparkles className="w-4 h-4 animate-spin" />
                             </div>
-                            <p className="text-[10px] text-yellow-700 font-extrabold">✨ 시공 후 (After)</p>
-                            <p className="text-[8.5px] text-slate-700 font-semibold mt-1 max-w-[80%]">안동안 누수 없는 Safety Yellow 보강 방수 및 깔끔한 외관 마감 완료</p>
+                            <p className="text-[10px] text-amber-900 font-black">✨ 시공 후 (After)</p>
+                            <p className="text-[8.5px] text-slate-900 font-extrabold mt-1 max-w-[80%]">3년 누수 없는 Safety Yellow 보강 방수 및 깔끔한 외관 마감 완료</p>
                           </div>
                         </div>
-
+ 
                         {/* Slider Handle Knob */}
                         <div 
                           className="absolute inset-y-0 w-8 -ml-4 flex items-center justify-center pointer-events-none z-10"
                           style={{ left: `${sliderPosition}%` }}
                         >
-                          <div className="w-7 h-7 rounded-full bg-primary text-slate-800 flex items-center justify-center shadow-lg border border-slate-200">
+                          <div className="w-7 h-7 rounded-full bg-amber-500 text-slate-950 flex items-center justify-center shadow-lg border border-slate-300">
                             <Smartphone className="w-3.5 h-3.5" />
                           </div>
                         </div>
                       </div>
-                      <p className="text-center text-[8px] text-slate-500">손가락이나 마우스로 스마트폰 사진을 드래그해 시공 전후 실력을 비교해보세요.</p>
+                      <p className="text-center text-[8px] text-slate-600 font-bold">손가락이나 마우스로 스마트폰 사진을 드래그해 시공 전후 실력을 비교해보세요.</p>
                     </div>
-
+ 
                     {/* Strengths Card */}
                     <div className="pt-4 border-t border-slate-200 space-y-3">
-                      <p className="text-[9.5px] uppercase font-bold text-slate-500 tracking-wider">우리 업체만의 안심 약속</p>
+                      <p className="text-[9.5px] uppercase font-bold text-slate-600 tracking-wider">우리 업체만의 안심 약속</p>
                       
                       {displayData.mobilePreview.features.map((feat, idx) => (
-                        <div key={idx} className="flex gap-2.5 items-start bg-white border border-slate-100 p-3 rounded-xl transition-all duration-300 hover:border-primary/30">
-                          <div className="w-5 h-5 rounded-full bg-primary/10 text-yellow-700 flex items-center justify-center flex-shrink-0 text-[10px] font-bold">
+                        <div key={idx} className="flex gap-2.5 items-start bg-white border border-slate-200 p-3 rounded-xl shadow-sm transition-all duration-300 hover:border-amber-500 hover:shadow-md">
+                          <div className="w-5 h-5 rounded-full bg-amber-100 text-amber-900 flex items-center justify-center flex-shrink-0 text-[10px] font-black border border-amber-200">
                             {idx + 1}
                           </div>
-                          <p className="text-[10px] text-slate-700 font-semibold leading-relaxed">
+                          <p className="text-[10px] text-slate-900 font-extrabold leading-relaxed">
                             {feat}
                           </p>
                         </div>
                       ))}
                     </div>
-
+ 
                     {/* Guarantee Box */}
-                    <div className="bg-white border border-slate-200 p-4 rounded-xl text-center space-y-2 mt-4">
-                      <Sparkles className="w-4 h-4 text-primary mx-auto animate-spin" />
-                      <p className="text-[9.5px] font-bold text-slate-800">100% 매칭 검증 평판 적용</p>
-                      <p className="text-[8.5px] text-slate-500 leading-relaxed">실제 시공 고객들의 우수 평판을 토대로 제작된 사장님 전용 5분 안심 세일즈 시안입니다.</p>
+                    <div className="bg-white border border-slate-200 p-4 rounded-xl text-center space-y-2 mt-4 shadow-sm">
+                      <Sparkles className="w-4 h-4 text-amber-600 mx-auto animate-spin" />
+                      <p className="text-[9.5px] font-black text-slate-900">100% 매칭 검증 평판 적용</p>
+                      <p className="text-[8.5px] text-slate-700 leading-relaxed font-bold">실제 시공 고객들의 우수 평판을 토대로 제작된 사장님 전용 5분 안심 세일즈 시안입니다.</p>
                     </div>
                   </div>
                 </div>
@@ -518,44 +518,44 @@ export function InteractivePreview({ keyword, isSearched }: InteractivePreviewPr
 
         {/* BOTTOM: Lead Generation Form */}
         <div className="relative group max-w-4xl mx-auto mt-16">
-          <div className="absolute -inset-0.5 bg-gradient-to-r from-yellow-500 via-blue-500 to-yellow-500 rounded-2xl blur opacity-20 group-hover:opacity-30 transition duration-300" />
+          <div className="absolute -inset-0.5 bg-gradient-to-r from-amber-500 via-blue-500 to-amber-500 rounded-2xl blur opacity-20 group-hover:opacity-30 transition duration-300" />
           
-          <div className="relative bg-slate-50 border border-slate-200 p-6 sm:p-8 rounded-2xl text-center md:text-left flex flex-col md:flex-row md:items-center justify-between gap-6 overflow-hidden shadow-md">
+          <div className="relative bg-white border border-slate-300 p-6 sm:p-8 rounded-2xl text-center md:text-left flex flex-col md:flex-row md:items-center justify-between gap-6 overflow-hidden shadow-md">
             
             <div className="space-y-2">
-              <h3 className="text-base sm:text-lg font-bold text-slate-800 flex items-center justify-center md:justify-start gap-2">
-                <MessageSquare className="w-5 h-5 text-yellow-600" />
+              <h3 className="text-base sm:text-lg font-black text-slate-950 flex items-center justify-center md:justify-start gap-2">
+                <MessageSquare className="w-5 h-5 text-amber-700" />
                 이 홈페이지 시안을 사장님 핸드폰으로 무료로 받으시겠습니까?
               </h3>
-              <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-bold">
+              <p className="text-xs sm:text-sm text-slate-800 leading-relaxed font-bold">
                 휴대폰 번호만 남겨주시면 방금 조립된 홈페이지 주소와 관리 안내를 **카카오 알림톡**으로 즉시 무료 발송해 드립니다.
               </p>
             </div>
-
+ 
             <form onSubmit={handleLeadSubmit} className="flex flex-col sm:flex-row gap-3 w-full md:w-auto md:max-w-md flex-shrink-0">
-              <div className="relative flex items-center bg-white border border-slate-300 rounded-xl px-4 py-3 focus-within:border-yellow-500 transition-all duration-300 shadow-inner">
-                <Phone className="w-4 h-4 text-slate-400 mr-2.5" />
+              <div className="relative flex items-center bg-white border border-slate-300 rounded-xl px-4 py-3 focus-within:border-amber-500 transition-all duration-300 shadow-inner">
+                <Phone className="w-4 h-4 text-slate-500 mr-2.5" />
                 <input
                   type="tel"
                   required
                   value={phoneNumber}
                   onChange={(e) => setPhoneNumber(e.target.value)}
                   placeholder="휴대폰 번호 입력"
-                  className="bg-transparent text-sm text-slate-800 placeholder:text-slate-400 outline-none w-full font-bold"
+                  className="bg-transparent text-sm text-slate-900 placeholder:text-slate-400 outline-none w-full font-bold"
                 />
               </div>
               <button 
                 type="submit"
-                className="px-6 py-3.5 bg-gradient-to-r from-yellow-500 to-yellow-600 text-slate-950 font-black text-sm rounded-xl hover:opacity-95 transition-all duration-300 shadow-md flex items-center justify-center gap-2 cursor-pointer"
+                className="px-6 py-3.5 bg-amber-600 text-white font-black text-sm rounded-xl hover:bg-amber-700 transition-all duration-300 shadow-md flex items-center justify-center gap-2 cursor-pointer"
               >
                 <span>무료 시안 받아보기</span>
-                <ArrowRight className="w-4 h-4 text-slate-950" />
+                <ArrowRight className="w-4 h-4 text-white" />
               </button>
             </form>
-
+ 
           </div>
         </div>
-
+ 
       </div>
     </section>
   );

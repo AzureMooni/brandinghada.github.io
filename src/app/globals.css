@@ -5,19 +5,19 @@
   --font-mono: "Inter", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
 
   --color-background: #ffffff;
-  --color-foreground: #334155; /* Slate 700 for softer text readability */
+  --color-foreground: #111111; /* High contrast dark grey/black for high readability */
 
-  --color-primary: #eab308;
-  --color-primary-foreground: #1a1a1a;
+  --color-primary: #ca8a04; /* Boost primary yellow saturation to dark gold for readability */
+  --color-primary-foreground: #ffffff;
 
-  --color-secondary: #1d4ed8;
+  --color-secondary: #1e40af; /* Deeper blue for better accessibility and trust */
   --color-secondary-foreground: #ffffff;
 
-  --color-accent: #ca8a04;
+  --color-accent: #a16207;
   --color-accent-foreground: #ffffff;
 
   --color-muted: #f8fafc;
-  --color-muted-foreground: #64748b;
+  --color-muted-foreground: #475569;
 
   --color-charcoal-light: #f8fafc;
   --color-charcoal-dark: #ffffff;
@@ -41,19 +41,19 @@
   h1, h2, h3, h4, h5, h6 {
     font-family: var(--font-sans);
     font-weight: 700;
-    color: #0f172a; /* Darker Slate 900 for headers */
+    color: #000000; /* Fully black for highest contrast */
   }
 
   input, select, textarea {
     border-radius: 12px !important;
-    border: 1px solid #E2E8F0 !important;
+    border: 1px solid #94a3b8 !important; /* Slightly darker border for high accessibility */
     transition: all 0.2s ease-in-out;
   }
 
   input:focus, select:focus, textarea:focus {
-    border-color: #cbd5e1 !important;
+    border-color: #475569 !important;
     outline: none;
-    box-shadow: 0 0 0 2px rgba(226, 232, 240, 0.5);
+    box-shadow: 0 0 0 2px rgba(71, 85, 105, 0.2);
   }
 
   button, a.button-click-action {
@@ -67,19 +67,19 @@
 
 /* Custom glow utilities */
 .glow-yellow {
-  text-shadow: 0 0 8px rgba(234, 179, 8, 0.3);
+  text-shadow: 0 0 8px rgba(202, 138, 4, 0.4);
 }
 
 .glow-blue {
-  text-shadow: 0 0 8px rgba(29, 78, 216, 0.3);
+  text-shadow: 0 0 8px rgba(30, 64, 175, 0.4);
 }
 
 .border-glow-yellow {
-  box-shadow: 0 4px 20px rgba(234, 179, 8, 0.08);
+  box-shadow: 0 4px 20px rgba(202, 138, 4, 0.12);
 }
 
 .border-glow-blue {
-  box-shadow: 0 4px 20px rgba(29, 78, 216, 0.08);
+  box-shadow: 0 4px 20px rgba(30, 64, 175, 0.12);
 }
 
 /* Custom scrollbar */
@@ -113,13 +113,13 @@
 
 /* Premium Marker Highlight utilities */
 .highlight-yellow {
-  background: linear-gradient(180deg, rgba(255,255,255,0) 50%, rgba(234, 179, 8, 0.25) 50%);
+  background: linear-gradient(180deg, rgba(255,255,255,0) 50%, rgba(202, 138, 4, 0.35) 50%);
   padding: 0 6px;
   border-radius: 4px;
 }
 
 .highlight-blue {
-  background: linear-gradient(180deg, rgba(255,255,255,0) 50%, rgba(29, 78, 216, 0.15) 50%);
+  background: linear-gradient(180deg, rgba(255,255,255,0) 50%, rgba(30, 64, 175, 0.22) 50%);
   padding: 0 6px;
   border-radius: 4px;
 }

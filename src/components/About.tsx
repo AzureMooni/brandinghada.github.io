@@ -40,31 +40,31 @@ export function About() {
                 {/* Highlights (비즈니스와 기술 전문성의 두 개의 축) */}
                 <div className="w-full space-y-4 text-sm text-slate-600 border-t border-slate-100 pt-4 text-left">
                   {/* Axis 1: Business Real Experience */}
-                  <div className="bg-slate-50 border border-slate-200 p-3.5 rounded-xl flex gap-2.5 items-start">
-                    <Building className="w-5 h-5 text-yellow-600 flex-shrink-0 mt-0.5" />
+                  <div className="bg-white border border-slate-300 p-3.5 rounded-xl flex gap-2.5 items-start shadow-sm">
+                    <Building className="w-5 h-5 text-amber-700 flex-shrink-0 mt-0.5" />
                     <div>
-                      <span className="font-extrabold text-slate-800 block mb-0.5">실전 자영업 매장 운영 경험</span>
-                      <span className="text-xs sm:text-sm leading-relaxed block font-semibold">
+                      <span className="font-extrabold text-slate-950 block mb-0.5">실전 자영업 매장 운영 경험</span>
+                      <span className="text-xs sm:text-sm leading-relaxed block font-bold text-slate-800">
                         오프라인 숙박업 매장을 실제로 직접 책임 운영한 노하우 (사장님 고민 백배 공감)
                       </span>
                     </div>
                   </div>
                   
                   {/* Axis 2: AI & Technology Innovation */}
-                  <div className="bg-slate-50 border border-slate-200 p-3.5 rounded-xl flex gap-2.5 items-start">
-                    <Sparkles className="w-5 h-5 text-blue-600 flex-shrink-0 mt-0.5" />
+                  <div className="bg-white border border-slate-300 p-3.5 rounded-xl flex gap-2.5 items-start shadow-sm">
+                    <Sparkles className="w-5 h-5 text-blue-700 flex-shrink-0 mt-0.5" />
                     <div>
-                      <span className="font-extrabold text-slate-800 block mb-0.5">체계적인 자동화 시스템</span>
-                      <span className="text-xs sm:text-sm leading-relaxed block font-semibold">
+                      <span className="font-extrabold text-slate-950 block mb-0.5">체계적인 자동화 시스템</span>
+                      <span className="text-xs sm:text-sm leading-relaxed block font-bold text-slate-800">
                         복잡한 과정 없이 신속하게 제작하는 마케팅 특화 웹 솔루션 총괄
                       </span>
                     </div>
                   </div>
 
                   {/* Highlighted Local Partner Indicator */}
-                  <div className="bg-yellow-500/10 border border-yellow-500/20 p-3 rounded-xl flex items-center gap-2 text-yellow-800 font-black text-center justify-center text-xs sm:text-sm shadow-sm">
-                    <MapPin className="w-5 h-5 animate-bounce text-yellow-600" />
-                    <span>서울 전 지역 무료 방문 상담 가능</span>
+                  <div className="bg-amber-50 border border-amber-200 p-3 rounded-xl flex items-center gap-2 text-amber-900 font-black text-center justify-center text-xs sm:text-sm shadow-sm">
+                    <MapPin className="w-5 h-5 animate-bounce text-amber-750" />
+                    <span>[서울 전 지역 방문 상담 가능]</span>
                   </div>
                 </div>
               </div>
@@ -83,27 +83,27 @@ export function About() {
               </div>
               
               <div className="grid grid-cols-2 gap-4 mb-4">
-                <div className="bg-slate-50 border border-slate-200 p-3 rounded-xl text-center">
-                  <span className="text-[10px] text-slate-500 font-bold block mb-1">통합 객실 점유율</span>
-                  <span className="text-xl font-black text-yellow-600 font-mono tracking-tight">96.4%</span>
+                <div className="bg-white border border-slate-300 p-3 rounded-xl text-center shadow-sm">
+                  <span className="text-[10px] text-slate-600 font-bold block mb-1">통합 객실 점유율</span>
+                  <span className="text-xl font-black text-amber-700 font-mono tracking-tight">96.4%</span>
                 </div>
-                <div className="bg-slate-50 border border-slate-200 p-3 rounded-xl text-center">
-                  <span className="text-[10px] text-slate-500 font-bold block mb-1">오늘 예약 점유</span>
-                  <span className="text-xl font-black text-blue-600 font-mono tracking-tight">14 / 15실</span>
+                <div className="bg-white border border-slate-300 p-3 rounded-xl text-center shadow-sm">
+                  <span className="text-[10px] text-slate-600 font-bold block mb-1">오늘 예약 점유</span>
+                  <span className="text-xl font-black text-blue-700 font-mono tracking-tight">14 / 15실</span>
                 </div>
               </div>
               
               {/* SVG 미니 렌더링 그래프 (비주얼 피로 해소 및 시각화 극대화) */}
-              <div className="bg-slate-50 border border-slate-200 rounded-xl p-3.5 space-y-2">
-                <span className="text-[10px] text-slate-500 font-bold block">월간 실시간 예약 대행 자산 추이</span>
+              <div className="bg-white border border-slate-300 rounded-xl p-3.5 space-y-2 shadow-sm">
+                <span className="text-[10px] text-slate-600 font-bold block">월간 실시간 예약 대행 자산 추이</span>
                 <div className="h-10 flex items-end gap-1.5 pt-2">
                   <div className="w-full bg-slate-200 rounded h-[35%] transition-all" />
                   <div className="w-full bg-slate-200 rounded h-[50%] transition-all" />
                   <div className="w-full bg-slate-200 rounded h-[70%] transition-all" />
-                  <div className="w-full bg-blue-600 rounded h-[85%] transition-all animate-pulse" />
-                  <div className="w-full bg-yellow-500 rounded h-[96%] transition-all" />
+                  <div className="w-full bg-blue-700 rounded h-[85%] transition-all animate-pulse" />
+                  <div className="w-full bg-amber-500 rounded h-[96%] transition-all" />
                 </div>
-                <div className="flex justify-between text-[8px] text-slate-400 font-mono">
+                <div className="flex justify-between text-[8px] text-slate-500 font-mono">
                   <span>2월</span>
                   <span>3월</span>
                   <span>4월</span>
@@ -144,7 +144,7 @@ export function About() {
               </div>
               <div className="space-y-6">
                 <p>
-                  그렇기 때문에 저는 복잡하고 쓸데없는 장식성 화려함은 완전히 배격하고, 오직 <strong>'스마트폰으로 사장님께 전화 문의와 예약'</strong>이 올 수밖에 없도록 설계된 아주 간결하고 빠른 매출형 홈페이지를 직접 만들어 제공하고 있습니다.
+                  그렇기 때문에 저는 복잡하고 쓸데없는 장식성 화려함은 완전히 배격하고, 오직 <strong>'스마트폰으로 사장님께 카카오톡 문의와 예약'</strong>이 올 수밖에 없도록 설계된 아주 간결하고 빠른 매출형 홈페이지를 직접 만들어 제공하고 있습니다.
                 </p>
                 <p>
                   서울 지역 소상공인 사장님이시라면 언제든 불러주십시오. 따뜻한 아메리카노 한 잔 양손에 들고 찾아뵈어, 매장 포털 지도 진단과 효과적인 고객 유치 전략을 정직하게 무료로 짚어 드리겠습니다.
@@ -153,37 +153,37 @@ export function About() {
             </div>
 
             {/* Offline Meeting Highlight Callout - 카카오톡 링크 연동 활성화 */}
-            <div className="bg-white border border-slate-200 rounded-2xl p-5 sm:p-6 flex flex-col sm:flex-row items-center justify-between gap-5 shadow-md">
+            <div className="bg-white border border-slate-300 rounded-2xl p-5 sm:p-6 flex flex-col sm:flex-row items-center justify-between gap-5 shadow-md">
               <div className="flex items-center gap-3.5">
-                <div className="w-12 h-12 rounded-xl bg-yellow-500/10 flex items-center justify-center flex-shrink-0">
-                  <Coffee className="w-6 h-6 text-yellow-600 animate-pulse" />
+                <div className="w-12 h-12 rounded-xl bg-amber-50 border border-amber-200 flex items-center justify-center flex-shrink-0">
+                  <Coffee className="w-6 h-6 text-amber-700 animate-pulse" />
                 </div>
                 <div className="text-left">
-                  <h4 className="text-base sm:text-lg font-black text-slate-800">서울 전 지역 무료 현장 방문 신청</h4>
-                  <p className="text-xs sm:text-sm text-slate-500 mt-0.5 leading-[1.5] font-bold">네이버 지도 진단부터 홈페이지 시안 실물 설명까지 한 번에</p>
+                  <h4 className="text-base sm:text-lg font-black text-slate-900">[서울 전 지역 방문 상담 가능]</h4>
+                  <p className="text-xs sm:text-sm text-slate-700 mt-0.5 leading-[1.5] font-bold">네이버 지도 진단부터 홈페이지 시안 실물 설명까지 한 번에</p>
                 </div>
               </div>
               <a 
                 href="http://pf.kakao.com/_xcjrxjX"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-full sm:w-auto px-5 py-3 bg-gradient-to-r from-yellow-500 to-yellow-600 hover:opacity-95 text-slate-950 font-black text-xs sm:text-sm rounded-xl flex items-center justify-center gap-2 transition-all cursor-pointer shadow-md text-center block button-click-action"
+                className="w-full sm:w-auto px-5 py-3 bg-[#fef01b] hover:bg-[#f3e316] text-[#3c1e1e] border border-[#e2d210] font-black text-xs sm:text-sm rounded-xl flex items-center justify-center gap-2 transition-all cursor-pointer shadow-md text-center block button-click-action"
               >
                 <span>카카오톡 1:1 상담하기</span>
-                <ArrowRight className="w-4.5 h-4.5 text-slate-950" />
+                <ArrowRight className="w-4.5 h-4.5 text-[#3c1e1e]" />
               </a>
             </div>
 
             {/* Footer Signature Box */}
-            <div className="pt-6 border-t border-[#22222b]/50 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+            <div className="pt-6 border-t border-slate-300 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
               <div className="flex items-center gap-2">
-                <ShieldCheck className="w-5 h-5 text-primary" />
-                <span className="text-xs text-muted-foreground">본 프로젝트는 모든 제작 및 유지 계약이 법적으로 명문화됩니다.</span>
+                <ShieldCheck className="w-5 h-5 text-amber-600" />
+                <span className="text-xs text-slate-800 font-bold">본 프로젝트는 모든 제작 및 유지 계약이 법적으로 명문화됩니다.</span>
               </div>
               <div className="text-right self-end sm:self-center">
-                <span className="text-xs text-muted-foreground block">운영사: 코리아니티</span>
-                <span className="text-sm text-foreground font-black tracking-wide">
-                  브랜딩하다 <span className="text-primary font-bold text-base font-serif italic ml-1">대표디렉터</span>
+                <span className="text-xs text-slate-600 block font-bold">운영사: 코리아니티</span>
+                <span className="text-sm text-slate-900 font-black tracking-wide">
+                  브랜딩하다 <span className="text-amber-800 font-bold text-base font-serif italic ml-1">대표디렉터</span>
                 </span>
               </div>
             </div>

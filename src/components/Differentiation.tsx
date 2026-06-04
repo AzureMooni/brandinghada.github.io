@@ -52,13 +52,13 @@ export function Differentiation() {
         
         {/* Section Title */}
         <div className="mb-16 text-center max-w-2xl mx-auto">
-          <span className="text-xs uppercase tracking-widest text-[#2563eb] font-extrabold px-3 py-1 rounded border border-blue-500/20 bg-blue-500/5">
+          <span className="text-xs uppercase tracking-widest text-blue-900 font-extrabold px-3 py-1 rounded border border-blue-200/50 bg-blue-50">
             로컬 소상공인 보증 등급
           </span>
           <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-slate-900 mt-4 mb-3">
             왜 브랜딩하다가 홈페이지 제작의 새로운 기준인가?
           </h2>
-          <p className="text-slate-600 text-sm sm:text-base leading-relaxed font-bold">
+          <p className="text-slate-800 text-sm sm:text-base leading-relaxed font-bold">
             비싼 선불 계약이나 골치 아픈 디자인 기획 회의 대신, 이미 검증된 실제 고객 평판 데이터로 결과를 입증합니다.
           </p>
         </div>
@@ -66,38 +66,38 @@ export function Differentiation() {
         {/* 📊 시각 지표 (Visual Metrics Dashboard) - Count-up 및 형광펜 효과 탑재 */}
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 mb-20 max-w-5xl mx-auto">
           {/* Card 1 */}
-          <div className="relative group bg-slate-50 border border-slate-200 hover:border-yellow-500/50 rounded-2xl p-6 text-center transition-all duration-300 shadow-sm">
-            <div className="absolute top-0 left-1/2 -translate-x-1/2 w-12 h-[2px] bg-yellow-500" />
-            <span className="text-xs text-slate-500 font-black block mb-2">실제 시공 평판 과잉청구 검증률</span>
-            <span className="text-4xl sm:text-5xl font-black text-yellow-600 font-mono tracking-tight block mb-2">
+          <div className="relative group bg-white border border-slate-300 hover:border-amber-500 rounded-2xl p-6 text-center transition-all duration-300 shadow-sm">
+            <div className="absolute top-0 left-1/2 -translate-x-1/2 w-12 h-[2px] bg-amber-500" />
+            <span className="text-xs text-slate-600 font-black block mb-2">실제 시공 평판 과잉청구 검증률</span>
+            <span className="text-4xl sm:text-5xl font-black text-amber-700 font-mono tracking-tight block mb-2">
               <CountUp end={99.8} decimals={1} suffix="%" />
             </span>
-            <span className="text-[11.5px] text-slate-600 leading-relaxed block font-bold">
-              플레이스에 등록된 사장님 실제 고객 리뷰 만족도 <span className="highlight-yellow text-slate-900 font-extrabold">평판 빅데이터 필터 검증</span> 완료
+            <span className="text-[11.5px] text-slate-800 leading-relaxed block font-bold">
+              플레이스에 등록된 사장님 실제 고객 리뷰 만족도 <span className="highlight-yellow text-slate-950 font-extrabold">평판 빅데이터 필터 검증</span> 완료
             </span>
           </div>
 
           {/* Card 2 */}
-          <div className="relative group bg-slate-50 border border-slate-200 hover:border-blue-500/50 rounded-2xl p-6 text-center transition-all duration-300 shadow-sm">
+          <div className="relative group bg-white border border-slate-300 hover:border-blue-600 rounded-2xl p-6 text-center transition-all duration-300 shadow-sm">
             <div className="absolute top-0 left-1/2 -translate-x-1/2 w-12 h-[2px] bg-blue-600" />
-            <span className="text-xs text-slate-500 font-black block mb-2">AI 초안 시안 확인 시간</span>
-            <span className="text-4xl sm:text-5xl font-black text-blue-600 font-mono tracking-tight block mb-2">
+            <span className="text-xs text-slate-600 font-black block mb-2">시안 확인 시간</span>
+            <span className="text-4xl sm:text-5xl font-black text-blue-700 font-mono tracking-tight block mb-2">
               단 <CountUp end={5} suffix="분" />
             </span>
-            <span className="text-[11.5px] text-slate-600 leading-relaxed block font-bold">
-              몇 주씩 지연되는 디자인 미팅 대신, 리뷰 스캔으로 <span className="highlight-blue text-slate-900 font-extrabold">5분 만에 세일즈 홈 완성</span>
+            <span className="text-[11.5px] text-slate-800 leading-relaxed block font-bold">
+              몇 주씩 지연되는 디자인 미팅 대신, 리뷰 스캔으로 <span className="highlight-blue text-slate-950 font-extrabold">5분 만에 세일즈 홈 완성</span>
             </span>
           </div>
 
           {/* Card 3 */}
-          <div className="relative group bg-slate-50 border border-slate-200 hover:border-yellow-600/50 rounded-2xl p-6 text-center transition-all duration-300 shadow-sm">
-            <div className="absolute top-0 left-1/2 -translate-x-1/2 w-12 h-[2px] bg-yellow-600" />
-            <span className="text-xs text-slate-500 font-black block mb-2">완납 시 소스코드 완전 양도 보장</span>
-            <span className="text-4xl sm:text-5xl font-black text-yellow-600 font-mono tracking-tight block mb-2">
+          <div className="relative group bg-white border border-slate-300 hover:border-amber-600 rounded-2xl p-6 text-center transition-all duration-300 shadow-sm">
+            <div className="absolute top-0 left-1/2 -translate-x-1/2 w-12 h-[2px] bg-amber-600" />
+            <span className="text-xs text-slate-600 font-black block mb-2">완납 시 소스코드 완전 양도 보장</span>
+            <span className="text-4xl sm:text-5xl font-black text-amber-700 font-mono tracking-tight block mb-2">
               <CountUp end={100} suffix="%" />
             </span>
-            <span className="text-[11.5px] text-slate-600 leading-relaxed block font-bold">
-              대행사 인질 리스크 완전 제거! 완납 즉시 법적으로 <span className="highlight-yellow text-slate-900 font-extrabold">영구 소유권 이전 권리</span> 성문화 보증
+            <span className="text-[11.5px] text-slate-800 leading-relaxed block font-bold">
+              대행사 인질 리스크 완전 제거! 완납 즉시 법적으로 <span className="highlight-yellow text-slate-950 font-extrabold">법적 소유권 100% 보장</span> 성문화 보증
             </span>
           </div>
         </div>
@@ -129,35 +129,35 @@ export function Differentiation() {
                 </th>
               </tr>
             </thead>
-            <tbody className="divide-y divide-slate-100">
+            <tbody className="divide-y divide-slate-200">
               {/* Row 1 */}
               <tr className="hover:bg-slate-50/50 transition-colors">
                 <td className="py-5 px-6 font-bold text-slate-800">제작 기간</td>
-                <td className="py-5 px-6 text-slate-500 text-xs font-bold leading-relaxed">
+                <td className="py-5 px-6 text-slate-600 text-xs font-bold leading-relaxed">
                   최소 2주에서 수개월 소요 (시안 피드백 및 개발 지연 마찰 지속)
                 </td>
-                <td className="py-5 px-6 font-bold text-slate-800 border-l border-slate-200 bg-blue-50/30 relative">
-                  <span className="text-yellow-700 font-black bg-yellow-100 px-2 py-0.5 rounded border border-yellow-300/40 mr-1.5">[자체 고성능 시스템 구축]</span> 단 <span className="text-yellow-600 font-black">5분 만에</span> 사장님 전용 모바일 홈페이지 초안 즉시 빌드
+                <td className="py-5 px-6 font-bold text-slate-900 border-l border-slate-200 bg-blue-50/30 relative">
+                  <span className="text-amber-800 font-black bg-amber-50 px-2 py-0.5 rounded border border-amber-300/40 mr-1.5">[자체 개발 고성능 시스템 구축]</span> 단 <span className="text-amber-700 font-black">5분 만에</span> 사장님 전용 모바일 홈페이지 초안 즉시 조립
                 </td>
               </tr>
               {/* Row 2 */}
               <tr className="hover:bg-slate-50/50 transition-colors">
                 <td className="py-5 px-6 font-bold text-slate-800">사장님 리소스</td>
-                <td className="py-5 px-6 text-slate-500 text-xs font-bold leading-relaxed">
+                <td className="py-5 px-6 text-slate-600 text-xs font-bold leading-relaxed">
                   수차례 기획 미팅 필수, 홈페이지에 들어갈 텍스트와 사진 직접 준비
                 </td>
-                <td className="py-5 px-6 font-bold text-slate-800 border-l border-slate-200 bg-blue-50/30 relative">
-                  <span className="text-blue-700 font-black bg-blue-100 px-2 py-0.5 rounded border border-blue-200 mr-1.5">[쉬운 홈페이지 관리]</span> 이미 인터넷에 쌓여있는 실제 방문자/시공 리뷰 자동 활용, <span className="text-blue-600 font-black">마찰 제로</span>
+                <td className="py-5 px-6 font-bold text-slate-900 border-l border-slate-200 bg-blue-50/30 relative">
+                  <span className="text-blue-800 font-black bg-blue-50 px-2 py-0.5 rounded border border-blue-200 mr-1.5">[쉬운 홈페이지 관리]</span> 이미 인터넷에 쌓여있는 실제 방문자/시공 리뷰 자동 활용, <span className="text-blue-700 font-black">마찰 제로</span>
                 </td>
               </tr>
               {/* Row 3 */}
               <tr className="hover:bg-slate-50/50 transition-colors">
                 <td className="py-5 px-6 font-bold text-slate-800">초기 비용 & 소유권</td>
-                <td className="py-5 px-6 text-slate-500 text-xs font-bold leading-relaxed">
+                <td className="py-5 px-6 text-slate-600 text-xs font-bold leading-relaxed">
                   수백만 원대 고액 선불금 요구 및 매년 높은 서버/수정 요금 인질 영업
                 </td>
-                <td className="py-5 px-6 font-bold text-slate-800 border-l border-slate-200 bg-blue-50/30 relative">
-                  <span className="text-yellow-700 font-black bg-yellow-100 px-2 py-0.5 rounded border border-yellow-300/40 mr-1.5">[법적 자산권 완전 양도]</span> 시안 100% 무료 확인, 맘에 들면 <span className="text-yellow-600 font-black">110만 원 정찰제</span> 구축 (월 유지관리 5.5만 원 고정 / 완납 시 소유권 양도)
+                <td className="py-5 px-6 font-bold text-slate-900 border-l border-slate-200 bg-blue-50/30 relative">
+                  <span className="text-amber-800 font-black bg-amber-50 px-2 py-0.5 rounded border border-amber-300/40 mr-1.5">[법적 소유권 100% 보장]</span> 시안 100% 무료 확인, 맘에 들면 <span className="text-amber-700 font-black">110만 원 정찰제</span> 구축 (월 유지관리 5.5만 원 고정 / 완납 시 소유권 완전 이전)
                 </td>
               </tr>
             </tbody>
@@ -201,45 +201,43 @@ export function Differentiation() {
             {/* Soft, beautiful yellow pulse glow */}
             <div className="absolute -inset-1 bg-gradient-to-r from-yellow-500 via-amber-500 to-blue-600 rounded-xl blur-lg opacity-25 animate-pulse" />
             
-            <div className="relative bg-white border-2 border-yellow-500 rounded-xl p-5 shadow-lg">
+            <div className="relative bg-white border-2 border-amber-500 rounded-xl p-5 shadow-lg">
               <div className="flex items-center justify-between mb-4">
-                <div className="flex items-center gap-2 text-yellow-600 font-black text-sm">
-                  <Zap className="w-4 h-4 text-yellow-600 fill-yellow-500/10 animate-pulse" />
+                <div className="flex items-center gap-2 text-amber-800 font-black text-sm">
+                  <Zap className="w-4 h-4 text-amber-700 fill-amber-500/10 animate-pulse" />
                   <span>브랜딩하다 (코리아니티)</span>
                 </div>
-                <span className="text-[9px] bg-gradient-to-r from-yellow-500 to-amber-500 text-slate-950 px-2.5 py-0.5 rounded font-black flex items-center gap-0.5 shadow">
+                <span className="text-[9px] bg-gradient-to-r from-amber-500 to-yellow-500 text-slate-950 px-2.5 py-0.5 rounded font-black flex items-center gap-0.5 shadow">
                   <span>🏆 사장님 추천 (Best)</span>
                 </span>
               </div>
               
               <div className="space-y-4 text-xs">
-                <div className="border-b border-slate-100 pb-3">
-                  <span className="text-yellow-700 block mb-1 font-bold">제작 기간</span>
-                  <span className="text-slate-800 font-extrabold flex flex-wrap items-center gap-1.5">
-                    <span className="text-[10px] text-yellow-700 font-black bg-yellow-50 px-1 py-0.5 rounded border border-yellow-200">[자체 고성능 시스템]</span>
-                    <span>단 5분 만에 시안 초안 자동 퍼블리싱</span>
+                <div className="border-b border-slate-200 pb-3">
+                  <span className="text-amber-800 block mb-1 font-bold">제작 기간</span>
+                  <span className="text-slate-900 font-extrabold flex flex-wrap items-center gap-1.5">
+                    <span className="text-[10px] text-amber-800 font-black bg-amber-50 px-1 py-0.5 rounded border border-amber-200">[자체 개발 고성능 시스템]</span>
+                    <span>단 5분 만에 시안 초안 자동 조립</span>
                   </span>
                 </div>
-                <div className="border-b border-slate-100 pb-3">
-                  <span className="text-blue-700 block mb-1 font-bold">사장님 리소스</span>
-                  <span className="text-slate-800 font-extrabold flex flex-wrap items-center gap-1.5">
-                    <span className="text-[10px] text-blue-700 font-black bg-blue-50 px-1 py-0.5 rounded border border-blue-200">[쉬운 홈페이지 관리]</span>
+                <div className="border-b border-slate-200 pb-3">
+                  <span className="text-blue-800 block mb-1 font-bold">사장님 리소스</span>
+                  <span className="text-slate-900 font-extrabold flex flex-wrap items-center gap-1.5">
+                    <span className="text-[10px] text-blue-800 font-black bg-blue-50 px-1 py-0.5 rounded border border-blue-200">[쉬운 홈페이지 관리]</span>
                     <span>방문 시공 리뷰 자동 스캔, 사장님 개입 0%</span>
                   </span>
                 </div>
                 <div>
-                  <span className="text-yellow-700 block mb-1 font-bold">초기 비용 & 소유권</span>
-                  <span className="text-slate-800 font-extrabold flex flex-wrap items-center gap-1.5 text-left">
-                    <span className="text-[10px] text-yellow-700 font-black bg-yellow-50 px-1 py-0.5 rounded border border-yellow-200">[법적 자산권 완전 양도]</span>
-                    <span>시안 무료 확인, 110만 원 정찰제 (월 5.5만 원 / 완납 시 자산권 양도)</span>
+                  <span className="text-amber-800 block mb-1 font-bold">초기 비용 & 소유권</span>
+                  <span className="text-slate-900 font-extrabold flex flex-wrap items-center gap-1.5 text-left">
+                    <span className="text-[10px] text-amber-800 font-black bg-amber-50 px-1 py-0.5 rounded border border-amber-200">[법적 소유권 100% 보장]</span>
+                    <span>시안 무료 확인, 110만 원 정찰제 (월 5.5만 원 / 완납 시 소유권 완전 양도)</span>
                   </span>
                 </div>
               </div>
             </div>
           </div>
-
         </div>
-
       </div>
     </section>
   );
