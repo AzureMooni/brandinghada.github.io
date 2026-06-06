@@ -77,7 +77,7 @@ export function Trust() {
     <section className="py-36 md:py-44 border-t border-slate-200 px-6 relative overflow-hidden bg-slate-50">
       {/* Decorative Glow elements */}
       <div className="absolute top-1/4 right-0 w-[400px] h-[400px] bg-blue-500/5 rounded-full blur-[120px] pointer-events-none" />
-      <div className="absolute bottom-1/4 left-0 w-[300px] h-[300px] bg-yellow-500/3 rounded-full blur-[100px] pointer-events-none" />
+      <div className="absolute bottom-1/4 left-0 w-[300px] h-[300px] bg-[#134074]/3 rounded-full blur-[100px] pointer-events-none" />
 
       <div className="max-w-6xl mx-auto relative z-10">
         
@@ -113,7 +113,7 @@ export function Trust() {
                 <h3 className="text-xl font-bold text-slate-800 mb-2 flex items-center gap-2">
                   {item.title}
                 </h3>
-                <p className="text-yellow-600 text-xs sm:text-sm font-bold mb-4">
+                <p className="text-[#134074] text-xs sm:text-sm font-bold mb-4">
                   {item.desc}
                 </p>
                 <p className="text-slate-600 text-xs sm:text-sm leading-[1.7] font-medium">
@@ -127,7 +127,7 @@ export function Trust() {
           <div className="mt-12 bg-white border border-slate-300 rounded-2xl p-6 sm:p-8 text-center max-w-4xl mx-auto shadow-sm">
             <h4 className="text-base sm:text-lg font-bold text-slate-900 mb-2 flex flex-wrap items-center justify-center gap-2 leading-[1.4]">
               <span>💡 시중 500만 원대 에이전시 퀄리티를</span>
-              <span className="text-amber-900 font-black bg-amber-100 px-2 py-0.5 rounded border border-amber-200">110만 원 정찰제</span>
+              <span className="text-[#0b2545] font-black bg-blue-50 px-2 py-0.5 rounded border border-blue-200/50">110만 원 정찰제</span>
               <span>로 구현하는 이유</span>
             </h4>
             <p className="text-slate-800 text-xs sm:text-sm leading-[1.7] font-bold max-w-2.5xl mx-auto">
@@ -188,8 +188,8 @@ export function Trust() {
                     {/* 💬 마우스 호버 / 터치 시 솟아오르는 CSS 기반 인터랙티브 툴팁(Tooltip) */}
                     <div className="absolute left-1/2 -translate-x-1/2 bottom-full mb-3 w-80 bg-slate-950 border border-slate-800 text-slate-100 rounded-xl p-5 shadow-[0_15px_30px_rgba(0,0,0,0.4)] opacity-0 translate-y-2 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300 pointer-events-none z-30 text-sm leading-relaxed select-none">
                       <div className="absolute top-full left-1/2 -translate-x-1/2 -mt-1.5 border-4 border-transparent border-t-slate-950" />
-                      <p className="font-extrabold text-yellow-500 mb-1.5 flex items-center gap-1.5 text-sm">
-                        <Info className="w-4 h-4 text-yellow-500 fill-yellow-500/10" />
+                      <p className="font-extrabold text-[#134074] mb-1.5 flex items-center gap-1.5 text-sm">
+                        <Info className="w-4 h-4 text-[#134074] fill-[#134074]/10" />
                         <span>보증 계약서 명시 효력</span>
                       </p>
                       <p className="text-slate-300 font-bold">{item.tooltipDetail}</p>
@@ -253,11 +253,11 @@ export function Trust() {
               href="/standard_agreement.pdf" 
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-6 py-3 bg-white hover:bg-slate-50 text-slate-900 font-bold text-sm sm:text-base rounded-xl border border-slate-300 transition-all hover:shadow-sm cursor-pointer text-center button-click-action"
+              className="inline-flex items-center gap-2 px-6 py-3 bg-white hover:bg-[#134074]/5 text-[#134074] font-bold text-sm sm:text-base rounded-xl border border-[#134074] transition-all hover:shadow-sm cursor-pointer text-center button-click-action"
             >
-              <FileText className="w-5 h-5 text-slate-600" />
+              <FileText className="w-5 h-5 text-[#134074]" />
               <span>표준 약정서 전문 보기</span>
-              <ArrowUpRight className="w-4 h-4 text-slate-500" />
+              <ArrowUpRight className="w-4 h-4 text-[#134074]" />
             </a>
           </div>
 

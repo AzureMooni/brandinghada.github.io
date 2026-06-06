@@ -5,21 +5,21 @@
   --font-mono: "Inter", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
 
   --color-background: #ffffff;
-  --color-foreground: #111111; /* High contrast dark grey/black for high readability */
+  --color-foreground: #1d2d44; /* Charcoal Blue for high readability, rejecting pure dark gray */
 
-  --color-primary: #ca8a04; /* Boost primary yellow saturation to dark gold for readability */
+  --color-primary: #134074; /* Steel Blue accent */
   --color-primary-foreground: #ffffff;
 
-  --color-secondary: #1e40af; /* Deeper blue for better accessibility and trust */
+  --color-secondary: #0b2545; /* Deep Navy primary */
   --color-secondary-foreground: #ffffff;
 
-  --color-accent: #a16207;
+  --color-accent: #134074; /* Steel Blue accent */
   --color-accent-foreground: #ffffff;
 
-  --color-muted: #f8fafc;
-  --color-muted-foreground: #475569;
+  --color-muted: #f8f9fa; /* Light Grey background */
+  --color-muted-foreground: #1d2d44;
 
-  --color-charcoal-light: #f8fafc;
+  --color-charcoal-light: #f8f9fa;
   --color-charcoal-dark: #ffffff;
   --color-charcoal-card: #f1f5f9;
   --color-charcoal-border: #cbd5e1;
@@ -31,8 +31,8 @@
     font-family: var(--font-sans);
     line-height: 1.75;
     background-image: 
-      radial-gradient(at 0% 0%, rgba(29, 78, 216, 0.02) 0px, transparent 50%),
-      radial-gradient(at 100% 100%, rgba(234, 179, 8, 0.02) 0px, transparent 50%);
+      radial-gradient(at 0% 0%, rgba(19, 64, 116, 0.02) 0px, transparent 50%),
+      radial-gradient(at 100% 100%, rgba(11, 37, 69, 0.02) 0px, transparent 50%);
     background-attachment: fixed;
     word-break: keep-all;
     overflow-wrap: break-word;
@@ -41,7 +41,7 @@
   h1, h2, h3, h4, h5, h6 {
     font-family: var(--font-sans);
     font-weight: 700;
-    color: #000000; /* Fully black for highest contrast */
+    color: #0b2545; /* Deep Navy for absolute readability and trust */
   }
 
   input, select, textarea {
@@ -67,19 +67,19 @@
 
 /* Custom glow utilities */
 .glow-yellow {
-  text-shadow: 0 0 8px rgba(202, 138, 4, 0.4);
+  text-shadow: 0 0 8px rgba(19, 64, 116, 0.3);
 }
 
 .glow-blue {
-  text-shadow: 0 0 8px rgba(30, 64, 175, 0.4);
+  text-shadow: 0 0 8px rgba(11, 37, 69, 0.3);
 }
 
 .border-glow-yellow {
-  box-shadow: 0 4px 20px rgba(202, 138, 4, 0.12);
+  box-shadow: 0 4px 20px rgba(19, 64, 116, 0.08);
 }
 
 .border-glow-blue {
-  box-shadow: 0 4px 20px rgba(30, 64, 175, 0.12);
+  box-shadow: 0 4px 20px rgba(11, 37, 69, 0.08);
 }
 
 /* Custom scrollbar */
@@ -113,13 +113,13 @@
 
 /* Premium Marker Highlight utilities */
 .highlight-yellow {
-  background: linear-gradient(180deg, rgba(255,255,255,0) 50%, rgba(202, 138, 4, 0.35) 50%);
+  background: linear-gradient(180deg, rgba(255,255,255,0) 50%, rgba(19, 64, 116, 0.15) 50%);
   padding: 0 6px;
   border-radius: 4px;
 }
 
 .highlight-blue {
-  background: linear-gradient(180deg, rgba(255,255,255,0) 50%, rgba(30, 64, 175, 0.22) 50%);
+  background: linear-gradient(180deg, rgba(255,255,255,0) 50%, rgba(11, 37, 69, 0.12) 50%);
   padding: 0 6px;
   border-radius: 4px;
 }

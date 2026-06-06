@@ -118,7 +118,7 @@ export function Hero({ onSearchStart, onSearchComplete }: HeroProps) {
             {/* 10% 더 커지고 눈이 편한 한글 타이틀 */}
             <h1 className="text-4xl sm:text-5.5xl md:text-6.5xl font-black tracking-tight leading-[1.3] text-slate-900">
               사장님 성함만 넣으세요.<br />
-              <span className="bg-gradient-to-r from-amber-600 via-amber-500 to-blue-700 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-[#0b2545] via-[#134074] to-blue-900 bg-clip-text text-transparent">
                 5분 뒤 카톡 문의가 시작되는 홈페이지가 생깁니다.
               </span>
             </h1>
@@ -186,15 +186,15 @@ export function Hero({ onSearchStart, onSearchComplete }: HeroProps) {
  
                 {/* Steps text */}
                 <div className="space-y-2 font-bold text-xs text-slate-700">
-                  <div className={`flex items-center gap-2.5 transition-colors ${loadingStep >= 1 ? "text-amber-700" : "text-slate-300"}`}>
+                  <div className={`flex items-center gap-2.5 transition-colors ${loadingStep >= 1 ? "text-blue-700" : "text-slate-300"}`}>
                     <span>{loadingStep >= 1 ? "✓" : "○"}</span>
                     <span>[1단계] 사장님 가게에 쌓인 진짜 추천 글 수집 완료</span>
                   </div>
-                  <div className={`flex items-center gap-2.5 transition-colors ${loadingStep >= 2 ? "text-amber-700" : "text-slate-300"}`}>
+                  <div className={`flex items-center gap-2.5 transition-colors ${loadingStep >= 2 ? "text-blue-700" : "text-slate-300"}`}>
                     <span>{loadingStep >= 2 ? "✓" : "○"}</span>
                     <span>[2단계] 불필요한 과잉청구 오해 요소 자동 차단 완료</span>
                   </div>
-                  <div className={`flex items-center gap-2.5 transition-colors ${loadingStep >= 3 ? "text-amber-700" : "text-slate-300"}`}>
+                  <div className={`flex items-center gap-2.5 transition-colors ${loadingStep >= 3 ? "text-blue-700" : "text-slate-300"}`}>
                     <span>{loadingStep >= 3 ? "✓" : "○"}</span>
                     <span>[3단계] 카카오톡 상담이 바로 열리는 모바일 화면 조립 완료</span>
                   </div>
@@ -204,13 +204,13 @@ export function Hero({ onSearchStart, onSearchComplete }: HeroProps) {
  
             {/* Search Samples */}
             <div className="flex flex-wrap items-center gap-2.5 text-xs sm:text-sm">
-              <span className="text-slate-600 font-bold">눌러서 바로 확인해보세요 :</span>
-              {["한양지붕공사", "일성종합설비", "바른인테리어"].map((sample) => (
+              <span className="text-slate-650 font-bold">눌러서 바로 확인해보세요 :</span>
+              {["GG그린방수", "일성종합설비", "바른인테리어"].map((sample) => (
                 <button 
                   key={sample}
                   type="button"
                   onClick={() => handleSampleClick(sample)}
-                  className="px-3.5 py-1.5 rounded-full border border-slate-300 bg-white hover:border-amber-500 hover:bg-amber-50 text-slate-800 hover:text-slate-950 font-bold transition-all duration-300 cursor-pointer shadow-sm"
+                  className="px-3.5 py-1.5 rounded-full border border-slate-300 bg-white hover:border-blue-500 hover:bg-blue-50 text-[#1d2d44] hover:text-[#0b2545] font-bold transition-all duration-300 cursor-pointer shadow-sm"
                 >
                   {sample}
                 </button>
@@ -239,22 +239,22 @@ export function Hero({ onSearchStart, onSearchComplete }: HeroProps) {
                   
                   {/* Local Business Header */}
                   <div className="flex items-center justify-between border-b border-slate-200 pb-2.5 mb-2">
-                    <span className="text-[10px] font-black text-slate-900">한양지붕공사</span>
-                    <span className="text-[8px] bg-amber-100 text-amber-900 px-1.5 py-0.5 rounded font-black tracking-wide border border-amber-200/50">시공 전문</span>
+                    <span className="text-[10px] font-black text-[#0b2545]">GG그린방수</span>
+                    <span className="text-[8px] bg-blue-50 text-[#0b2545] px-1.5 py-0.5 rounded font-black tracking-wide border border-blue-200/50">시공 전문</span>
                   </div>
  
                   {/* Rating star Badge */}
-                  <div className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full border border-amber-200/50 bg-amber-50 text-amber-900 text-[8px] font-black">
-                    <Star className="w-2.5 h-2.5 fill-amber-500 text-amber-500" />
+                  <div className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full border border-blue-200/50 bg-blue-50 text-[#0b2545] text-[8px] font-black">
+                    <Star className="w-2.5 h-2.5 fill-[#134074] text-[#134074]" />
                     <span>실제 리뷰 만족도 99.8%</span>
                   </div>
  
                   {/* Main Copy inside mockup */}
-                  <h4 className="text-xs sm:text-[13px] font-black text-slate-950 leading-snug tracking-tight">
-                    동네 주민들이 인정한 지붕 수리·방수 맛집
+                  <h4 className="text-xs sm:text-[13px] font-black text-[#0b2545] leading-snug tracking-tight">
+                    동네 주민들이 인정한 옥상 방수·누수 해결사
                   </h4>
-                  <p className="text-[9.5px] text-slate-800 leading-normal font-bold">
-                    빗물 누수 차단율 100%! 오랜 현장 경력의 정밀 진단과 철저한 책임 시공으로 안전하고 튼튼하게 지켜드립니다.
+                  <p className="text-[9.5px] text-[#1d2d44] leading-normal font-bold">
+                    빗물 누수 차단율 100%! 오랜 현장 경력의 특허 방수 공법과 정밀 진단으로 옥상 누수 걱정을 완벽히 해결해 드립니다.
                   </p>
  
                   {/* CTA KakaoTalk Button - 카카오톡 활성화 */}
@@ -275,16 +275,16 @@ export function Hero({ onSearchStart, onSearchComplete }: HeroProps) {
                     <span className="text-[8px] uppercase font-bold text-slate-600 tracking-wider block">우리 업체만의 안심 약속</span>
                     <div className="space-y-1.5 text-[8.5px]">
                       <div className="bg-white border border-slate-200 p-2 rounded-lg flex gap-1.5 shadow-sm">
-                        <span className="text-amber-700 font-black">1</span>
-                        <p className="text-slate-900 font-extrabold">거품을 완전히 뺀 정직한 자재 가격 및 견적</p>
+                        <span className="text-[#134074] font-black">1</span>
+                        <p className="text-[#1d2d44] font-extrabold">특허받은 친환경 복합 시트 공법</p>
                       </div>
                       <div className="bg-white border border-slate-200 p-2 rounded-lg flex gap-1.5 shadow-sm">
-                        <span className="text-amber-700 font-black">2</span>
-                        <p className="text-slate-900 font-extrabold">당일 긴급 공사 및 신속한 24시간 상담</p>
+                        <span className="text-[#134074] font-black">2</span>
+                        <p className="text-[#1d2d44] font-extrabold">당일 긴급 공사 및 신속한 24시간 상담</p>
                       </div>
                       <div className="bg-white border border-slate-200 p-2 rounded-lg flex gap-1.5 shadow-sm">
-                        <span className="text-amber-700 font-black">3</span>
-                        <p className="text-slate-900 font-extrabold">시공 완료 후 3년간 무상 하자 보증서 발급</p>
+                        <span className="text-[#134074] font-black">3</span>
+                        <p className="text-[#1d2d44] font-extrabold">시공 완료 후 3년간 무상 하자 보증서 발급</p>
                       </div>
                     </div>
                   </div>

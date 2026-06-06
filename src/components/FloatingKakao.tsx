@@ -14,8 +14,8 @@ export function FloatingKakao() {
       <MessageCircle className="w-7 h-7 text-[#191919] fill-[#191919]" />
       
       {/* Tooltip */}
-      <span className="absolute right-16 bg-slate-900 text-white text-xs font-bold px-3 py-2 rounded-lg whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none shadow-md">
-        카톡 1:1 간편상담하기
+      <span className="absolute right-16 bg-[#0b2545] text-white text-xs font-bold px-3 py-2 rounded-lg whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none shadow-md">
+        ※ 개인정보 노출 없는 1:1 카톡상담
       </span>
     </a>
   );

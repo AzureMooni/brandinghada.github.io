@@ -23,13 +23,13 @@ export function About() {
           <div className="lg:col-span-5 flex flex-col gap-6 items-center lg:items-stretch w-full max-w-sm mx-auto lg:mx-0">
             <div className="relative group">
               {/* Outer soft glow border */}
-              <div className="absolute -inset-1 bg-gradient-to-r from-yellow-500 to-blue-500 rounded-2xl blur opacity-15 group-hover:opacity-30 transition duration-500" />
+              <div className="absolute -inset-1 bg-gradient-to-r from-[#134074] to-[#0b2545] rounded-2xl blur opacity-15 group-hover:opacity-30 transition duration-500" />
               
               {/* Box container presenting Personal Brand Identity */}
               <div className="relative bg-white border border-slate-200 rounded-2xl p-8 flex flex-col items-center shadow-lg">
                 {/* Visual Avatar Placeholder with premium initials */}
-                <div className="w-24 h-24 rounded-full bg-gradient-to-br from-yellow-500/10 to-blue-500/10 border border-slate-200 flex items-center justify-center mb-6">
-                  <span className="text-3xl font-black bg-gradient-to-r from-yellow-600 to-blue-600 bg-clip-text text-transparent select-none">
+                <div className="w-24 h-24 rounded-full bg-gradient-to-br from-[#134074]/10 to-[#0b2545]/10 border border-slate-200 flex items-center justify-center mb-6">
+                  <span className="text-3xl font-black bg-gradient-to-r from-[#134074] to-[#0b2545] bg-clip-text text-transparent select-none">
                     BH
                   </span>
                 </div>
@@ -41,7 +41,7 @@ export function About() {
                 <div className="w-full space-y-4 text-sm text-slate-600 border-t border-slate-100 pt-4 text-left">
                   {/* Axis 1: Business Real Experience */}
                   <div className="bg-white border border-slate-300 p-3.5 rounded-xl flex gap-2.5 items-start shadow-sm">
-                    <Building className="w-5 h-5 text-amber-700 flex-shrink-0 mt-0.5" />
+                    <Building className="w-5 h-5 text-[#134074] flex-shrink-0 mt-0.5" />
                     <div>
                       <span className="font-extrabold text-slate-950 block mb-0.5">실전 자영업 매장 운영 경험</span>
                       <span className="text-xs sm:text-sm leading-relaxed block font-bold text-slate-800">
@@ -62,8 +62,8 @@ export function About() {
                   </div>
 
                   {/* Highlighted Local Partner Indicator */}
-                  <div className="bg-amber-50 border border-amber-200 p-3 rounded-xl flex items-center gap-2 text-amber-900 font-black text-center justify-center text-xs sm:text-sm shadow-sm">
-                    <MapPin className="w-5 h-5 animate-bounce text-amber-750" />
+                  <div className="bg-blue-50/50 border border-blue-200/50 p-3 rounded-xl flex items-center gap-2 text-[#0b2545] font-black text-center justify-center text-xs sm:text-sm shadow-sm">
+                    <MapPin className="w-5 h-5 animate-bounce text-[#134074]" />
                     <span>[서울 전 지역 방문 상담 가능]</span>
                   </div>
                 </div>
@@ -71,8 +71,8 @@ export function About() {
             </div>
 
             {/* 📊 실제 운영 STAY 통합 운영 대시보드 비주얼 블록 (현장형 전문가 증명 CRO) */}
-            <div className="relative group bg-white border border-slate-200 rounded-2xl p-6 shadow-xl relative overflow-hidden text-left hover:border-yellow-500/30 transition-all duration-300">
-              <div className="absolute top-0 left-0 right-0 h-[3px] bg-gradient-to-r from-yellow-500 to-blue-600" />
+            <div className="relative group bg-white border border-slate-200 rounded-2xl p-6 shadow-xl relative overflow-hidden text-left hover:border-[#134074]/30 transition-all duration-300">
+              <div className="absolute top-0 left-0 right-0 h-[3px] bg-gradient-to-r from-[#134074] to-[#0b2545]" />
               
               <div className="flex items-center justify-between mb-4 border-b border-slate-100 pb-3">
                 <div className="flex items-center gap-2">
@@ -85,7 +85,7 @@ export function About() {
               <div className="grid grid-cols-2 gap-4 mb-4">
                 <div className="bg-white border border-slate-300 p-3 rounded-xl text-center shadow-sm">
                   <span className="text-[10px] text-slate-600 font-bold block mb-1">통합 객실 점유율</span>
-                  <span className="text-xl font-black text-amber-700 font-mono tracking-tight">96.4%</span>
+                  <span className="text-xl font-black text-[#134074] font-mono tracking-tight">96.4%</span>
                 </div>
                 <div className="bg-white border border-slate-300 p-3 rounded-xl text-center shadow-sm">
                   <span className="text-[10px] text-slate-600 font-bold block mb-1">오늘 예약 점유</span>
@@ -101,7 +101,7 @@ export function About() {
                   <div className="w-full bg-slate-200 rounded h-[50%] transition-all" />
                   <div className="w-full bg-slate-200 rounded h-[70%] transition-all" />
                   <div className="w-full bg-blue-700 rounded h-[85%] transition-all animate-pulse" />
-                  <div className="w-full bg-amber-500 rounded h-[96%] transition-all" />
+                  <div className="w-full bg-[#134074] rounded h-[96%] transition-all" />
                 </div>
                 <div className="flex justify-between text-[8px] text-slate-500 font-mono">
                   <span>2월</span>
@@ -155,8 +155,8 @@ export function About() {
             {/* Offline Meeting Highlight Callout - 카카오톡 링크 연동 활성화 */}
             <div className="bg-white border border-slate-300 rounded-2xl p-5 sm:p-6 flex flex-col sm:flex-row items-center justify-between gap-5 shadow-md">
               <div className="flex items-center gap-3.5">
-                <div className="w-12 h-12 rounded-xl bg-amber-50 border border-amber-200 flex items-center justify-center flex-shrink-0">
-                  <Coffee className="w-6 h-6 text-amber-700 animate-pulse" />
+                <div className="w-12 h-12 rounded-xl bg-blue-50 border border-blue-200/50 flex items-center justify-center flex-shrink-0">
+                  <Coffee className="w-6 h-6 text-[#134074] animate-pulse" />
                 </div>
                 <div className="text-left">
                   <h4 className="text-base sm:text-lg font-black text-slate-900">[서울 전 지역 방문 상담 가능]</h4>
@@ -177,13 +177,13 @@ export function About() {
             {/* Footer Signature Box */}
             <div className="pt-6 border-t border-slate-300 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
               <div className="flex items-center gap-2">
-                <ShieldCheck className="w-5 h-5 text-amber-600" />
+                <ShieldCheck className="w-5 h-5 text-[#134074]" />
                 <span className="text-xs text-slate-800 font-bold">본 프로젝트는 모든 제작 및 유지 계약이 법적으로 명문화됩니다.</span>
               </div>
               <div className="text-right self-end sm:self-center">
                 <span className="text-xs text-slate-600 block font-bold">운영사: 코리아니티</span>
                 <span className="text-sm text-slate-900 font-black tracking-wide">
-                  브랜딩하다 <span className="text-amber-800 font-bold text-base font-serif italic ml-1">대표디렉터</span>
+                  브랜딩하다 <span className="text-[#134074] font-bold text-base font-serif italic ml-1">대표디렉터</span>
                 </span>
               </div>
             </div>

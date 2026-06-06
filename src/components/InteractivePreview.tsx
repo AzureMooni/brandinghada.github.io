@@ -21,20 +21,20 @@ interface MockDataStructure {
 }
 
 const MOCK_PREVIEW_DATA: Record<string, MockDataStructure> = {
-  "한양지붕공사": {
+  "GG그린방수": {
     keywords: [
       { name: "과잉청구 없음 (투명한 가격)", percentage: 98 },
-      { name: "당일 신속 시공 완료", percentage: 95 },
-      { name: "누수 및 빗물 차단 완벽", percentage: 92 },
-      { name: "친절하고 뒷정리 깔끔", percentage: 89 }
+      { name: "옥상 방수 공정 특허 시공", percentage: 95 },
+      { name: "누수 및 외벽 균열 차단 완벽", percentage: 92 },
+      { name: "무상 하자 보증 3년 철저", percentage: 89 }
     ],
     reviewsCount: 154,
     mobilePreview: {
-      badge: "20년 경력 지붕수리 전문",
-      title: "동네 주민들이 인정한 지붕 수리·방수 맛집 - 한양지붕공사",
-      description: "빗물 누수 차단율 100%! 오랜 현장 경력의 정밀 진단과 철저한 책임 시공으로 안전하고 튼튼한 지붕을 지켜드립니다.",
-      features: ["거품을 완전히 뺀 정직한 자재 가격 및 투명한 견적", "당일 긴급 공사 및 신속한 24시간 긴급 상담 서비스", "시공 완료 후 3년간 완벽한 무상 하자 보증서 발급"],
-      accentColor: "from-[#facc15] to-[#eab308]"
+      badge: "옥상 방수·외벽 누수 전문",
+      title: "동네 주민들이 인정한 옥상 방수·누수 해결사 - GG그린방수",
+      description: "빗물 누수 차단율 100%! 오랜 현장 경력의 특허 방수 공법과 정밀 진단으로 옥상 누수 걱정을 완벽히 해결해 드립니다.",
+      features: ["특허받은 친환경 복합 시트 공법 적용으로 영구 방수 보장", "당일 긴급 공사 및 신속한 24시간 긴급 상담 서비스", "시공 완료 후 3년간 완벽한 무상 하자 보증서 발급"],
+      accentColor: "from-[#134074] to-[#0b2545]"
     }
   },
   "일성종합설비": {
@@ -50,7 +50,7 @@ const MOCK_PREVIEW_DATA: Record<string, MockDataStructure> = {
       title: "안심하고 믿고 맡기는 정직한 설비 파트너 - 일성종합설비",
       description: "첨단 배관 내시경 및 초정밀 청음 탐지기로 타일 파손을 최소화하고, 물길을 단 한 번에 완벽하게 잡아 드립니다.",
       features: ["불필요한 공사를 권유하지 않는 정직한 원인 진단", "해결하지 못하면 출장/탐지비 0원! 정직과 신뢰의 원칙", "수도, 보일러, 싱크대, 화장실 방수공사 원스톱 책임 해결"],
-      accentColor: "from-[#2563eb] to-[#3b82f6]"
+      accentColor: "from-[#134074] to-[#0b2545]"
     }
   },
   "바른인테리어": {
@@ -66,7 +66,7 @@ const MOCK_PREVIEW_DATA: Record<string, MockDataStructure> = {
       title: "동네 주민들이 먼저 추천하는 책임 리모델링 - 바른인테리어",
       description: "외주 하청 없는 100% 직영 팀 시공과 투명한 자재 단가 공개로, 하자 걱정 없는 품격 있는 공간을 완성해 드립니다.",
       features: ["공사 도중 말도 안 되는 추가 요금을 절대 요구하지 않는 투명 계약", "무료 3D 도면 설계 및 공간 맞춤형 실용 디자인 제안", "신속하고 성실한 하자 조치 및 든든한 평생 케어 시스템"],
-      accentColor: "from-[#facc15] to-[#2563eb]"
+      accentColor: "from-[#134074] to-[#0b2545]"
     }
   }
 };
@@ -81,10 +81,10 @@ const DEFAULT_MOCK_DATA = (keyword: string): MockDataStructure => ({
   reviewsCount: 94,
   mobilePreview: {
     badge: "로컬 안심 공식 파트너 시안",
-    title: `정직과 신용으로 책임 시공 - ${keyword || "한양지붕공사"}`,
+    title: `정직과 신용으로 책임 시공 - ${keyword || "GG그린방수"}`,
     description: "불필요한 과도 공사비 요구나 날림 시공은 이제 끝입니다. 사장님 매장 평판에 쌓인 강력한 리뷰를 모아 세련된 맞춤 모바일 페이지를 제공합니다.",
     features: ["빅데이터 평판 필터링으로 다듬은 과잉청구 0% 약속", "홈페이지 터치 한 번으로 사장님과 직통 모바일 유선 연결", "고객 유치 전환율을 극대화하는 반응형 액션 배치"],
-    accentColor: "from-[#facc15] to-[#2563eb]"
+    accentColor: "from-[#134074] to-[#0b2545]"
   }
 });
 
@@ -101,8 +101,8 @@ export function InteractivePreview({ keyword, isSearched }: InteractivePreviewPr
 
   // 검색 데이터 할당
   const activeData = MOCK_PREVIEW_DATA[keyword] || DEFAULT_MOCK_DATA(keyword);
-  const displayKeyword = keyword || "한양지붕공사";
-  const displayData = keyword ? activeData : MOCK_PREVIEW_DATA["한양지붕공사"];
+  const displayKeyword = keyword || "GG그린방수";
+  const displayData = keyword ? activeData : MOCK_PREVIEW_DATA["GG그린방수"];
 
   // 프로그레스 바 동적 애니메이션
   useEffect(() => {
@@ -347,7 +347,7 @@ export function InteractivePreview({ keyword, isSearched }: InteractivePreviewPr
                         
                         {/* Message Box */}
                         <div className="bg-white text-black p-4 rounded-r-2xl rounded-bl-2xl shadow-md border border-[#d6e0ea] space-y-3">
-                          <div className="flex items-center gap-1.5 text-[#a16207] bg-[#fef9c3] px-2 py-1.5 rounded text-[10px] font-black">
+                          <div className="flex items-center gap-1.5 text-[#134074] bg-blue-50 px-2 py-1.5 rounded text-[10px] font-black">
                             <Sparkles className="w-3.5 h-3.5" />
                             <span>[브랜딩하다] 로컬 세일즈 알림톡</span>
                           </div>
@@ -399,10 +399,10 @@ export function InteractivePreview({ keyword, isSearched }: InteractivePreviewPr
                   
                   {/* Mobile Header Bar */}
                   <div className="sticky top-0 bg-white/95 backdrop-blur-md px-5 py-3 border-b border-slate-200 z-20 flex items-center justify-between">
-                    <span className="text-[11px] font-black tracking-tight text-slate-900">
+                    <span className="text-[11px] font-black tracking-tight text-[#0b2545]">
                       {keyword ? displayKeyword : "한양지붕공사"}
                     </span>
-                    <span className="text-[9px] bg-amber-100 text-amber-900 px-1.5 py-0.5 rounded font-extrabold uppercase border border-amber-200">
+                    <span className="text-[9px] bg-blue-50 text-[#0b2545] px-1.5 py-0.5 rounded font-extrabold uppercase border border-blue-200/50">
                       실시간 시안
                     </span>
                   </div>
@@ -410,17 +410,17 @@ export function InteractivePreview({ keyword, isSearched }: InteractivePreviewPr
                   {/* Mobile Content Screen */}
                   <div className="p-5 space-y-6">
                     {/* Badge */}
-                    <span className="inline-block text-[9px] font-bold text-amber-900 tracking-wide uppercase px-2 py-0.5 rounded bg-amber-50 border border-amber-200/50">
+                    <span className="inline-block text-[9px] font-bold text-[#0b2545] tracking-wide uppercase px-2 py-0.5 rounded bg-blue-50 border border-blue-200/50">
                       ✦ {displayData.mobilePreview.badge}
                     </span>
  
                     {/* Title */}
-                    <h4 className="text-base sm:text-lg font-black text-slate-950 leading-snug tracking-tight">
+                    <h4 className="text-base sm:text-lg font-black text-[#0b2545] leading-snug tracking-tight">
                       {displayData.mobilePreview.title}
                     </h4>
  
                     {/* Description */}
-                    <p className="text-[11.5px] text-slate-800 leading-relaxed font-bold">
+                    <p className="text-[11.5px] text-[#1d2d44] leading-relaxed font-bold">
                       {displayData.mobilePreview.description}
                     </p>
  
@@ -433,14 +433,16 @@ export function InteractivePreview({ keyword, isSearched }: InteractivePreviewPr
                         <MessageSquare className="w-4 h-4 text-[#3c1e1e] fill-[#3c1e1e] animate-pulse" />
                         <span>카카오톡 1:1 문의하기</span>
                       </button>
-                      <p className="text-center text-[9px] text-slate-600 mt-1.5 font-bold">터치 시 카카오톡 1:1 채팅방으로 즉시 연결됩니다.</p>
+                      <p className="text-center text-[9px] text-[#0b2545] mt-2.5 font-bold leading-normal">
+                        ※ 카카오톡 1:1 상담은 개인정보 노출 없이 안전하게 진행되며, 24시간 문의 가능합니다.
+                      </p>
                     </div>
  
                     {/* [INNOVATIVE] Before & After Image Slider Component */}
                     <div className="pt-4 border-t border-slate-200 space-y-3">
                       <div className="flex items-center justify-between">
-                        <p className="text-[9.5px] uppercase font-bold text-slate-600 tracking-wider">시공 실력 직관 증명 (드래그)</p>
-                        <span className="text-[8px] bg-amber-100 text-amber-900 px-1 rounded font-bold border border-amber-200/40">BEFORE & AFTER</span>
+                        <p className="text-[9.5px] uppercase font-bold text-[#1d2d44] tracking-wider">시공 실력 직관 증명 (드래그)</p>
+                        <span className="text-[8px] bg-blue-50 text-[#0b2545] px-1 rounded font-bold border border-blue-200/40">BEFORE & AFTER</span>
                       </div>
                       
                       {/* Interactive Drag Box */}
@@ -456,20 +458,20 @@ export function InteractivePreview({ keyword, isSearched }: InteractivePreviewPr
                             <AlertTriangle className="w-4 h-4" />
                           </div>
                           <p className="text-[10px] text-red-700 font-black">🚨 시공 전 (Before)</p>
-                          <p className="text-[8.5px] text-slate-800 mt-1 max-w-[80%] font-bold">심각한 빗물 누수 균열 및 낡고 방수 기능 상실된 철골 상태</p>
+                          <p className="text-[8.5px] text-[#1d2d44] mt-1 max-w-[80%] font-bold">심각한 빗물 누수 균열 및 낡고 방수 기능 상실된 철골 상태</p>
                         </div>
  
                         {/* AFTER Image (Top Slider Layer) */}
                         <div 
-                          className="absolute inset-y-0 left-0 bg-white flex flex-col items-center justify-center p-4 text-center border-r-2 border-amber-600 overflow-hidden"
+                          className="absolute inset-y-0 left-0 bg-white flex flex-col items-center justify-center p-4 text-center border-r-2 border-[#134074] overflow-hidden"
                           style={{ width: `${sliderPosition}%` }}
                         >
                           <div className="w-200% h-full absolute inset-0 flex flex-col items-center justify-center p-4 text-center select-none" style={{ width: sliderRef.current?.getBoundingClientRect().width || "280px" }}>
-                            <div className="w-8 h-8 rounded-full bg-amber-100 text-amber-900 flex items-center justify-center mb-2 border border-amber-200">
+                            <div className="w-8 h-8 rounded-full bg-blue-50 text-[#0b2545] flex items-center justify-center mb-2 border border-blue-200">
                               <Sparkles className="w-4 h-4 animate-spin" />
                             </div>
-                            <p className="text-[10px] text-amber-900 font-black">✨ 시공 후 (After)</p>
-                            <p className="text-[8.5px] text-slate-900 font-extrabold mt-1 max-w-[80%]">3년 누수 없는 Safety Yellow 보강 방수 및 깔끔한 외관 마감 완료</p>
+                            <p className="text-[10px] text-[#0b2545] font-black">✨ 시공 후 (After)</p>
+                            <p className="text-[8.5px] text-[#1d2d44] font-extrabold mt-1 max-w-[80%]">3년 누수 없는 Premium Blue 특허 보강 방수 및 깔끔한 외관 마감 완료</p>
                           </div>
                         </div>
  
