@@ -41,7 +41,7 @@ export default function RootLayout({
         <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
         <link rel="stylesheet" as="style" crossOrigin="anonymous" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css" />
       </head>
-      <body className={cn(pretendard.className, "antialiased")}>
+      <body className={cn(pretendard.className, "antialiased bg-[#071120] text-white")}>
         {children}
         <Script
           strategy="lazyOnload"

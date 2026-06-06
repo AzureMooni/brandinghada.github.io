@@ -27,6 +27,58 @@ export default function Home() {
     }
   }, []);
 
+  // 🍎 Apple-style Scroll Reveal & Mobile Mockup Zoom Parallax
+  useEffect(() => {
+    const observerOptions = {
+      root: null,
+      rootMargin: "0px",
+      threshold: 0.1,
+    };
+
+    const handleReveal = (entries: IntersectionObserverEntry[]) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("active-reveal");
+        }
+      });
+    };
+
+    const observer = new IntersectionObserver(handleReveal, observerOptions);
+    const revealElements = document.querySelectorAll(".reveal");
+    revealElements.forEach((el) => observer.observe(el));
+
+    // Mobile Phone Zoom Parallax
+    let ticking = false;
+    const handleScroll = () => {
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          const mockup = document.getElementById("mobile-mockup-frame");
+          if (mockup) {
+            const rect = mockup.getBoundingClientRect();
+            const viewportHeight = window.innerHeight;
+            if (rect.top < viewportHeight && rect.bottom > 0) {
+              const totalDist = viewportHeight + rect.height;
+              const scrolled = viewportHeight - rect.top;
+              const ratio = Math.max(0, Math.min(1, scrolled / totalDist));
+              // Scale from 0.95 to 1.05 based on scroll depth
+              const scale = 0.94 + ratio * 0.11;
+              mockup.style.transform = `scale(${scale})`;
+            }
+          }
+          ticking = false;
+        });
+        ticking = true;
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      observer.disconnect();
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, [keyword, isSearched]); // Re-bind on state changes to ensure elements are re-observed if needed
+
   const handleSearchStart = (searchKeyword: string) => {
     setIsSearched(false);
   };

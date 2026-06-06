@@ -10,10 +10,10 @@ interface LogoProps {
 export function Logo({ mode = "header", className }: LogoProps) {
   const isHeader = mode === "header";
   
-  // Header: 딥 네이비 (#0B2545) | Footer: Charcoal Blue (#1D2D44)
+  // Header: Vivid Blue (#3B82F6) | Footer: Steel Blue (#134074)
   const colorClass = isHeader 
-    ? "text-[#0B2545]" 
-    : "text-[#1D2D44]";
+    ? "text-blue-500" 
+    : "text-blue-600";
 
   return (
     <div className={cn("flex items-center gap-2.5 select-none", className)}>
@@ -55,8 +55,8 @@ export function Logo({ mode = "header", className }: LogoProps) {
         className={cn(
           "font-sans tracking-tight transition-colors duration-300",
           isHeader 
-            ? "text-xl font-black text-[#0B2545]" 
-            : "text-lg font-extrabold text-[#1D2D44]"
+            ? "text-xl font-black text-white" 
+            : "text-lg font-extrabold text-slate-200"
         )}
       >
         브랜딩하다

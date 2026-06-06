@@ -74,26 +74,26 @@ export function Trust() {
   ];
 
   return (
-    <section className="py-36 md:py-44 border-t border-slate-200 px-6 relative overflow-hidden bg-slate-50">
+    <section className="py-36 md:py-44 border-t border-[#1e293b] px-6 relative overflow-hidden bg-[#071120]">
       {/* Decorative Glow elements */}
-      <div className="absolute top-1/4 right-0 w-[400px] h-[400px] bg-blue-500/5 rounded-full blur-[120px] pointer-events-none" />
-      <div className="absolute bottom-1/4 left-0 w-[300px] h-[300px] bg-[#134074]/3 rounded-full blur-[100px] pointer-events-none" />
+      <div className="absolute top-1/4 right-0 w-[400px] h-[400px] bg-blue-500/10 rounded-full blur-[120px] pointer-events-none" />
+      <div className="absolute bottom-1/4 left-0 w-[300px] h-[300px] bg-[#134074]/5 rounded-full blur-[100px] pointer-events-none" />
 
       <div className="max-w-6xl mx-auto relative z-10">
         
         {/* Part 1: Value Proposition (가치 제안) */}
-        <div className="mb-28">
+        <div className="mb-28 reveal">
           <div className="text-center max-w-2xl mx-auto mb-16">
-            <span className="inline-flex items-center gap-1.5 text-xs uppercase tracking-widest text-[#2563eb] font-extrabold px-3 py-1 rounded-full border border-blue-500/20 bg-blue-500/5 mb-4">
-              <Sparkles className="w-3 h-3 text-blue-600" />
+            <span className="inline-flex items-center gap-1.5 text-xs uppercase tracking-widest text-slate-300 font-extrabold px-3 py-1 rounded-full border border-[#1e293b] bg-[#111e35] mb-4">
+              <Sparkles className="w-3 h-3 text-blue-400" />
               Core Value Proposition
             </span>
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-black tracking-tight text-slate-900 leading-[1.3] mb-4">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-black tracking-tight text-white leading-[1.3] mb-4">
               왜 1인 기업부터 강소기업까지<br />홈페이지가 필수일까요?
             </h2>
             {/* 형광펜(Highlight) 효과 적용으로 메시지 스캔성 극대화 */}
-            <p className="text-slate-600 text-sm sm:text-base leading-[1.6]">
-              단순한 텍스트 나열을 넘어, 방문자가 <span className="highlight-blue text-slate-800 font-extrabold">신뢰하고 연락할 수밖에 없는 명확한 비즈니스 무기</span>를 쥐여드립니다.
+            <p className="text-[#94a3b8] text-sm sm:text-base leading-[1.6]">
+              단순한 텍스트 나열을 넘어, 방문자가 <span className="highlight-blue text-white font-extrabold">신뢰하고 연락할 수밖에 없는 명확한 비즈니스 무기</span>를 쥐여드립니다.
             </p>
           </div>
 
@@ -101,22 +101,22 @@ export function Trust() {
             {valueProps.map((item, idx) => (
               <div 
                 key={idx} 
-                className="group relative bg-white border border-slate-200 hover:border-blue-500/40 rounded-2xl p-6 sm:p-8 transition-all duration-300 hover:-translate-y-1.5 shadow-sm"
+                className="group relative bg-[#111e35] border border-[#1e293b] hover:border-[#134074]/60 rounded-2xl p-6 sm:p-8 transition-all duration-300 hover:-translate-y-1.5 shadow-[0_4px_25px_rgba(0,0,0,0.2)] hover:shadow-[0_4px_30px_rgba(37,99,235,0.1)] reveal"
               >
                 {/* Glow Overlay */}
-                <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-blue-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
+                <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-[#134074]/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
                 
-                <div className="w-12 h-12 rounded-xl bg-slate-50 border border-slate-200 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                <div className="w-12 h-12 rounded-xl bg-[#071120] border border-[#1e293b] flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
                   {item.icon}
                 </div>
                 
-                <h3 className="text-xl font-bold text-slate-800 mb-2 flex items-center gap-2">
+                <h3 className="text-xl font-bold text-white mb-2 flex items-center gap-2">
                   {item.title}
                 </h3>
                 <p className="text-[#134074] text-xs sm:text-sm font-bold mb-4">
                   {item.desc}
                 </p>
-                <p className="text-slate-600 text-xs sm:text-sm leading-[1.7] font-medium">
+                <p className="text-slate-400 text-xs sm:text-sm leading-[1.7] font-medium">
                   {item.detail}
                 </p>
               </div>
@@ -124,52 +124,52 @@ export function Trust() {
           </div>
 
           {/* Efficiency & Price Callout */}
-          <div className="mt-12 bg-white border border-slate-300 rounded-2xl p-6 sm:p-8 text-center max-w-4xl mx-auto shadow-sm">
-            <h4 className="text-base sm:text-lg font-bold text-slate-900 mb-2 flex flex-wrap items-center justify-center gap-2 leading-[1.4]">
+          <div className="mt-12 bg-[#111e35] border border-[#1e293b] rounded-2xl p-6 sm:p-8 text-center max-w-4xl mx-auto shadow-lg reveal">
+            <h4 className="text-base sm:text-lg font-bold text-white mb-2 flex flex-wrap items-center justify-center gap-2 leading-[1.4]">
               <span>💡 시중 500만 원대 에이전시 퀄리티를</span>
-              <span className="text-[#0b2545] font-black bg-blue-50 px-2 py-0.5 rounded border border-blue-200/50">110만 원 정찰제</span>
+              <span className="text-emerald-300 font-black bg-emerald-950/20 px-2 py-0.5 rounded border border-emerald-500/25">110만 원 정찰제</span>
               <span>로 구현하는 이유</span>
             </h4>
-            <p className="text-slate-800 text-xs sm:text-sm leading-[1.7] font-bold max-w-2.5xl mx-auto">
-              브랜딩하다는 자체 개발한 고효율 개발 스택인 <span className="text-slate-950 font-black">자체 개발 고성능 시스템</span>을 활용하여, 불필요한 기획 마찰과 수작업 코딩 프로세스를 획기적으로 단축했습니다. 거품 없는 가격으로 대기업급 퍼포먼스의 경량 고속 웹사이트를 사장님 품에 안겨드립니다.
+            <p className="text-slate-350 text-xs sm:text-sm leading-[1.7] font-bold max-w-2.5xl mx-auto">
+              브랜딩하다는 자체 개발한 고효율 개발 스택인 <span className="text-white font-black">자체 개발 고성능 시스템</span>을 활용하여, 불필요한 기획 마찰과 수작업 코딩 프로세스를 획기적으로 단축했습니다. 거품 없는 가격으로 대기업급 퍼포먼스의 경량 고속 웹사이트를 사장님 품에 안겨드립니다.
             </p>
           </div>
         </div>
 
         {/* Part 2: Trust & Safety Guarantees (신뢰와 안전장치 - 공인 약정서 스타일) */}
-        <div className="pt-24 border-t border-slate-200">
+        <div className="pt-24 border-t border-[#1e293b] reveal">
           <div className="text-center max-w-3xl mx-auto mb-20">
-            <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-blue-500/25 bg-blue-500/5 text-blue-700 text-xs sm:text-sm font-black mb-4">
-              <CheckCircle2 className="w-3.5 h-3.5 text-blue-600 animate-pulse" />
+            <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-[#1e293b] bg-[#111e35] text-slate-300 text-xs sm:text-sm font-black mb-4">
+              <CheckCircle2 className="w-3.5 h-3.5 text-blue-450 animate-pulse" />
               Safety & Transparency
             </span>
-            <h2 className="text-3.5xl sm:text-4.5xl font-black tracking-tight text-slate-900 leading-[1.35] mb-6">
+            <h2 className="text-3.5xl sm:text-4.5xl font-black tracking-tight text-white leading-[1.35] mb-6">
               안심하고 맡기세요,<br />계약서로 약속하는 투명한 안전장치
             </h2>
-            <p className="text-slate-600 text-base sm:text-lg leading-[1.8] font-bold">
+            <p className="text-slate-350 text-base sm:text-lg leading-[1.8] font-bold">
               제작 대행사들의 갑질이나 도메인 기술 인질극이 두려우셨나요?<br className="hidden sm:inline" />
               브랜딩하다는 모든 법적 안전망과 권리 조항을 표준 계약서 상에 명확히 표기하여 완전히 보호해 드립니다.
             </p>
           </div>
 
-          {/* 📜 공인 약정서 (White Paper) 스타일 컨테이너 */}
-          <div className="max-w-4xl mx-auto bg-[#ffffff] text-slate-800 border-t-8 border-t-blue-600 border border-slate-300 rounded-3xl p-6 sm:p-14 shadow-2xl relative overflow-visible text-left mb-16">
+          {/* 📜 공인 약정서 (White Paper) 스타일 컨테이너 (Glow & Navy Background) */}
+          <div className="max-w-4xl mx-auto bg-[#111e35] text-white border-t-8 border-t-[#134074] border border-[#1e293b] rounded-3xl p-6 sm:p-14 shadow-[0_15px_50px_rgba(0,0,0,0.4)] hover:shadow-[0_15px_50px_rgba(37,99,235,0.15)] transition-all duration-500 relative overflow-visible text-left mb-16 reveal">
             {/* Watermark/Stamp effect decoration */}
             <div className="absolute right-6 top-6 opacity-[0.03] pointer-events-none select-none">
-              <Stamp className="w-56 h-56 text-blue-600" />
+              <Stamp className="w-56 h-56 text-blue-500" />
             </div>
 
             {/* Document Header */}
-            <div className="border-b-2 border-slate-300 pb-6 mb-8 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
+            <div className="border-b border-[#1e293b] pb-6 mb-8 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
               <div>
-                <span className="text-xs font-black tracking-widest text-blue-700 bg-blue-50 px-2.5 py-1 rounded uppercase">
+                <span className="text-xs font-black tracking-widest text-[#94a3b8] bg-[#071120] px-2.5 py-1 rounded uppercase">
                   Standard Service Agreement
                 </span>
-                <h2 className="text-2xl sm:text-3xl font-black tracking-tight text-slate-900 mt-2">
+                <h2 className="text-2xl sm:text-3xl font-black tracking-tight text-white mt-2">
                   디지털 대행 표준 공인 약정서 핵심 요약
                 </h2>
               </div>
-              <div className="flex items-center gap-2 bg-slate-50 border border-slate-300 px-4 py-2 rounded-xl text-sm font-black text-slate-600">
+              <div className="flex items-center gap-2 bg-[#071120] border border-[#1e293b] px-4 py-2 rounded-xl text-sm font-black text-slate-450">
                 <FileText className="w-4.5 h-4.5 text-slate-500" />
                 <span>표준약정 기반 투명 계약 약정</span>
               </div>
@@ -183,35 +183,35 @@ export function Trust() {
                 return (
                   <div 
                     key={idx} 
-                    className="group relative flex items-start gap-4 leading-[1.7] bg-white hover:bg-slate-50 border border-slate-300 p-5 rounded-2xl transition-all duration-300 cursor-help shadow-sm"
+                    className="group relative flex items-start gap-4 leading-[1.7] bg-[#071120] hover:bg-[#0b1627] border border-[#1e293b] p-5 rounded-2xl transition-all duration-300 cursor-help shadow-sm"
                   >
                     {/* 💬 마우스 호버 / 터치 시 솟아오르는 CSS 기반 인터랙티브 툴팁(Tooltip) */}
-                    <div className="absolute left-1/2 -translate-x-1/2 bottom-full mb-3 w-80 bg-slate-950 border border-slate-800 text-slate-100 rounded-xl p-5 shadow-[0_15px_30px_rgba(0,0,0,0.4)] opacity-0 translate-y-2 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300 pointer-events-none z-30 text-sm leading-relaxed select-none">
-                      <div className="absolute top-full left-1/2 -translate-x-1/2 -mt-1.5 border-4 border-transparent border-t-slate-950" />
-                      <p className="font-extrabold text-[#134074] mb-1.5 flex items-center gap-1.5 text-sm">
-                        <Info className="w-4 h-4 text-[#134074] fill-[#134074]/10" />
+                    <div className="absolute left-1/2 -translate-x-1/2 bottom-full mb-3 w-80 bg-[#071120] border border-[#1e293b] text-slate-100 rounded-xl p-5 shadow-[0_15px_30px_rgba(0,0,0,0.6)] opacity-0 translate-y-2 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300 pointer-events-none z-30 text-sm leading-relaxed select-none">
+                      <div className="absolute top-full left-1/2 -translate-x-1/2 -mt-1.5 border-4 border-transparent border-t-[#071120]" />
+                      <p className="font-extrabold text-blue-400 mb-1.5 flex items-center gap-1.5 text-sm">
+                        <Info className="w-4 h-4 text-blue-450 fill-blue-400/10" />
                         <span>보증 계약서 명시 효력</span>
                       </p>
                       <p className="text-slate-300 font-bold">{item.tooltipDetail}</p>
                     </div>
 
-                    <div className="w-10 h-10 rounded-xl bg-slate-50 border border-slate-300 flex items-center justify-center flex-shrink-0 text-blue-800 group-hover:scale-105 transition-transform duration-300 shadow-sm">
+                    <div className="w-10 h-10 rounded-xl bg-[#111e35] border border-[#1e293b] flex items-center justify-center flex-shrink-0 text-white group-hover:scale-105 transition-transform duration-300 shadow-sm">
                       {item.icon}
                     </div>
                     <div className="space-y-2.5">
                       <div className="flex items-center gap-2">
-                        <span className="text-xs sm:text-sm font-black text-blue-900 bg-blue-50 px-2.5 py-1 rounded-md border border-blue-200">
+                        <span className="text-xs sm:text-sm font-black text-white bg-[#111e35] border border-[#1e293b] px-2.5 py-1 rounded-md">
                           {clauseNum}
                         </span>
-                        <span className="text-[10px] text-slate-500 bg-slate-200/50 px-1.5 py-0.5 rounded font-black group-hover:text-blue-800 group-hover:bg-blue-50 transition-colors">자세히 ⓘ</span>
+                        <span className="text-[10px] text-slate-450 bg-slate-800/50 px-1.5 py-0.5 rounded font-black group-hover:text-blue-300 transition-colors">자세히 ⓘ</span>
                       </div>
-                      <h3 className="text-lg sm:text-xl font-black text-slate-950 mb-1 tracking-tight">
+                      <h3 className="text-lg sm:text-xl font-black text-white mb-1 tracking-tight">
                         {item.title}
                       </h3>
-                      <p className="text-blue-900 font-extrabold text-sm mb-2 leading-relaxed">
+                      <p className="text-slate-300 font-extrabold text-sm mb-2 leading-relaxed">
                         {item.desc}
                       </p>
-                      <p className="text-slate-800 text-sm sm:text-base leading-relaxed font-bold word-break-keep-all">
+                      <p className="text-slate-400 text-sm sm:text-base leading-relaxed font-bold word-break-keep-all">
                         {item.detail}
                       </p>
                     </div>
