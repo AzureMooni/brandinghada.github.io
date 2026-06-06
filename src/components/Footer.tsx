@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
+import { Logo } from "@/components/Logo";
 
 export function Footer() {
   const currentYear = new Date().getFullYear();
@@ -17,18 +18,25 @@ export function Footer() {
           
           {/* Logo & Description */}
           <div className="md:col-span-6 space-y-4">
-            <div className="flex flex-wrap items-center gap-2">
-              <span className="text-xl font-black tracking-tight text-slate-800 bg-gradient-to-r from-yellow-600 to-blue-600 bg-clip-text text-transparent">
-                브랜딩하다 <span className="text-xs font-normal text-slate-500">(운영사: 코리아니티)</span>
+            <div className="flex flex-wrap items-center gap-3">
+              <Logo mode="footer" />
+              <span className="text-xs font-bold text-slate-500">
+                [대표자: 김경문]
               </span>
-              <span className="text-[9px] uppercase font-bold tracking-widest px-1.5 py-0.5 rounded border border-yellow-500/25 text-yellow-700 bg-yellow-50">
-                로컬 소상공인 솔루션
-              </span>
+              <a
+                href="http://pf.kakao.com/_xcjrxjX"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-0.5 text-xs font-extrabold text-[#1D2D44] hover:text-[#134074] transition-colors border-b border-[#1D2D44]/30"
+              >
+                <span>카카오톡 채널 상담</span>
+                <ArrowUpRight className="w-3 h-3" />
+              </a>
             </div>
             
             {/* 서울 공식 비즈니스 파트너 인증 배지 */}
-            <div className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded bg-blue-500/10 border border-blue-500/20 text-blue-700 text-[10px] font-black tracking-wide">
-              <span className="w-1.5 h-1.5 rounded-full bg-blue-600 animate-pulse" />
+            <div className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded bg-blue-500/5 border border-blue-500/10 text-[#134074] text-[10px] font-black tracking-wide">
+              <span className="w-1.5 h-1.5 rounded-full bg-[#134074] animate-pulse" />
               서울 공식 로컬 비즈니스 파트너
             </div>
 
@@ -44,9 +52,16 @@ export function Footer() {
               <li>상호명 : 코리아니티</li>
               <li>대표자 : 김경문</li>
               <li>사업자등록번호 : 414-50-00825</li>
-              <li className="flex items-center gap-1">
-                <span>공식 채널 바로가기</span>
-                <ArrowUpRight className="w-3 h-3 opacity-60" />
+              <li>
+                <a
+                  href="http://pf.kakao.com/_xcjrxjX"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-1 hover:text-[#134074] transition-colors"
+                >
+                  <span>공식 채널 바로가기</span>
+                  <ArrowUpRight className="w-3 h-3 opacity-60" />
+                </a>
               </li>
             </ul>
           </div>
@@ -64,7 +79,7 @@ export function Footer() {
               <li>
                 <button 
                   onClick={handleScrollToTop}
-                  className="hover:text-yellow-600 transition-colors text-left cursor-pointer"
+                  className="hover:text-[#134074] transition-colors text-left cursor-pointer"
                 >
                   맨 위로 이동 ↑
                 </button>
