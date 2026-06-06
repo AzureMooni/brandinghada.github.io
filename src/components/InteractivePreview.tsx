@@ -201,9 +201,9 @@ export function InteractivePreview({ keyword, isSearched }: InteractivePreviewPr
       {showToast && (
         <div className="fixed bottom-8 right-8 z-50 animate-in slide-in-from-bottom-5 fade-in duration-300">
           <div className="relative group">
-            <div className="absolute -inset-0.5 bg-gradient-to-r from-yellow-500 to-blue-500 rounded-xl blur opacity-30" />
+            <div className="absolute -inset-0.5 bg-gradient-to-r from-[#134074] to-[#0b2545] rounded-xl blur opacity-30" />
             <div className="relative flex items-center gap-3 bg-white border border-slate-300 px-6 py-4 rounded-xl shadow-2xl">
-              <div className="w-8 h-8 rounded-full bg-yellow-500/20 flex items-center justify-center text-yellow-600">
+              <div className="w-8 h-8 rounded-full bg-[#134074]/15 flex items-center justify-center text-[#134074]">
                 <CheckCircle className="w-5 h-5" />
               </div>
               <div>
@@ -244,12 +244,12 @@ export function InteractivePreview({ keyword, isSearched }: InteractivePreviewPr
           
           {/* LEFT: Place Review Dashboard */}
           <div className="lg:col-span-5 bg-white border border-slate-300 rounded-2xl p-6 sm:p-8 relative overflow-hidden group hover:border-slate-400 transition-colors duration-300 h-full shadow-sm">
-            <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-amber-500 to-transparent" />
+            <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-[#134074] to-transparent" />
             
             <div className="flex items-center justify-between mb-8">
               <div>
                 <h3 className="text-base sm:text-lg font-bold text-slate-900 flex items-center gap-2">
-                  <Star className="w-5 h-5 text-amber-500 fill-amber-500" />
+                  <Star className="w-5 h-5 text-[#134074] fill-[#134074]/10" />
                   고객 리뷰 키워드 추출 결과
                 </h3>
                 <p className="text-xs text-slate-650 mt-1 font-bold">플레이스에 기록된 소상공인 실사용 강점 빅데이터</p>
@@ -266,14 +266,14 @@ export function InteractivePreview({ keyword, isSearched }: InteractivePreviewPr
                 <div key={idx} className="space-y-2">
                   <div className="flex justify-between items-center text-xs font-bold">
                     <span className="text-slate-850 flex items-center gap-1.5">
-                      <span className="w-1.5 h-1.5 rounded-full bg-amber-500" />
+                      <span className="w-1.5 h-1.5 rounded-full bg-[#134074]" />
                       {kw.name}
                     </span>
                     <span className="text-blue-900 font-mono">{animatedProgress[idx] || 0}%</span>
                   </div>
                   <div className="w-full bg-slate-200 h-2 rounded-full overflow-hidden">
                     <div 
-                      className="bg-gradient-to-r from-amber-500 to-blue-700 h-full rounded-full transition-all duration-1000 ease-out"
+                      className="bg-gradient-to-r from-[#134074] to-[#0b2545] h-full rounded-full transition-all duration-1000 ease-out"
                       style={{ width: `${animatedProgress[idx] || 0}%` }}
                     />
                   </div>
@@ -358,7 +358,7 @@ export function InteractivePreview({ keyword, isSearched }: InteractivePreviewPr
                           </p>
  
                           <div className="bg-[#f8fafc] p-3 rounded-lg border border-[#e2e8f0] space-y-1.5 text-[10px] font-mono text-slate-800">
-                            <div>• <strong>완성 주소:</strong> bh.com/{keyword ? "hanyang" : "hanyang"}</div>
+                            <div>• <strong>완성 주소:</strong> bh.com/{keyword ? "green" : "green"}</div>
                             <div>• <strong>상태:</strong> 100% 임시 도메인 연동 대기</div>
                             <div>• <strong>통계:</strong> 리뷰 {displayData.reviewsCount}개 반영 완료</div>
                           </div>
@@ -400,7 +400,7 @@ export function InteractivePreview({ keyword, isSearched }: InteractivePreviewPr
                   {/* Mobile Header Bar */}
                   <div className="sticky top-0 bg-white/95 backdrop-blur-md px-5 py-3 border-b border-slate-200 z-20 flex items-center justify-between">
                     <span className="text-[11px] font-black tracking-tight text-[#0b2545]">
-                      {keyword ? displayKeyword : "한양지붕공사"}
+                      {keyword ? displayKeyword : "GG그린방수"}
                     </span>
                     <span className="text-[9px] bg-blue-50 text-[#0b2545] px-1.5 py-0.5 rounded font-extrabold uppercase border border-blue-200/50">
                       실시간 시안

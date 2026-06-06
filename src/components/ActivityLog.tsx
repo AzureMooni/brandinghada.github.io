@@ -25,12 +25,12 @@ export function ActivityLog() {
         </h2>
 
         {/* 통계 숫자 위젯 하나로 통합 */}
-        <div className="max-w-md mx-auto bg-white border border-slate-200 rounded-3xl p-8 shadow-xl relative overflow-hidden hover:border-yellow-500/30 transition-all duration-300">
-          <div className="absolute top-0 left-0 right-0 h-[4px] bg-gradient-to-r from-yellow-500 to-blue-600" />
+        <div className="max-w-md mx-auto bg-white border border-slate-200 rounded-3xl p-8 shadow-xl relative overflow-hidden hover:border-[#134074]/30 transition-all duration-300">
+          <div className="absolute top-0 left-0 right-0 h-[4px] bg-gradient-to-r from-[#134074] to-[#0b2545]" />
           
           <div className="flex items-center justify-between mb-6 border-b border-slate-100 pb-4">
             <div className="flex items-center gap-2">
-              <Activity className="w-5 h-5 text-yellow-600" />
+              <Activity className="w-5 h-5 text-[#134074]" />
               <span className="text-sm font-black text-slate-800 uppercase tracking-wider font-mono">운영 시스템 현황</span>
             </div>
             <span className="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse" />

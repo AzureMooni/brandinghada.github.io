@@ -95,7 +95,7 @@ export function Hero({ onSearchStart, onSearchComplete }: HeroProps) {
     <section className="relative pt-40 pb-36 md:pt-52 md:pb-48 flex flex-col items-center justify-center overflow-hidden px-6 bg-white border-b border-slate-200">
       {/* Background Decorative Gradients (Soft Light mode) */}
       <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] bg-blue-500/3 rounded-full blur-[140px] pointer-events-none" />
-      <div className="absolute top-1/3 left-1/4 w-[400px] h-[400px] bg-yellow-500/3 rounded-full blur-[120px] pointer-events-none" />
+      <div className="absolute top-1/3 left-1/4 w-[400px] h-[400px] bg-[#134074]/3 rounded-full blur-[120px] pointer-events-none" />
 
       <div className="max-w-6xl mx-auto w-full relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
@@ -104,14 +104,14 @@ export function Hero({ onSearchStart, onSearchComplete }: HeroProps) {
           <div className="lg:col-span-7 text-left space-y-8">
             {/* Sub Badge (용어 순화 완료 - 4050 사장님 눈높이형) */}
             <div className="flex flex-wrap items-center gap-2.5">
-              <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-amber-500/30 bg-amber-50 text-amber-900 text-xs sm:text-sm font-black tracking-wide animate-pulse">
-                <span className="w-2 h-2 rounded-full bg-amber-600" />
+              <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-blue-200/50 bg-blue-50 text-[#0b2545] text-xs sm:text-sm font-black tracking-wide animate-pulse">
+                <span className="w-2 h-2 rounded-full bg-[#134074]" />
                 쉬운 홈페이지 관리 & 실시간 수정
               </div>
               <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-blue-500/20 bg-blue-50 text-blue-900 text-xs sm:text-sm font-black tracking-wide border border-blue-200/50">
-                <span className="text-amber-800 font-black"><CountUp end={110} suffix="만 원" /></span> 정찰제
+                <span className="text-[#134074] font-black"><CountUp end={110} suffix="만 원" /></span> 정찰제
                 <span className="w-1.5 h-1.5 rounded-full bg-slate-300" />
-                월 <span className="text-amber-800 font-black"><CountUp end={5.5} duration={1200} decimals={1} suffix="만 원" /></span> 유지보수
+                월 <span className="text-[#134074] font-black"><CountUp end={5.5} duration={1200} decimals={1} suffix="만 원" /></span> 유지보수
               </div>
             </div>
  
@@ -133,7 +133,7 @@ export function Hero({ onSearchStart, onSearchComplete }: HeroProps) {
             <form onSubmit={handleSubmit} className="w-full">
               <div className="relative group max-w-xl">
                 {/* Glow border on focus/hover */}
-                <div className="absolute -inset-0.5 bg-gradient-to-r from-amber-500 to-blue-500 rounded-2xl blur opacity-15 group-focus-within:opacity-40 group-hover:opacity-25 transition duration-300 pointer-events-none" />
+                <div className="absolute -inset-0.5 bg-gradient-to-r from-[#134074] to-blue-500 rounded-2xl blur opacity-15 group-focus-within:opacity-40 group-hover:opacity-25 transition duration-300 pointer-events-none" />
                 
                 <div className="relative flex items-center bg-white border border-slate-300 rounded-2xl overflow-hidden px-4 sm:px-6 py-4.5 shadow-md">
                   <Search className="w-5 h-5 text-slate-500 mr-3 flex-shrink-0" />
@@ -143,7 +143,7 @@ export function Hero({ onSearchStart, onSearchComplete }: HeroProps) {
                     type="text"
                     value={keyword}
                     onChange={(e) => setKeyword(e.target.value)}
-                    placeholder="예: '한양지붕공사' 또는 가게 이름을 입력하세요."
+                    placeholder="예: 'GG그린방수' 또는 가게 이름을 입력하세요."
                     disabled={isLoading}
                     className="w-full bg-transparent text-slate-900 placeholder:text-slate-400 outline-none text-base sm:text-lg font-bold pr-12"
                   />
@@ -152,7 +152,7 @@ export function Hero({ onSearchStart, onSearchComplete }: HeroProps) {
                   <button
                     type="submit"
                     disabled={isLoading || !keyword.trim()}
-                    className="absolute right-2 px-5 sm:px-8 py-3 rounded-xl bg-gradient-to-r from-amber-500 via-amber-600 to-amber-500 text-white font-black text-sm sm:text-base hover:opacity-95 hover:scale-[1.02] active:scale-[0.98] disabled:opacity-50 disabled:scale-100 disabled:from-slate-200 disabled:to-slate-200 disabled:text-slate-400 transition-all duration-300 flex items-center gap-2 cursor-pointer shadow-md overflow-hidden group/btn"
+                    className="absolute right-2 px-5 sm:px-8 py-3 rounded-xl bg-gradient-to-r from-[#134074] via-[#0b2545] to-[#134074] text-white font-black text-sm sm:text-base hover:opacity-95 hover:scale-[1.02] active:scale-[0.98] disabled:opacity-50 disabled:scale-100 disabled:from-slate-200 disabled:to-slate-200 disabled:text-slate-400 transition-all duration-300 flex items-center gap-2 cursor-pointer shadow-md overflow-hidden group/btn"
                   >
                     <div className="absolute inset-0 w-1/2 h-full bg-white/30 transform -skew-x-12 -translate-x-full group-hover/btn:animate-[shimmer_1.2s_infinite] pointer-events-none" />
                     {isLoading ? (
@@ -173,13 +173,13 @@ export function Hero({ onSearchStart, onSearchComplete }: HeroProps) {
               <div className="max-w-xl bg-white border border-slate-300 rounded-2xl p-5 text-left animate-in fade-in slide-in-from-top-2 duration-300 shadow-sm">
                 <div className="flex items-center justify-between mb-2.5">
                   <span className="text-[11px] text-slate-600 font-mono font-black">자체 개발 고성능 시스템 가동 중</span>
-                  <span className="text-xs font-bold text-amber-700 animate-pulse">홈페이지 자동 조립 중...</span>
+                  <span className="text-xs font-bold text-[#134074] animate-pulse">홈페이지 자동 조립 중...</span>
                 </div>
                 
                 {/* Progress bar */}
                 <div className="w-full bg-slate-200 h-2 rounded-full overflow-hidden mb-4">
                   <div 
-                    className="bg-gradient-to-r from-amber-500 to-blue-500 h-full transition-all duration-500" 
+                    className="bg-gradient-to-r from-[#134074] to-[#0b2545] h-full transition-all duration-500" 
                     style={{ width: `${(loadingStep / 3) * 100}%` }}
                   />
                 </div>
