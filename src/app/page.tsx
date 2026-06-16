@@ -10,6 +10,8 @@ import { ActivityLog } from "@/components/ActivityLog";
 import { About } from "@/components/About";
 import { Footer } from "@/components/Footer";
 import { FloatingKakao } from "@/components/FloatingKakao";
+import { StickyCTA } from "@/components/StickyCTA";
+
 
 export default function Home() {
   const [keyword, setKeyword] = useState("");
@@ -125,6 +127,10 @@ export default function Home() {
 
       {/* 9. Floating KakaoTalk Consult Button */}
       <FloatingKakao />
+
+      {/* 10. High-Conversion Sticky CTA Bar */}
+      <StickyCTA />
     </main>
   );
 }
+
