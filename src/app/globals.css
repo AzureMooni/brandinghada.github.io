@@ -3,26 +3,28 @@
 @theme {
   --font-sans: "Pretendard", -apple-system, BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", sans-serif;
   --font-mono: "Inter", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  --font-outfit: "Outfit", sans-serif;
+  --font-playfair: "Playfair Display", serif;
 
-  --color-background: #071120; /* Premium Dark Navy */
+  --color-background: #030C1B; /* Majestic Dark Deep Blue */
   --color-foreground: #ffffff;
 
-  --color-primary: #134074; /* Steel Blue accent */
+  --color-primary: #1e3a8a; /* Deep Royal Blue */
   --color-primary-foreground: #ffffff;
 
-  --color-secondary: #0b2545; /* Deep Navy primary */
+  --color-secondary: #0c1a30; /* Darker Navy */
   --color-secondary-foreground: #ffffff;
 
-  --color-accent: #134074; /* Steel Blue accent */
+  --color-accent: #3b82f6; /* Premium Sky Blue accent */
   --color-accent-foreground: #ffffff;
 
-  --color-muted: #111e35; /* Slightly lighter navy for cards */
-  --color-muted-foreground: #94a3b8; /* Silver grey text */
+  --color-muted: rgba(255, 255, 255, 0.03); /* Glassmorphism background default */
+  --color-muted-foreground: #cbd5e1; /* Soft silver grey text */
 
-  --color-charcoal-light: #111e35;
-  --color-charcoal-dark: #071120;
-  --color-charcoal-card: #111e35;
-  --color-charcoal-border: #1e293b;
+  --color-charcoal-light: #0d1e36;
+  --color-charcoal-dark: #030C1B;
+  --color-charcoal-card: rgba(255, 255, 255, 0.02);
+  --color-charcoal-border: rgba(255, 255, 255, 0.08);
 }
 
 @layer base {
@@ -138,4 +140,57 @@
 .reveal.active-reveal {
   opacity: 1;
   transform: translateY(0);
+}
+
+/* 💎 Premium Glassmorphism & Font Helpers */
+.font-outfit {
+  font-family: var(--font-outfit);
+}
+
+.font-playfair {
+  font-family: var(--font-playfair);
+}
+
+.glass-card {
+  background: rgba(255, 255, 255, 0.02) !important;
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.08) !important;
+}
+
+.glass-card-hover {
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.glass-card-hover:hover {
+  background: rgba(255, 255, 255, 0.05) !important;
+  border-color: rgba(255, 255, 255, 0.15) !important;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.45);
+  transform: translateY(-4px);
+}
+
+.silver-border {
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+@keyframes scrollMockup {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-35%); }
+}
+
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.hide-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }

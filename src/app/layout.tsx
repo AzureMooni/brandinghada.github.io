@@ -35,13 +35,13 @@ export default function RootLayout({
         <link rel="shortcut icon" href="/favicon.ico?v=2" />
         <link rel="icon" type="image/png" href="/favicon.png?v=2" sizes="32x32" />
         <link rel="apple-touch-icon" href="/apple-touch-icon.png?v=2" />
-        {/* Google Fonts - Inter & Pretendard CDN link */}
+        {/* Google Fonts - Inter, Outfit, Playfair Display & Pretendard CDN link */}
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Outfit:wght@100;200;300;400;500;700&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet" />
         <link rel="stylesheet" as="style" crossOrigin="anonymous" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css" />
       </head>
-      <body className={cn(pretendard.className, "antialiased bg-[#071120] text-white")}>
+      <body className={cn(pretendard.className, "antialiased bg-[#030C1B] text-white")}>
         {children}
         <Script
           strategy="lazyOnload"
