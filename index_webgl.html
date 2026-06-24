@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="ko" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BRANDING HADA - WebGL Tech Core Showcase</title>
+  <meta name="description" content="브랜딩하다의 최상위 기술 권위를 증명하는 WebGL 3D 인터랙티브 쇼케이스. 압도적인 기술 격차로 소상공인의 디지털 영토를 개척합니다.">
+  
+  <!-- Font CDNs -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css" />
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Pretendard', '-apple-system', 'BlinkMacSystemFont', 'system-ui', 'sans-serif'],
+            outfit: ['Outfit', 'sans-serif'],
+            pretendard: ['Pretendard', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    body {
+      margin: 0;
+      overflow-x: hidden;
+      background-color: #03030b;
+      color: #ffffff;
+      font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, sans-serif;
+    }
+    
+    /* Scrollbar Styling */
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #03030b;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #111126;
+      border: 2px solid #03030b;
+      border-radius: 9999px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #222244;
+    }
+
+    /* Custom classes */
+    .word-keep {
+      word-break: keep-all;
+    }
+
+    .glassmorphism {
+      background: rgba(3, 3, 11, 0.45);
+      backdrop-filter: blur(24px);
+      -webkit-backdrop-filter: blur(24px);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+    
+    @keyframes gradientShift {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+    
+    .animate-gradient-text {
+      background-size: 200% auto;
+      animation: gradientShift 5s ease infinite;
+    }
+
+    /* Hide UI selection to prevent glitching during interaction */
+    .select-none {
+      user-select: none;
+      -webkit-user-select: none;
+    }
+  </style>
+
+  <!-- Three.js (r128) & GSAP Core + ScrollTrigger CDN -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+</head>
+<body class="bg-[#03030b] text-white">
+
+  <!-- WebGL Canvas Background -->
+  <canvas id="webgl-canvas" class="fixed top-0 left-0 w-full h-full -z-10 bg-[#03030b] pointer-events-none"></canvas>
+
+  <!-- Infinite Scroll Trigger height to drive GSAP ScrollTrigger (300vh = 3 full folds) -->
+  <div id="scroll-height" class="absolute top-0 left-0 w-full h-[300vh] pointer-events-none"></div>
+
+  <!-- Cinematic Overlay UI Layer -->
+  <div class="fixed top-0 left-0 w-full h-full pointer-events-none z-10 flex flex-col justify-between p-6 md:p-12 select-none">
+    
+    <!-- Header -->
+    <header class="w-full flex justify-between items-center pointer-events-auto">
+      <a href="https://brandinghada.com" target="_blank" rel="noopener noreferrer" 
+         class="font-extrabold text-xl md:text-2xl tracking-wider bg-clip-text text-transparent bg-gradient-to-r from-[#ff2a5f] via-[#a855f7] to-[#0055ff] font-outfit animate-gradient-text">
+        BRANDING HADA
+      </a>
+      <div class="text-xs tracking-widest text-slate-400 font-outfit border border-white/10 bg-slate-950/60 backdrop-blur-md px-4 py-2 rounded-full shadow-lg shadow-black/30">
+        [ WebGL Tech Core ]
+      </div>
+    </header>
+
+    <!-- Main Content Container (Dynamic slide overlay) -->
+    <main class="relative w-full h-full flex-grow flex items-center justify-center">
+      
+      <!-- Slide 1: Hero Section -->
+      <div id="slide-hero" class="absolute inset-0 flex flex-col justify-center px-4 md:px-20 pointer-events-auto">
+        <div class="max-w-4xl">
+          <h1 class="text-5xl md:text-7xl lg:text-[7.5rem] font-black tracking-tighter leading-[0.9] mb-8 font-outfit uppercase">
+            CREATIVE<br>
+            <span class="text-transparent bg-clip-text bg-gradient-to-r from-[#0055ff] to-[#00f3ff]">DIGITAL</span><br>
+            EXPERIENCE
+          </h1>
+          <p class="text-base md:text-lg lg:text-xl text-slate-300 max-w-xl font-pretendard leading-relaxed font-light mb-10 word-keep">
+            마찰이 없는 코드 아키텍처와 시각적 몰입감이 결합되어, 소상공인의 디지털 영토를 견고하게 구축합니다.
+          </p>
+          <div class="flex items-center gap-4">
+            <span class="w-12 h-[1px] bg-slate-500"></span>
+            <span class="text-xs tracking-widest text-slate-400 font-outfit uppercase">INTERACTIVE 3D PLATFORM</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 2: Interactive Matrix -->
+      <div id="slide-content" class="absolute inset-0 flex items-center justify-end px-4 md:px-20 pointer-events-none opacity-0">
+        <div class="max-w-xl glassmorphism p-8 md:p-12 rounded-[2rem] shadow-2xl shadow-black/50 pointer-events-auto transition-transform duration-300 hover:scale-[1.02]">
+          <div class="inline-block px-3 py-1 rounded-full text-[10px] font-semibold bg-blue-500/10 border border-blue-500/20 text-blue-400 tracking-wider mb-6 font-outfit">
+            01 / IMMERSIVE MATRIX
+          </div>
+          <h2 class="text-2xl md:text-3xl lg:text-4xl font-extrabold mb-6 font-pretendard leading-tight text-white word-keep">
+            3차원 공간 속의 동선 설계
+          </h2>
+          <p class="text-sm md:text-base text-slate-300 font-pretendard leading-relaxed font-light word-keep">
+            마우스의 정교한 궤적에 반응하는 파티클 시스템은 단순한 그래픽이 아닙니다. 유저의 시선을 한곳으로 정렬시키는 고도의 세일즈 심리학입니다.
+          </p>
+        </div>
+      </div>
+
+      <!-- Slide 3: Call to Action (CTA) -->
+      <div id="slide-cta" class="absolute inset-0 flex items-center justify-center text-center px-4 pointer-events-none opacity-0">
+        <div class="max-w-2xl bg-gradient-to-b from-slate-950/75 to-slate-950/95 border border-white/10 p-8 md:p-16 rounded-[2.5rem] shadow-2xl shadow-black/60 relative overflow-hidden pointer-events-auto">
+          <!-- Background Glow effects inside card -->
+          <div class="absolute -top-24 -left-24 w-48 h-48 bg-[#ff2a5f]/15 rounded-full blur-3xl"></div>
+          <div class="absolute -bottom-24 -right-24 w-48 h-48 bg-[#0055ff]/15 rounded-full blur-3xl"></div>
+          
+          <h2 class="text-4xl md:text-5xl lg:text-6xl font-black tracking-tight mb-6 font-outfit uppercase text-white">
+            DISCOVER THE VISION
+          </h2>
+          <p class="text-base md:text-lg text-slate-300 font-pretendard leading-relaxed mb-10 max-w-lg mx-auto word-keep">
+            압도적인 기술 격차를 확인하셨다면, 이제 사장님의 비즈니스를 확장할 차례입니다.
+          </p>
+          
+          <!-- Premium Button with glowing elements -->
+          <a href="https://brandinghada.com" target="_blank" rel="noopener noreferrer" 
+             class="inline-flex items-center justify-center px-8 py-4 rounded-full font-bold text-white bg-gradient-to-r from-[#ff2a5f] via-[#a855f7] to-[#0055ff] hover:scale-105 active:scale-95 transition-all duration-300 shadow-lg shadow-purple-500/20 group font-pretendard">
+            <span>실전 세일즈 기지 구축하기</span>
+            <svg class="w-5 h-5 ml-2 transform group-hover:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+            </svg>
+          </a>
+        </div>
+      </div>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="w-full flex justify-between items-end pointer-events-auto">
+      <div class="text-[10px] md:text-xs text-slate-500 tracking-wider font-outfit">
+        © 2026 BRANDING HADA. ALL RIGHTS RESERVED.
+      </div>
+      <div class="flex flex-col gap-2 items-end">
+        <div class="text-[9px] md:text-[10px] text-slate-400 tracking-widest font-outfit">SCROLL TO EXPLORE</div>
+        <div class="w-24 h-[2px] bg-slate-800 rounded-full overflow-hidden relative">
+          <div id="scroll-progress-bar" class="absolute top-0 left-0 h-full w-0 bg-gradient-to-r from-[#ff2a5f] to-[#0055ff]"></div>
+        </div>
+      </div>
+    </footer>
+
+  </div>
+
+  <!-- WebGL / GSAP Implementation Script -->
+  <script>
+    // -----------------------------------------------------------------
+    // 1. Three.js Initial Setup
+    // -----------------------------------------------------------------
+    const canvas = document.getElementById('webgl-canvas');
+    const scene = new THREE.Scene();
+    
+    // Add dark space fog to enhance depth
+    scene.fog = new THREE.FogExp2('#03030b', 0.08);
+
+    const camera = new THREE.PerspectiveCamera(60, window.innerWidth / window.innerHeight, 0.1, 100);
+    const initialCameraPos = { x: 0, y: 0, z: 8 };
+    camera.position.set(initialCameraPos.x, initialCameraPos.y, initialCameraPos.z);
+
+    const renderer = new THREE.WebGLRenderer({
+      canvas: canvas,
+      antialias: true,
+      alpha: true,
+      powerPreference: "high-performance"
+    });
+    renderer.setSize(window.innerWidth, window.innerHeight);
+    // Mobile Performance Optimization: limit pixelRatio to 2
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+
+    // -----------------------------------------------------------------
+    // 2. Dynamic Radial Circle Texture Generator
+    // -----------------------------------------------------------------
+    function createCircleTexture() {
+      const canvas = document.createElement('canvas');
+      canvas.width = 64;
+      canvas.height = 64;
+      const ctx = canvas.getContext('2d');
+      
+      const gradient = ctx.createRadialGradient(32, 32, 0, 32, 32, 32);
+      gradient.addColorStop(0, 'rgba(255, 255, 255, 1)');
+      gradient.addColorStop(0.2, 'rgba(255, 255, 255, 0.8)');
+      gradient.addColorStop(0.5, 'rgba(255, 255, 255, 0.2)');
+      gradient.addColorStop(1, 'rgba(255, 255, 255, 0)');
+      
+      ctx.fillStyle = gradient;
+      ctx.fillRect(0, 0, 64, 64);
+      
+      const texture = new THREE.CanvasTexture(canvas);
+      return texture;
+    }
+    const particleTexture = createCircleTexture();
+
+    // -----------------------------------------------------------------
+    // 3. Immersive Particle Sphere Generation
+    // -----------------------------------------------------------------
+    const particleCount = 1600; // Over 1,200 particles
+    const particleGeometry = new THREE.BufferGeometry();
+    
+    const positions = new Float32Array(particleCount * 3);
+    const originalPositions = new Float32Array(particleCount * 3);
+    const colors = new Float32Array(particleCount * 3);
+    const randomSpeeds = new Float32Array(particleCount);
+
+    const colorRed = new THREE.Color('#ff2a5f'); // Neon Red
+    const colorBlue = new THREE.Color('#0055ff'); // Neon Blue
+    
+    for (let i = 0; i < particleCount; i++) {
+      // Math: Spherical distribution inside a volume shell
+      const u = Math.random();
+      const v = Math.random();
+      const theta = u * 2.0 * Math.PI;
+      const phi = Math.acos(2.0 * v - 1.0);
+      
+      // Radius of the sphere with thickness
+      const r = 2.8 + Math.random() * 0.7; 
+      
+      const x = r * Math.sin(phi) * Math.cos(theta);
+      const y = r * Math.sin(phi) * Math.sin(theta);
+      const z = r * Math.cos(phi);
+      
+      positions[i * 3] = x;
+      positions[i * 3 + 1] = y;
+      positions[i * 3 + 2] = z;
+      
+      originalPositions[i * 3] = x;
+      originalPositions[i * 3 + 1] = y;
+      originalPositions[i * 3 + 2] = z;
+
+      // Color layout: Red on left (-x), Blue on right (+x) with noise mixing
+      const normX = (x / 3.5) * 0.5 + 0.5; // range: 0 to 1
+      const noisyMix = Math.max(0, Math.min(1, normX + (Math.random() - 0.5) * 0.4));
+      const mixedColor = colorRed.clone().lerp(colorBlue, noisyMix);
+      
+      colors[i * 3] = mixedColor.r;
+      colors[i * 3 + 1] = mixedColor.g;
+      colors[i * 3 + 2] = mixedColor.b;
+      
+      randomSpeeds[i] = 0.6 + Math.random() * 1.4;
+    }
+
+    particleGeometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
+    particleGeometry.setAttribute('color', new THREE.BufferAttribute(colors, 3));
+
+    const pointsMaterial = new THREE.PointsMaterial({
+      size: 0.1,
+      vertexColors: true,
+      map: particleTexture,
+      transparent: true,
+      opacity: 0.9,
+      blending: THREE.AdditiveBlending,
+      depthWrite: false
+    });
+
+    const particleSystem = new THREE.Points(particleGeometry, pointsMaterial);
+    scene.add(particleSystem);
+
+    // -----------------------------------------------------------------
+    // 4. Subtle Parallax Starfield Background
+    // -----------------------------------------------------------------
+    const starCount = 500;
+    const starGeometry = new THREE.BufferGeometry();
+    const starPositions = new Float32Array(starCount * 3);
+    const starColors = new Float32Array(starCount * 3);
+
+    const starDimBlue = new THREE.Color('#081635');
+    const starWhite = new THREE.Color('#ffffff');
+
+    for (let i = 0; i < starCount; i++) {
+      starPositions[i * 3] = (Math.random() - 0.5) * 40;
+      starPositions[i * 3 + 1] = (Math.random() - 0.5) * 40;
+      starPositions[i * 3 + 2] = (Math.random() - 0.5) * 40;
+      
+      const mixedColor = starDimBlue.clone().lerp(starWhite, Math.random() * 0.4);
+      starColors[i * 3] = mixedColor.r;
+      starColors[i * 3 + 1] = mixedColor.g;
+      starColors[i * 3 + 2] = mixedColor.b;
+    }
+    
+    starGeometry.setAttribute('position', new THREE.BufferAttribute(starPositions, 3));
+    starGeometry.setAttribute('color', new THREE.BufferAttribute(starColors, 3));
+
+    const starMaterial = new THREE.PointsMaterial({
+      size: 0.05,
+      vertexColors: true,
+      transparent: true,
+      opacity: 0.35,
+      depthWrite: false,
+      blending: THREE.AdditiveBlending
+    });
+
+    const starField = new THREE.Points(starGeometry, starMaterial);
+    scene.add(starField);
+
+    // -----------------------------------------------------------------
+    // 5. Mouse Interaction Interpolation (Lerp)
+    // -----------------------------------------------------------------
+    const mouse = { x: 0, y: 0, targetX: 0, targetY: 0, speed: 0 };
+    const lastMouse = { x: 0, y: 0 };
+    
+    window.addEventListener('mousemove', (event) => {
+      // Normalize coordinate: -1 to +1
+      mouse.targetX = (event.clientX / window.innerWidth) * 2 - 1;
+      mouse.targetY = -(event.clientY / window.innerHeight) * 2 + 1;
+    });
+
+    // Mobile touch interaction mapping
+    window.addEventListener('touchmove', (event) => {
+      if (event.touches.length > 0) {
+        mouse.targetX = (event.touches[0].clientX / window.innerWidth) * 2 - 1;
+        mouse.targetY = -(event.touches[0].clientY / window.innerHeight) * 2 + 1;
+      }
+    });
+
+    // -----------------------------------------------------------------
+    // 6. GSAP ScrollTrigger Cinematic Animation
+    // -----------------------------------------------------------------
+    gsap.registerPlugin(ScrollTrigger);
+
+    // Camera base navigation state (which will be animated via GSAP)
+    const cameraState = {
+      x: 0,
+      y: 0,
+      z: 8,
+      targetX: 0,
+      targetY: 0,
+      targetZ: 0,
+      particleSizeMultiplier: 1.0,
+      particleSpread: 1.0
+    };
+
+    // Global timeline linked to scroll progress
+    const scrollTimeline = gsap.timeline({
+      scrollTrigger: {
+        trigger: "#scroll-height",
+        start: "top top",
+        end: "bottom bottom",
+        scrub: 1.5,
+        onUpdate: (self) => {
+          // Progress bar sync
+          gsap.to("#scroll-progress-bar", { width: `${self.progress * 100}%`, duration: 0.1 });
+        }
+      }
+    });
+
+    // Cinematic path composition
+    scrollTimeline
+      // Phase 1: Hero slide fades out. Camera flies right and pans left.
+      .to("#slide-hero", { opacity: 0, y: -80, duration: 0.8, ease: "power2.inOut" }, 0)
+      .to(cameraState, {
+        x: 4.8, 
+        y: 1.8, 
+        z: 5.5,
+        targetX: 0.8,
+        targetY: 0,
+        targetZ: -0.5,
+        particleSizeMultiplier: 1.4,
+        particleSpread: 1.15,
+        duration: 1.5,
+        ease: "power2.inOut"
+      }, 0)
+      // Phase 2: Show Content slide
+      .to("#slide-content", { opacity: 1, y: 0, duration: 0.8, ease: "power2.out" }, 0.7)
+      
+      // Phase 3: Content slide fades out. Camera zooms deep INSIDE the particle sphere.
+      .to("#slide-content", { opacity: 0, y: -80, duration: 0.8, ease: "power2.inOut" }, 1.8)
+      .to(cameraState, {
+        x: 0.0,
+        y: 0.0,
+        z: 1.5, // Inside the sphere
+        targetX: 0.0,
+        targetY: 0.0,
+        targetZ: 0.0,
+        particleSizeMultiplier: 2.8,
+        particleSpread: 2.5, // Distort/disperse particles outward
+        duration: 1.8,
+        ease: "power3.inOut"
+      }, 1.8)
+      // Phase 4: Show final CTA slide
+      .to("#slide-cta", { opacity: 1, y: 0, duration: 0.8, ease: "power2.out" }, 2.4);
+
+    // -----------------------------------------------------------------
+    // 7. Render Loop (with Clock for time-based animation)
+    // -----------------------------------------------------------------
+    const clock = new THREE.Clock();
+
+    function animate() {
+      requestAnimationFrame(animate);
+      
+      const time = clock.getElapsedTime();
+      
+      // A. Smooth Mouse Coordinate Interpolation (Lerp)
+      mouse.x += (mouse.targetX - mouse.x) * 0.05;
+      mouse.y += (mouse.targetY - mouse.y) * 0.05;
+      
+      // B. Mouse Speed / Impulse Calculation (creates kinetic feedback)
+      const dx = mouse.targetX - lastMouse.x;
+      const dy = mouse.targetY - lastMouse.y;
+      const dist = Math.sqrt(dx * dx + dy * dy);
+      mouse.speed += (dist - mouse.speed) * 0.12; // Lerp the speed impulse
+      
+      lastMouse.x = mouse.targetX;
+      lastMouse.y = mouse.targetY;
+      
+      // Decay speed so the pulse settles when mouse stops
+      mouse.speed *= 0.95;
+
+      // C. Update Camera Position & Pan
+      // Combine GSAP scroll coordinates with mouse parallax coordinate offset
+      camera.position.x = cameraState.x + mouse.x * 2.0;
+      camera.position.y = cameraState.y - mouse.y * 2.0;
+      camera.position.z = cameraState.z;
+      
+      const currentTarget = new THREE.Vector3(
+        cameraState.targetX + mouse.x * 0.6,
+        cameraState.targetY - mouse.y * 0.6,
+        cameraState.targetZ
+      );
+      camera.lookAt(currentTarget);
+
+      // D. Rotate Particle System (Time-based spin + Mouse parallax rotation)
+      particleSystem.rotation.y = time * 0.07 + mouse.x * 0.35;
+      particleSystem.rotation.x = time * 0.03 + mouse.y * 0.25;
+      
+      starField.rotation.y = time * 0.012;
+      starField.rotation.x = time * 0.005;
+
+      // E. Vertex Manipulation (Kinetic Pulse and Wave)
+      const pPositions = particleGeometry.attributes.position.array;
+      for (let i = 0; i < particleCount; i++) {
+        const i3 = i * 3;
+        const ox = originalPositions[i3];
+        const oy = originalPositions[i3 + 1];
+        const oz = originalPositions[i3 + 2];
+        
+        // Direction vector from center (normalize coordinates)
+        const len = Math.sqrt(ox*ox + oy*oy + oz*oz);
+        
+        // Wave factor: sine function of time + position + individual speed offset
+        const wave = Math.sin(time * 1.5 + len * 0.8 + randomSpeeds[i]) * 0.14;
+        
+        // Kinetic Impulse factor: Expand nodes away from center on mouse speed spike
+        const impulse = mouse.speed * 4.5 * Math.sin(time * 5.0 + len * 1.5);
+        
+        // Combine with GSAP scroll expansion multiplier
+        const factor = (1.0 + wave + impulse) * cameraState.particleSpread;
+        
+        pPositions[i3] = ox * factor;
+        pPositions[i3 + 1] = oy * factor;
+        pPositions[i3 + 2] = oz * factor;
+      }
+      particleGeometry.attributes.position.needsUpdate = true;
+
+      // F. Dynamic Material Size Adjustment (Base scale * GSAP state scale * Kinetic speed spike pulse)
+      const speedPulse = 1.0 + mouse.speed * 2.0;
+      pointsMaterial.size = 0.08 * cameraState.particleSizeMultiplier * speedPulse;
+
+      renderer.render(scene, camera);
+    }
+    
+    // Start animation loop
+    animate();
+
+    // -----------------------------------------------------------------
+    // 8. Responsive Design Viewport Handling
+    // -----------------------------------------------------------------
+    window.addEventListener('resize', () => {
+      camera.aspect = window.innerWidth / window.innerHeight;
+      camera.updateProjectionMatrix();
+      
+      renderer.setSize(window.innerWidth, window.innerHeight);
+      renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+    });
+  </script>
+</body>
+</html>
