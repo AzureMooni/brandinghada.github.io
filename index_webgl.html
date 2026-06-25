@@ -1,85 +1,66 @@
 <!DOCTYPE html>
-<html lang="ko" class="scroll-smooth">
+<html lang="ko">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>BRANDING HADA - WebGL Tech Core Showcase</title>
-  <meta name="description" content="브랜딩하다의 최상위 기술 권위를 증명하는 WebGL 3D 인터랙티브 쇼케이스. 압도적인 기술 격차로 소상공인의 디지털 영토를 개척합니다.">
+  <title>브랜딩하다 - 4050 소상공인 자동화 홈페이지</title>
   
-  <!-- Font CDNs -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css" />
-
-  <!-- Tailwind CSS CDN -->
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          fontFamily: {
-            sans: ['Pretendard', '-apple-system', 'BlinkMacSystemFont', 'system-ui', 'sans-serif'],
-            outfit: ['Outfit', 'sans-serif'],
-            pretendard: ['Pretendard', 'sans-serif'],
-          }
-        }
-      }
-    }
-  </script>
+  <!-- Fonts & Tailwind -->
+  <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@800&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 
   <style>
+    :root {
+      --font-pretendard: 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+      --font-outfit: 'Outfit', sans-serif;
+    }
     body {
-      margin: 0;
+      font-family: var(--font-pretendard);
+      background-color: #F8FAFC; /* 눈이 편안한 밝은 배경 */
+      color: #0F172A;
       overflow-x: hidden;
-      background-color: #03030b;
-      color: #ffffff;
-      font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, sans-serif;
     }
+    .font-outfit { font-family: var(--font-outfit); }
     
-    /* Scrollbar Styling */
-    ::-webkit-scrollbar {
-      width: 8px;
-    }
-    ::-webkit-scrollbar-track {
-      background: #03030b;
-    }
-    ::-webkit-scrollbar-thumb {
-      background: #111126;
-      border: 2px solid #03030b;
-      border-radius: 9999px;
-    }
-    ::-webkit-scrollbar-thumb:hover {
-      background: #222244;
-    }
-
-    /* Custom classes */
-    .word-keep {
+    /* 육안 식별 극대화를 위한 텍스트 고대비 락업 */
+    .text-contrast-title {
+      color: #0F172A;
+      letter-spacing: -0.04em;
       word-break: keep-all;
     }
-
-    .glassmorphism {
-      background: rgba(3, 3, 11, 0.45);
+    
+    /* 마우스 움직임 및 스크롤 시 4050 타겟이 즉시 체감할 수 있는 강력한 3D 카드 효과 */
+    .perspective-container {
+      perspective: 1200px;
+    }
+    
+    /* 뒷부분의 WebGL 파티클이 자연스럽게 비치도록 반투명 Glassmorphism 조화 */
+    .true-3d-card {
+      transform-style: preserve-3d;
+      transition: transform 0.15s cubic-bezier(0.25, 1, 0.5, 1);
+      background: rgba(255, 255, 255, 0.78);
       backdrop-filter: blur(24px);
       -webkit-backdrop-filter: blur(24px);
-      border: 1px solid rgba(255, 255, 255, 0.08);
+      border: 2px solid rgba(226, 232, 240, 0.85);
+      box-shadow: 0 20px 40px -15px rgba(15, 23, 42, 0.08);
     }
-    
-    @keyframes gradientShift {
-      0% { background-position: 0% 50%; }
-      50% { background-position: 100% 50%; }
-      100% { background-position: 0% 50%; }
+    .true-3d-card:hover {
+      border-color: #0066FF;
+      box-shadow: 0 35px 60px -20px rgba(0, 102, 255, 0.15);
     }
-    
-    .animate-gradient-text {
-      background-size: 200% auto;
-      animation: gradientShift 5s ease infinite;
+    .inner-3d-text {
+      transform: translateZ(55px); /* 텍스트가 카드 밖으로 떠오르는 효과 */
     }
 
-    /* Hide UI selection to prevent glitching during interaction */
-    .select-none {
-      user-select: none;
-      -webkit-user-select: none;
+    /* Selection High Contrast styling */
+    .selection-blue::selection {
+      background-color: #0066FF;
+      color: #FFFFFF;
+    }
+    .selection-blue::-moz-selection {
+      background-color: #0066FF;
+      color: #FFFFFF;
     }
   </style>
 
@@ -88,133 +69,136 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
 </head>
-<body class="bg-[#03030b] text-white">
+<body class="antialiased selection-blue relative bg-[#F8FAFC]">
 
-  <!-- WebGL Canvas Background -->
-  <canvas id="webgl-canvas" class="fixed top-0 left-0 w-full h-full -z-10 bg-[#03030b] pointer-events-none"></canvas>
+  <!-- WebGL Canvas Background (투명 설정으로 라이트 배경과 통합) -->
+  <canvas id="webgl-canvas" class="fixed top-0 left-0 w-full h-full -z-10 bg-transparent pointer-events-none"></canvas>
 
-  <!-- Infinite Scroll Trigger height to drive GSAP ScrollTrigger (300vh = 3 full folds) -->
-  <div id="scroll-height" class="absolute top-0 left-0 w-full h-[300vh] pointer-events-none"></div>
+  <!-- Scroll Height Driving GSAP ScrollTrigger (140vh for smooth viewport parallax) -->
+  <div id="scroll-height" class="absolute top-0 left-0 w-full h-[140vh] pointer-events-none"></div>
 
-  <!-- Cinematic Overlay UI Layer -->
-  <div class="fixed top-0 left-0 w-full h-full pointer-events-none z-10 flex flex-col justify-between p-6 md:p-12 select-none">
+  <!-- Main Hero Section (Sticky Layout for smooth scrolling transitions) -->
+  <div class="sticky top-0 w-full h-screen flex flex-col justify-between p-6 md:p-12 max-w-7xl mx-auto overflow-hidden">
     
-    <!-- Header -->
-    <header class="w-full flex justify-between items-center pointer-events-auto">
+    <!-- Top Navigation -->
+    <header class="w-full flex justify-between items-center py-4 border-b border-slate-200 bg-[#F8FAFC]/80 backdrop-blur-md z-20">
       <a href="https://brandinghada.com" target="_blank" rel="noopener noreferrer" 
-         class="font-extrabold text-xl md:text-2xl tracking-wider bg-clip-text text-transparent bg-gradient-to-r from-[#ff2a5f] via-[#a855f7] to-[#0055ff] font-outfit animate-gradient-text">
+         class="font-outfit font-black text-2xl tracking-tighter text-blue-600 hover:opacity-85 transition-opacity">
         BRANDING HADA
       </a>
-      <div class="text-xs tracking-widest text-slate-400 font-outfit border border-white/10 bg-slate-950/60 backdrop-blur-md px-4 py-2 rounded-full shadow-lg shadow-black/30">
-        [ WebGL Tech Core ]
+      <div class="flex items-center gap-4">
+        <span class="text-xs font-bold text-slate-500 bg-slate-100 px-3 py-1.5 rounded-md border border-slate-200">
+          소상공인 외주 피해 대책위
+        </span>
       </div>
     </header>
 
-    <!-- Main Content Container (Dynamic slide overlay) -->
-    <main class="relative w-full h-full flex-grow flex items-center justify-center">
+    <!-- Content Matrix (글자 크기 극대화 및 확실한 대비) -->
+    <main id="content-matrix" class="grid grid-cols-1 lg:grid-cols-12 gap-12 my-auto pt-6 pb-6 items-center z-10">
       
-      <!-- Slide 1: Hero Section -->
-      <div id="slide-hero" class="absolute inset-0 flex flex-col justify-center px-4 md:px-20 pointer-events-auto">
-        <div class="max-w-4xl">
-          <h1 class="text-5xl md:text-7xl lg:text-[7.5rem] font-black tracking-tighter leading-[0.9] mb-8 font-outfit uppercase">
-            CREATIVE<br>
-            <span class="text-transparent bg-clip-text bg-gradient-to-r from-[#0055ff] to-[#00f3ff]">DIGITAL</span><br>
-            EXPERIENCE
-          </h1>
-          <p class="text-base md:text-lg lg:text-xl text-slate-300 max-w-xl font-pretendard leading-relaxed font-light mb-10 word-keep">
-            마찰이 없는 코드 아키텍처와 시각적 몰입감이 결합되어, 소상공인의 디지털 영토를 견고하게 구축합니다.
-          </p>
-          <div class="flex items-center gap-4">
-            <span class="w-12 h-[1px] bg-slate-500"></span>
-            <span class="text-xs tracking-widest text-slate-400 font-outfit uppercase">INTERACTIVE 3D PLATFORM</span>
-          </div>
+      <!-- Left: Core Text Copy -->
+      <div class="lg:col-span-7 space-y-6 md:space-y-8 select-none">
+        <div class="inline-block bg-blue-50 text-blue-600 text-sm md:text-base font-bold px-4 py-2 rounded-full border border-blue-100 shadow-sm">
+          📍 대한민국 최초 '홈페이지 110만 원 정찰제'
         </div>
-      </div>
+        
+        <h1 class="text-contrast-title text-4xl md:text-6xl lg:text-7xl font-black leading-[1.2]">
+          가게 이름만 대면<br>
+          <span class="text-blue-600">3초 만에 고객 잡는</span><br>
+          홈페이지가 완성됩니다
+        </h1>
+        
+        <p class="text-slate-600 text-base md:text-lg lg:text-xl font-medium leading-relaxed max-w-xl">
+          매달 뜯기는 관리비 인질극은 끝내십시오. 완납 즉시 모든 소스코드와 소유권을 100% 사장님 앞으로 완벽하게 이양합니다.
+        </p>
 
-      <!-- Slide 2: Interactive Matrix -->
-      <div id="slide-content" class="absolute inset-0 flex items-center justify-end px-4 md:px-20 pointer-events-none opacity-0">
-        <div class="max-w-xl glassmorphism p-8 md:p-12 rounded-[2rem] shadow-2xl shadow-black/50 pointer-events-auto transition-transform duration-300 hover:scale-[1.02]">
-          <div class="inline-block px-3 py-1 rounded-full text-[10px] font-semibold bg-blue-500/10 border border-blue-500/20 text-blue-400 tracking-wider mb-6 font-outfit">
-            01 / IMMERSIVE MATRIX
-          </div>
-          <h2 class="text-2xl md:text-3xl lg:text-4xl font-extrabold mb-6 font-pretendard leading-tight text-white word-keep">
-            3차원 공간 속의 동선 설계
-          </h2>
-          <p class="text-sm md:text-base text-slate-300 font-pretendard leading-relaxed font-light word-keep">
-            마우스의 정교한 궤적에 반응하는 파티클 시스템은 단순한 그래픽이 아닙니다. 유저의 시선을 한곳으로 정렬시키는 고도의 세일즈 심리학입니다.
-          </p>
-        </div>
-      </div>
-
-      <!-- Slide 3: Call to Action (CTA) -->
-      <div id="slide-cta" class="absolute inset-0 flex items-center justify-center text-center px-4 pointer-events-none opacity-0">
-        <div class="max-w-2xl bg-gradient-to-b from-slate-950/75 to-slate-950/95 border border-white/10 p-8 md:p-16 rounded-[2.5rem] shadow-2xl shadow-black/60 relative overflow-hidden pointer-events-auto">
-          <!-- Background Glow effects inside card -->
-          <div class="absolute -top-24 -left-24 w-48 h-48 bg-[#ff2a5f]/15 rounded-full blur-3xl"></div>
-          <div class="absolute -bottom-24 -right-24 w-48 h-48 bg-[#0055ff]/15 rounded-full blur-3xl"></div>
-          
-          <h2 class="text-4xl md:text-5xl lg:text-6xl font-black tracking-tight mb-6 font-outfit uppercase text-white">
-            DISCOVER THE VISION
-          </h2>
-          <p class="text-base md:text-lg text-slate-300 font-pretendard leading-relaxed mb-10 max-w-lg mx-auto word-keep">
-            압도적인 기술 격차를 확인하셨다면, 이제 사장님의 비즈니스를 확장할 차례입니다.
-          </p>
-          
-          <!-- Premium Button with glowing elements -->
-          <a href="https://brandinghada.com" target="_blank" rel="noopener noreferrer" 
-             class="inline-flex items-center justify-center px-8 py-4 rounded-full font-bold text-white bg-gradient-to-r from-[#ff2a5f] via-[#a855f7] to-[#0055ff] hover:scale-105 active:scale-95 transition-all duration-300 shadow-lg shadow-purple-500/20 group font-pretendard">
-            <span>실전 세일즈 기지 구축하기</span>
-            <svg class="w-5 h-5 ml-2 transform group-hover:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+        <!-- 무조건 한눈에 들어오는 강력한 CTA 버튼 -->
+        <div class="pt-2">
+          <a href="https://brandinghada.com" target="_blank" rel="noopener noreferrer"
+             class="inline-flex items-center gap-3 px-8 py-4 md:py-5 bg-blue-600 hover:bg-blue-700 text-white font-extrabold text-lg md:text-xl rounded-xl shadow-xl shadow-blue-600/20 transition-all transform hover:-translate-y-1 active:translate-y-0">
+            <span>5분 무료 초안 신청하기</span>
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="5" y1="12" x2="19" y2="12"></line>
+              <polyline points="12 5 19 12 12 19"></polyline>
             </svg>
           </a>
         </div>
       </div>
 
-    </main>
+      <!-- Right: Real Interactive 3D Card (육안으로 식별되는 확실한 입체감) -->
+      <div class="lg:col-span-5 perspective-container w-full flex justify-center">
+        <div class="true-3d-card w-full max-w-[400px] h-[460px] md:h-[500px] rounded-2xl p-6 md:p-8 flex flex-col justify-between relative cursor-pointer" id="interactive-card">
+          
+          <div class="flex justify-between items-center">
+            <span class="text-xs font-bold text-blue-600 bg-blue-50 border border-blue-200 px-3 py-1 rounded">실시간 구동 자산</span>
+            <span class="font-outfit font-black text-slate-300 text-xl select-none">BH-01</span>
+          </div>
 
-    <!-- Footer -->
-    <footer class="w-full flex justify-between items-end pointer-events-auto">
-      <div class="text-[10px] md:text-xs text-slate-500 tracking-wider font-outfit">
-        © 2026 BRANDING HADA. ALL RIGHTS RESERVED.
-      </div>
-      <div class="flex flex-col gap-2 items-end">
-        <div class="text-[9px] md:text-[10px] text-slate-400 tracking-widest font-outfit">SCROLL TO EXPLORE</div>
-        <div class="w-24 h-[2px] bg-slate-800 rounded-full overflow-hidden relative">
-          <div id="scroll-progress-bar" class="absolute top-0 left-0 h-full w-0 bg-gradient-to-r from-[#ff2a5f] to-[#0055ff]"></div>
+          <div class="space-y-4 md:space-y-6 my-auto inner-3d-text select-none">
+            <div class="text-slate-400 text-xs md:text-sm font-bold tracking-wider font-outfit">REAL-TIME STATUS</div>
+            <h3 class="text-2xl md:text-3xl font-black text-slate-900 leading-snug">
+              지금 이 순간에도<br>
+              <span class="text-blue-600">1,842개의 소상공인 홈피</span>가<br>
+              24시간 자동 영업 중
+            </h3>
+            <div class="h-1.5 w-20 md:w-24 bg-blue-600 rounded-full"></div>
+          </div>
+
+          <div class="grid grid-cols-3 gap-2 border-t border-slate-100 pt-6 text-center select-none">
+            <div>
+              <div class="text-xl md:text-2xl font-black text-slate-900">100%</div>
+              <div class="text-[10px] md:text-[11px] font-bold text-slate-400 mt-1">소유권 이양</div>
+            </div>
+            <div>
+              <div class="text-xl md:text-2xl font-black text-slate-900">단 5분</div>
+              <div class="text-[10px] md:text-[11px] font-bold text-slate-400 mt-1">초안 제작 완료</div>
+            </div>
+            <div>
+              <div class="text-xl md:text-2xl font-black text-slate-900">110만</div>
+              <div class="text-[10px] md:text-[11px] font-bold text-slate-400 mt-1">단일 정찰제</div>
+            </div>
+          </div>
+
         </div>
       </div>
+
+    </main>
+
+    <!-- Bottom Statistics -->
+    <footer class="w-full border-t border-slate-200 py-4 flex flex-col md:flex-row justify-between items-center gap-4 text-xs md:text-sm font-bold text-slate-500 bg-[#F8FAFC] z-20">
+      <div>안심하고 맡기십시오. 대한민국 표준 약정 계약을 준수합니다.</div>
+      <div class="font-outfit text-blue-600 tracking-wider">PREMIUM WEB ARCHITECT</div>
     </footer>
 
   </div>
 
-  <!-- WebGL / GSAP Implementation Script -->
+  <!-- Three.js + GSAP + 3D Card Physics Script -->
   <script>
     // -----------------------------------------------------------------
-    // 1. Three.js Initial Setup
+    // 1. Three.js Setup (Bright background integration)
     // -----------------------------------------------------------------
     const canvas = document.getElementById('webgl-canvas');
     const scene = new THREE.Scene();
     
-    // Add dark space fog to enhance depth
-    scene.fog = new THREE.FogExp2('#03030b', 0.08);
+    // Light-themed fog to make particles dissolve smoothly at edges
+    scene.fog = new THREE.FogExp2('#F8FAFC', 0.1);
 
-    const camera = new THREE.PerspectiveCamera(60, window.innerWidth / window.innerHeight, 0.1, 100);
-    const initialCameraPos = { x: 0, y: 0, z: 8 };
-    camera.position.set(initialCameraPos.x, initialCameraPos.y, initialCameraPos.z);
+    const camera = new THREE.PerspectiveCamera(55, window.innerWidth / window.innerHeight, 0.1, 100);
+    const defaultCameraZ = 7.5;
+    camera.position.set(0, 0, defaultCameraZ);
 
     const renderer = new THREE.WebGLRenderer({
       canvas: canvas,
       antialias: true,
-      alpha: true,
+      alpha: true, // Transparent WebGL background
       powerPreference: "high-performance"
     });
     renderer.setSize(window.innerWidth, window.innerHeight);
-    // Mobile Performance Optimization: limit pixelRatio to 2
     renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+    renderer.setClearColor(0x000000, 0); // Transparent renderer
 
     // -----------------------------------------------------------------
-    // 2. Dynamic Radial Circle Texture Generator
+    // 2. High-Contrast Round Glow Particle Texture
     // -----------------------------------------------------------------
     function createCircleTexture() {
       const canvas = document.createElement('canvas');
@@ -224,102 +208,110 @@
       
       const gradient = ctx.createRadialGradient(32, 32, 0, 32, 32, 32);
       gradient.addColorStop(0, 'rgba(255, 255, 255, 1)');
-      gradient.addColorStop(0.2, 'rgba(255, 255, 255, 0.8)');
+      gradient.addColorStop(0.2, 'rgba(255, 255, 255, 0.9)');
       gradient.addColorStop(0.5, 'rgba(255, 255, 255, 0.2)');
       gradient.addColorStop(1, 'rgba(255, 255, 255, 0)');
       
       ctx.fillStyle = gradient;
       ctx.fillRect(0, 0, 64, 64);
-      
-      const texture = new THREE.CanvasTexture(canvas);
-      return texture;
+      return new THREE.CanvasTexture(canvas);
     }
     const particleTexture = createCircleTexture();
 
     // -----------------------------------------------------------------
-    // 3. Immersive Particle Sphere Generation
+    // 3. Dynamic Particle Sphere (Cyan-Blue & Magenta Gradient)
     // -----------------------------------------------------------------
-    const particleCount = 1600; // Over 1,200 particles
+    const particleCount = 1400;
     const particleGeometry = new THREE.BufferGeometry();
-    
     const positions = new Float32Array(particleCount * 3);
     const originalPositions = new Float32Array(particleCount * 3);
     const colors = new Float32Array(particleCount * 3);
     const randomSpeeds = new Float32Array(particleCount);
 
-    const colorRed = new THREE.Color('#ff2a5f'); // Neon Red
-    const colorBlue = new THREE.Color('#0055ff'); // Neon Blue
-    
+    const colorBlue = new THREE.Color('#0066FF');
+    const colorPink = new THREE.Color('#FF3366');
+    const colorPurple = new THREE.Color('#8B5CF6');
+
     for (let i = 0; i < particleCount; i++) {
-      // Math: Spherical distribution inside a volume shell
       const u = Math.random();
       const v = Math.random();
       const theta = u * 2.0 * Math.PI;
       const phi = Math.acos(2.0 * v - 1.0);
       
-      // Radius of the sphere with thickness
-      const r = 2.8 + Math.random() * 0.7; 
+      // Radius of the sphere
+      const r = 2.3 + Math.random() * 0.7;
       
       const x = r * Math.sin(phi) * Math.cos(theta);
       const y = r * Math.sin(phi) * Math.sin(theta);
       const z = r * Math.cos(phi);
-      
+
       positions[i * 3] = x;
       positions[i * 3 + 1] = y;
       positions[i * 3 + 2] = z;
-      
+
       originalPositions[i * 3] = x;
       originalPositions[i * 3 + 1] = y;
       originalPositions[i * 3 + 2] = z;
 
-      // Color layout: Red on left (-x), Blue on right (+x) with noise mixing
-      const normX = (x / 3.5) * 0.5 + 0.5; // range: 0 to 1
-      const noisyMix = Math.max(0, Math.min(1, normX + (Math.random() - 0.5) * 0.4));
-      const mixedColor = colorRed.clone().lerp(colorBlue, noisyMix);
+      // Color mapping: Pink (-x) to Purple (center) to Blue (+x)
+      const normX = (x / 3.0) * 0.5 + 0.5; // 0 to 1
+      let mixedColor;
+      if (normX < 0.5) {
+        mixedColor = colorPink.clone().lerp(colorPurple, normX * 2);
+      } else {
+        mixedColor = colorPurple.clone().lerp(colorBlue, (normX - 0.5) * 2);
+      }
       
+      // Minor random noise offset to make distribution organic
+      const noise = (Math.random() - 0.5) * 0.2;
+      mixedColor.offsetHSL(noise, 0, 0);
+
       colors[i * 3] = mixedColor.r;
       colors[i * 3 + 1] = mixedColor.g;
       colors[i * 3 + 2] = mixedColor.b;
-      
-      randomSpeeds[i] = 0.6 + Math.random() * 1.4;
+
+      randomSpeeds[i] = 0.5 + Math.random() * 1.5;
     }
 
     particleGeometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
     particleGeometry.setAttribute('color', new THREE.BufferAttribute(colors, 3));
 
+    // NormalBlending is key to high-contrast rendering on bright backgrounds
     const pointsMaterial = new THREE.PointsMaterial({
-      size: 0.1,
+      size: 0.12,
       vertexColors: true,
       map: particleTexture,
       transparent: true,
-      opacity: 0.9,
-      blending: THREE.AdditiveBlending,
+      opacity: 0.75,
+      blending: THREE.NormalBlending,
       depthWrite: false
     });
 
     const particleSystem = new THREE.Points(particleGeometry, pointsMaterial);
+    
+    // Position WebGL sphere initially matching the 3D card layout (on PC)
+    let baseParticleX = window.innerWidth < 1024 ? 0 : 1.5;
+    let baseParticleY = window.innerWidth < 1024 ? -1.0 : 0;
+    particleSystem.position.set(baseParticleX, baseParticleY, 0);
     scene.add(particleSystem);
 
     // -----------------------------------------------------------------
-    // 4. Subtle Parallax Starfield Background
+    // 4. Subtle Ambient Sparkles (Floating dust)
     // -----------------------------------------------------------------
-    const starCount = 500;
+    const starCount = 200;
     const starGeometry = new THREE.BufferGeometry();
     const starPositions = new Float32Array(starCount * 3);
     const starColors = new Float32Array(starCount * 3);
 
-    const starDimBlue = new THREE.Color('#081635');
-    const starWhite = new THREE.Color('#ffffff');
-
     for (let i = 0; i < starCount; i++) {
-      starPositions[i * 3] = (Math.random() - 0.5) * 40;
-      starPositions[i * 3 + 1] = (Math.random() - 0.5) * 40;
-      starPositions[i * 3 + 2] = (Math.random() - 0.5) * 40;
-      
-      const mixedColor = starDimBlue.clone().lerp(starWhite, Math.random() * 0.4);
-      starColors[i * 3] = mixedColor.r;
-      starColors[i * 3 + 1] = mixedColor.g;
-      starColors[i * 3 + 2] = mixedColor.b;
+      starPositions[i * 3] = (Math.random() - 0.5) * 35;
+      starPositions[i * 3 + 1] = (Math.random() - 0.5) * 35;
+      starPositions[i * 3 + 2] = (Math.random() - 0.5) * 35;
+
+      const starColor = colorBlue.clone().lerp(colorPurple, Math.random());
+      starColors[i * 3] = starColor.r;
+      starColors[i * 3 + 1] = starColor.g;
+      starColors[i * 3 + 2] = starColor.b;
     }
     
     starGeometry.setAttribute('position', new THREE.BufferAttribute(starPositions, 3));
@@ -329,187 +321,185 @@
       size: 0.05,
       vertexColors: true,
       transparent: true,
-      opacity: 0.35,
-      depthWrite: false,
-      blending: THREE.AdditiveBlending
+      opacity: 0.25,
+      blending: THREE.NormalBlending,
+      depthWrite: false
     });
 
     const starField = new THREE.Points(starGeometry, starMaterial);
     scene.add(starField);
 
     // -----------------------------------------------------------------
-    // 5. Mouse Interaction Interpolation (Lerp)
+    // 5. 3D Card Physics & Interactive Mouse State
     // -----------------------------------------------------------------
+    const card = document.getElementById('interactive-card');
+    const container = card.parentElement;
+
     const mouse = { x: 0, y: 0, targetX: 0, targetY: 0, speed: 0 };
     const lastMouse = { x: 0, y: 0 };
-    
-    window.addEventListener('mousemove', (event) => {
-      // Normalize coordinate: -1 to +1
-      mouse.targetX = (event.clientX / window.innerWidth) * 2 - 1;
-      mouse.targetY = -(event.clientY / window.innerHeight) * 2 + 1;
+
+    let cardRotateX = 0;
+    let cardRotateY = 0;
+    let targetCardRotateX = 0;
+    let targetCardRotateY = 0;
+    let isHoveringCard = false;
+
+    // Window mouse tracking for parallax camera
+    window.addEventListener('mousemove', (e) => {
+      mouse.targetX = (e.clientX / window.innerWidth) * 2 - 1;
+      mouse.targetY = -(e.clientY / window.innerHeight) * 2 + 1;
     });
 
-    // Mobile touch interaction mapping
-    window.addEventListener('touchmove', (event) => {
-      if (event.touches.length > 0) {
-        mouse.targetX = (event.touches[0].clientX / window.innerWidth) * 2 - 1;
-        mouse.targetY = -(event.touches[0].clientY / window.innerHeight) * 2 + 1;
+    // Touch support
+    window.addEventListener('touchmove', (e) => {
+      if (e.touches.length > 0) {
+        mouse.targetX = (e.touches[0].clientX / window.innerWidth) * 2 - 1;
+        mouse.targetY = -(e.touches[0].clientY / window.innerHeight) * 2 + 1;
       }
     });
 
+    // Precise hover tracking inside container
+    container.addEventListener('mousemove', (e) => {
+      isHoveringCard = true;
+      const rect = card.getBoundingClientRect();
+      const x = e.clientX - rect.left - (rect.width / 2);
+      const y = e.clientY - rect.top - (rect.height / 2);
+      
+      // Calculate rotation with weight 25deg
+      targetCardRotateX = (-y / (rect.height / 2)) * 25;
+      targetCardRotateY = (x / (rect.width / 2)) * 25;
+    });
+
+    container.addEventListener('mouseleave', () => {
+      isHoveringCard = false;
+      targetCardRotateX = 0;
+      targetCardRotateY = 0;
+    });
+
     // -----------------------------------------------------------------
-    // 6. GSAP ScrollTrigger Cinematic Animation
+    // 6. GSAP ScrollTrigger Parallax Coordination
     // -----------------------------------------------------------------
     gsap.registerPlugin(ScrollTrigger);
 
-    // Camera base navigation state (which will be animated via GSAP)
-    const cameraState = {
-      x: 0,
-      y: 0,
-      z: 8,
-      targetX: 0,
-      targetY: 0,
-      targetZ: 0,
+    const scrollState = {
+      progress: 0,
       particleSizeMultiplier: 1.0,
-      particleSpread: 1.0
+      cameraZ: defaultCameraZ
     };
 
-    // Global timeline linked to scroll progress
-    const scrollTimeline = gsap.timeline({
+    gsap.to(scrollState, {
       scrollTrigger: {
         trigger: "#scroll-height",
         start: "top top",
         end: "bottom bottom",
-        scrub: 1.5,
-        onUpdate: (self) => {
-          // Progress bar sync
-          gsap.to("#scroll-progress-bar", { width: `${self.progress * 100}%`, duration: 0.1 });
-        }
-      }
+        scrub: 1.2
+      },
+      cameraZ: 4.8,                  // Zoom in camera closer as we scroll
+      particleSizeMultiplier: 1.8,   // Particles grow larger
+      progress: 1                    // Track timeline progress (0.0 to 1.0)
     });
 
-    // Cinematic path composition
-    scrollTimeline
-      // Phase 1: Hero slide fades out. Camera flies right and pans left.
-      .to("#slide-hero", { opacity: 0, y: -80, duration: 0.8, ease: "power2.inOut" }, 0)
-      .to(cameraState, {
-        x: 4.8, 
-        y: 1.8, 
-        z: 5.5,
-        targetX: 0.8,
-        targetY: 0,
-        targetZ: -0.5,
-        particleSizeMultiplier: 1.4,
-        particleSpread: 1.15,
-        duration: 1.5,
-        ease: "power2.inOut"
-      }, 0)
-      // Phase 2: Show Content slide
-      .to("#slide-content", { opacity: 1, y: 0, duration: 0.8, ease: "power2.out" }, 0.7)
-      
-      // Phase 3: Content slide fades out. Camera zooms deep INSIDE the particle sphere.
-      .to("#slide-content", { opacity: 0, y: -80, duration: 0.8, ease: "power2.inOut" }, 1.8)
-      .to(cameraState, {
-        x: 0.0,
-        y: 0.0,
-        z: 1.5, // Inside the sphere
-        targetX: 0.0,
-        targetY: 0.0,
-        targetZ: 0.0,
-        particleSizeMultiplier: 2.8,
-        particleSpread: 2.5, // Distort/disperse particles outward
-        duration: 1.8,
-        ease: "power3.inOut"
-      }, 1.8)
-      // Phase 4: Show final CTA slide
-      .to("#slide-cta", { opacity: 1, y: 0, duration: 0.8, ease: "power2.out" }, 2.4);
-
     // -----------------------------------------------------------------
-    // 7. Render Loop (with Clock for time-based animation)
+    // 7. RequestAnimationFrame Rendering Loop
     // -----------------------------------------------------------------
     const clock = new THREE.Clock();
 
     function animate() {
       requestAnimationFrame(animate);
-      
+
       const time = clock.getElapsedTime();
-      
-      // A. Smooth Mouse Coordinate Interpolation (Lerp)
+
+      // Lerp mouse coordinates
       mouse.x += (mouse.targetX - mouse.x) * 0.05;
       mouse.y += (mouse.targetY - mouse.y) * 0.05;
-      
-      // B. Mouse Speed / Impulse Calculation (creates kinetic feedback)
+
+      // Mouse speed calculation for kinetic ripple
       const dx = mouse.targetX - lastMouse.x;
       const dy = mouse.targetY - lastMouse.y;
       const dist = Math.sqrt(dx * dx + dy * dy);
-      mouse.speed += (dist - mouse.speed) * 0.12; // Lerp the speed impulse
+      mouse.speed += (dist - mouse.speed) * 0.1;
       
       lastMouse.x = mouse.targetX;
       lastMouse.y = mouse.targetY;
       
-      // Decay speed so the pulse settles when mouse stops
-      mouse.speed *= 0.95;
+      mouse.speed *= 0.94; // Slow decay
 
-      // C. Update Camera Position & Pan
-      // Combine GSAP scroll coordinates with mouse parallax coordinate offset
-      camera.position.x = cameraState.x + mouse.x * 2.0;
-      camera.position.y = cameraState.y - mouse.y * 2.0;
-      camera.position.z = cameraState.z;
+      // Interpolate 3D Card rotation
+      cardRotateX += (targetCardRotateX - cardRotateX) * 0.15;
+      cardRotateY += (targetCardRotateY - cardRotateY) * 0.15;
+
+      // Apply physics rotate to HTML element
+      card.style.transform = `rotateX(${cardRotateX}deg) rotateY(${cardRotateY}deg)`;
+
+      // Hologram Effect: Map degree of Card tilt to WebGL Particle rotation (rad conversion)
+      const radX = (cardRotateX * Math.PI) / 180;
+      const radY = (cardRotateY * Math.PI) / 180;
+
+      // Combined auto spin + mouse parallax alignment + physical card tilt sync
+      particleSystem.rotation.y = time * 0.04 + mouse.x * 0.15 + radY * 1.0;
+      particleSystem.rotation.x = time * 0.015 + mouse.y * 0.15 - radX * 1.0;
       
-      const currentTarget = new THREE.Vector3(
-        cameraState.targetX + mouse.x * 0.6,
-        cameraState.targetY - mouse.y * 0.6,
-        cameraState.targetZ
-      );
-      camera.lookAt(currentTarget);
+      starField.rotation.y = time * 0.005;
 
-      // D. Rotate Particle System (Time-based spin + Mouse parallax rotation)
-      particleSystem.rotation.y = time * 0.07 + mouse.x * 0.35;
-      particleSystem.rotation.x = time * 0.03 + mouse.y * 0.25;
-      
-      starField.rotation.y = time * 0.012;
-      starField.rotation.x = time * 0.005;
+      // Parallax camera displacement
+      camera.position.x = mouse.x * 0.6;
+      camera.position.y = mouse.y * 0.6;
+      camera.position.z = scrollState.cameraZ;
+      camera.lookAt(0, 0, 0);
 
-      // E. Vertex Manipulation (Kinetic Pulse and Wave)
+      // Scroll alignment: Move particle sphere left and center-focus on scroll
+      // Base particle focus shifts from right (1.5) to left (-1.2) as user scrolls down
+      const currentBaseX = THREE.MathUtils.lerp(baseParticleX, -baseParticleX * 0.8, scrollState.progress);
+      particleSystem.position.x = currentBaseX;
+
+      // Dynamic Particle Vertex Waves + Pulse Reaction
       const pPositions = particleGeometry.attributes.position.array;
       for (let i = 0; i < particleCount; i++) {
         const i3 = i * 3;
         const ox = originalPositions[i3];
         const oy = originalPositions[i3 + 1];
         const oz = originalPositions[i3 + 2];
-        
-        // Direction vector from center (normalize coordinates)
+
         const len = Math.sqrt(ox*ox + oy*oy + oz*oz);
         
-        // Wave factor: sine function of time + position + individual speed offset
-        const wave = Math.sin(time * 1.5 + len * 0.8 + randomSpeeds[i]) * 0.14;
+        // Base sine wave breathing
+        const wave = Math.sin(time * 1.2 + len * 0.7 + randomSpeeds[i]) * 0.1;
         
-        // Kinetic Impulse factor: Expand nodes away from center on mouse speed spike
-        const impulse = mouse.speed * 4.5 * Math.sin(time * 5.0 + len * 1.5);
+        // Expansion on fast mouse movement or card hover state
+        const hoverImpulse = isHoveringCard ? 0.15 * Math.sin(time * 4.0 + len * 1.5) : 0;
+        const speedImpulse = mouse.speed * 4.0 * Math.sin(time * 6.0 + len * 2.0);
         
-        // Combine with GSAP scroll expansion multiplier
-        const factor = (1.0 + wave + impulse) * cameraState.particleSpread;
+        // Scroll-driven spread expansion factor
+        const scrollSpread = 1.0 + scrollState.progress * 0.6;
         
+        const factor = (1.0 + wave + speedImpulse + hoverImpulse) * scrollSpread;
+
         pPositions[i3] = ox * factor;
         pPositions[i3 + 1] = oy * factor;
         pPositions[i3 + 2] = oz * factor;
       }
       particleGeometry.attributes.position.needsUpdate = true;
 
-      // F. Dynamic Material Size Adjustment (Base scale * GSAP state scale * Kinetic speed spike pulse)
-      const speedPulse = 1.0 + mouse.speed * 2.0;
-      pointsMaterial.size = 0.08 * cameraState.particleSizeMultiplier * speedPulse;
+      // Particle size breathing & spike pulse size adjustment
+      const speedPulse = 1.0 + mouse.speed * 1.5;
+      pointsMaterial.size = 0.09 * scrollState.particleSizeMultiplier * speedPulse;
 
       renderer.render(scene, camera);
     }
     
-    // Start animation loop
     animate();
 
     // -----------------------------------------------------------------
-    // 8. Responsive Design Viewport Handling
+    // 8. Viewport resize handling
     // -----------------------------------------------------------------
     window.addEventListener('resize', () => {
+      baseParticleX = window.innerWidth < 1024 ? 0 : 1.5;
+      baseParticleY = window.innerWidth < 1024 ? -1.0 : 0;
+      
+      if(!scrollState.progress) {
+        particleSystem.position.set(baseParticleX, baseParticleY, 0);
+      }
+      
       camera.aspect = window.innerWidth / window.innerHeight;
       camera.updateProjectionMatrix();
       
