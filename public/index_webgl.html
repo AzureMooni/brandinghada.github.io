@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="ko" class="scroll-smooth">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -17,25 +17,24 @@
     }
     body {
       font-family: var(--font-pretendard);
-      background-color: #F8FAFC; /* 눈이 편안한 밝은 배경 */
+      background-color: #F8FAFC;
       color: #0F172A;
       overflow-x: hidden;
     }
     .font-outfit { font-family: var(--font-outfit); }
     
-    /* 육안 식별 극대화를 위한 텍스트 고대비 락업 */
     .text-contrast-title {
       color: #0F172A;
       letter-spacing: -0.04em;
       word-break: keep-all;
     }
     
-    /* 마우스 움직임 및 스크롤 시 4050 타겟이 즉시 체감할 수 있는 강력한 3D 카드 효과 */
+    /* 3D 카드를 위한 물리 원근법 레이어 */
     .perspective-container {
       perspective: 1200px;
     }
     
-    /* 뒷부분의 WebGL 파티클이 자연스럽게 비치도록 반투명 Glassmorphism 조화 */
+    /* 뒷배경의 WebGL 파티클이 영롱하게 비칠 수 있도록 Glassmorphism 반투명 처리 강화 */
     .true-3d-card {
       transform-style: preserve-3d;
       transition: transform 0.15s cubic-bezier(0.25, 1, 0.5, 1);
@@ -50,10 +49,10 @@
       box-shadow: 0 35px 60px -20px rgba(0, 102, 255, 0.15);
     }
     .inner-3d-text {
-      transform: translateZ(55px); /* 텍스트가 카드 밖으로 떠오르는 효과 */
+      transform: translateZ(55px);
     }
 
-    /* Selection High Contrast styling */
+    /* Selection styling */
     .selection-blue::selection {
       background-color: #0066FF;
       color: #FFFFFF;
@@ -71,117 +70,228 @@
 </head>
 <body class="antialiased selection-blue relative bg-[#F8FAFC]">
 
-  <!-- WebGL Canvas Background (투명 설정으로 라이트 배경과 통합) -->
+  <!-- WebGL Canvas Background (투명 처리하여 Slate 50 배경과 조화) -->
   <canvas id="webgl-canvas" class="fixed top-0 left-0 w-full h-full -z-10 bg-transparent pointer-events-none"></canvas>
 
-  <!-- Scroll Height Driving GSAP ScrollTrigger (140vh for smooth viewport parallax) -->
-  <div id="scroll-height" class="absolute top-0 left-0 w-full h-[140vh] pointer-events-none"></div>
-
-  <!-- Main Hero Section (Sticky Layout for smooth scrolling transitions) -->
-  <div class="sticky top-0 w-full h-screen flex flex-col justify-between p-6 md:p-12 max-w-7xl mx-auto overflow-hidden">
+  <!-- [HERO SECTION] -->
+  <section class="min-h-screen flex flex-col justify-between p-6 md:p-12 max-w-7xl mx-auto w-full relative z-10 overflow-hidden">
     
-    <!-- Top Navigation -->
-    <header class="w-full flex justify-between items-center py-4 border-b border-slate-200 bg-[#F8FAFC]/80 backdrop-blur-md z-20">
-      <a href="https://brandinghada.com" target="_blank" rel="noopener noreferrer" 
-         class="font-outfit font-black text-2xl tracking-tighter text-blue-600 hover:opacity-85 transition-opacity">
+    <header class="w-full flex justify-between items-center py-4 border-b border-slate-200">
+      <a href="https://brandinghada.com" target="_blank" rel="noopener noreferrer"
+         class="font-outfit font-black text-2xl tracking-tighter text-blue-600 hover:opacity-80 transition-opacity">
         BRANDING HADA
       </a>
-      <div class="flex items-center gap-4">
-        <span class="text-xs font-bold text-slate-500 bg-slate-100 px-3 py-1.5 rounded-md border border-slate-200">
+      <div>
+        <span class="text-xs font-bold text-slate-500 bg-slate-100 px-3 py-1.5 rounded-md border border-slate-200 select-none">
           소상공인 외주 피해 대책위
         </span>
       </div>
     </header>
 
-    <!-- Content Matrix (글자 크기 극대화 및 확실한 대비) -->
-    <main id="content-matrix" class="grid grid-cols-1 lg:grid-cols-12 gap-12 my-auto pt-6 pb-6 items-center z-10">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 my-auto pt-12 pb-12 items-center">
       
-      <!-- Left: Core Text Copy -->
-      <div class="lg:col-span-7 space-y-6 md:space-y-8 select-none">
+      <!-- Left Content Copy -->
+      <div class="lg:col-span-7 space-y-8 select-none">
         <div class="inline-block bg-blue-50 text-blue-600 text-sm md:text-base font-bold px-4 py-2 rounded-full border border-blue-100 shadow-sm">
           📍 대한민국 최초 '홈페이지 110만 원 정찰제'
         </div>
         
-        <h1 class="text-contrast-title text-4xl md:text-6xl lg:text-7xl font-black leading-[1.2]">
+        <h1 class="text-contrast-title text-5xl md:text-7xl font-black leading-[1.2]">
           가게 이름만 대면<br>
           <span class="text-blue-600">3초 만에 고객 잡는</span><br>
           홈페이지가 완성됩니다
         </h1>
         
-        <p class="text-slate-600 text-base md:text-lg lg:text-xl font-medium leading-relaxed max-w-xl">
+        <p class="text-slate-600 text-lg md:text-xl font-medium leading-relaxed max-w-xl">
           매달 뜯기는 관리비 인질극은 끝내십시오. 완납 즉시 모든 소스코드와 소유권을 100% 사장님 앞으로 완벽하게 이양합니다.
         </p>
 
-        <!-- 무조건 한눈에 들어오는 강력한 CTA 버튼 -->
-        <div class="pt-2">
-          <a href="https://brandinghada.com" target="_blank" rel="noopener noreferrer"
-             class="inline-flex items-center gap-3 px-8 py-4 md:py-5 bg-blue-600 hover:bg-blue-700 text-white font-extrabold text-lg md:text-xl rounded-xl shadow-xl shadow-blue-600/20 transition-all transform hover:-translate-y-1 active:translate-y-0">
-            <span>5분 무료 초안 신청하기</span>
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
-              <line x1="5" y1="12" x2="19" y2="12"></line>
-              <polyline points="12 5 19 12 12 19"></polyline>
-            </svg>
+        <div class="pt-4">
+          <a href="#portfolio-section" class="inline-flex items-center gap-3 px-8 py-5 bg-blue-600 hover:bg-blue-700 text-white font-extrabold text-xl rounded-xl shadow-xl shadow-blue-600/20 transition-all transform hover:-translate-y-1">
+            <span>실전 포트폴리오 구경하기 ↓</span>
           </a>
         </div>
       </div>
 
-      <!-- Right: Real Interactive 3D Card (육안으로 식별되는 확실한 입체감) -->
+      <!-- Right Dashboard Card -->
       <div class="lg:col-span-5 perspective-container w-full flex justify-center">
-        <div class="true-3d-card w-full max-w-[400px] h-[460px] md:h-[500px] rounded-2xl p-6 md:p-8 flex flex-col justify-between relative cursor-pointer" id="interactive-card">
-          
+        <div class="true-3d-card w-full max-w-[420px] h-[520px] rounded-2xl p-8 flex flex-col justify-between relative cursor-pointer" id="hero-card">
           <div class="flex justify-between items-center">
             <span class="text-xs font-bold text-blue-600 bg-blue-50 border border-blue-200 px-3 py-1 rounded">실시간 구동 자산</span>
             <span class="font-outfit font-black text-slate-300 text-xl select-none">BH-01</span>
           </div>
 
-          <div class="space-y-4 md:space-y-6 my-auto inner-3d-text select-none">
-            <div class="text-slate-400 text-xs md:text-sm font-bold tracking-wider font-outfit">REAL-TIME STATUS</div>
-            <h3 class="text-2xl md:text-3xl font-black text-slate-900 leading-snug">
+          <div class="space-y-6 my-auto inner-3d-text select-none">
+            <div class="text-slate-400 text-sm font-bold tracking-wider font-outfit">REAL-TIME STATUS</div>
+            <h3 class="text-3xl font-black text-slate-900 leading-snug">
               지금 이 순간에도<br>
               <span class="text-blue-600">1,842개의 소상공인 홈피</span>가<br>
               24시간 자동 영업 중
             </h3>
-            <div class="h-1.5 w-20 md:w-24 bg-blue-600 rounded-full"></div>
+            <div class="h-1.5 w-24 bg-blue-600 rounded-full"></div>
           </div>
 
           <div class="grid grid-cols-3 gap-2 border-t border-slate-100 pt-6 text-center select-none">
             <div>
-              <div class="text-xl md:text-2xl font-black text-slate-900">100%</div>
-              <div class="text-[10px] md:text-[11px] font-bold text-slate-400 mt-1">소유권 이양</div>
+              <div class="text-2xl font-black text-slate-900">100%</div>
+              <div class="text-[11px] font-bold text-slate-400 mt-1">소유권 이양</div>
             </div>
             <div>
-              <div class="text-xl md:text-2xl font-black text-slate-900">단 5분</div>
-              <div class="text-[10px] md:text-[11px] font-bold text-slate-400 mt-1">초안 제작 완료</div>
+              <div class="text-2xl font-black text-slate-900">단 5분</div>
+              <div class="text-[11px] font-bold text-slate-400 mt-1">초안 제작 완료</div>
             </div>
             <div>
-              <div class="text-xl md:text-2xl font-black text-slate-900">110만</div>
-              <div class="text-[10px] md:text-[11px] font-bold text-slate-400 mt-1">단일 정찰제</div>
+              <div class="text-2xl font-black text-slate-900">110만</div>
+              <div class="text-[11px] font-bold text-slate-400 mt-1">단일 정찰제</div>
             </div>
           </div>
-
         </div>
       </div>
 
-    </main>
+    </div>
+  </section>
 
-    <!-- Bottom Statistics -->
-    <footer class="w-full border-t border-slate-200 py-4 flex flex-col md:flex-row justify-between items-center gap-4 text-xs md:text-sm font-bold text-slate-500 bg-[#F8FAFC] z-20">
-      <div>안심하고 맡기십시오. 대한민국 표준 약정 계약을 준수합니다.</div>
-      <div class="font-outfit text-blue-600 tracking-wider">PREMIUM WEB ARCHITECT</div>
-    </footer>
+  <!-- [PORTFOLIO MULTI-STACK SECTION] -->
+  <section class="py-24 bg-slate-100/40 border-t border-b border-slate-200 relative z-10" id="portfolio-section">
+    <div class="max-w-7xl mx-auto px-6 w-full relative z-10">
+      
+      <div class="mb-16 space-y-4 select-none">
+        <span class="text-blue-600 font-bold text-sm tracking-wider uppercase font-outfit">PORTFOLIO SHOWCASE</span>
+        <h2 class="text-4xl md:text-5xl font-black tracking-tight text-slate-900">업종별 24시간 자동 세일즈 기지 실적</h2>
+        <p class="text-slate-500 font-medium text-lg">4050 사장님들이 브랜딩하다를 만나 소유권을 완전히 되찾은 실전 도메인 영토입니다.</p>
+      </div>
 
-  </div>
+      <!-- Portfolio Interactive 3D Grid (풍성한 볼륨감 확보) -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 perspective-container">
+        
+        <!-- Card 1: 인테리어/설비 -->
+        <div class="true-3d-card rounded-2xl p-8 h-[400px] flex flex-col justify-between cursor-pointer" name="3d-mesh-card">
+          <div class="flex justify-between items-center">
+            <span class="text-xs font-bold text-emerald-600 bg-emerald-50 border border-emerald-200 px-2.5 py-1 rounded">인테리어·설비 업종</span>
+            <span class="font-outfit text-sm font-bold text-slate-400">CASE-01</span>
+          </div>
+          <div class="space-y-3 inner-3d-text">
+            <h3 class="text-2xl font-black text-slate-900 leading-snug">"포트폴리오 사진만 주시면 알아서 동선 짭니다"</h3>
+            <p class="text-slate-500 text-sm font-medium">단순 시공 사진 나열이 아닌, 고객이 평수별 견적 문의를 즉시 남기게 만드는 전환 특화 레이아웃.</p>
+          </div>
+          <div class="text-slate-400 text-xs font-bold border-t border-slate-100 pt-4 flex justify-between">
+            <span>문의 전환율 24.8% 상승</span>
+            <span class="text-blue-600 font-black">초안 세팅 완료 →</span>
+          </div>
+        </div>
 
-  <!-- Three.js + GSAP + 3D Card Physics Script -->
+        <!-- Card 2: 학원/교육 -->
+        <div class="true-3d-card rounded-2xl p-8 h-[400px] flex flex-col justify-between cursor-pointer" name="3d-mesh-card">
+          <div class="flex justify-between items-center">
+            <span class="text-xs font-bold text-indigo-600 bg-indigo-50 border border-indigo-200 px-2.5 py-1 rounded">보습·어학원 업종</span>
+            <span class="font-outfit text-sm font-bold text-slate-400">CASE-02</span>
+          </div>
+          <div class="space-y-3 inner-3d-text">
+            <h3 class="text-2xl font-black text-slate-900 leading-snug">"원장님은 아이들만 가르치세요. 상담은 홈피가 합니다"</h3>
+            <p class="text-slate-500 text-sm font-medium">학부모들이 레벨 테스트 및 입학설명회 예약을 모바일로 3초 만에 완료할 수 있는 안심 폼 링크 락업.</p>
+          </div>
+          <div class="text-slate-400 text-xs font-bold border-t border-slate-100 pt-4 flex justify-between">
+            <span>설명회 예약 자동화 완결</span>
+            <span class="text-blue-600 font-black">초안 세팅 완료 →</span>
+          </div>
+        </div>
+
+        <!-- Card 3: 식당/요식업 -->
+        <div class="true-3d-card rounded-2xl p-8 h-[400px] flex flex-col justify-between cursor-pointer" name="3d-mesh-card">
+          <div class="flex justify-between items-center">
+            <span class="text-xs font-bold text-amber-600 bg-amber-50 border border-amber-200 px-2.5 py-1 rounded">맛집·식당·요식업</span>
+            <span class="font-outfit text-sm font-bold text-slate-400">CASE-03</span>
+          </div>
+          <div class="space-y-3 inner-3d-text">
+            <h3 class="text-2xl font-black text-slate-900 leading-snug">"인스타 마케팅 타고 들어온 단골 수집 기지"</h3>
+            <p class="text-slate-500 text-sm font-medium">메뉴판 사진과 매장 위치 확인은 기본, 네이버 예약 및 카톡 단골 채널로 바로 꽂히는 24시간 자동 유입 동선.</p>
+          </div>
+          <div class="text-slate-400 text-xs font-bold border-t border-slate-100 pt-4 flex justify-between">
+            <span>주말 예약 트래픽 종결</span>
+            <span class="text-blue-600 font-black">초안 세팅 완료 →</span>
+          </div>
+        </div>
+
+        <!-- Card 4: 펜션/풀빌라 -->
+        <div class="true-3d-card rounded-2xl p-8 h-[400px] flex flex-col justify-between cursor-pointer" name="3d-mesh-card">
+          <div class="flex justify-between items-center">
+            <span class="text-xs font-bold text-cyan-600 bg-cyan-50 border border-cyan-200 px-2.5 py-1 rounded">펜션·풀빌라·숙박</span>
+            <span class="font-outfit text-sm font-bold text-slate-400">CASE-04</span>
+          </div>
+          <div class="space-y-3 inner-3d-text">
+            <h3 class="text-2xl font-black text-slate-900 leading-snug">"플랫폼 수수료 떼지 않는 우리 사장님 독점 홈피"</h3>
+            <p class="text-slate-500 text-sm font-medium">야놀자, 네이버에 의존하지 않고 사장님이 직접 소유권을 갖고 100% 직거래 예약을 확보하는 독립 자산 영토.</p>
+          </div>
+          <div class="text-slate-400 text-xs font-bold border-t border-slate-100 pt-4 flex justify-between">
+            <span>플랫폼 종속 완벽 탈출</span>
+            <span class="text-blue-600 font-black">초안 세팅 완료 →</span>
+          </div>
+        </div>
+
+        <!-- Card 5: 제조업/공장 -->
+        <div class="true-3d-card rounded-2xl p-8 h-[400px] flex flex-col justify-between cursor-pointer" name="3d-mesh-card">
+          <div class="flex justify-between items-center">
+            <span class="text-xs font-bold text-purple-600 bg-purple-50 border border-purple-200 px-2.5 py-1 rounded">제조업·1인 공장</span>
+            <span class="font-outfit text-sm font-bold text-slate-400">CASE-05</span>
+          </div>
+          <div class="space-y-3 inner-3d-text">
+            <h3 class="text-2xl font-black text-slate-900 leading-snug">"카탈로그 PDF 한 장이면 대기업 납품 기획서 종결"</h3>
+            <p class="text-slate-500 text-sm font-medium">어려운 기술 공정 설명 대신, 대기업 바이어가 신뢰할 수밖에 없는 인증서와 납품 실적 위주의 프리미엄 고정 배치.</p>
+          </div>
+          <div class="text-slate-400 text-xs font-bold border-t border-slate-100 pt-4 flex justify-between">
+            <span>B2B 바이어 신뢰도 최적화</span>
+            <span class="text-blue-600 font-black">초안 세팅 완료 →</span>
+          </div>
+        </div>
+
+        <!-- Card 6: 서비스/전문직 -->
+        <div class="true-3d-card rounded-2xl p-8 h-[400px] flex flex-col justify-between cursor-pointer" name="3d-mesh-card">
+          <div class="flex justify-between items-center">
+            <span class="text-xs font-bold text-rose-600 bg-rose-50 border border-rose-200 px-2.5 py-1 rounded">전문직·개인 서비스</span>
+            <span class="font-outfit text-sm font-bold text-slate-400">CASE-06</span>
+          </div>
+          <div class="space-y-3 inner-3d-text">
+            <h3 class="text-2xl font-black text-slate-900 leading-snug">"외주 사기 예방 가이드북 즉시 전송 레이아웃"</h3>
+            <p class="text-slate-500 text-sm font-medium">블로그나 인스타 광고 트래픽을 즉시 리드(DB)로 변환시키는 최경량 세일즈 랜딩 구조.</p>
+          </div>
+          <div class="text-slate-400 text-xs font-bold border-t border-slate-100 pt-4 flex justify-between">
+            <span>리드 확보 비용 70% 절감</span>
+            <span class="text-blue-600 font-black">초안 세팅 완료 →</span>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- [FINAL CTA ONBOARDING] -->
+  <section class="py-24 max-w-4xl mx-auto px-6 text-center relative z-10" id="interview">
+    <h2 class="text-4xl md:text-6xl font-black tracking-tight text-slate-900 mb-6 leading-tight">내 가게 이름만 대면<br>초안이 조립됩니다</h2>
+    <p class="text-slate-500 text-lg md:text-xl font-medium mb-12 word-keep">한 달에 단 3분의 소상공인 대표님과만 정밀 세일즈 기지를 구축합니다. 복잡한 미팅 약속 없이 아래 인터뷰를 즉시 완료해 주십시오.</p>
+    <a href="https://brandinghada.com" target="_blank" rel="noopener noreferrer" 
+       class="inline-block px-10 py-5 bg-blue-600 hover:bg-blue-700 text-white font-extrabold text-2xl rounded-xl shadow-2xl shadow-blue-600/30 transition-all transform hover:-translate-y-1 active:translate-y-0">
+      5분 무료 초안 시안 신청 기지 가동
+    </a>
+  </section>
+
+  <footer class="bg-slate-900 text-slate-400 py-12 px-6 border-t border-slate-800 relative z-10">
+    <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6 text-sm font-bold select-none">
+      <div class="text-slate-500">안심하고 맡기십시오. 완납 즉시 소스코드 독립 권한 완전 이양 계약을 철저히 준수합니다.</div>
+      <div class="font-outfit text-blue-500 tracking-wider">PREMIUM WEB ARCHITECT | © 2026</div>
+    </div>
+  </footer>
+
+  <!-- Three.js + GSAP Scroll + 3D Physics Script -->
   <script>
     // -----------------------------------------------------------------
-    // 1. Three.js Setup (Bright background integration)
+    // 1. Three.js Initialization (Alpha Transparent Background)
     // -----------------------------------------------------------------
     const canvas = document.getElementById('webgl-canvas');
     const scene = new THREE.Scene();
     
-    // Light-themed fog to make particles dissolve smoothly at edges
-    scene.fog = new THREE.FogExp2('#F8FAFC', 0.1);
+    // Light-themed fog to merge with Slate 50 background
+    scene.fog = new THREE.FogExp2('#F8FAFC', 0.08);
 
     const camera = new THREE.PerspectiveCamera(55, window.innerWidth / window.innerHeight, 0.1, 100);
     const defaultCameraZ = 7.5;
@@ -190,12 +300,12 @@
     const renderer = new THREE.WebGLRenderer({
       canvas: canvas,
       antialias: true,
-      alpha: true, // Transparent WebGL background
+      alpha: true,
       powerPreference: "high-performance"
     });
     renderer.setSize(window.innerWidth, window.innerHeight);
     renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
-    renderer.setClearColor(0x000000, 0); // Transparent renderer
+    renderer.setClearColor(0x000000, 0); // Transparent canvas
 
     // -----------------------------------------------------------------
     // 2. High-Contrast Round Glow Particle Texture
@@ -221,7 +331,7 @@
     // -----------------------------------------------------------------
     // 3. Dynamic Particle Sphere (Cyan-Blue & Magenta Gradient)
     // -----------------------------------------------------------------
-    const particleCount = 1400;
+    const particleCount = 1500;
     const particleGeometry = new THREE.BufferGeometry();
     const positions = new Float32Array(particleCount * 3);
     const originalPositions = new Float32Array(particleCount * 3);
@@ -238,8 +348,7 @@
       const theta = u * 2.0 * Math.PI;
       const phi = Math.acos(2.0 * v - 1.0);
       
-      // Radius of the sphere
-      const r = 2.3 + Math.random() * 0.7;
+      const r = 2.4 + Math.random() * 0.8;
       
       const x = r * Math.sin(phi) * Math.cos(theta);
       const y = r * Math.sin(phi) * Math.sin(theta);
@@ -254,7 +363,7 @@
       originalPositions[i * 3 + 2] = z;
 
       // Color mapping: Pink (-x) to Purple (center) to Blue (+x)
-      const normX = (x / 3.0) * 0.5 + 0.5; // 0 to 1
+      const normX = (x / 3.2) * 0.5 + 0.5; // 0 to 1
       let mixedColor;
       if (normX < 0.5) {
         mixedColor = colorPink.clone().lerp(colorPurple, normX * 2);
@@ -262,8 +371,7 @@
         mixedColor = colorPurple.clone().lerp(colorBlue, (normX - 0.5) * 2);
       }
       
-      // Minor random noise offset to make distribution organic
-      const noise = (Math.random() - 0.5) * 0.2;
+      const noise = (Math.random() - 0.5) * 0.22;
       mixedColor.offsetHSL(noise, 0, 0);
 
       colors[i * 3] = mixedColor.r;
@@ -282,38 +390,37 @@
       vertexColors: true,
       map: particleTexture,
       transparent: true,
-      opacity: 0.75,
+      opacity: 0.72,
       blending: THREE.NormalBlending,
       depthWrite: false
     });
 
     const particleSystem = new THREE.Points(particleGeometry, pointsMaterial);
     
-    // Position WebGL sphere initially matching the 3D card layout (on PC)
+    // Position WebGL sphere initially matching the Hero Card layout
     let baseParticleX = window.innerWidth < 1024 ? 0 : 1.5;
     let baseParticleY = window.innerWidth < 1024 ? -1.0 : 0;
     particleSystem.position.set(baseParticleX, baseParticleY, 0);
     scene.add(particleSystem);
 
     // -----------------------------------------------------------------
-    // 4. Subtle Ambient Sparkles (Floating dust)
+    // 4. Parallax Background Starfield
     // -----------------------------------------------------------------
-    const starCount = 200;
+    const starCount = 250;
     const starGeometry = new THREE.BufferGeometry();
     const starPositions = new Float32Array(starCount * 3);
     const starColors = new Float32Array(starCount * 3);
 
     for (let i = 0; i < starCount; i++) {
-      starPositions[i * 3] = (Math.random() - 0.5) * 35;
-      starPositions[i * 3 + 1] = (Math.random() - 0.5) * 35;
-      starPositions[i * 3 + 2] = (Math.random() - 0.5) * 35;
+      starPositions[i * 3] = (Math.random() - 0.5) * 40;
+      starPositions[i * 3 + 1] = (Math.random() - 0.5) * 40;
+      starPositions[i * 3 + 2] = (Math.random() - 0.5) * 40;
 
       const starColor = colorBlue.clone().lerp(colorPurple, Math.random());
       starColors[i * 3] = starColor.r;
       starColors[i * 3 + 1] = starColor.g;
       starColors[i * 3 + 2] = starColor.b;
     }
-    
     starGeometry.setAttribute('position', new THREE.BufferAttribute(starPositions, 3));
     starGeometry.setAttribute('color', new THREE.BufferAttribute(starColors, 3));
 
@@ -321,7 +428,7 @@
       size: 0.05,
       vertexColors: true,
       transparent: true,
-      opacity: 0.25,
+      opacity: 0.28,
       blending: THREE.NormalBlending,
       depthWrite: false
     });
@@ -332,19 +439,16 @@
     // -----------------------------------------------------------------
     // 5. 3D Card Physics & Interactive Mouse State
     // -----------------------------------------------------------------
-    const card = document.getElementById('interactive-card');
-    const container = card.parentElement;
-
     const mouse = { x: 0, y: 0, targetX: 0, targetY: 0, speed: 0 };
     const lastMouse = { x: 0, y: 0 };
 
-    let cardRotateX = 0;
-    let cardRotateY = 0;
-    let targetCardRotateX = 0;
-    let targetCardRotateY = 0;
-    let isHoveringCard = false;
+    let targetTiltX = 0;
+    let targetTiltY = 0;
+    let tiltX = 0;
+    let tiltY = 0;
+    let isHoveringAnyCard = false;
 
-    // Window mouse tracking for parallax camera
+    // Track mouse on window for general parallax
     window.addEventListener('mousemove', (e) => {
       mouse.targetX = (e.clientX / window.innerWidth) * 2 - 1;
       mouse.targetY = -(e.clientY / window.innerHeight) * 2 + 1;
@@ -358,22 +462,42 @@
       }
     });
 
-    // Precise hover tracking inside container
-    container.addEventListener('mousemove', (e) => {
-      isHoveringCard = true;
-      const rect = card.getBoundingClientRect();
+    // Hero Card 3D Setup
+    const heroCard = document.getElementById('hero-card');
+    heroCard.parentElement.addEventListener('mousemove', (e) => {
+      isHoveringAnyCard = true;
+      const rect = heroCard.getBoundingClientRect();
       const x = e.clientX - rect.left - (rect.width / 2);
       const y = e.clientY - rect.top - (rect.height / 2);
-      
-      // Calculate rotation with weight 25deg
-      targetCardRotateX = (-y / (rect.height / 2)) * 25;
-      targetCardRotateY = (x / (rect.width / 2)) * 25;
+      targetTiltX = (-y / (rect.height / 2)) * 20;
+      targetTiltY = (x / (rect.width / 2)) * 20;
+      heroCard.style.transform = `rotateX(${targetTiltX}deg) rotateY(${targetTiltY}deg)`;
+    });
+    heroCard.parentElement.addEventListener('mouseleave', () => {
+      isHoveringAnyCard = false;
+      targetTiltX = 0;
+      targetTiltY = 0;
+      heroCard.style.transform = 'rotateX(0deg) rotateY(0deg)';
     });
 
-    container.addEventListener('mouseleave', () => {
-      isHoveringCard = false;
-      targetCardRotateX = 0;
-      targetCardRotateY = 0;
+    // Multi-Stack Grid Portfolio 3D Setup Loop
+    const meshCards = document.querySelectorAll('[name="3d-mesh-card"]');
+    meshCards.forEach((card) => {
+      card.addEventListener('mousemove', (e) => {
+        isHoveringAnyCard = true;
+        const rect = card.getBoundingClientRect();
+        const x = e.clientX - rect.left - (rect.width / 2);
+        const y = e.clientY - rect.top - (rect.height / 2);
+        targetTiltX = (-y / (rect.height / 2)) * 15;
+        targetTiltY = (x / (rect.width / 2)) * 15;
+        card.style.transform = `rotateX(${targetTiltX}deg) rotateY(${targetTiltY}deg)`;
+      });
+      card.addEventListener('mouseleave', () => {
+        isHoveringAnyCard = false;
+        targetTiltX = 0;
+        targetTiltY = 0;
+        card.style.transform = 'rotateX(0deg) rotateY(0deg)';
+      });
     });
 
     // -----------------------------------------------------------------
@@ -387,15 +511,16 @@
       cameraZ: defaultCameraZ
     };
 
+    // Scroll trigger linked to whole body height
     gsap.to(scrollState, {
       scrollTrigger: {
-        trigger: "#scroll-height",
+        trigger: "body",
         start: "top top",
         end: "bottom bottom",
         scrub: 1.2
       },
-      cameraZ: 4.8,                  // Zoom in camera closer as we scroll
-      particleSizeMultiplier: 1.8,   // Particles grow larger
+      cameraZ: 4.5,                  // Zoom in camera closer as we scroll down
+      particleSizeMultiplier: 1.9,   // Particles grow larger
       progress: 1                    // Track timeline progress (0.0 to 1.0)
     });
 
@@ -424,33 +549,47 @@
       
       mouse.speed *= 0.94; // Slow decay
 
-      // Interpolate 3D Card rotation
-      cardRotateX += (targetCardRotateX - cardRotateX) * 0.15;
-      cardRotateY += (targetCardRotateY - cardRotateY) * 0.15;
+      // Interpolate card tilt values for WebGL sync
+      tiltX += (targetTiltX - tiltX) * 0.15;
+      tiltY += (targetTiltY - tiltY) * 0.15;
 
-      // Apply physics rotate to HTML element
-      card.style.transform = `rotateX(${cardRotateX}deg) rotateY(${cardRotateY}deg)`;
-
-      // Hologram Effect: Map degree of Card tilt to WebGL Particle rotation (rad conversion)
-      const radX = (cardRotateX * Math.PI) / 180;
-      const radY = (cardRotateY * Math.PI) / 180;
+      // Hologram Effect: Convert tilt degree to radian conversion
+      const radX = (tiltX * Math.PI) / 180;
+      const radY = (tiltY * Math.PI) / 180;
 
       // Combined auto spin + mouse parallax alignment + physical card tilt sync
-      particleSystem.rotation.y = time * 0.04 + mouse.x * 0.15 + radY * 1.0;
-      particleSystem.rotation.x = time * 0.015 + mouse.y * 0.15 - radX * 1.0;
+      particleSystem.rotation.y = time * 0.04 + mouse.x * 0.15 + radY * 1.2;
+      particleSystem.rotation.x = time * 0.015 + mouse.y * 0.15 - radX * 1.2;
       
       starField.rotation.y = time * 0.005;
 
       // Parallax camera displacement
-      camera.position.x = mouse.x * 0.6;
-      camera.position.y = mouse.y * 0.6;
+      camera.position.x = mouse.x * 0.7;
+      camera.position.y = mouse.y * 0.7;
       camera.position.z = scrollState.cameraZ;
       camera.lookAt(0, 0, 0);
 
-      // Scroll alignment: Move particle sphere left and center-focus on scroll
-      // Base particle focus shifts from right (1.5) to left (-1.2) as user scrolls down
-      const currentBaseX = THREE.MathUtils.lerp(baseParticleX, -baseParticleX * 0.8, scrollState.progress);
+      // Scroll alignment: Move particle sphere left/center/zoomed based on scroll state
+      // Phase 1 (Hero): Right aligned (1.5)
+      // Phase 2 (Portfolio): Centered and lowered (0, -1.8)
+      // Phase 3 (CTA): Deep zoom central (0, 0)
+      let currentBaseX = baseParticleX;
+      let currentBaseY = baseParticleY;
+      
+      if (scrollState.progress < 0.6) {
+        // Hero to Portfolio transition
+        const p = scrollState.progress / 0.6;
+        currentBaseX = THREE.MathUtils.lerp(baseParticleX, 0, p);
+        currentBaseY = THREE.MathUtils.lerp(baseParticleY, -1.8, p);
+      } else {
+        // Portfolio to CTA transition
+        const p = (scrollState.progress - 0.6) / 0.4;
+        currentBaseX = 0;
+        currentBaseY = THREE.MathUtils.lerp(-1.8, 0, p);
+      }
+
       particleSystem.position.x = currentBaseX;
+      particleSystem.position.y = currentBaseY;
 
       // Dynamic Particle Vertex Waves + Pulse Reaction
       const pPositions = particleGeometry.attributes.position.array;
@@ -466,11 +605,11 @@
         const wave = Math.sin(time * 1.2 + len * 0.7 + randomSpeeds[i]) * 0.1;
         
         // Expansion on fast mouse movement or card hover state
-        const hoverImpulse = isHoveringCard ? 0.15 * Math.sin(time * 4.0 + len * 1.5) : 0;
+        const hoverImpulse = isHoveringAnyCard ? 0.16 * Math.sin(time * 4.0 + len * 1.5) : 0;
         const speedImpulse = mouse.speed * 4.0 * Math.sin(time * 6.0 + len * 2.0);
         
         // Scroll-driven spread expansion factor
-        const scrollSpread = 1.0 + scrollState.progress * 0.6;
+        const scrollSpread = 1.0 + scrollState.progress * 0.7;
         
         const factor = (1.0 + wave + speedImpulse + hoverImpulse) * scrollSpread;
 
@@ -482,7 +621,7 @@
 
       // Particle size breathing & spike pulse size adjustment
       const speedPulse = 1.0 + mouse.speed * 1.5;
-      pointsMaterial.size = 0.09 * scrollState.particleSizeMultiplier * speedPulse;
+      pointsMaterial.size = 0.08 * scrollState.particleSizeMultiplier * speedPulse;
 
       renderer.render(scene, camera);
     }
@@ -495,10 +634,6 @@
     window.addEventListener('resize', () => {
       baseParticleX = window.innerWidth < 1024 ? 0 : 1.5;
       baseParticleY = window.innerWidth < 1024 ? -1.0 : 0;
-      
-      if(!scrollState.progress) {
-        particleSystem.position.set(baseParticleX, baseParticleY, 0);
-      }
       
       camera.aspect = window.innerWidth / window.innerHeight;
       camera.updateProjectionMatrix();
